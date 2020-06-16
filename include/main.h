@@ -40,6 +40,7 @@
  * You should add more #includes here
  */
 #include "okapi/api.hpp"
+using namespace okapi::literals;
 //#include "pros/api_legacy.h"
 
 /**
