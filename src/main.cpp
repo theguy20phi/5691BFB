@@ -33,8 +33,8 @@ void opcontrol() {
     )
 	.withDimensions(okapi::AbstractMotor::gearset::green, {{3.25_in, 17.0_in}, okapi::imev5GreenTPR})
 	.build();
-	std::shared_ptr<okapi::Motor> upper_differential = std::make_shared<okapi::Motor>(5);
-	std::shared_ptr<okapi::Motor> lower_differential = std::make_shared<okapi::Motor>(6);
+	std::shared_ptr<okapi::Motor> upper_differential = std::make_shared<okapi::Motor>(5, false, okapi::AbstractMotor::gearset::blue, okapi::AbstractMotor::encoderUnits::degrees);
+	std::shared_ptr<okapi::Motor> lower_differential = std::make_shared<okapi::Motor>(6, false, okapi::AbstractMotor::gearset::blue, okapi::AbstractMotor::encoderUnits::degrees);
 	auto x_drive_model = std::dynamic_pointer_cast<okapi::XDriveModel>(x_drive->getModel());
 	for(;;) {
 		x_drive_model->xArcade(
@@ -44,17 +44,17 @@ void opcontrol() {
 		);
 
 		if(master_remote.getDigital(okapi::ControllerDigital::R1)) {
-			upper_differential->moveVelocity(200);
-			lower_differential->moveVelocity(200);
+			upper_differential->moveVelocity(600);
+			lower_differential->moveVelocity(600);
 		} else if(master_remote.getDigital(okapi::ControllerDigital::R2)) {
-			upper_differential->moveVelocity(-200);
-			lower_differential->moveVelocity(-200);
+			upper_differential->moveVelocity(-600);
+			lower_differential->moveVelocity(-600);
 		} else if(master_remote.getDigital(okapi::ControllerDigital::L1)) {
-			upper_differential->moveVelocity(50);
-			lower_differential->moveVelocity(-50);
+			upper_differential->moveVelocity(200);
+			lower_differential->moveVelocity(-200);
 		} else if(master_remote.getDigital(okapi::ControllerDigital::L2)) {
-			upper_differential->moveVelocity(-50);
-			lower_differential->moveVelocity(50);
+			upper_differential->moveVelocity(-200);
+			lower_differential->moveVelocity(200);
 		} else {
 			upper_differential->moveVelocity(0);
 			lower_differential->moveVelocity(0);
