@@ -1,4 +1,25 @@
+#include "bfb/test.h"
 #include "main.h"
+
+
+#ifdef TESTING
+TEST(successfulTestsOnBrain) 
+	IS_TRUE(true);
+	IS_EQUAL(1, 1);
+END_TEST
+
+TEST(failingTestsOnBrain) 
+	IS_TRUE(true);
+	IS_EQUAL(1, 2);
+END_TEST
+#endif
+
+void runTests() {
+	#ifdef TESTING
+	successfulTestsOnBrain();
+	failingTestsOnBrain();
+	#endif
+}
 
 
 
@@ -6,9 +27,13 @@ void initialize() {
 
 }
 
+
+
 void disabled() {
 
 }
+
+
 
 void competition_initialize() {
 
@@ -23,6 +48,7 @@ void autonomous() {
 
 
 void opcontrol() {
+	runTests();
 	okapi::Controller master_remote;
 	std::shared_ptr<okapi::ChassisController> x_drive = okapi::ChassisControllerBuilder()
 	.withMotors(
