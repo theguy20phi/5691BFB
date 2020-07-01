@@ -14,9 +14,14 @@
 
 #pragma once
 
+//comment out if not running tests
+#define TESTING
+
 #include "api.h"
 #include "okapi/api.hpp"
+#include "bfb/main.hpp"
 using namespace okapi::literals;
+using namespace bfb::literals;
 
 #ifdef __cplusplus
 extern "C" {

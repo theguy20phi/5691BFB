@@ -1,2 +1,4 @@
 {
+    "clang-format.assumeFilename": ".clang-format",
+    "clang-format.executable": "C:\\Program Files\\LLVM\\bin\\clang-format"
 }
