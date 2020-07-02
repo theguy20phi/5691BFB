@@ -1,7 +1,7 @@
 #pragma once
 
-#include "test.h"
 #include "okapi/api/units/QLength.hpp"
+#include "test.hpp"
 
 namespace bfb {
 
@@ -19,7 +19,5 @@ constexpr okapi::QLength operator"" _ball(long double x) {
 } // namespace bfb
 
 #ifdef TESTING
-DECLARE_TEST(tileTest)
-DECLARE_TEST(ballTest)
-DECLARE_TEST(moreQLengthTests)
+DECLARE_TEST(moreQLengthTest)
 #endif

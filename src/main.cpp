@@ -1,24 +1,5 @@
 #include "main.h"
 
-#ifdef TESTING
-DEFINE_TEST(successfulTestsOnBrain)
-IS_TRUE(true);
-IS_EQUAL(1, 1);
-END_TEST
-
-DEFINE_TEST(failingTestsOnBrain)
-IS_TRUE(true);
-IS_EQUAL(1, 2);
-END_TEST
-#endif
-
-void runTests() {
-#ifdef TESTING
-  successfulTestsOnBrain();
-  failingTestsOnBrain();
-#endif
-}
-
 void initialize() {
 }
 
@@ -42,7 +23,7 @@ void opcontrol() {
                   4   // Bottom left
                   )
       .withDimensions(okapi::AbstractMotor::gearset::green,
-                      {{3.25_in, 17.0_ball}, okapi::imev5GreenTPR})
+                      {{3.25_in, 17.0_in}, okapi::imev5GreenTPR})
       .build();
   std::shared_ptr<okapi::Motor> upper_differential = std::make_shared<okapi::Motor>(
     5, false, okapi::AbstractMotor::gearset::blue, okapi::AbstractMotor::encoderUnits::degrees);
