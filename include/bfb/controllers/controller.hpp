@@ -4,10 +4,10 @@ namespace bfb {
 class Controller {
   public:
   virtual ~Controller() = default;
-  virtual void setReference(double iReference);
-  virtual double step(double state);
-  virtual double getOutput() const;
-  virtual bool isSettled(double state);
-  virtual void reset();
+  virtual void setReference(const double iReference) = 0;
+  virtual double step(const double state) = 0;
+  virtual double getOutput() const = 0;
+  virtual bool isSettled(const double state) = 0;
+  virtual void reset() = 0;
 };
 } // namespace bfb

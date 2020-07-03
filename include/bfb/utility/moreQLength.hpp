@@ -16,8 +16,8 @@ constexpr okapi::QLength operator"" _ball(long double x) {
   return static_cast<double>(x) * ball;
 }
 } // namespace literals
-} // namespace bfb
 
 #ifdef TESTING
 DECLARE_TEST(moreQLengthTest)
 #endif
+} // namespace bfb

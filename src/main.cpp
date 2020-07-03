@@ -13,7 +13,7 @@ void autonomous() {
 }
 
 void opcontrol() {
-  runTests();
+  bfb::runTests();
   okapi::Controller master_remote;
   std::shared_ptr<okapi::ChassisController> x_drive =
     okapi::ChassisControllerBuilder()
