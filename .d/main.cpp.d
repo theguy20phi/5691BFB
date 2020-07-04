@@ -182,8 +182,9 @@ bin/main.cpp.o: src/main.cpp include/main.h include/api.h \
  include/okapi/impl/util/rate.hpp include/bfb/bfb.hpp \
  include/bfb/controllers/controller.hpp include/bfb/controllers/pidf.hpp \
  include/bfb/utility/mathUtil.hpp include/bfb/utility/test.hpp \
- include/bfb/utility/test.hpp include/bfb/controllers/tbh.hpp \
- include/bfb/utility/moreQLength.hpp include/bfb/utility/test.hpp
+ include/bfb/utility/okapiUtil.hpp include/bfb/utility/test.hpp \
+ include/bfb/controllers/tbh.hpp include/bfb/utility/moreQLength.hpp \
+ include/bfb/utility/test.hpp
 
 include/main.h:
 
@@ -698,6 +699,8 @@ include/bfb/controllers/pidf.hpp:
 include/bfb/utility/mathUtil.hpp:
 
 include/bfb/utility/test.hpp:
+
+include/bfb/utility/okapiUtil.hpp:
 
 include/bfb/utility/test.hpp:
 

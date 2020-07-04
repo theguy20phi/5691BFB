@@ -1,11 +1,9 @@
 #pragma once
 
 #include "bfb/utility/mathUtil.hpp"
+#include "bfb/utility/okapiUtil.hpp"
 #include "bfb/utility/test.hpp"
 #include "controller.hpp"
-#include "okapi/api/control/util/SettledUtil.hpp"
-#include "okapi/impl/util/timer.hpp"
-#include <memory>
 
 namespace bfb {
 class Pidf : public Controller {
@@ -18,10 +16,15 @@ class Pidf : public Controller {
   };
   Pidf(const PidfGains &gains, std::unique_ptr<okapi::SettledUtil> iSettledChecker);
   void setReference(const double iReference) override;
+  double getReference() const override;
   double step(const double state) override;
   double getOutput() const override;
   bool isSettled(const double state) override;
   void reset() override;
+
+  private:
+  void updateI(const double error);
+  double calculateD(const double state);
 
   private:
   static constexpr double I_DECAY{0.95};

@@ -5,4 +5,5 @@
 #include "controllers/tbh.hpp"
 #include "utility/mathUtil.hpp"
 #include "utility/moreQLength.hpp"
+#include "utility/okapiUtil.hpp"
 #include "utility/test.hpp"

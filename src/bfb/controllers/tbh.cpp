@@ -9,17 +9,24 @@ void Tbh::setReference(const double iReference) {
   reference = iReference;
 }
 
+double Tbh::getReference() const {
+  return reference;
+}
+
 double Tbh::step(const double state) {
   double error{reference - state};
-  int errorSign{sign(error)};
   output += gain * error;
+  takeBackHalf(sign(error));
+  settledChecker->isSettled(error);
+  return output;
+}
+
+void Tbh::takeBackHalf(const int errorSign) {
   if (errorSign != previousErrorSign) {
     output = 0.5 * (output + tbh);
     tbh = output;
     previousErrorSign = errorSign;
   }
-  settledChecker->isSettled(error);
-  return output;
 }
 
 double Tbh::getOutput() const {

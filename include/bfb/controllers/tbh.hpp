@@ -11,10 +11,14 @@ class Tbh : public Controller {
   public:
   Tbh(double iGain, std::unique_ptr<okapi::SettledUtil> iSettledChecker);
   void setReference(const double iReference) override;
+  double getReference() const override;
   double step(const double state) override;
   double getOutput() const override;
   bool isSettled(const double state) override;
   void reset() override;
+
+  private:
+  void takeBackHalf(const int errorSign);
 
   private:
   const double gain;
