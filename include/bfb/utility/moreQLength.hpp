@@ -7,8 +7,8 @@ namespace bfb {
 
 constexpr okapi::QLength tile = 2 * okapi::foot;
 constexpr okapi::QLength element = 6.3 * okapi::inch;
-constexpr okapi::QLength bot_width = 18.0 * okapi::inch;
-constexpr okapi::QLength bot_length = 18.0 * okapi::inch;
+constexpr okapi::QLength bot_width = 17.5 * okapi::inch;
+constexpr okapi::QLength bot_length = 17.5 * okapi::inch;
 inline namespace literals {
 constexpr okapi::QLength operator"" _tile(long double x) {
   return static_cast<double>(x) * tile;
