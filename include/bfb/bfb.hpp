@@ -1,3 +1,8 @@
+/**
+ * This file includes the headers for the bfb library.
+ *
+ * @author Braden Pierce
+ */
 #pragma once
 
 #include "controllers/controller.hpp"

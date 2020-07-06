@@ -1,3 +1,9 @@
+/**
+ * Tbh implements a Take-Back-Half controller, essentially a modified integrator, with the addition
+ * of a method to check if the controller is settled.
+ *
+ * @author Braden Pierce
+ */
 #pragma once
 
 #include "bfb/utility/mathUtil.hpp"
@@ -9,7 +15,14 @@
 namespace bfb {
 class Tbh : public Controller {
   public:
+  /**
+   * Constructs a Tbh object.
+   *
+   * @param iGain The gain for the controller.
+   * @param iSettledChecker The SettledUtil for the controller (use createSettledUtil).
+   */
   Tbh(double iGain, std::unique_ptr<okapi::SettledUtil> iSettledChecker);
+
   void setReference(const double iReference) override;
   double getReference() const override;
   double step(const double state) override;
@@ -18,9 +31,13 @@ class Tbh : public Controller {
   void reset() override;
 
   private:
+  /**
+   * Does the "Take-Back-Half" part of the algorithm.
+   *
+   * @param errorSign Whether the current error is positive or negative.
+   */
   void takeBackHalf(const int errorSign);
 
-  private:
   const double gain;
   std::unique_ptr<okapi::SettledUtil> settledChecker;
   double output{0.0};
