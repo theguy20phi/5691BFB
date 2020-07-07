@@ -12,3 +12,4 @@
 #include "utility/moreQLength.hpp"
 #include "utility/okapiUtil.hpp"
 #include "utility/test.hpp"
+#include "utility/issue.hpp"

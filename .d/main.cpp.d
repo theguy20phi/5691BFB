@@ -184,7 +184,7 @@ bin/main.cpp.o: src/main.cpp include/main.h include/api.h \
  include/bfb/utility/mathUtil.hpp include/bfb/utility/test.hpp \
  include/bfb/utility/okapiUtil.hpp include/bfb/utility/test.hpp \
  include/bfb/controllers/tbh.hpp include/bfb/utility/moreQLength.hpp \
- include/bfb/utility/test.hpp
+ include/bfb/utility/test.hpp include/bfb/utility/issue.hpp
 
 include/main.h:
 
@@ -709,3 +709,5 @@ include/bfb/controllers/tbh.hpp:
 include/bfb/utility/moreQLength.hpp:
 
 include/bfb/utility/test.hpp:
+
+include/bfb/utility/issue.hpp:

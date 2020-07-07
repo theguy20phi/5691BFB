@@ -8,6 +8,7 @@ void runTests() {
   isAlmostEqualTest();
   signTest();
   tbhTest();
+  issueTest();
 #endif
 }
 } // namespace bfb
