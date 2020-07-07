@@ -1,7 +1,9 @@
 .. 5691BFB documentation master file, created by
-   sphinx-quickstart on Mon Jul  6 01:58:52 2020.
+   sphinx-quickstart on Mon Jul  6 19:20:43 2020.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
 
-5691BFB Documentation
+Welcome to 5691BFB's documentation!
 ===================================
 
 .. toctree::
