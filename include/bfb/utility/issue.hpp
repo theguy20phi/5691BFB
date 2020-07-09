@@ -40,7 +40,7 @@ class Issue {
   public:
   /**
    * @brief Provides a parent class for many SeverityLevel subclasses.
-   * 
+   *
    */
   class SeverityLevel {
     public:
@@ -81,16 +81,6 @@ class Issue {
    * @return std::vector<Issue>
    */
   static std::vector<Issue> getIssueList();
-
-  /**
-   * @brief Compares two issues by severity.
-   * Used for sorting.
-   *
-   * @param a
-   * @param b
-   * @return bool
-   */
-  static bool compareIssues(const Issue &a, const Issue &b);
 
   /**
    * Gets the description for the issue.

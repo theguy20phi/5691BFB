@@ -5,16 +5,14 @@ DEFINE_SEVERITY(Low, 1, "L");
 DEFINE_SEVERITY(Medium, 2, "M");
 DEFINE_SEVERITY(High, 3, "H");
 
-bool Issue::compareIssues(const Issue &a, const Issue &b) {
-  return a.getSeverity()->getNumeric() > b.getSeverity()->getNumeric();
-}
-
 std::vector<Issue> Issue::issueList{};
 
 Issue::Issue(const std::string &iDescription, std::shared_ptr<SeverityLevel> iSeverity)
   : description(iDescription), severity(iSeverity) {
   issueList.push_back(*this);
-  std::sort(issueList.begin(), issueList.end(), compareIssues);
+  std::sort(issueList.begin(), issueList.end(), [](const Issue &a, const Issue &b) -> bool {
+    return a.getSeverity()->getNumeric() > b.getSeverity()->getNumeric();
+  });
 }
 
 std::string Issue::getDescription() const {
