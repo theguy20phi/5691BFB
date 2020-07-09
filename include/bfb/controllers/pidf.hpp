@@ -1,9 +1,11 @@
 /**
- * Pidf implements a basic PID+ff controller, with additions to prevent integral windup and
- * derivative kick, as well as determine if the controller is settled.
+ * @file pidf.hpp
+ * @author Braden Pierce (913153006@bryantschools.org)
  *
- * @author Braden Pierce
+ * @copyright Copyright (c) 2020
+ *
  */
+
 #pragma once
 
 #include "bfb/utility/mathUtil.hpp"
@@ -12,8 +14,17 @@
 #include "controller.hpp"
 
 namespace bfb {
+/**
+ * @brief Pidf implements a basic PID+ff controller, with additions to prevent integral windup and
+ * derivative kick, as well as determine if the controller is settled.
+ *
+ */
 class Pidf : public Controller {
   public:
+  /**
+   * @brief Provides a data structure for the Pidf's constants.
+   *
+   */
   struct PidfGains {
     double kP{};
     double kI{};
@@ -22,10 +33,10 @@ class Pidf : public Controller {
   };
 
   /**
-   * Constructs a Pidf object.
+   * @brief Constructs a Pidf object.
    *
-   * @param gains The gains that will be used.
-   * @param iSettledChecker The SettledUtil that will be used (use createSettledUtil).
+   * @param gains
+   * @param iSettledChecker
    */
   Pidf(const PidfGains &gains, std::unique_ptr<okapi::SettledUtil> iSettledChecker);
 
@@ -38,16 +49,16 @@ class Pidf : public Controller {
 
   private:
   /**
-   * Updates the I term of the controller.
+   * @brief Updates the I term of the controller.
    *
-   * @param error The error this step.
+   * @param error
    */
   void updateI(const double error);
 
   /**
-   * Calculates the D term for a step of the controller.
+   * @brief Calculates the D term for a step of the controller.
    *
-   * @param state The state this step.
+   * @param state
    */
   double calculateD(const double state);
 

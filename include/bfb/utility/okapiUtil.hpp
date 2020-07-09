@@ -1,8 +1,12 @@
 /**
- * The okapiUtil file provides methods to better suit the rest of the bfb library.
- *
- * @author Braden Pierce
+ * @file okapiUtil.hpp
+ * @author Braden Pierce (913153006@bryantschools.org)
+ * @brief The okapiUtil file provides methods to better suit the rest of the bfb library.
+ * 
+ * @copyright Copyright (c) 2020
+ * 
  */
+
 #pragma once
 
 #include "okapi/api/control/util/SettledUtil.hpp"
@@ -12,12 +16,12 @@
 namespace bfb {
 using namespace okapi::literals;
 /**
- * Eases the process of creating a SettledUtil.
+ * @brief Eases the process of creating a SettledUtil.
  *
- * @param iatTargetError The target error for SettledUtil.
- * @param iatTargetDerivative The target derivative of error for the SettledUtil.
- * @param iatTargetTime The target time the at the target derivative for the SettledUtil.
- * @return A unique pointer for a SettledUtil.
+ * @param iatTargetError
+ * @param iatTargetDerivative
+ * @param iatTargetTime 
+ * @return std::unique_ptr<okapi::SettledUtil>
  */
 std::unique_ptr<okapi::SettledUtil> createSettledUtil(double iatTargetError = 50,
                                                       double iatTargetDerivative = 5,

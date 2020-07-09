@@ -1,10 +1,14 @@
 /**
- * The test file implements a very simple framework for testing.
+ * @file test.hpp
+ * @author Braden Pierce (913153006@bryantschools.org)
+ * @brief The test file implements a very simple framework for testing.
  * This allows tests to be ran on the V5 brain, which is beneficial, as it doesn't require a complex
  * compilation nor as many mock implementations
  *
- * @author Braden Pierce
+ * @copyright Copyright (c) 2020
+ *
  */
+
 #include <iostream>
 
 #define TESTING
@@ -41,7 +45,8 @@
 
 namespace bfb {
 /**
- * Provided function to add user-defined tests to.
+ * @brief Provided function to add user-defined tests to.
+ * 
  */
 void runTests();
 } // namespace bfb

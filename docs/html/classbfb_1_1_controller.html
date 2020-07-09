@@ -81,24 +81,31 @@ Inheritance diagram for bfb::Controller:</div>
  <div class="center">
   <img src="classbfb_1_1_controller.png" usemap="#bfb::Controller_map" alt=""/>
   <map id="bfb::Controller_map" name="bfb::Controller_map">
-<area href="classbfb_1_1_pidf.html" alt="bfb::Pidf" shape="rect" coords="0,56,92,80"/>
-<area href="classbfb_1_1_tbh.html" alt="bfb::Tbh" shape="rect" coords="102,56,194,80"/>
+<area href="classbfb_1_1_pidf.html" title="Pidf implements a basic PID+ff controller, with additions to prevent integral windup and derivative k..." alt="bfb::Pidf" shape="rect" coords="0,56,92,80"/>
+<area href="classbfb_1_1_tbh.html" title="Tbh implements a Take-Back-Half controller, essentially a modified integrator, with the addition of a..." alt="bfb::Tbh" shape="rect" coords="102,56,194,80"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a8793ab6ef228dba3776d10f0f3687295"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_controller.html#a8793ab6ef228dba3776d10f0f3687295">setReference</a> (const double iReference)=0</td></tr>
+<tr class="memdesc:a8793ab6ef228dba3776d10f0f3687295"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the reference for the controller.  <a href="classbfb_1_1_controller.html#a8793ab6ef228dba3776d10f0f3687295">More...</a><br /></td></tr>
 <tr class="separator:a8793ab6ef228dba3776d10f0f3687295"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af23c698c320d83ca40c08c62970ba6d8"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_controller.html#af23c698c320d83ca40c08c62970ba6d8">getReference</a> () const =0</td></tr>
+<tr class="memdesc:af23c698c320d83ca40c08c62970ba6d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the current reference for the controller.  <a href="classbfb_1_1_controller.html#af23c698c320d83ca40c08c62970ba6d8">More...</a><br /></td></tr>
 <tr class="separator:af23c698c320d83ca40c08c62970ba6d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af5d8abdb5b673a279aa58b2357434953"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_controller.html#af5d8abdb5b673a279aa58b2357434953">step</a> (const double state)=0</td></tr>
+<tr class="memdesc:af5d8abdb5b673a279aa58b2357434953"><td class="mdescLeft">&#160;</td><td class="mdescRight">Goes through one step of the controller.  <a href="classbfb_1_1_controller.html#af5d8abdb5b673a279aa58b2357434953">More...</a><br /></td></tr>
 <tr class="separator:af5d8abdb5b673a279aa58b2357434953"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8de42fe22b5593b872167079ea789e45"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_controller.html#a8de42fe22b5593b872167079ea789e45">getOutput</a> () const =0</td></tr>
+<tr class="memdesc:a8de42fe22b5593b872167079ea789e45"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the output of the controller.  <a href="classbfb_1_1_controller.html#a8de42fe22b5593b872167079ea789e45">More...</a><br /></td></tr>
 <tr class="separator:a8de42fe22b5593b872167079ea789e45"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6164b8f39ec91ec351296a9ca4c790a3"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_controller.html#a6164b8f39ec91ec351296a9ca4c790a3">isSettled</a> (const double state)=0</td></tr>
+<tr class="memdesc:a6164b8f39ec91ec351296a9ca4c790a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets if the controller is settled.  <a href="classbfb_1_1_controller.html#a6164b8f39ec91ec351296a9ca4c790a3">More...</a><br /></td></tr>
 <tr class="separator:a6164b8f39ec91ec351296a9ca4c790a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:add8c609c2835c25795a08ff1e615eea9"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_controller.html#add8c609c2835c25795a08ff1e615eea9">reset</a> ()=0</td></tr>
+<tr class="memitem:add8c609c2835c25795a08ff1e615eea9"><td class="memItemLeft" align="right" valign="top"><a id="add8c609c2835c25795a08ff1e615eea9"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_controller.html#add8c609c2835c25795a08ff1e615eea9">reset</a> ()=0</td></tr>
+<tr class="memdesc:add8c609c2835c25795a08ff1e615eea9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the internal state of the controller. <br /></td></tr>
 <tr class="separator:add8c609c2835c25795a08ff1e615eea9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -124,8 +131,9 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Gets the output of the controller.</p>
-<dl class="section return"><dt>Returns</dt><dd>Returns the output of the controller. </dd></dl>
+
+<p>Gets the output of the controller. </p>
+<dl class="section return"><dt>Returns</dt><dd>double </dd></dl>
 
 <p>Implemented in <a class="el" href="classbfb_1_1_pidf.html#a917c26aa4409140d320bc40a2e35d182">bfb::Pidf</a>, and <a class="el" href="classbfb_1_1_tbh.html#a84bcb6090bdbc322a8f4f3a02307e775">bfb::Tbh</a>.</p>
 
@@ -153,8 +161,9 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Gets the current reference for the controller.</p>
-<dl class="section return"><dt>Returns</dt><dd>Returns the current reference. </dd></dl>
+
+<p>Gets the current reference for the controller. </p>
+<dl class="section return"><dt>Returns</dt><dd>double </dd></dl>
 
 <p>Implemented in <a class="el" href="classbfb_1_1_pidf.html#abb0ff459dbf9b27a39d4623445e41310">bfb::Pidf</a>, and <a class="el" href="classbfb_1_1_tbh.html#ae3c9de159d791e70a37f3aade0fd9014">bfb::Tbh</a>.</p>
 
@@ -183,44 +192,17 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Gets if the controller is settled.</p>
+
+<p>Gets if the controller is settled. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">state</td><td>The current state of the controlled system. </td></tr>
+    <tr><td class="paramname">state</td><td></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>If the controller is settled. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>bool </dd></dl>
 
 <p>Implemented in <a class="el" href="classbfb_1_1_pidf.html#a4110675b452532f3873506712e524b80">bfb::Pidf</a>, and <a class="el" href="classbfb_1_1_tbh.html#a5370465a69b7018e7e04c04b436e6d08">bfb::Tbh</a>.</p>
-
-</div>
-</div>
-<a id="add8c609c2835c25795a08ff1e615eea9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#add8c609c2835c25795a08ff1e615eea9">&#9670;&nbsp;</a></span>reset()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual void bfb::Controller::reset </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Resets the internal state of the controller. </p>
-
-<p>Implemented in <a class="el" href="classbfb_1_1_pidf.html#ae54df26278aa0c65a6d561696d091b36">bfb::Pidf</a>, and <a class="el" href="classbfb_1_1_tbh.html#af7052f06249e71c01e89a87433407373">bfb::Tbh</a>.</p>
 
 </div>
 </div>
@@ -247,10 +229,11 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Sets reference for the controller.</p>
+
+<p>Sets the reference for the controller. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">iReference</td><td>The new reference for the controller. </td></tr>
+    <tr><td class="paramname">iReference</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -282,14 +265,15 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Goes through one step of the controller.</p>
+
+<p>Goes through one step of the controller. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">state</td><td>The current state of the controlled system. </td></tr>
+    <tr><td class="paramname">state</td><td></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The output of the controller. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>double </dd></dl>
 
 <p>Implemented in <a class="el" href="classbfb_1_1_pidf.html#a475ad998b699698351e24748ebb77a75">bfb::Pidf</a>, and <a class="el" href="classbfb_1_1_tbh.html#af4644ab0c00fe68f0062e6cde2597c03">bfb::Tbh</a>.</p>
 

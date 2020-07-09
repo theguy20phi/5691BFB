@@ -1,5 +1,8 @@
 var searchData=
 [
-  ['reset_45',['reset',['../classbfb_1_1_controller.html#add8c609c2835c25795a08ff1e615eea9',1,'bfb::Controller::reset()'],['../classbfb_1_1_pidf.html#ae54df26278aa0c65a6d561696d091b36',1,'bfb::Pidf::reset()'],['../classbfb_1_1_tbh.html#af7052f06249e71c01e89a87433407373',1,'bfb::Tbh::reset()']]],
-  ['runtests_46',['runTests',['../namespacebfb.html#ad817a6cbafc72a4ab2486d556923db35',1,'bfb']]]
+  ['isalmostequal_77',['isAlmostEqual',['../namespacebfb.html#ad4ef84fe14272d8da6dad5f25acd887d',1,'bfb']]],
+  ['isalmostzero_78',['isAlmostZero',['../namespacebfb.html#a054ad0a34da2cc030f69b70ef470af62',1,'bfb']]],
+  ['isdone_79',['isDone',['../classbfb_1_1_state_machine.html#ae8d396b97763b33a3b5dfbc933bec91a',1,'bfb::StateMachine']]],
+  ['issettled_80',['isSettled',['../classbfb_1_1_controller.html#a6164b8f39ec91ec351296a9ca4c790a3',1,'bfb::Controller::isSettled()'],['../classbfb_1_1_pidf.html#a4110675b452532f3873506712e524b80',1,'bfb::Pidf::isSettled()'],['../classbfb_1_1_tbh.html#a5370465a69b7018e7e04c04b436e6d08',1,'bfb::Tbh::isSettled()']]],
+  ['issue_81',['Issue',['../classbfb_1_1_issue.html#a4a714bf93ead6f6ea9bae962fd119fce',1,'bfb::Issue']]]
 ];

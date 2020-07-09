@@ -72,22 +72,22 @@ $(function() {
 <div class="title">okapiUtil.hpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;okapi/api/control/util/SettledUtil.hpp&quot;</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;okapi/impl/util/timer.hpp&quot;</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
+<a href="okapi_util_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacebfb.html">bfb</a> {</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">using namespace </span>okapi::literals;</div>
-<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="namespacebfb.html#a13133bdd4aadff679c7d5d0b88365748">   22</a></span>&#160;std::unique_ptr&lt;okapi::SettledUtil&gt; <a class="code" href="namespacebfb.html#a13133bdd4aadff679c7d5d0b88365748">createSettledUtil</a>(<span class="keywordtype">double</span> iatTargetError = 50,</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;                                                      <span class="keywordtype">double</span> iatTargetDerivative = 5,</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;                                                      okapi::QTime iatTargetTime = 250_ms);</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;} <span class="comment">// namespace bfb</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;okapi/api/control/util/SettledUtil.hpp&quot;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;okapi/impl/util/timer.hpp&quot;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacebfb.html">bfb</a> {</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">using namespace </span>okapi::literals;</div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="namespacebfb.html#a13133bdd4aadff679c7d5d0b88365748">   26</a></span>&#160;std::unique_ptr&lt;okapi::SettledUtil&gt; <a class="code" href="namespacebfb.html#a13133bdd4aadff679c7d5d0b88365748">createSettledUtil</a>(<span class="keywordtype">double</span> iatTargetError = 50,</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;                                                      <span class="keywordtype">double</span> iatTargetDerivative = 5,</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;                                                      okapi::QTime iatTargetTime = 250_ms);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;} <span class="comment">// namespace bfb</span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="anamespacebfb_html_a13133bdd4aadff679c7d5d0b88365748"><div class="ttname"><a href="namespacebfb.html#a13133bdd4aadff679c7d5d0b88365748">bfb::createSettledUtil</a></div><div class="ttdeci">std::unique_ptr&lt; okapi::SettledUtil &gt; createSettledUtil(double iatTargetError=50, double iatTargetDerivative=5, okapi::QTime iatTargetTime=250_ms)</div></div>
-<div class="ttc" id="anamespacebfb_html"><div class="ttname"><a href="namespacebfb.html">bfb</a></div><div class="ttdef"><b>Definition:</b> controller.hpp:8</div></div>
+<div class="ttc" id="anamespacebfb_html_a13133bdd4aadff679c7d5d0b88365748"><div class="ttname"><a href="namespacebfb.html#a13133bdd4aadff679c7d5d0b88365748">bfb::createSettledUtil</a></div><div class="ttdeci">std::unique_ptr&lt; okapi::SettledUtil &gt; createSettledUtil(double iatTargetError=50, double iatTargetDerivative=5, okapi::QTime iatTargetTime=250_ms)</div><div class="ttdoc">Eases the process of creating a SettledUtil.</div></div>
+<div class="ttc" id="anamespacebfb_html"><div class="ttname"><a href="namespacebfb.html">bfb</a></div><div class="ttdef"><b>Definition:</b> bfb.hpp:17</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

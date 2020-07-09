@@ -78,20 +78,35 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_controller.html">Controller</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_issue.html">Issue</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classbfb_1_1_issue.html" title="Issue provides a basis for managing and logging problems that may occur during driving....">Issue</a> provides a basis for managing and logging problems that may occur during driving. Issues should be constructed as static and constant, in the event the problem occurs. Issues are logged in vector that can be globally read from, but only modified by <a class="el" href="classbfb_1_1_issue.html" title="Issue provides a basis for managing and logging problems that may occur during driving....">Issue</a> objects. Issues are sorted by highest to lowest severity when logged.  <a href="classbfb_1_1_issue.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_pidf.html">Pidf</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classbfb_1_1_pidf.html" title="Pidf implements a basic PID+ff controller, with additions to prevent integral windup and derivative k...">Pidf</a> implements a basic PID+ff controller, with additions to prevent integral windup and derivative kick, as well as determine if the controller is settled.  <a href="classbfb_1_1_pidf.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_robot.html">Robot</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provides a wrapper class for devices.  <a href="classbfb_1_1_robot.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_state.html">State</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provides a parent, template class to be subclassed for a variety of states to be used in tandem with a <a class="el" href="classbfb_1_1_state_machine.html" title="StateMachine implements a queue-based finite state machine, similar to a stack-based state machine....">StateMachine</a>. Subclasses can define their own parameters via templating.  <a href="classbfb_1_1_state.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_state_machine.html">StateMachine</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classbfb_1_1_state_machine.html" title="StateMachine implements a queue-based finite state machine, similar to a stack-based state machine....">StateMachine</a> implements a queue-based finite state machine, similar to a stack-based state machine. States are enqueued, and when a state completes its behaviour, dequeued. A default state should be provided. A <a class="el" href="classbfb_1_1_state_machine.html" title="StateMachine implements a queue-based finite state machine, similar to a stack-based state machine....">StateMachine</a> object can be limited to a certain type of state, via templating. If something else needs to see the state of the machine, it should probably be a part of the machine.  <a href="classbfb_1_1_state_machine.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_tbh.html">Tbh</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classbfb_1_1_tbh.html" title="Tbh implements a Take-Back-Half controller, essentially a modified integrator, with the addition of a...">Tbh</a> implements a Take-Back-Half controller, essentially a modified integrator, with the addition of a method to check if the controller is settled.  <a href="classbfb_1_1_tbh.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:ad4ef84fe14272d8da6dad5f25acd887d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacebfb.html#ad4ef84fe14272d8da6dad5f25acd887d">isAlmostEqual</a> (const double a, const double b, const double thresh)</td></tr>
+<tr class="memdesc:ad4ef84fe14272d8da6dad5f25acd887d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines if two variables are equivalent given some threshold.  <a href="namespacebfb.html#ad4ef84fe14272d8da6dad5f25acd887d">More...</a><br /></td></tr>
 <tr class="separator:ad4ef84fe14272d8da6dad5f25acd887d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a054ad0a34da2cc030f69b70ef470af62"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacebfb.html#a054ad0a34da2cc030f69b70ef470af62">isAlmostZero</a> (const double a, const double thresh)</td></tr>
+<tr class="memdesc:a054ad0a34da2cc030f69b70ef470af62"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines if a variable is almost zero given some threshold.  <a href="namespacebfb.html#a054ad0a34da2cc030f69b70ef470af62">More...</a><br /></td></tr>
 <tr class="separator:a054ad0a34da2cc030f69b70ef470af62"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a559fdb0ae4bb082096faf88182538f43"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
+<tr class="memitem:a559fdb0ae4bb082096faf88182538f43"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a559fdb0ae4bb082096faf88182538f43"><td class="memTemplItemLeft" align="right" valign="top">int&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacebfb.html#a559fdb0ae4bb082096faf88182538f43">sign</a> (const T value)</td></tr>
+<tr class="memdesc:a559fdb0ae4bb082096faf88182538f43"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines the sign of a value.  <a href="namespacebfb.html#a559fdb0ae4bb082096faf88182538f43">More...</a><br /></td></tr>
 <tr class="separator:a559fdb0ae4bb082096faf88182538f43"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aff7568afc64e68fb65db0473b05b1615"><td class="memItemLeft" align="right" valign="top"><a id="aff7568afc64e68fb65db0473b05b1615"></a>
 constexpr okapi::QLength&#160;</td><td class="memItemRight" valign="bottom"><b>operator&quot;&quot;_tile</b> (long double x)</td></tr>
@@ -106,8 +121,10 @@ constexpr okapi::QLength&#160;</td><td class="memItemRight" valign="bottom"><b>o
 constexpr okapi::QLength&#160;</td><td class="memItemRight" valign="bottom"><b>operator&quot;&quot;_bot_length</b> (long double x)</td></tr>
 <tr class="separator:a03ea6431866f74736b2f558aa3e232e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a13133bdd4aadff679c7d5d0b88365748"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; okapi::SettledUtil &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacebfb.html#a13133bdd4aadff679c7d5d0b88365748">createSettledUtil</a> (double iatTargetError=50, double iatTargetDerivative=5, okapi::QTime iatTargetTime=250_ms)</td></tr>
+<tr class="memdesc:a13133bdd4aadff679c7d5d0b88365748"><td class="mdescLeft">&#160;</td><td class="mdescRight">Eases the process of creating a SettledUtil.  <a href="namespacebfb.html#a13133bdd4aadff679c7d5d0b88365748">More...</a><br /></td></tr>
 <tr class="separator:a13133bdd4aadff679c7d5d0b88365748"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad817a6cbafc72a4ab2486d556923db35"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacebfb.html#ad817a6cbafc72a4ab2486d556923db35">runTests</a> ()</td></tr>
+<tr class="memdesc:ad817a6cbafc72a4ab2486d556923db35"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provided function to add user-defined tests to.  <a href="namespacebfb.html#ad817a6cbafc72a4ab2486d556923db35">More...</a><br /></td></tr>
 <tr class="separator:ad817a6cbafc72a4ab2486d556923db35"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
@@ -126,17 +143,7 @@ constexpr okapi::QLength&#160;</td><td class="memItemRight" valign="bottom"><b>b
 <tr class="separator:a2709749c7c48e7495ac4c1010573d2ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>A simple interface for controllers.</p>
-<dl class="section author"><dt>Author</dt><dd>Braden Pierce</dd></dl>
-<p><a class="el" href="classbfb_1_1_pidf.html">Pidf</a> implements a basic PID+ff controller, with additions to prevent integral windup and derivative kick, as well as determine if the controller is settled.</p>
-<dl class="section author"><dt>Author</dt><dd>Braden Pierce</dd></dl>
-<p><a class="el" href="classbfb_1_1_tbh.html">Tbh</a> implements a Take-Back-Half controller, essentially a modified integrator, with the addition of a method to check if the controller is settled.</p>
-<dl class="section author"><dt>Author</dt><dd>Braden Pierce</dd></dl>
-<p>The mathUtil file implements math related methods and functions that are of use in many files.</p>
-<dl class="section author"><dt>Author</dt><dd>Braden Pierce</dd></dl>
-<p>the moreQLength file expands upon the QLength file in okapi with more units.</p>
-<dl class="section author"><dt>Author</dt><dd>Braden Pierce</dd></dl>
-<p>The okapiUtil file provides methods to better suit the rest of the bfb library.</p>
+<div class="textblock"><p>This file includes the headers for the bfb library.</p>
 <dl class="section author"><dt>Author</dt><dd>Braden Pierce </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
 <a id="a13133bdd4aadff679c7d5d0b88365748"></a>
@@ -170,16 +177,17 @@ constexpr okapi::QLength&#160;</td><td class="memItemRight" valign="bottom"><b>b
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Eases the process of creating a SettledUtil.</p>
+
+<p>Eases the process of creating a SettledUtil. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">iatTargetError</td><td>The target error for SettledUtil. </td></tr>
-    <tr><td class="paramname">iatTargetDerivative</td><td>The target derivative of error for the SettledUtil. </td></tr>
-    <tr><td class="paramname">iatTargetTime</td><td>The target time the at the target derivative for the SettledUtil. </td></tr>
+    <tr><td class="paramname">iatTargetError</td><td></td></tr>
+    <tr><td class="paramname">iatTargetDerivative</td><td></td></tr>
+    <tr><td class="paramname">iatTargetTime</td><td></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>A unique pointer for a SettledUtil. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>std::unique_ptr&lt;okapi::SettledUtil&gt; </dd></dl>
 
 </div>
 </div>
@@ -214,16 +222,17 @@ constexpr okapi::QLength&#160;</td><td class="memItemRight" valign="bottom"><b>b
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Determines if two variables are equivalent given some threshold.</p>
+
+<p>Determines if two variables are equivalent given some threshold. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">a</td><td>First value. </td></tr>
-    <tr><td class="paramname">b</td><td>Second value. </td></tr>
-    <tr><td class="paramname">thresh</td><td>The threshold. </td></tr>
+    <tr><td class="paramname">a</td><td></td></tr>
+    <tr><td class="paramname">b</td><td></td></tr>
+    <tr><td class="paramname">thresh</td><td></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>If the values are almost equal. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>bool </dd></dl>
 
 </div>
 </div>
@@ -252,15 +261,16 @@ constexpr okapi::QLength&#160;</td><td class="memItemRight" valign="bottom"><b>b
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Determines if a variable is almost zero given some threshold.</p>
+
+<p>Determines if a variable is almost zero given some threshold. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">a</td><td>The value. </td></tr>
-    <tr><td class="paramname">thresh</td><td>The threshold. </td></tr>
+    <tr><td class="paramname">a</td><td></td></tr>
+    <tr><td class="paramname">thresh</td><td></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>If the value is almost zero. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>bool </dd></dl>
 
 </div>
 </div>
@@ -278,6 +288,7 @@ constexpr okapi::QLength&#160;</td><td class="memItemRight" valign="bottom"><b>b
         </tr>
       </table>
 </div><div class="memdoc">
+
 <p>Provided function to add user-defined tests to. </p>
 
 </div>
@@ -288,7 +299,7 @@ constexpr okapi::QLength&#160;</td><td class="memItemRight" valign="bottom"><b>b
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class T &gt; </div>
+template&lt;typename T &gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">int bfb::sign </td>
@@ -299,14 +310,21 @@ template&lt;class T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Determines the sign of a value.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">value</td><td>The value. </td></tr>
+
+<p>Determines the sign of a value. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Negative one if negative, positive one if positive, zero otherwise. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>int </dd></dl>
 
 </div>
 </div>

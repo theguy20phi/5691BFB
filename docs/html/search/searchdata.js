@@ -1,9 +1,10 @@
 var indexSectionsWithContent =
 {
-  0: "bcgiprst",
-  1: "cipst",
+  0: "bcdegimoprst",
+  1: "ciprst",
   2: "b",
-  3: "cgiprst"
+  3: "cimoprst",
+  4: "cdegiprst"
 };
 
 var indexSectionNames =
@@ -11,7 +12,8 @@ var indexSectionNames =
   0: "all",
   1: "classes",
   2: "namespaces",
-  3: "functions"
+  3: "files",
+  4: "functions"
 };
 
 var indexSectionLabels =
@@ -19,6 +21,7 @@ var indexSectionLabels =
   0: "All",
   1: "Classes",
   2: "Namespaces",
-  3: "Functions"
+  3: "Files",
+  4: "Functions"
 };
 

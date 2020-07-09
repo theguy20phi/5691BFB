@@ -1,11 +1,11 @@
 /**
- * Issue provides a basis for managing and logging problems that may occur during driving.
- * Issues should be constructed as static and constant, in the event the problem occurs.
- * Issues are logged in vector that can be globally read from, but only modified by Issue objects.
- * Issues are sorted by highest to lowest severity when logged.
+ * @file issue.hpp
+ * @author Braden Pierce (913153006@bryantschools.org)
  *
- * @author Braden Pierce
+ * @copyright Copyright (c) 2020
+ *
  */
+
 #pragma once
 
 #include "test.hpp"
@@ -29,21 +29,32 @@
   }
 
 namespace bfb {
+/**
+ * @brief Issue provides a basis for managing and logging problems that may occur during driving.
+ * Issues should be constructed as static and constant, in the event the problem occurs.
+ * Issues are logged in vector that can be globally read from, but only modified by Issue objects.
+ * Issues are sorted by highest to lowest severity when logged.
+ *
+ */
 class Issue {
   public:
+  /**
+   * @brief Provides a parent class for many SeverityLevel subclasses.
+   * 
+   */
   class SeverityLevel {
     public:
     /**
-     * Gets the numeric value of the severity level.
+     * @brief Gets the numeric value of the severity level.
      *
-     * @return The numeric value of the severity level.
+     * @return int
      */
     virtual int getNumeric() const = 0;
 
     /**
-     * Gets the string representation of the severity level.
+     * @brief Gets the string representation of the severity level.
      *
-     * @return The string representation of the severity level.
+     * @return std::string
      */
     virtual std::string getString() const = 0;
   };
@@ -55,43 +66,43 @@ class Issue {
 #endif
 
   /**
-   * Constructs an Issue object, logging the Issue to the list of issues.
+   * @brief Constructs an Issue object, logging the Issue to the list of issues.
    * In order to avoid repeated logging, construct as a static const (static const Issue
    * aIssue{...}).
    *
-   * @param iDescription The description of the issue.
-   * @param iSeverity The severity of the issue.
+   * @param iDescription
+   * @param iSeverity
    */
   Issue(const std::string &iDescription, std::shared_ptr<SeverityLevel> iSeverity);
 
   /**
-   * Gets the sorted list of issues.
+   * @brief Gets the sorted list of issues.
    *
-   * @return The sorted list of issues.
+   * @return std::vector<Issue>
    */
   static std::vector<Issue> getIssueList();
 
   /**
-   * Compares two issues by severity.
+   * @brief Compares two issues by severity.
    * Used for sorting.
    *
-   * @param a The first issue.
-   * @param b the second issue.
-   * @return If a is greater than b.
+   * @param a
+   * @param b
+   * @return bool
    */
   static bool compareIssues(const Issue &a, const Issue &b);
 
   /**
    * Gets the description for the issue.
    *
-   * @return The description for the issue.
+   * @return std::string
    */
   std::string getDescription() const;
 
   /**
    * Gets the severity for the issue.
    *
-   * @return The severity for the issue.
+   * @return std::shared_ptr<SeverityLevel>
    */
   std::shared_ptr<SeverityLevel> getSeverity() const;
 

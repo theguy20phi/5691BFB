@@ -1,8 +1,12 @@
 /**
- * the moreQLength file expands upon the QLength file in okapi with more units.
- *
- * @author Braden Pierce
+ * @file moreQLength.hpp
+ * @author Braden Pierce (913153006@bryantschools.org)
+ * @brief The moreQLength file expands upon the QLength file in okapi with more units.
+ * 
+ * @copyright Copyright (c) 2020
+ * 
  */
+
 #pragma once
 
 #include "okapi/api/units/QLength.hpp"

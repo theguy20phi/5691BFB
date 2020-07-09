@@ -77,15 +77,22 @@ $(function() {
 <div class="title">bfb::Issue Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><a class="el" href="classbfb_1_1_issue.html" title="Issue provides a basis for managing and logging problems that may occur during driving....">Issue</a> provides a basis for managing and logging problems that may occur during driving. Issues should be constructed as static and constant, in the event the problem occurs. Issues are logged in vector that can be globally read from, but only modified by <a class="el" href="classbfb_1_1_issue.html" title="Issue provides a basis for managing and logging problems that may occur during driving....">Issue</a> objects. Issues are sorted by highest to lowest severity when logged.  
+ <a href="classbfb_1_1_issue.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="issue_8hpp_source.html">issue.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_issue_1_1_severity_level.html">SeverityLevel</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provides a parent class for many <a class="el" href="classbfb_1_1_issue_1_1_severity_level.html" title="Provides a parent class for many SeverityLevel subclasses.">SeverityLevel</a> subclasses.  <a href="classbfb_1_1_issue_1_1_severity_level.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a4a714bf93ead6f6ea9bae962fd119fce"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_issue.html#a4a714bf93ead6f6ea9bae962fd119fce">Issue</a> (const std::string &amp;iDescription, std::shared_ptr&lt; <a class="el" href="classbfb_1_1_issue_1_1_severity_level.html">SeverityLevel</a> &gt; iSeverity)</td></tr>
+<tr class="memdesc:a4a714bf93ead6f6ea9bae962fd119fce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs an <a class="el" href="classbfb_1_1_issue.html" title="Issue provides a basis for managing and logging problems that may occur during driving....">Issue</a> object, logging the <a class="el" href="classbfb_1_1_issue.html" title="Issue provides a basis for managing and logging problems that may occur during driving....">Issue</a> to the list of issues. In order to avoid repeated logging, construct as a static const (static const <a class="el" href="classbfb_1_1_issue.html" title="Issue provides a basis for managing and logging problems that may occur during driving....">Issue</a> aIssue{...}).  <a href="classbfb_1_1_issue.html#a4a714bf93ead6f6ea9bae962fd119fce">More...</a><br /></td></tr>
 <tr class="separator:a4a714bf93ead6f6ea9bae962fd119fce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad062f4924a5260e1844b1fa08ee03137"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_issue.html#ad062f4924a5260e1844b1fa08ee03137">getDescription</a> () const</td></tr>
 <tr class="separator:ad062f4924a5260e1844b1fa08ee03137"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -95,11 +102,15 @@ Public Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:aa299cb5f55606a819d0375ad72d1ada6"><td class="memItemLeft" align="right" valign="top">static std::vector&lt; <a class="el" href="classbfb_1_1_issue.html">Issue</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_issue.html#aa299cb5f55606a819d0375ad72d1ada6">getIssueList</a> ()</td></tr>
+<tr class="memdesc:aa299cb5f55606a819d0375ad72d1ada6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the sorted list of issues.  <a href="classbfb_1_1_issue.html#aa299cb5f55606a819d0375ad72d1ada6">More...</a><br /></td></tr>
 <tr class="separator:aa299cb5f55606a819d0375ad72d1ada6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adba2107c1f278242984a8831bd48fb6a"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_issue.html#adba2107c1f278242984a8831bd48fb6a">compareIssues</a> (const <a class="el" href="classbfb_1_1_issue.html">Issue</a> &amp;a, const <a class="el" href="classbfb_1_1_issue.html">Issue</a> &amp;b)</td></tr>
+<tr class="memdesc:adba2107c1f278242984a8831bd48fb6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compares two issues by severity. Used for sorting.  <a href="classbfb_1_1_issue.html#adba2107c1f278242984a8831bd48fb6a">More...</a><br /></td></tr>
 <tr class="separator:adba2107c1f278242984a8831bd48fb6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p><a class="el" href="classbfb_1_1_issue.html" title="Issue provides a basis for managing and logging problems that may occur during driving....">Issue</a> provides a basis for managing and logging problems that may occur during driving. Issues should be constructed as static and constant, in the event the problem occurs. Issues are logged in vector that can be globally read from, but only modified by <a class="el" href="classbfb_1_1_issue.html" title="Issue provides a basis for managing and logging problems that may occur during driving....">Issue</a> objects. Issues are sorted by highest to lowest severity when logged. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a4a714bf93ead6f6ea9bae962fd119fce"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4a714bf93ead6f6ea9bae962fd119fce">&#9670;&nbsp;</a></span>Issue()</h2>
 
@@ -125,11 +136,12 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Constructs an <a class="el" href="classbfb_1_1_issue.html">Issue</a> object, logging the <a class="el" href="classbfb_1_1_issue.html">Issue</a> to the list of issues. In order to avoid repeated logging, construct as a static const (static const <a class="el" href="classbfb_1_1_issue.html">Issue</a> aIssue{...}).</p>
+
+<p>Constructs an <a class="el" href="classbfb_1_1_issue.html" title="Issue provides a basis for managing and logging problems that may occur during driving....">Issue</a> object, logging the <a class="el" href="classbfb_1_1_issue.html" title="Issue provides a basis for managing and logging problems that may occur during driving....">Issue</a> to the list of issues. In order to avoid repeated logging, construct as a static const (static const <a class="el" href="classbfb_1_1_issue.html" title="Issue provides a basis for managing and logging problems that may occur during driving....">Issue</a> aIssue{...}). </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">iDescription</td><td>The description of the issue. </td></tr>
-    <tr><td class="paramname">iSeverity</td><td>The severity of the issue. </td></tr>
+    <tr><td class="paramname">iDescription</td><td></td></tr>
+    <tr><td class="paramname">iSeverity</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -170,15 +182,16 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Compares two issues by severity. Used for sorting.</p>
+
+<p>Compares two issues by severity. Used for sorting. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">a</td><td>The first issue. </td></tr>
-    <tr><td class="paramname">b</td><td>the second issue. </td></tr>
+    <tr><td class="paramname">a</td><td></td></tr>
+    <tr><td class="paramname">b</td><td></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>If a is greater than b. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>bool </dd></dl>
 
 </div>
 </div>
@@ -197,7 +210,7 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Gets the description for the issue.</p>
-<dl class="section return"><dt>Returns</dt><dd>The description for the issue. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>std::string </dd></dl>
 
 </div>
 </div>
@@ -223,8 +236,9 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Gets the sorted list of issues.</p>
-<dl class="section return"><dt>Returns</dt><dd>The sorted list of issues. </dd></dl>
+
+<p>Gets the sorted list of issues. </p>
+<dl class="section return"><dt>Returns</dt><dd>std::vector&lt;Issue&gt; </dd></dl>
 
 </div>
 </div>
@@ -243,7 +257,7 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Gets the severity for the issue.</p>
-<dl class="section return"><dt>Returns</dt><dd>The severity for the issue. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>std::shared_ptr&lt;SeverityLevel&gt; </dd></dl>
 
 </div>
 </div>

@@ -75,6 +75,11 @@ $(function() {
 <div class="title">bfb::Tbh Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><a class="el" href="classbfb_1_1_tbh.html" title="Tbh implements a Take-Back-Half controller, essentially a modified integrator, with the addition of a...">Tbh</a> implements a Take-Back-Half controller, essentially a modified integrator, with the addition of a method to check if the controller is settled.  
+ <a href="classbfb_1_1_tbh.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="tbh_8hpp_source.html">tbh.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for bfb::Tbh:</div>
 <div class="dyncontent">
@@ -88,21 +93,31 @@ Inheritance diagram for bfb::Tbh:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a7f4003651e58a8847cdaf38678e6c735"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_tbh.html#a7f4003651e58a8847cdaf38678e6c735">Tbh</a> (double iGain, std::unique_ptr&lt; okapi::SettledUtil &gt; iSettledChecker)</td></tr>
+<tr class="memdesc:a7f4003651e58a8847cdaf38678e6c735"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a <a class="el" href="classbfb_1_1_tbh.html" title="Tbh implements a Take-Back-Half controller, essentially a modified integrator, with the addition of a...">Tbh</a> object.  <a href="classbfb_1_1_tbh.html#a7f4003651e58a8847cdaf38678e6c735">More...</a><br /></td></tr>
 <tr class="separator:a7f4003651e58a8847cdaf38678e6c735"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a94c9ad0d0c834a0be5afe9a3b262e3ad"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_tbh.html#a94c9ad0d0c834a0be5afe9a3b262e3ad">setReference</a> (const double iReference) override</td></tr>
+<tr class="memdesc:a94c9ad0d0c834a0be5afe9a3b262e3ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the reference for the controller.  <a href="classbfb_1_1_tbh.html#a94c9ad0d0c834a0be5afe9a3b262e3ad">More...</a><br /></td></tr>
 <tr class="separator:a94c9ad0d0c834a0be5afe9a3b262e3ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae3c9de159d791e70a37f3aade0fd9014"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_tbh.html#ae3c9de159d791e70a37f3aade0fd9014">getReference</a> () const override</td></tr>
+<tr class="memdesc:ae3c9de159d791e70a37f3aade0fd9014"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the current reference for the controller.  <a href="classbfb_1_1_tbh.html#ae3c9de159d791e70a37f3aade0fd9014">More...</a><br /></td></tr>
 <tr class="separator:ae3c9de159d791e70a37f3aade0fd9014"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af4644ab0c00fe68f0062e6cde2597c03"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_tbh.html#af4644ab0c00fe68f0062e6cde2597c03">step</a> (const double state) override</td></tr>
+<tr class="memdesc:af4644ab0c00fe68f0062e6cde2597c03"><td class="mdescLeft">&#160;</td><td class="mdescRight">Goes through one step of the controller.  <a href="classbfb_1_1_tbh.html#af4644ab0c00fe68f0062e6cde2597c03">More...</a><br /></td></tr>
 <tr class="separator:af4644ab0c00fe68f0062e6cde2597c03"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a84bcb6090bdbc322a8f4f3a02307e775"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_tbh.html#a84bcb6090bdbc322a8f4f3a02307e775">getOutput</a> () const override</td></tr>
+<tr class="memdesc:a84bcb6090bdbc322a8f4f3a02307e775"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the output of the controller.  <a href="classbfb_1_1_tbh.html#a84bcb6090bdbc322a8f4f3a02307e775">More...</a><br /></td></tr>
 <tr class="separator:a84bcb6090bdbc322a8f4f3a02307e775"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5370465a69b7018e7e04c04b436e6d08"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_tbh.html#a5370465a69b7018e7e04c04b436e6d08">isSettled</a> (const double state) override</td></tr>
+<tr class="memdesc:a5370465a69b7018e7e04c04b436e6d08"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets if the controller is settled.  <a href="classbfb_1_1_tbh.html#a5370465a69b7018e7e04c04b436e6d08">More...</a><br /></td></tr>
 <tr class="separator:a5370465a69b7018e7e04c04b436e6d08"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af7052f06249e71c01e89a87433407373"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_tbh.html#af7052f06249e71c01e89a87433407373">reset</a> () override</td></tr>
+<tr class="memitem:af7052f06249e71c01e89a87433407373"><td class="memItemLeft" align="right" valign="top"><a id="af7052f06249e71c01e89a87433407373"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_tbh.html#af7052f06249e71c01e89a87433407373">reset</a> () override</td></tr>
+<tr class="memdesc:af7052f06249e71c01e89a87433407373"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the internal state of the controller. <br /></td></tr>
 <tr class="separator:af7052f06249e71c01e89a87433407373"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p><a class="el" href="classbfb_1_1_tbh.html" title="Tbh implements a Take-Back-Half controller, essentially a modified integrator, with the addition of a...">Tbh</a> implements a Take-Back-Half controller, essentially a modified integrator, with the addition of a method to check if the controller is settled. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a7f4003651e58a8847cdaf38678e6c735"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7f4003651e58a8847cdaf38678e6c735">&#9670;&nbsp;</a></span>Tbh()</h2>
 
@@ -128,11 +143,12 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Constructs a <a class="el" href="classbfb_1_1_tbh.html">Tbh</a> object.</p>
+
+<p>Constructs a <a class="el" href="classbfb_1_1_tbh.html" title="Tbh implements a Take-Back-Half controller, essentially a modified integrator, with the addition of a...">Tbh</a> object. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">iGain</td><td>The gain for the controller. </td></tr>
-    <tr><td class="paramname">iSettledChecker</td><td>The SettledUtil for the controller (use createSettledUtil). </td></tr>
+    <tr><td class="paramname">iGain</td><td></td></tr>
+    <tr><td class="paramname">iSettledChecker</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -162,8 +178,9 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Gets the output of the controller.</p>
-<dl class="section return"><dt>Returns</dt><dd>Returns the output of the controller. </dd></dl>
+
+<p>Gets the output of the controller. </p>
+<dl class="section return"><dt>Returns</dt><dd>double </dd></dl>
 
 <p>Implements <a class="el" href="classbfb_1_1_controller.html#a8de42fe22b5593b872167079ea789e45">bfb::Controller</a>.</p>
 
@@ -191,8 +208,9 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Gets the current reference for the controller.</p>
-<dl class="section return"><dt>Returns</dt><dd>Returns the current reference. </dd></dl>
+
+<p>Gets the current reference for the controller. </p>
+<dl class="section return"><dt>Returns</dt><dd>double </dd></dl>
 
 <p>Implements <a class="el" href="classbfb_1_1_controller.html#af23c698c320d83ca40c08c62970ba6d8">bfb::Controller</a>.</p>
 
@@ -221,44 +239,17 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Gets if the controller is settled.</p>
+
+<p>Gets if the controller is settled. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">state</td><td>The current state of the controlled system. </td></tr>
+    <tr><td class="paramname">state</td><td></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>If the controller is settled. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>bool </dd></dl>
 
 <p>Implements <a class="el" href="classbfb_1_1_controller.html#a6164b8f39ec91ec351296a9ca4c790a3">bfb::Controller</a>.</p>
-
-</div>
-</div>
-<a id="af7052f06249e71c01e89a87433407373"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af7052f06249e71c01e89a87433407373">&#9670;&nbsp;</a></span>reset()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void bfb::Tbh::reset </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Resets the internal state of the controller. </p>
-
-<p>Implements <a class="el" href="classbfb_1_1_controller.html#add8c609c2835c25795a08ff1e615eea9">bfb::Controller</a>.</p>
 
 </div>
 </div>
@@ -285,10 +276,11 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Sets reference for the controller.</p>
+
+<p>Sets the reference for the controller. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">iReference</td><td>The new reference for the controller. </td></tr>
+    <tr><td class="paramname">iReference</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -320,14 +312,15 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Goes through one step of the controller.</p>
+
+<p>Goes through one step of the controller. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">state</td><td>The current state of the controlled system. </td></tr>
+    <tr><td class="paramname">state</td><td></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The output of the controller. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>double </dd></dl>
 
 <p>Implements <a class="el" href="classbfb_1_1_controller.html#af5d8abdb5b673a279aa58b2357434953">bfb::Controller</a>.</p>
 

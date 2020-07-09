@@ -76,6 +76,11 @@ $(function() {
 <div class="title">bfb::Pidf Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><a class="el" href="classbfb_1_1_pidf.html" title="Pidf implements a basic PID+ff controller, with additions to prevent integral windup and derivative k...">Pidf</a> implements a basic PID+ff controller, with additions to prevent integral windup and derivative kick, as well as determine if the controller is settled.  
+ <a href="classbfb_1_1_pidf.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="pidf_8hpp_source.html">pidf.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for bfb::Pidf:</div>
 <div class="dyncontent">
@@ -89,26 +94,37 @@ Inheritance diagram for bfb::Pidf:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbfb_1_1_pidf_1_1_pidf_gains.html">PidfGains</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provides a data structure for the <a class="el" href="classbfb_1_1_pidf.html" title="Pidf implements a basic PID+ff controller, with additions to prevent integral windup and derivative k...">Pidf</a>'s constants.  <a href="structbfb_1_1_pidf_1_1_pidf_gains.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a03f930e13ba56ffe6a579d836f6a3f54"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_pidf.html#a03f930e13ba56ffe6a579d836f6a3f54">Pidf</a> (const <a class="el" href="structbfb_1_1_pidf_1_1_pidf_gains.html">PidfGains</a> &amp;gains, std::unique_ptr&lt; okapi::SettledUtil &gt; iSettledChecker)</td></tr>
+<tr class="memdesc:a03f930e13ba56ffe6a579d836f6a3f54"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a <a class="el" href="classbfb_1_1_pidf.html" title="Pidf implements a basic PID+ff controller, with additions to prevent integral windup and derivative k...">Pidf</a> object.  <a href="classbfb_1_1_pidf.html#a03f930e13ba56ffe6a579d836f6a3f54">More...</a><br /></td></tr>
 <tr class="separator:a03f930e13ba56ffe6a579d836f6a3f54"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aedce9710b3c042b7be83f4cc2fa08dfd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_pidf.html#aedce9710b3c042b7be83f4cc2fa08dfd">setReference</a> (const double iReference) override</td></tr>
+<tr class="memdesc:aedce9710b3c042b7be83f4cc2fa08dfd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the reference for the controller.  <a href="classbfb_1_1_pidf.html#aedce9710b3c042b7be83f4cc2fa08dfd">More...</a><br /></td></tr>
 <tr class="separator:aedce9710b3c042b7be83f4cc2fa08dfd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abb0ff459dbf9b27a39d4623445e41310"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_pidf.html#abb0ff459dbf9b27a39d4623445e41310">getReference</a> () const override</td></tr>
+<tr class="memdesc:abb0ff459dbf9b27a39d4623445e41310"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the current reference for the controller.  <a href="classbfb_1_1_pidf.html#abb0ff459dbf9b27a39d4623445e41310">More...</a><br /></td></tr>
 <tr class="separator:abb0ff459dbf9b27a39d4623445e41310"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a475ad998b699698351e24748ebb77a75"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_pidf.html#a475ad998b699698351e24748ebb77a75">step</a> (const double state) override</td></tr>
+<tr class="memdesc:a475ad998b699698351e24748ebb77a75"><td class="mdescLeft">&#160;</td><td class="mdescRight">Goes through one step of the controller.  <a href="classbfb_1_1_pidf.html#a475ad998b699698351e24748ebb77a75">More...</a><br /></td></tr>
 <tr class="separator:a475ad998b699698351e24748ebb77a75"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a917c26aa4409140d320bc40a2e35d182"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_pidf.html#a917c26aa4409140d320bc40a2e35d182">getOutput</a> () const override</td></tr>
+<tr class="memdesc:a917c26aa4409140d320bc40a2e35d182"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the output of the controller.  <a href="classbfb_1_1_pidf.html#a917c26aa4409140d320bc40a2e35d182">More...</a><br /></td></tr>
 <tr class="separator:a917c26aa4409140d320bc40a2e35d182"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4110675b452532f3873506712e524b80"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_pidf.html#a4110675b452532f3873506712e524b80">isSettled</a> (const double state) override</td></tr>
+<tr class="memdesc:a4110675b452532f3873506712e524b80"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets if the controller is settled.  <a href="classbfb_1_1_pidf.html#a4110675b452532f3873506712e524b80">More...</a><br /></td></tr>
 <tr class="separator:a4110675b452532f3873506712e524b80"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae54df26278aa0c65a6d561696d091b36"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_pidf.html#ae54df26278aa0c65a6d561696d091b36">reset</a> () override</td></tr>
+<tr class="memitem:ae54df26278aa0c65a6d561696d091b36"><td class="memItemLeft" align="right" valign="top"><a id="ae54df26278aa0c65a6d561696d091b36"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_pidf.html#ae54df26278aa0c65a6d561696d091b36">reset</a> () override</td></tr>
+<tr class="memdesc:ae54df26278aa0c65a6d561696d091b36"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the internal state of the controller. <br /></td></tr>
 <tr class="separator:ae54df26278aa0c65a6d561696d091b36"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p><a class="el" href="classbfb_1_1_pidf.html" title="Pidf implements a basic PID+ff controller, with additions to prevent integral windup and derivative k...">Pidf</a> implements a basic PID+ff controller, with additions to prevent integral windup and derivative kick, as well as determine if the controller is settled. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a03f930e13ba56ffe6a579d836f6a3f54"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a03f930e13ba56ffe6a579d836f6a3f54">&#9670;&nbsp;</a></span>Pidf()</h2>
 
@@ -134,11 +150,12 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Constructs a <a class="el" href="classbfb_1_1_pidf.html">Pidf</a> object.</p>
+
+<p>Constructs a <a class="el" href="classbfb_1_1_pidf.html" title="Pidf implements a basic PID+ff controller, with additions to prevent integral windup and derivative k...">Pidf</a> object. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">gains</td><td>The gains that will be used. </td></tr>
-    <tr><td class="paramname">iSettledChecker</td><td>The SettledUtil that will be used (use createSettledUtil). </td></tr>
+    <tr><td class="paramname">gains</td><td></td></tr>
+    <tr><td class="paramname">iSettledChecker</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -168,8 +185,9 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Gets the output of the controller.</p>
-<dl class="section return"><dt>Returns</dt><dd>Returns the output of the controller. </dd></dl>
+
+<p>Gets the output of the controller. </p>
+<dl class="section return"><dt>Returns</dt><dd>double </dd></dl>
 
 <p>Implements <a class="el" href="classbfb_1_1_controller.html#a8de42fe22b5593b872167079ea789e45">bfb::Controller</a>.</p>
 
@@ -197,8 +215,9 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Gets the current reference for the controller.</p>
-<dl class="section return"><dt>Returns</dt><dd>Returns the current reference. </dd></dl>
+
+<p>Gets the current reference for the controller. </p>
+<dl class="section return"><dt>Returns</dt><dd>double </dd></dl>
 
 <p>Implements <a class="el" href="classbfb_1_1_controller.html#af23c698c320d83ca40c08c62970ba6d8">bfb::Controller</a>.</p>
 
@@ -227,44 +246,17 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Gets if the controller is settled.</p>
+
+<p>Gets if the controller is settled. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">state</td><td>The current state of the controlled system. </td></tr>
+    <tr><td class="paramname">state</td><td></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>If the controller is settled. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>bool </dd></dl>
 
 <p>Implements <a class="el" href="classbfb_1_1_controller.html#a6164b8f39ec91ec351296a9ca4c790a3">bfb::Controller</a>.</p>
-
-</div>
-</div>
-<a id="ae54df26278aa0c65a6d561696d091b36"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae54df26278aa0c65a6d561696d091b36">&#9670;&nbsp;</a></span>reset()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void bfb::Pidf::reset </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Resets the internal state of the controller. </p>
-
-<p>Implements <a class="el" href="classbfb_1_1_controller.html#add8c609c2835c25795a08ff1e615eea9">bfb::Controller</a>.</p>
 
 </div>
 </div>
@@ -291,10 +283,11 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Sets reference for the controller.</p>
+
+<p>Sets the reference for the controller. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">iReference</td><td>The new reference for the controller. </td></tr>
+    <tr><td class="paramname">iReference</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -326,14 +319,15 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Goes through one step of the controller.</p>
+
+<p>Goes through one step of the controller. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">state</td><td>The current state of the controlled system. </td></tr>
+    <tr><td class="paramname">state</td><td></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The output of the controller. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>double </dd></dl>
 
 <p>Implements <a class="el" href="classbfb_1_1_controller.html#af5d8abdb5b673a279aa58b2357434953">bfb::Controller</a>.</p>
 

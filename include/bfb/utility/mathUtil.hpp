@@ -1,7 +1,11 @@
 /**
- * The mathUtil file implements math related methods and functions that are of use in many files.
+ * @file mathUtil.hpp
+ * @author Braden Pierce (913153006@bryantschools.org)
+ * @brief The mathUtil file implements math related methods and functions that are of use in many
+ * files.
  *
- * @author Braden Pierce
+ * @copyright Copyright (c) 2020
+ *
  */
 #pragma once
 
@@ -10,31 +14,32 @@
 
 namespace bfb {
 /**
- * Determines if two variables are equivalent given some threshold.
+ * @brief Determines if two variables are equivalent given some threshold.
  *
- * @param a First value.
- * @param b Second value.
- * @param thresh The threshold.
- * @return If the values are almost equal.
+ * @param a
+ * @param b
+ * @param thresh
+ * @return bool
  */
 bool isAlmostEqual(const double a, const double b, const double thresh);
 
 /**
- * Determines if a variable is almost zero given some threshold.
+ * @brief Determines if a variable is almost zero given some threshold.
  *
- * @param a The value.
- * @param thresh The threshold.
- * @return If the value is almost zero.
+ * @param a
+ * @param thresh
+ * @return bool
  */
 bool isAlmostZero(const double a, const double thresh);
 
 /**
- * Determines the sign of a value.
- *
- * @param value The value.
- * @return Negative one if negative, positive one if positive, zero otherwise.
+ * @brief Determines the sign of a value.
+ * 
+ * @tparam T 
+ * @param value 
+ * @return int 
  */
-template <class T> int sign(const T value) {
+template <typename T> int sign(const T value) {
   if (value < 0)
     return -1;
   else if (value > 0)
