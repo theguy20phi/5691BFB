@@ -115,27 +115,24 @@ $(function() {
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
 <div class="line"><a name="l00083"></a><span class="lineno"><a class="line" href="classbfb_1_1_issue.html#aa299cb5f55606a819d0375ad72d1ada6">   83</a></span>&#160;  <span class="keyword">static</span> std::vector&lt;Issue&gt; <a class="code" href="classbfb_1_1_issue.html#aa299cb5f55606a819d0375ad72d1ada6">getIssueList</a>();</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
-<div class="line"><a name="l00093"></a><span class="lineno"><a class="line" href="classbfb_1_1_issue.html#adba2107c1f278242984a8831bd48fb6a">   93</a></span>&#160;  <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="classbfb_1_1_issue.html#adba2107c1f278242984a8831bd48fb6a">compareIssues</a>(<span class="keyword">const</span> <a class="code" href="classbfb_1_1_issue.html">Issue</a> &amp;a, <span class="keyword">const</span> <a class="code" href="classbfb_1_1_issue.html">Issue</a> &amp;b);</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
-<div class="line"><a name="l00100"></a><span class="lineno"><a class="line" href="classbfb_1_1_issue.html#ad062f4924a5260e1844b1fa08ee03137">  100</a></span>&#160;  std::string <a class="code" href="classbfb_1_1_issue.html#ad062f4924a5260e1844b1fa08ee03137">getDescription</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
-<div class="line"><a name="l00107"></a><span class="lineno"><a class="line" href="classbfb_1_1_issue.html#a1a6ef88192a3b530d034f005bbe7f47c">  107</a></span>&#160;  std::shared_ptr&lt;SeverityLevel&gt; <a class="code" href="classbfb_1_1_issue.html#a1a6ef88192a3b530d034f005bbe7f47c">getSeverity</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; </div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;  <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;  <span class="keyword">static</span> std::vector&lt;Issue&gt; issueList;</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;  <span class="comment">// not const because of sort implications, objects should be constant anyways</span></div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;  std::string description;</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;  std::shared_ptr&lt;SeverityLevel&gt; severity;</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;};</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160; </div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;<span class="preprocessor">#ifdef TESTING</span></div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;DECLARE_TEST(issueTest)</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;<span class="preprocessor">} // namespace bfb</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno"><a class="line" href="classbfb_1_1_issue.html#ad062f4924a5260e1844b1fa08ee03137">   90</a></span>&#160;  std::string <a class="code" href="classbfb_1_1_issue.html#ad062f4924a5260e1844b1fa08ee03137">getDescription</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
+<div class="line"><a name="l00097"></a><span class="lineno"><a class="line" href="classbfb_1_1_issue.html#a1a6ef88192a3b530d034f005bbe7f47c">   97</a></span>&#160;  std::shared_ptr&lt;SeverityLevel&gt; <a class="code" href="classbfb_1_1_issue.html#a1a6ef88192a3b530d034f005bbe7f47c">getSeverity</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;  <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;  <span class="keyword">static</span> std::vector&lt;Issue&gt; issueList;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;  <span class="comment">// not const because of sort implications, objects should be constant anyways</span></div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;  std::string description;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;  std::shared_ptr&lt;SeverityLevel&gt; severity;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;};</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="preprocessor">#ifdef TESTING</span></div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;DECLARE_TEST(issueTest)</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="preprocessor">} // namespace bfb</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="aclassbfb_1_1_issue_1_1_severity_level_html"><div class="ttname"><a href="classbfb_1_1_issue_1_1_severity_level.html">bfb::Issue::SeverityLevel</a></div><div class="ttdoc">Provides a parent class for many SeverityLevel subclasses.</div><div class="ttdef"><b>Definition:</b> issue.hpp:45</div></div>
 <div class="ttc" id="aclassbfb_1_1_issue_html_aa299cb5f55606a819d0375ad72d1ada6"><div class="ttname"><a href="classbfb_1_1_issue.html#aa299cb5f55606a819d0375ad72d1ada6">bfb::Issue::getIssueList</a></div><div class="ttdeci">static std::vector&lt; Issue &gt; getIssueList()</div><div class="ttdoc">Gets the sorted list of issues.</div></div>
-<div class="ttc" id="aclassbfb_1_1_issue_html_adba2107c1f278242984a8831bd48fb6a"><div class="ttname"><a href="classbfb_1_1_issue.html#adba2107c1f278242984a8831bd48fb6a">bfb::Issue::compareIssues</a></div><div class="ttdeci">static bool compareIssues(const Issue &amp;a, const Issue &amp;b)</div><div class="ttdoc">Compares two issues by severity. Used for sorting.</div></div>
 <div class="ttc" id="aclassbfb_1_1_issue_1_1_severity_level_html_a73c6b256410a3e283169dc5956c97a3a"><div class="ttname"><a href="classbfb_1_1_issue_1_1_severity_level.html#a73c6b256410a3e283169dc5956c97a3a">bfb::Issue::SeverityLevel::getNumeric</a></div><div class="ttdeci">virtual int getNumeric() const =0</div><div class="ttdoc">Gets the numeric value of the severity level.</div></div>
 <div class="ttc" id="aclassbfb_1_1_issue_html"><div class="ttname"><a href="classbfb_1_1_issue.html">bfb::Issue</a></div><div class="ttdoc">Issue provides a basis for managing and logging problems that may occur during driving....</div><div class="ttdef"><b>Definition:</b> issue.hpp:39</div></div>
 <div class="ttc" id="aclassbfb_1_1_issue_html_a1a6ef88192a3b530d034f005bbe7f47c"><div class="ttname"><a href="classbfb_1_1_issue.html#a1a6ef88192a3b530d034f005bbe7f47c">bfb::Issue::getSeverity</a></div><div class="ttdeci">std::shared_ptr&lt; SeverityLevel &gt; getSeverity() const</div></div>

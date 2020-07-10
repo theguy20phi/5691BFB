@@ -104,9 +104,6 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:aa299cb5f55606a819d0375ad72d1ada6"><td class="memItemLeft" align="right" valign="top">static std::vector&lt; <a class="el" href="classbfb_1_1_issue.html">Issue</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_issue.html#aa299cb5f55606a819d0375ad72d1ada6">getIssueList</a> ()</td></tr>
 <tr class="memdesc:aa299cb5f55606a819d0375ad72d1ada6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the sorted list of issues.  <a href="classbfb_1_1_issue.html#aa299cb5f55606a819d0375ad72d1ada6">More...</a><br /></td></tr>
 <tr class="separator:aa299cb5f55606a819d0375ad72d1ada6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adba2107c1f278242984a8831bd48fb6a"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_issue.html#adba2107c1f278242984a8831bd48fb6a">compareIssues</a> (const <a class="el" href="classbfb_1_1_issue.html">Issue</a> &amp;a, const <a class="el" href="classbfb_1_1_issue.html">Issue</a> &amp;b)</td></tr>
-<tr class="memdesc:adba2107c1f278242984a8831bd48fb6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compares two issues by severity. Used for sorting.  <a href="classbfb_1_1_issue.html#adba2107c1f278242984a8831bd48fb6a">More...</a><br /></td></tr>
-<tr class="separator:adba2107c1f278242984a8831bd48fb6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="classbfb_1_1_issue.html" title="Issue provides a basis for managing and logging problems that may occur during driving....">Issue</a> provides a basis for managing and logging problems that may occur during driving. Issues should be constructed as static and constant, in the event the problem occurs. Issues are logged in vector that can be globally read from, but only modified by <a class="el" href="classbfb_1_1_issue.html" title="Issue provides a basis for managing and logging problems that may occur during driving....">Issue</a> objects. Issues are sorted by highest to lowest severity when logged. </p>
@@ -149,52 +146,6 @@ Static Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="adba2107c1f278242984a8831bd48fb6a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adba2107c1f278242984a8831bd48fb6a">&#9670;&nbsp;</a></span>compareIssues()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static bool bfb::Issue::compareIssues </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="classbfb_1_1_issue.html">Issue</a> &amp;&#160;</td>
-          <td class="paramname"><em>a</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="classbfb_1_1_issue.html">Issue</a> &amp;&#160;</td>
-          <td class="paramname"><em>b</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Compares two issues by severity. Used for sorting. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">a</td><td></td></tr>
-    <tr><td class="paramname">b</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>bool </dd></dl>
-
-</div>
-</div>
 <a id="ad062f4924a5260e1844b1fa08ee03137"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad062f4924a5260e1844b1fa08ee03137">&#9670;&nbsp;</a></span>getDescription()</h2>
 
