@@ -81,8 +81,8 @@ $(function() {
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;okapi/api/control/util/SettledUtil.hpp&quot;</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;okapi/impl/util/timer.hpp&quot;</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacebfb.html">bfb</a> {</div>
-<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="classbfb_1_1_tbh.html">   23</a></span>&#160;<span class="keyword">class </span><a class="code" href="classbfb_1_1_tbh.html">Tbh</a> : <span class="keyword">public</span> <a class="code" href="classbfb_1_1_controller.html">Controller</a> {</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">namespace </span>bfb {</div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="classbfb_1_1_tbh.html">   23</a></span>&#160;<span class="keyword">class </span><a class="code" href="classbfb_1_1_tbh.html">Tbh</a> final : <span class="keyword">public</span> <a class="code" href="classbfb_1_1_controller.html">Controller</a> {</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  <span class="keyword">public</span>:</div>
 <div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="classbfb_1_1_tbh.html#a7f4003651e58a8847cdaf38678e6c735">   31</a></span>&#160;  <a class="code" href="classbfb_1_1_tbh.html#a7f4003651e58a8847cdaf38678e6c735">Tbh</a>(<span class="keywordtype">double</span> iGain, std::unique_ptr&lt;okapi::SettledUtil&gt; iSettledChecker);</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
@@ -120,7 +120,6 @@ $(function() {
 <div class="ttc" id="aclassbfb_1_1_tbh_html_a7f4003651e58a8847cdaf38678e6c735"><div class="ttname"><a href="classbfb_1_1_tbh.html#a7f4003651e58a8847cdaf38678e6c735">bfb::Tbh::Tbh</a></div><div class="ttdeci">Tbh(double iGain, std::unique_ptr&lt; okapi::SettledUtil &gt; iSettledChecker)</div><div class="ttdoc">Constructs a Tbh object.</div></div>
 <div class="ttc" id="aclassbfb_1_1_tbh_html_af7052f06249e71c01e89a87433407373"><div class="ttname"><a href="classbfb_1_1_tbh.html#af7052f06249e71c01e89a87433407373">bfb::Tbh::reset</a></div><div class="ttdeci">void reset() override</div><div class="ttdoc">Resets the internal state of the controller.</div></div>
 <div class="ttc" id="aclassbfb_1_1_controller_html"><div class="ttname"><a href="classbfb_1_1_controller.html">bfb::Controller</a></div><div class="ttdef"><b>Definition:</b> controller.hpp:12</div></div>
-<div class="ttc" id="anamespacebfb_html"><div class="ttname"><a href="namespacebfb.html">bfb</a></div><div class="ttdef"><b>Definition:</b> bfb.hpp:17</div></div>
 <div class="ttc" id="amath_util_8hpp_html"><div class="ttname"><a href="math_util_8hpp.html">mathUtil.hpp</a></div><div class="ttdoc">The mathUtil file implements math related methods and functions that are of use in many files.</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

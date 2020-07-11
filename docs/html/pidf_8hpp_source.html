@@ -80,8 +80,8 @@ $(function() {
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="test_8hpp.html">bfb/utility/test.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="controller_8hpp.html">controller.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacebfb.html">bfb</a> {</div>
-<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="classbfb_1_1_pidf.html">   22</a></span>&#160;<span class="keyword">class </span><a class="code" href="classbfb_1_1_pidf.html">Pidf</a> : <span class="keyword">public</span> <a class="code" href="classbfb_1_1_controller.html">Controller</a> {</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">namespace </span>bfb {</div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="classbfb_1_1_pidf.html">   22</a></span>&#160;<span class="keyword">class </span><a class="code" href="classbfb_1_1_pidf.html">Pidf</a> final : <span class="keyword">public</span> <a class="code" href="classbfb_1_1_controller.html">Controller</a> {</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  <span class="keyword">public</span>:</div>
 <div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="structbfb_1_1_pidf_1_1_pidf_gains.html">   28</a></span>&#160;  <span class="keyword">struct </span><a class="code" href="structbfb_1_1_pidf_1_1_pidf_gains.html">PidfGains</a> {</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordtype">double</span> kP{};</div>
@@ -130,7 +130,6 @@ $(function() {
 <div class="ttc" id="aclassbfb_1_1_controller_html"><div class="ttname"><a href="classbfb_1_1_controller.html">bfb::Controller</a></div><div class="ttdef"><b>Definition:</b> controller.hpp:12</div></div>
 <div class="ttc" id="aclassbfb_1_1_pidf_html_a917c26aa4409140d320bc40a2e35d182"><div class="ttname"><a href="classbfb_1_1_pidf.html#a917c26aa4409140d320bc40a2e35d182">bfb::Pidf::getOutput</a></div><div class="ttdeci">double getOutput() const override</div><div class="ttdoc">Gets the output of the controller.</div></div>
 <div class="ttc" id="aclassbfb_1_1_pidf_html_aedce9710b3c042b7be83f4cc2fa08dfd"><div class="ttname"><a href="classbfb_1_1_pidf.html#aedce9710b3c042b7be83f4cc2fa08dfd">bfb::Pidf::setReference</a></div><div class="ttdeci">void setReference(const double iReference) override</div><div class="ttdoc">Sets the reference for the controller.</div></div>
-<div class="ttc" id="anamespacebfb_html"><div class="ttname"><a href="namespacebfb.html">bfb</a></div><div class="ttdef"><b>Definition:</b> bfb.hpp:17</div></div>
 <div class="ttc" id="amath_util_8hpp_html"><div class="ttname"><a href="math_util_8hpp.html">mathUtil.hpp</a></div><div class="ttdoc">The mathUtil file implements math related methods and functions that are of use in many files.</div></div>
 <div class="ttc" id="aclassbfb_1_1_pidf_html"><div class="ttname"><a href="classbfb_1_1_pidf.html">bfb::Pidf</a></div><div class="ttdoc">Pidf implements a basic PID+ff controller, with additions to prevent integral windup and derivative k...</div><div class="ttdef"><b>Definition:</b> pidf.hpp:22</div></div>
 <!-- start footer part -->

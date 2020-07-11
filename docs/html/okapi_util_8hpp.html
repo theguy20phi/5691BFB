@@ -69,7 +69,6 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#namespaces">Namespaces</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">okapiUtil.hpp File Reference</div>  </div>
@@ -79,27 +78,68 @@ $(function() {
 <p>The okapiUtil file provides methods to better suit the rest of the bfb library.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;okapi/api/control/util/SettledUtil.hpp&quot;</code><br />
-<code>#include &quot;okapi/impl/util/timer.hpp&quot;</code><br />
+<code>#include &quot;okapi/impl/util/timeUtilFactory.hpp&quot;</code><br />
 <code>#include &lt;memory&gt;</code><br />
 </div>
 <p><a href="okapi_util_8hpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
-Namespaces</h2></td></tr>
-<tr class="memitem:namespacebfb"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacebfb.html">bfb</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a13133bdd4aadff679c7d5d0b88365748"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; okapi::SettledUtil &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacebfb.html#a13133bdd4aadff679c7d5d0b88365748">bfb::createSettledUtil</a> (double iatTargetError=50, double iatTargetDerivative=5, okapi::QTime iatTargetTime=250_ms)</td></tr>
-<tr class="memdesc:a13133bdd4aadff679c7d5d0b88365748"><td class="mdescLeft">&#160;</td><td class="mdescRight">Eases the process of creating a SettledUtil.  <a href="namespacebfb.html#a13133bdd4aadff679c7d5d0b88365748">More...</a><br /></td></tr>
+<tr class="memitem:a13133bdd4aadff679c7d5d0b88365748"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; okapi::SettledUtil &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="okapi_util_8hpp.html#a13133bdd4aadff679c7d5d0b88365748">bfb::createSettledUtil</a> (double iatTargetError=50, double iatTargetDerivative=5, okapi::QTime iatTargetTime=250_ms)</td></tr>
+<tr class="memdesc:a13133bdd4aadff679c7d5d0b88365748"><td class="mdescLeft">&#160;</td><td class="mdescRight">Eases the process of creating a SettledUtil.  <a href="okapi_util_8hpp.html#a13133bdd4aadff679c7d5d0b88365748">More...</a><br /></td></tr>
 <tr class="separator:a13133bdd4aadff679c7d5d0b88365748"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The okapiUtil file provides methods to better suit the rest of the bfb library. </p>
 <dl class="section author"><dt>Author</dt><dd>Braden Pierce (<a href="#" onclick="location.href='mai'+'lto:'+'913'+'15'+'300'+'6@'+'bry'+'an'+'tsc'+'ho'+'ols'+'.o'+'rg'; return false;">91315<span style="display: none;">.nosp@m.</span>3006<span style="display: none;">.nosp@m.</span>@brya<span style="display: none;">.nosp@m.</span>ntsc<span style="display: none;">.nosp@m.</span>hools<span style="display: none;">.nosp@m.</span>.org</a>) </dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>Copyright (c) 2020 </dd></dl>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">Function Documentation</h2>
+<a id="a13133bdd4aadff679c7d5d0b88365748"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a13133bdd4aadff679c7d5d0b88365748">&#9670;&nbsp;</a></span>createSettledUtil()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unique_ptr&lt;okapi::SettledUtil&gt; bfb::createSettledUtil </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>iatTargetError</em> = <code>50</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>iatTargetDerivative</em> = <code>5</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">okapi::QTime&#160;</td>
+          <td class="paramname"><em>iatTargetTime</em> = <code>250_ms</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Eases the process of creating a SettledUtil. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">iatTargetError</td><td></td></tr>
+    <tr><td class="paramname">iatTargetDerivative</td><td></td></tr>
+    <tr><td class="paramname">iatTargetTime</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>std::unique_ptr&lt;okapi::SettledUtil&gt; </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

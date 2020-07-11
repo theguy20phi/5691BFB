@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['dequeue_4',['dequeue',['../classbfb_1_1_state_machine.html#a720908a2b5634cfd2e3a74dbd10bc654',1,'bfb::StateMachine::dequeue(int n)'],['../classbfb_1_1_state_machine.html#a0a88861fc02c3d34d1fb55685d4bb212',1,'bfb::StateMachine::dequeue()']]],
-  ['dequeueall_5',['dequeueAll',['../classbfb_1_1_state_machine.html#a445e4476b2fbac167fb60d000fb004f8',1,'bfb::StateMachine']]]
+  ['enqueue_7',['enqueue',['../classbfb_1_1_state_machine.html#a736175f399eba35ce0794b7b045af42b',1,'bfb::StateMachine']]]
 ];

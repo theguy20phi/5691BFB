@@ -70,7 +70,6 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#namespaces">Namespaces</a> &#124;
 <a href="#define-members">Macros</a>  </div>
   <div class="headertitle">
 <div class="title">state.hpp File Reference</div>  </div>
@@ -85,11 +84,6 @@ $(function() {
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_state.html">bfb::State&lt; ParameterType &gt;</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provides a parent, template class to be subclassed for a variety of states to be used in tandem with a <a class="el" href="classbfb_1_1_state_machine.html" title="StateMachine implements a queue-based finite state machine, similar to a stack-based state machine....">StateMachine</a>. Subclasses can define their own parameters via templating.  <a href="classbfb_1_1_state.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
-Namespaces</h2></td></tr>
-<tr class="memitem:namespacebfb"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacebfb.html">bfb</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
@@ -134,7 +128,7 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">  <span class="keyword">class </span>a : <span class="keyword">public</span> b&lt;c&gt; {                                                                          \</div>
+<b>Value:</b><div class="fragment"><div class="line">  <span class="keyword">class </span>a final : <span class="keyword">public</span> b&lt;c&gt; {                                                                    \</div>
 <div class="line">    public:                                                                                        \</div>
 <div class="line">    using b&lt;c&gt;::b;                                                                                 \</div>
 <div class="line">    bool step(<span class="keyword">const</span> std::shared_ptr&lt;Robot&gt; &amp;robot) <span class="keyword">const override</span>;                                 \</div>
