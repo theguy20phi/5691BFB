@@ -40,7 +40,7 @@ class Tbh final : public Controller {
   private:
   /**
    * @brief Does the "Take-Back-Half" part of the algorithm.
-   *
+   * 
    * @param errorSign
    */
   void takeBackHalf(const int errorSign);

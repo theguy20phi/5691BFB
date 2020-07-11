@@ -23,7 +23,7 @@ constexpr int vex_delay{10};
  * waitUntil([object]() -> bool { return object->isDone(); });
  * It will wait in vex_delay increments until the condition is achieved.
  * Lambdas can be initialized else where: auto condition = [<any locals go here>](){ <stuff> }
- * You can also place time exits in the function. 
+ * You can also place time exits in the function.
  *
  * @param condition
  */

@@ -15,24 +15,24 @@
 
 namespace bfb {
 /**
- * @brief StateMachine implements a queue-based finite state machine, similar to a stack-based state
- * machine. States are enqueued, and when a state completes its behaviour, dequeued. A default state
- * should be provided. A StateMachine object can be limited to a certain type of state, via
- * templating. If something else needs to see the state of the machine, it should probably be a part
- * of the machine.
+ * @brief StateMachine implements a queue-based finite state machine, similar to a
+ * stack-based state machine. States are enqueued, and when a state completes its behaviour,
+ * dequeued. A standby state should be provided. A StateMachine object can be limited to a certain
+ * type of state, via templating. If something else needs to see the state of the machine, it should
+ * probably be a part of the machine.
  *
  * @tparam StateType
  */
-template <typename StateType> class StateMachine {
+template <typename StateType> class StateMachine final {
   public:
   /**
    * @brief Construct a new StateMachine object.
    *
    * @param iRobot
-   * @param iDefaultState
+   * @param iStandbyState
    */
-  StateMachine(const std::shared_ptr<Robot> &iRobot, const StateType &iDefaultState)
-    : robot(iRobot), defaultState(iDefaultState) {
+  StateMachine(const std::shared_ptr<Robot> &iRobot, const StateType &iStandbyState)
+    : robot(iRobot), defaultState(iStandbyState), standbyState(iStandbyState) {
     enqueue(defaultState);
   }
 
@@ -53,6 +53,44 @@ template <typename StateType> class StateMachine {
   bool isDone() const {
     // if size() = 0, !size() = 1 = true
     return !size();
+  }
+
+  /**
+   * @brief Sets the default state to the standby state, and
+   * removes all states in queue so the standby state's behaviour is performed immediately.
+   *
+   */
+  void defaultToStandbyNow() {
+    defaultToStandby();
+    dequeueAll();
+  }
+
+  /**
+   * @brief Set the default state to a new state, and removes
+   * all states in queue so the new state's behaviour is performed immediately.
+   *
+   * @param newState
+   */
+  void setDefaultNow(const StateType &newState) {
+    setDefault(newState);
+    dequeueAll();
+  }
+
+  /**
+   * @brief Sets the default state to standby.
+   *
+   */
+  void defaultToStandby() {
+    defaultState = standbyState;
+  }
+
+  /**
+   * @brief Set the default state.
+   *
+   * @param newState
+   */
+  void setDefault(const StateType &newState) {
+    defaultState = newState;
   }
 
   /**
@@ -114,7 +152,8 @@ template <typename StateType> class StateMachine {
 
   private:
   std::shared_ptr<Robot> robot;
-  const StateType defaultState;
+  StateType defaultState;
+  const StateType standbyState;
   std::queue<StateType> stateQueue;
 };
 } // namespace bfb

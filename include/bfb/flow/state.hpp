@@ -12,7 +12,7 @@
 #include <memory>
 
 #define DECLARE_STATE(a, b, c)                                                                     \
-  class a : public b<c> {                                                                          \
+  class a final : public b<c> {                                                                    \
     public:                                                                                        \
     using b<c>::b;                                                                                 \
     bool step(const std::shared_ptr<Robot> &robot) const override;                                 \
