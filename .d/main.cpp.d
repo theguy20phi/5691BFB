@@ -184,7 +184,9 @@ bin/main.cpp.o: src/main.cpp include/main.h include/api.h \
  include/bfb/utility/mathUtil.hpp include/bfb/utility/test.hpp \
  include/bfb/utility/okapiUtil.hpp include/bfb/utility/test.hpp \
  include/bfb/controllers/tbh.hpp include/bfb/utility/issue.hpp \
- include/bfb/utility/moreQLength.hpp include/bfb/utility/test.hpp
+ include/bfb/utility/moreQLength.hpp include/bfb/utility/test.hpp \
+ include/bfb/flow/state.hpp include/bfb/robot.hpp \
+ include/bfb/flow/stateMachine.hpp include/bfb/flow/wait.hpp
 
 include/main.h:
 
@@ -711,3 +713,11 @@ include/bfb/utility/issue.hpp:
 include/bfb/utility/moreQLength.hpp:
 
 include/bfb/utility/test.hpp:
+
+include/bfb/flow/state.hpp:
+
+include/bfb/robot.hpp:
+
+include/bfb/flow/stateMachine.hpp:
+
+include/bfb/flow/wait.hpp:
