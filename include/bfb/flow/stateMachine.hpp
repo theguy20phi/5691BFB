@@ -40,9 +40,12 @@ template <typename StateType> class StateMachine final {
    * @brief Goes through one step of the StateMachine.
    *
    */
-  void step() {
-    if (stateQueue.front()->step(robot))
+  bool step() {
+    if (stateQueue.front()->step(robot)) {
       dequeue();
+      return true;
+    }
+    return false;
   }
 
   /**
@@ -51,8 +54,8 @@ template <typename StateType> class StateMachine final {
    * @return bool
    */
   bool isDone() const {
-    // if size() = 0, !size() = 1 = true
-    return !size();
+    // if size() = 0, !size() = 1 = true and if current step is completed.
+    return !size() && step();
   }
 
   /**

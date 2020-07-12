@@ -86,9 +86,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a994fd86c0493baf9b1c9b6b708119454"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_state_machine.html#a994fd86c0493baf9b1c9b6b708119454">StateMachine</a> (const std::shared_ptr&lt; <a class="el" href="classbfb_1_1_robot.html">Robot</a> &gt; &amp;iRobot, const StateType &amp;iStandbyState)</td></tr>
 <tr class="memdesc:a994fd86c0493baf9b1c9b6b708119454"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classbfb_1_1_state_machine.html" title="StateMachine implements a queue-based finite state machine, similar to a stack-based state machine....">StateMachine</a> object.  <a href="classbfb_1_1_state_machine.html#a994fd86c0493baf9b1c9b6b708119454">More...</a><br /></td></tr>
 <tr class="separator:a994fd86c0493baf9b1c9b6b708119454"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a772c80d46399db81d5d548a29b6c3b65"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_state_machine.html#a772c80d46399db81d5d548a29b6c3b65">step</a> ()</td></tr>
-<tr class="memdesc:a772c80d46399db81d5d548a29b6c3b65"><td class="mdescLeft">&#160;</td><td class="mdescRight">Goes through one step of the <a class="el" href="classbfb_1_1_state_machine.html" title="StateMachine implements a queue-based finite state machine, similar to a stack-based state machine....">StateMachine</a>.  <a href="classbfb_1_1_state_machine.html#a772c80d46399db81d5d548a29b6c3b65">More...</a><br /></td></tr>
-<tr class="separator:a772c80d46399db81d5d548a29b6c3b65"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85c3e50dcb202959255ce604c1cfb8cd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_state_machine.html#a85c3e50dcb202959255ce604c1cfb8cd">step</a> ()</td></tr>
+<tr class="memdesc:a85c3e50dcb202959255ce604c1cfb8cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Goes through one step of the <a class="el" href="classbfb_1_1_state_machine.html" title="StateMachine implements a queue-based finite state machine, similar to a stack-based state machine....">StateMachine</a>.  <a href="classbfb_1_1_state_machine.html#a85c3e50dcb202959255ce604c1cfb8cd">More...</a><br /></td></tr>
+<tr class="separator:a85c3e50dcb202959255ce604c1cfb8cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae706ce5182c736f0a69f7b64ab7466dd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_state_machine.html#ae706ce5182c736f0a69f7b64ab7466dd">isDone</a> () const</td></tr>
 <tr class="memdesc:ae706ce5182c736f0a69f7b64ab7466dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines if the <a class="el" href="classbfb_1_1_state_machine.html" title="StateMachine implements a queue-based finite state machine, similar to a stack-based state machine....">StateMachine</a> has completed its queue, excluding the default state.  <a href="classbfb_1_1_state_machine.html#ae706ce5182c736f0a69f7b64ab7466dd">More...</a><br /></td></tr>
 <tr class="separator:ae706ce5182c736f0a69f7b64ab7466dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -503,8 +503,8 @@ template&lt;typename StateType &gt; </div>
 
 </div>
 </div>
-<a id="a772c80d46399db81d5d548a29b6c3b65"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a772c80d46399db81d5d548a29b6c3b65">&#9670;&nbsp;</a></span>step()</h2>
+<a id="a85c3e50dcb202959255ce604c1cfb8cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a85c3e50dcb202959255ce604c1cfb8cd">&#9670;&nbsp;</a></span>step()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -515,7 +515,7 @@ template&lt;typename StateType &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classbfb_1_1_state_machine.html">bfb::StateMachine</a>&lt; StateType &gt;::step </td>
+          <td class="memname">bool <a class="el" href="classbfb_1_1_state_machine.html">bfb::StateMachine</a>&lt; StateType &gt;::step </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
