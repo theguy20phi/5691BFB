@@ -13,6 +13,7 @@
 #include "controller.hpp"
 #include "okapi/api/control/util/SettledUtil.hpp"
 #include "okapi/impl/util/timer.hpp"
+#include <assert.h>
 
 namespace bfb {
 /**
@@ -25,30 +26,26 @@ class Tbh final : public Controller {
   /**
    * @brief Constructs a Tbh object.
    *
+   * @warning Asserted that gain >= 0.0.
    * @param iGain
    * @param iSettledChecker
    */
   Tbh(double iGain, std::unique_ptr<okapi::SettledUtil> iSettledChecker);
 
-  void setReference(const double iReference) override;
-  double getReference() const override;
   double step(const double state) override;
-  double getOutput() const override;
-  bool isSettled(const double state) override;
+  bool isDone(const double state) override;
   void reset() override;
 
   private:
   /**
    * @brief Does the "Take-Back-Half" part of the algorithm.
-   * 
+   *
    * @param errorSign
    */
   void takeBackHalf(const int errorSign);
 
   const double gain;
   std::unique_ptr<okapi::SettledUtil> settledChecker;
-  double output{0.0};
-  double reference{0.0};
   double tbh{0.0};
   double previousErrorSign{0};
 };

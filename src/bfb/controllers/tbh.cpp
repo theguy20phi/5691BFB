@@ -3,14 +3,7 @@
 namespace bfb {
 Tbh::Tbh(const double iGain, std::unique_ptr<okapi::SettledUtil> iSettledChecker)
   : gain(iGain), settledChecker(std::move(iSettledChecker)) {
-}
-
-void Tbh::setReference(const double iReference) {
-  reference = iReference;
-}
-
-double Tbh::getReference() const {
-  return reference;
+    assert(gain >= 0.0);
 }
 
 double Tbh::step(const double state) {
@@ -29,11 +22,7 @@ void Tbh::takeBackHalf(const int errorSign) {
   }
 }
 
-double Tbh::getOutput() const {
-  return output;
-}
-
-bool Tbh::isSettled(const double state) {
+bool Tbh::isDone(const double state) {
   settledChecker->isSettled(reference - state);
 }
 

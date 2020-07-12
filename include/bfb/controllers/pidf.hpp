@@ -12,6 +12,7 @@
 #include "bfb/utility/okapiUtil.hpp"
 #include "bfb/utility/test.hpp"
 #include "controller.hpp"
+#include <assert.h>
 
 namespace bfb {
 /**
@@ -35,16 +36,14 @@ class Pidf final : public Controller {
   /**
    * @brief Constructs a Pidf object.
    *
+   * @warning Asserted that alls gains are >= 0.0.
    * @param gains
    * @param iSettledChecker
    */
   Pidf(const PidfGains &gains, std::unique_ptr<okapi::SettledUtil> iSettledChecker);
 
-  void setReference(const double iReference) override;
-  double getReference() const override;
   double step(const double state) override;
-  double getOutput() const override;
-  bool isSettled(const double state) override;
+  bool isDone(const double state) override;
   void reset() override;
 
   private:
@@ -65,8 +64,6 @@ class Pidf final : public Controller {
   static constexpr double I_DECAY{0.95};
   const PidfGains gains;
   std::unique_ptr<okapi::SettledUtil> settledChecker;
-  double output{0.0};
-  double reference{0.0};
   double I{0.0};
   double previousState{0.0};
 };

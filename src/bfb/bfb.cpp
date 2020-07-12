@@ -3,13 +3,13 @@
 namespace bfb {
 void runTests() {
 #ifdef TESTING
-  moreQLengthTest();
   pidfTest();
   isAlmostEqualTest();
   signTest();
   tbhTest();
   issueTest();
   waitUntilTest();
+  waitUntilWithTimeoutTest();
 #endif
 }
 } // namespace bfb

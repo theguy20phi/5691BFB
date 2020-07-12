@@ -81,10 +81,10 @@ bin/bfb/bfb.cpp.o: src/bfb/bfb.cpp include/bfb/bfb.hpp \
  include/pros/apix.h include/pros/serial.h include/pros/serial.hpp \
  include/okapi/api/util/supplier.hpp include/bfb/utility/test.hpp \
  include/bfb/controllers/tbh.hpp include/okapi/impl/util/timer.hpp \
- include/bfb/utility/issue.hpp include/bfb/utility/moreQLength.hpp \
- include/okapi/api/units/QLength.hpp include/bfb/utility/test.hpp \
  include/bfb/flow/state.hpp include/bfb/robot.hpp \
- include/bfb/flow/stateMachine.hpp include/bfb/flow/wait.hpp
+ include/bfb/flow/stateMachine.hpp include/bfb/flow/wait.hpp \
+ include/bfb/utility/issue.hpp include/bfb/utility/moreQLength.hpp \
+ include/okapi/api/units/QLength.hpp include/bfb/utility/test.hpp
 
 include/bfb/bfb.hpp:
 
@@ -386,14 +386,6 @@ include/bfb/controllers/tbh.hpp:
 
 include/okapi/impl/util/timer.hpp:
 
-include/bfb/utility/issue.hpp:
-
-include/bfb/utility/moreQLength.hpp:
-
-include/okapi/api/units/QLength.hpp:
-
-include/bfb/utility/test.hpp:
-
 include/bfb/flow/state.hpp:
 
 include/bfb/robot.hpp:
@@ -401,3 +393,11 @@ include/bfb/robot.hpp:
 include/bfb/flow/stateMachine.hpp:
 
 include/bfb/flow/wait.hpp:
+
+include/bfb/utility/issue.hpp:
+
+include/bfb/utility/moreQLength.hpp:
+
+include/okapi/api/units/QLength.hpp:
+
+include/bfb/utility/test.hpp:

@@ -18,14 +18,14 @@ class Controller {
    *
    * @param iReference
    */
-  virtual void setReference(const double iReference) = 0;
+  virtual void setReference(const double iReference);
 
   /**
    * @brief Gets the current reference for the controller.
    *
    * @return double
    */
-  virtual double getReference() const = 0;
+  virtual double getReference() const;
 
   /**
    * @brief Goes through one step of the controller.
@@ -40,7 +40,7 @@ class Controller {
    *
    * @return double
    */
-  virtual double getOutput() const = 0;
+  virtual double getOutput() const;
 
   /**
    * @brief Gets if the controller is settled.
@@ -48,11 +48,15 @@ class Controller {
    * @param state
    * @return bool
    */
-  virtual bool isSettled(const double state) = 0;
+  virtual bool isDone(const double state) = 0;
 
   /**
    * @brief Resets the internal state of the controller.
    */
   virtual void reset() = 0;
+
+  protected:
+  double output{0.0};
+  double reference{0.0};
 };
 } // namespace bfb

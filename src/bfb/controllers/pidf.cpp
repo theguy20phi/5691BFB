@@ -3,14 +3,7 @@
 namespace bfb {
 Pidf::Pidf(const PidfGains &iGains, std::unique_ptr<okapi::SettledUtil> iSettledChecker)
   : gains(iGains), settledChecker(std::move(iSettledChecker)) {
-}
-
-void Pidf::setReference(const double iReference) {
-  reference = iReference;
-}
-
-double Pidf::getReference() const {
-  return reference;
+  assert(gains.kP >= 0.0 && gains.kI >= 0.0 && gains.kD >= 0.0 && gains.f >= 0.0);
 }
 
 double Pidf::step(const double state) {
@@ -35,11 +28,7 @@ double Pidf::calculateD(const double state) {
   return D * gains.kD;
 }
 
-double Pidf::getOutput() const {
-  return output;
-}
-
-bool Pidf::isSettled(const double state) {
+bool Pidf::isDone(const double state) {
   return settledChecker->isSettled(reference - state);
 }
 
