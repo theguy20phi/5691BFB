@@ -10,6 +10,7 @@ void runTests() {
   issueTest();
   waitUntilTest();
   waitUntilWithTimeoutTest();
+  std::cout << "Completed tests!" << std::endl;
 #endif
 }
 } // namespace bfb
