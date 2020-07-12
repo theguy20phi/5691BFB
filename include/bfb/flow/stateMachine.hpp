@@ -39,6 +39,7 @@ template <typename StateType> class StateMachine final {
   /**
    * @brief Goes through one step of the StateMachine.
    *
+   * @return bool
    */
   bool step() {
     if (stateQueue.front()->step(robot)) {
