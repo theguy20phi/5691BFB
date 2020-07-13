@@ -79,7 +79,9 @@ bin/bfb/controllers/pidf.cpp.o: src/bfb/controllers/pidf.cpp \
  include/pros/rtos.h include/pros/vision.hpp include/pros/vision.h \
  include/pros/apix.h include/pros/serial.h include/pros/serial.hpp \
  include/okapi/api/util/supplier.hpp include/bfb/utility/test.hpp \
- include/bfb/controllers/controller.hpp
+ include/bfb/controllers/controller.hpp \
+ include/okapi\api\filter\emaFilter.hpp \
+ include/okapi/api/filter/filter.hpp
 
 include/bfb/controllers/pidf.hpp:
 
@@ -374,3 +376,7 @@ include/okapi/api/util/supplier.hpp:
 include/bfb/utility/test.hpp:
 
 include/bfb/controllers/controller.hpp:
+
+include/okapi\api\filter\emaFilter.hpp:
+
+include/okapi/api/filter/filter.hpp:

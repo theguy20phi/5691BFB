@@ -12,6 +12,7 @@
 #include "bfb/utility/okapiUtil.hpp"
 #include "bfb/utility/test.hpp"
 #include "controller.hpp"
+#include "okapi\api\filter\emaFilter.hpp"
 #include <assert.h>
 
 namespace bfb {
@@ -64,6 +65,7 @@ class Pidf final : public Controller {
   static constexpr double I_DECAY{0.95};
   const PidfGains gains;
   std::unique_ptr<okapi::SettledUtil> settledChecker;
+  okapi::EmaFilter dFilter{0.5};
   double I{0.0};
   double previousState{0.0};
 };

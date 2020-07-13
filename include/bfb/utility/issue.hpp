@@ -15,20 +15,52 @@
 #include <vector>
 
 #define DECLARE_SEVERITY(a)                                                                        \
-  class a : public SeverityLevel {                                                                 \
+  class a final : public SeverityLevel {                                                           \
     int getNumeric() const override;                                                               \
     std::string getString() const override;                                                        \
-  };
+  };                                                                                               \
+  std::shared_ptr<a> make##a()
 
 #define DEFINE_SEVERITY(a, b, c)                                                                   \
-  int Issue::a::getNumeric() const {                                                               \
+  std::shared_ptr<a> make##a() {                                                                   \
+    return std::make_shared<a>();                                                                  \
+  }                                                                                                \
+  int a::getNumeric() const {                                                                      \
     return b;                                                                                      \
   }                                                                                                \
-  std::string Issue::a::getString() const {                                                        \
+  std::string a::getString() const {                                                               \
     return c;                                                                                      \
   }
 
 namespace bfb {
+/**
+ * @brief Provides a parent class for many SeverityLevel subclasses.
+ *
+ */
+class SeverityLevel {
+  public:
+  /**
+   * @brief Gets the numeric value of the severity level.
+   *
+   * @return int
+   */
+  virtual int getNumeric() const = 0;
+
+  /**
+   * @brief Gets the string representation of the severity level.
+   *
+   * @return std::string
+   */
+  virtual std::string getString() const = 0;
+};
+
+DECLARE_SEVERITY(Low);
+DECLARE_SEVERITY(Medium);
+DECLARE_SEVERITY(High);
+#ifdef TESTING
+DECLARE_SEVERITY(Test);
+#endif
+
 /**
  * @brief Issue provides a basis for managing and logging problems that may occur during driving.
  * Issues should be constructed as static and constant, in the event the problem occurs.
@@ -38,33 +70,6 @@ namespace bfb {
  */
 class Issue {
   public:
-  /**
-   * @brief Provides a parent class for many SeverityLevel subclasses.
-   *
-   */
-  class SeverityLevel {
-    public:
-    /**
-     * @brief Gets the numeric value of the severity level.
-     *
-     * @return int
-     */
-    virtual int getNumeric() const = 0;
-
-    /**
-     * @brief Gets the string representation of the severity level.
-     *
-     * @return std::string
-     */
-    virtual std::string getString() const = 0;
-  };
-  DECLARE_SEVERITY(Low)
-  DECLARE_SEVERITY(Medium)
-  DECLARE_SEVERITY(High)
-#ifdef TESTING
-  DECLARE_SEVERITY(Test)
-#endif
-
   /**
    * @brief Constructs an Issue object, logging the Issue to the list of issues.
    * In order to avoid repeated logging, construct as a static const (static const Issue

@@ -19,17 +19,18 @@ std::string Issue::getDescription() const {
   return description;
 }
 
-std::shared_ptr<Issue::SeverityLevel> Issue::getSeverity() const {
+std::shared_ptr<SeverityLevel> Issue::getSeverity() const {
   return severity;
 }
 
 std::vector<Issue> Issue::getIssueList() {
   return issueList;
 }
+
 #ifdef TESTING
 DEFINE_SEVERITY(Test, -1, "T");
 DEFINE_TEST(issueTest)
-static const Issue testIssue{"Test", std::make_shared<Issue::Test>()};
+static const Issue testIssue{"Test", makeTest()};
 IS_EQUAL(Issue::getIssueList().back().getDescription(), std::string("Test"))
 IS_EQUAL(Issue::getIssueList().back().getSeverity()->getString(), "T")
 END_TEST

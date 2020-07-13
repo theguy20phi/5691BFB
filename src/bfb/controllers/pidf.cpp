@@ -25,7 +25,7 @@ void Pidf::updateI(const double error) {
 double Pidf::calculateD(const double state) {
   const double D{previousState - state};
   previousState = state;
-  return D * gains.kD;
+  return dFilter.filter(D) * gains.kD;
 }
 
 bool Pidf::isDone(const double state) {
