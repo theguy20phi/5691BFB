@@ -6,7 +6,7 @@ Pidf::Pidf(const PidfGains &iGains, std::unique_ptr<okapi::SettledUtil> iSettled
   assert(gains.kP >= 0.0 && gains.kI >= 0.0 && gains.kD >= 0.0 && gains.f >= 0.0);
 }
 
-double Pidf::step(const double state) {
+double Pidf::step(double state) {
   const double error{reference - state};
   const double P{error * gains.kP};
   updateI(error);
@@ -16,19 +16,19 @@ double Pidf::step(const double state) {
   return output;
 }
 
-void Pidf::updateI(const double error) {
+void Pidf::updateI(double error) {
   I *= I_DECAY;
   I += error * gains.kI;
   I = isAlmostZero(I, 0.05) ? 0.0 : I;
 }
 
-double Pidf::calculateD(const double state) {
+double Pidf::calculateD(double state) {
   const double D{previousState - state};
   previousState = state;
   return dFilter.filter(D) * gains.kD;
 }
 
-bool Pidf::isDone(const double state) {
+bool Pidf::isDone(double state) {
   return settledChecker->isSettled(reference - state);
 }
 

@@ -18,7 +18,7 @@ class Controller {
    *
    * @param iReference
    */
-  virtual void setReference(const double iReference);
+  virtual void setReference(double iReference);
 
   /**
    * @brief Gets the current reference for the controller.
@@ -33,7 +33,7 @@ class Controller {
    * @param state
    * @return double
    */
-  virtual double step(const double state) = 0;
+  virtual double step(double state) = 0;
 
   /**
    * @brief Gets the output of the controller.
@@ -48,7 +48,7 @@ class Controller {
    * @param state
    * @return bool
    */
-  virtual bool isDone(const double state) = 0;
+  virtual bool isDone(double state) = 0;
 
   /**
    * @brief Resets the internal state of the controller.

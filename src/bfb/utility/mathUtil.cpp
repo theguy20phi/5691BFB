@@ -1,14 +1,14 @@
 #include "mathUtil.hpp"
 
 namespace bfb {
-bool isAlmostEqual(const double a, const double b, const double thresh) {
+bool isAlmostEqual(double a, double b, double thresh) {
   if (std::abs(a - b) <= thresh) {
     return true;
   }
   return false;
 }
 
-bool isAlmostZero(const double a, const double thresh) {
+bool isAlmostZero(double a, double thresh) {
   return isAlmostEqual(a, 0.0, thresh);
 }
 #ifdef TESTING

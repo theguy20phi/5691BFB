@@ -43,8 +43,8 @@ class Pidf final : public Controller {
    */
   Pidf(const PidfGains &gains, std::unique_ptr<okapi::SettledUtil> iSettledChecker);
 
-  double step(const double state) override;
-  bool isDone(const double state) override;
+  double step(double state) override;
+  bool isDone(double state) override;
   void reset() override;
 
   private:
@@ -53,14 +53,14 @@ class Pidf final : public Controller {
    *
    * @param error
    */
-  void updateI(const double error);
+  void updateI(double error);
 
   /**
    * @brief Calculates the D term for a step of the controller.
    *
    * @param state
    */
-  double calculateD(const double state);
+  double calculateD(double state);
 
   static constexpr double I_DECAY{0.95};
   const PidfGains gains;

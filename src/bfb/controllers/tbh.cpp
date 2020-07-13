@@ -1,12 +1,12 @@
 #include "tbh.hpp"
 
 namespace bfb {
-Tbh::Tbh(const double iGain, std::unique_ptr<okapi::SettledUtil> iSettledChecker)
+Tbh::Tbh(double iGain, std::unique_ptr<okapi::SettledUtil> iSettledChecker)
   : gain(iGain), settledChecker(std::move(iSettledChecker)) {
     assert(gain >= 0.0);
 }
 
-double Tbh::step(const double state) {
+double Tbh::step(double state) {
   double error{reference - state};
   output += gain * error;
   takeBackHalf(sign(error));
@@ -14,7 +14,7 @@ double Tbh::step(const double state) {
   return output;
 }
 
-void Tbh::takeBackHalf(const int errorSign) {
+void Tbh::takeBackHalf(int errorSign) {
   if (errorSign != previousErrorSign) {
     output = 0.5 * (output + tbh);
     tbh = output;
@@ -22,7 +22,7 @@ void Tbh::takeBackHalf(const int errorSign) {
   }
 }
 
-bool Tbh::isDone(const double state) {
+bool Tbh::isDone(double state) {
   settledChecker->isSettled(reference - state);
 }
 

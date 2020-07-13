@@ -21,7 +21,7 @@ namespace bfb {
  * @param thresh
  * @return bool
  */
-bool isAlmostEqual(const double a, const double b, const double thresh);
+bool isAlmostEqual(double a, double b, double thresh);
 
 /**
  * @brief Determines if a variable is almost zero given some threshold.
@@ -30,7 +30,7 @@ bool isAlmostEqual(const double a, const double b, const double thresh);
  * @param thresh
  * @return bool
  */
-bool isAlmostZero(const double a, const double thresh);
+bool isAlmostZero(double a, double thresh);
 
 /**
  * @brief Determines the sign of a value.
@@ -39,7 +39,7 @@ bool isAlmostZero(const double a, const double thresh);
  * @param value 
  * @return int 
  */
-template <typename T> int sign(const T value) {
+template <typename T> int sign(const T &value) {
   if (value < 0)
     return -1;
   else if (value > 0)

@@ -32,8 +32,8 @@ class Tbh final : public Controller {
    */
   Tbh(double iGain, std::unique_ptr<okapi::SettledUtil> iSettledChecker);
 
-  double step(const double state) override;
-  bool isDone(const double state) override;
+  double step(double state) override;
+  bool isDone(double state) override;
   void reset() override;
 
   private:
@@ -42,7 +42,7 @@ class Tbh final : public Controller {
    *
    * @param errorSign
    */
-  void takeBackHalf(const int errorSign);
+  void takeBackHalf(int errorSign);
 
   const double gain;
   std::unique_ptr<okapi::SettledUtil> settledChecker;
