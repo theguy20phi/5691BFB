@@ -9,7 +9,7 @@
  */
 #pragma once
 
-#include "test.hpp"
+#include "bfb/debug/test.hpp"
 #include <cmath>
 
 namespace bfb {
@@ -34,10 +34,10 @@ bool isAlmostZero(double a, double thresh);
 
 /**
  * @brief Determines the sign of a value.
- * 
- * @tparam T 
- * @param value 
- * @return int 
+ *
+ * @tparam T
+ * @param value
+ * @return int
  */
 template <typename T> int sign(const T &value) {
   if (value < 0)

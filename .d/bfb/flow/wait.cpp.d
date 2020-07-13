@@ -68,7 +68,7 @@ bin/bfb/flow/wait.cpp.o: src/bfb/flow/wait.cpp include/bfb/flow/wait.hpp \
  include/pros/llemu.h include/pros/misc.hpp include/pros/misc.h \
  include/pros/motors.hpp include/pros/motors.h include/pros/rtos.hpp \
  include/pros/rtos.h include/pros/vision.hpp include/pros/vision.h \
- include/bfb/utility/test.hpp
+ include/bfb/debug/test.hpp
 
 include/bfb/flow/wait.hpp:
 
@@ -328,4 +328,4 @@ include/pros/vision.hpp:
 
 include/pros/vision.h:
 
-include/bfb/utility/test.hpp:
+include/bfb/debug/test.hpp:

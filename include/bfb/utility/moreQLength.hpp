@@ -9,8 +9,8 @@
 
 #pragma once
 
+#include "bfb/debug/test.hpp"
 #include "okapi/api/units/QLength.hpp"
-#include "test.hpp"
 
 namespace bfb {
 constexpr okapi::QLength tile{2 * okapi::foot};

@@ -10,7 +10,7 @@
 #pragma once
 
 #include "api.h"
-#include "bfb/utility/test.hpp"
+#include "bfb/debug/test.hpp"
 #include <functional>
 
 namespace bfb {

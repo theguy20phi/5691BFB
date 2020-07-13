@@ -8,9 +8,9 @@
 
 #pragma once
 
+#include "bfb/debug/test.hpp"
 #include "bfb/utility/mathUtil.hpp"
 #include "bfb/utility/okapiUtil.hpp"
-#include "bfb/utility/test.hpp"
 #include "controller.hpp"
 #include "okapi\api\filter\emaFilter.hpp"
 #include <assert.h>

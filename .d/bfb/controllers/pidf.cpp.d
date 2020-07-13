@@ -1,6 +1,6 @@
 bin/bfb/controllers/pidf.cpp.o: src/bfb/controllers/pidf.cpp \
- include/bfb/controllers/pidf.hpp include/bfb/utility/mathUtil.hpp \
- include/bfb/utility/test.hpp include/bfb/utility/okapiUtil.hpp \
+ include/bfb/controllers/pidf.hpp include/bfb/debug/test.hpp \
+ include/bfb/utility/mathUtil.hpp include/bfb/utility/okapiUtil.hpp \
  include/okapi/api/control/util/SettledUtil.hpp \
  include/okapi/api/units/QTime.hpp include/okapi/api/units/RQuantity.hpp \
  include/okapi/api/util/abstractTimer.hpp \
@@ -78,16 +78,16 @@ bin/bfb/controllers/pidf.cpp.o: src/bfb/controllers/pidf.cpp \
  include/pros/motors.hpp include/pros/motors.h include/pros/rtos.hpp \
  include/pros/rtos.h include/pros/vision.hpp include/pros/vision.h \
  include/pros/apix.h include/pros/serial.h include/pros/serial.hpp \
- include/okapi/api/util/supplier.hpp include/bfb/utility/test.hpp \
+ include/okapi/api/util/supplier.hpp \
  include/bfb/controllers/controller.hpp \
  include/okapi\api\filter\emaFilter.hpp \
  include/okapi/api/filter/filter.hpp
 
 include/bfb/controllers/pidf.hpp:
 
-include/bfb/utility/mathUtil.hpp:
+include/bfb/debug/test.hpp:
 
-include/bfb/utility/test.hpp:
+include/bfb/utility/mathUtil.hpp:
 
 include/bfb/utility/okapiUtil.hpp:
 
@@ -372,8 +372,6 @@ include/pros/serial.h:
 include/pros/serial.hpp:
 
 include/okapi/api/util/supplier.hpp:
-
-include/bfb/utility/test.hpp:
 
 include/bfb/controllers/controller.hpp:
 
