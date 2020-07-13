@@ -76,7 +76,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="classbfb_1_1_state_machine.html" title="StateMachine implements a queue-based finite state machine, similar to a stack-based state machine....">StateMachine</a> implements a queue-based finite state machine, similar to a stack-based state machine. States are enqueued, and when a state completes its behaviour, dequeued. A standby state should be provided. A <a class="el" href="classbfb_1_1_state_machine.html" title="StateMachine implements a queue-based finite state machine, similar to a stack-based state machine....">StateMachine</a> object can be limited to a certain type of state, via templating. If something else needs to see the state of the machine, it should probably be a part of the machine.  
+<p><a class="el" href="classbfb_1_1_state_machine.html" title="StateMachine implements a finite state machine. A standby state should be provided....">StateMachine</a> implements a finite state machine. A standby state should be provided. A <a class="el" href="classbfb_1_1_state_machine.html" title="StateMachine implements a finite state machine. A standby state should be provided....">StateMachine</a> object can be limited to a certain type of state, via templating. If something else needs to see the state of the machine, it should probably be a part of the machine.  
  <a href="classbfb_1_1_state_machine.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="state_machine_8hpp_source.html">stateMachine.hpp</a>&gt;</code></p>
@@ -84,41 +84,20 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a994fd86c0493baf9b1c9b6b708119454"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_state_machine.html#a994fd86c0493baf9b1c9b6b708119454">StateMachine</a> (const std::shared_ptr&lt; <a class="el" href="classbfb_1_1_robot.html">Robot</a> &gt; &amp;iRobot, const StateType &amp;iStandbyState)</td></tr>
-<tr class="memdesc:a994fd86c0493baf9b1c9b6b708119454"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classbfb_1_1_state_machine.html" title="StateMachine implements a queue-based finite state machine, similar to a stack-based state machine....">StateMachine</a> object.  <a href="classbfb_1_1_state_machine.html#a994fd86c0493baf9b1c9b6b708119454">More...</a><br /></td></tr>
+<tr class="memdesc:a994fd86c0493baf9b1c9b6b708119454"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classbfb_1_1_state_machine.html" title="StateMachine implements a finite state machine. A standby state should be provided....">StateMachine</a> object.  <a href="classbfb_1_1_state_machine.html#a994fd86c0493baf9b1c9b6b708119454">More...</a><br /></td></tr>
 <tr class="separator:a994fd86c0493baf9b1c9b6b708119454"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a85c3e50dcb202959255ce604c1cfb8cd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_state_machine.html#a85c3e50dcb202959255ce604c1cfb8cd">step</a> ()</td></tr>
-<tr class="memdesc:a85c3e50dcb202959255ce604c1cfb8cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Goes through one step of the <a class="el" href="classbfb_1_1_state_machine.html" title="StateMachine implements a queue-based finite state machine, similar to a stack-based state machine....">StateMachine</a>.  <a href="classbfb_1_1_state_machine.html#a85c3e50dcb202959255ce604c1cfb8cd">More...</a><br /></td></tr>
+<tr class="memdesc:a85c3e50dcb202959255ce604c1cfb8cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Goes through one step of the <a class="el" href="classbfb_1_1_state_machine.html" title="StateMachine implements a finite state machine. A standby state should be provided....">StateMachine</a>.  <a href="classbfb_1_1_state_machine.html#a85c3e50dcb202959255ce604c1cfb8cd">More...</a><br /></td></tr>
 <tr class="separator:a85c3e50dcb202959255ce604c1cfb8cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae706ce5182c736f0a69f7b64ab7466dd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_state_machine.html#ae706ce5182c736f0a69f7b64ab7466dd">isDone</a> () const</td></tr>
-<tr class="memdesc:ae706ce5182c736f0a69f7b64ab7466dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines if the <a class="el" href="classbfb_1_1_state_machine.html" title="StateMachine implements a queue-based finite state machine, similar to a stack-based state machine....">StateMachine</a> has completed its queue, excluding the default state.  <a href="classbfb_1_1_state_machine.html#ae706ce5182c736f0a69f7b64ab7466dd">More...</a><br /></td></tr>
-<tr class="separator:ae706ce5182c736f0a69f7b64ab7466dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a09dc23870354898206b0226067bf812c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_state_machine.html#a09dc23870354898206b0226067bf812c">defaultToStandbyNow</a> ()</td></tr>
-<tr class="memdesc:a09dc23870354898206b0226067bf812c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the default state to the standby state, and removes all states in queue so the standby state's behaviour is performed immediately.  <a href="classbfb_1_1_state_machine.html#a09dc23870354898206b0226067bf812c">More...</a><br /></td></tr>
-<tr class="separator:a09dc23870354898206b0226067bf812c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a277d6a68dcb50165b77652f351de132c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_state_machine.html#a277d6a68dcb50165b77652f351de132c">setDefaultNow</a> (const StateType &amp;newState)</td></tr>
-<tr class="memdesc:a277d6a68dcb50165b77652f351de132c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the default state to a new state, and removes all states in queue so the new state's behaviour is performed immediately.  <a href="classbfb_1_1_state_machine.html#a277d6a68dcb50165b77652f351de132c">More...</a><br /></td></tr>
-<tr class="separator:a277d6a68dcb50165b77652f351de132c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a037c9017102640f2120348fc7ad40619"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_state_machine.html#a037c9017102640f2120348fc7ad40619">defaultToStandby</a> ()</td></tr>
-<tr class="memdesc:a037c9017102640f2120348fc7ad40619"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the default state to standby.  <a href="classbfb_1_1_state_machine.html#a037c9017102640f2120348fc7ad40619">More...</a><br /></td></tr>
-<tr class="separator:a037c9017102640f2120348fc7ad40619"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aff956f9c779a2c48fa63edeb80d3cbac"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_state_machine.html#aff956f9c779a2c48fa63edeb80d3cbac">setDefault</a> (const StateType &amp;newState)</td></tr>
-<tr class="memdesc:aff956f9c779a2c48fa63edeb80d3cbac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the default state.  <a href="classbfb_1_1_state_machine.html#aff956f9c779a2c48fa63edeb80d3cbac">More...</a><br /></td></tr>
-<tr class="separator:aff956f9c779a2c48fa63edeb80d3cbac"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a736175f399eba35ce0794b7b045af42b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_state_machine.html#a736175f399eba35ce0794b7b045af42b">enqueue</a> (const StateType &amp;newState)</td></tr>
-<tr class="memdesc:a736175f399eba35ce0794b7b045af42b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enqueues another state to be done.  <a href="classbfb_1_1_state_machine.html#a736175f399eba35ce0794b7b045af42b">More...</a><br /></td></tr>
-<tr class="separator:a736175f399eba35ce0794b7b045af42b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a445e4476b2fbac167fb60d000fb004f8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_state_machine.html#a445e4476b2fbac167fb60d000fb004f8">dequeueAll</a> ()</td></tr>
-<tr class="memdesc:a445e4476b2fbac167fb60d000fb004f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes all states from the queue.  <a href="classbfb_1_1_state_machine.html#a445e4476b2fbac167fb60d000fb004f8">More...</a><br /></td></tr>
-<tr class="separator:a445e4476b2fbac167fb60d000fb004f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a720908a2b5634cfd2e3a74dbd10bc654"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_state_machine.html#a720908a2b5634cfd2e3a74dbd10bc654">dequeue</a> (int n)</td></tr>
-<tr class="memdesc:a720908a2b5634cfd2e3a74dbd10bc654"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes n states from the queue.  <a href="classbfb_1_1_state_machine.html#a720908a2b5634cfd2e3a74dbd10bc654">More...</a><br /></td></tr>
-<tr class="separator:a720908a2b5634cfd2e3a74dbd10bc654"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0a88861fc02c3d34d1fb55685d4bb212"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_state_machine.html#a0a88861fc02c3d34d1fb55685d4bb212">dequeue</a> ()</td></tr>
-<tr class="memdesc:a0a88861fc02c3d34d1fb55685d4bb212"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes a single state from the queue.  <a href="classbfb_1_1_state_machine.html#a0a88861fc02c3d34d1fb55685d4bb212">More...</a><br /></td></tr>
-<tr class="separator:a0a88861fc02c3d34d1fb55685d4bb212"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a179f369b0041e4af5d236372561130a9"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_state_machine.html#a179f369b0041e4af5d236372561130a9">size</a> () const</td></tr>
-<tr class="memdesc:a179f369b0041e4af5d236372561130a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the size of the queue.  <a href="classbfb_1_1_state_machine.html#a179f369b0041e4af5d236372561130a9">More...</a><br /></td></tr>
-<tr class="separator:a179f369b0041e4af5d236372561130a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a82f6a728dbe802a2bd8fe8545b5409a7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_state_machine.html#a82f6a728dbe802a2bd8fe8545b5409a7">setState</a> (const StateType &amp;newState)</td></tr>
+<tr class="memdesc:a82f6a728dbe802a2bd8fe8545b5409a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the current state.  <a href="classbfb_1_1_state_machine.html#a82f6a728dbe802a2bd8fe8545b5409a7">More...</a><br /></td></tr>
+<tr class="separator:a82f6a728dbe802a2bd8fe8545b5409a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae8d396b97763b33a3b5dfbc933bec91a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_state_machine.html#ae8d396b97763b33a3b5dfbc933bec91a">isDone</a> ()</td></tr>
+<tr class="memdesc:ae8d396b97763b33a3b5dfbc933bec91a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines if the <a class="el" href="classbfb_1_1_state_machine.html" title="StateMachine implements a finite state machine. A standby state should be provided....">StateMachine</a>'s state is done.  <a href="classbfb_1_1_state_machine.html#ae8d396b97763b33a3b5dfbc933bec91a">More...</a><br /></td></tr>
+<tr class="separator:ae8d396b97763b33a3b5dfbc933bec91a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7d9e30c5362245e2e07ebf034afae829"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_state_machine.html#a7d9e30c5362245e2e07ebf034afae829">standby</a> ()</td></tr>
+<tr class="memdesc:a7d9e30c5362245e2e07ebf034afae829"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the state to standby.  <a href="classbfb_1_1_state_machine.html#a7d9e30c5362245e2e07ebf034afae829">More...</a><br /></td></tr>
+<tr class="separator:a7d9e30c5362245e2e07ebf034afae829"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5c8974eea14369513f7e40042dea9857"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_state_machine.html#a5c8974eea14369513f7e40042dea9857">toString</a> () const</td></tr>
 <tr class="memdesc:a5c8974eea14369513f7e40042dea9857"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the state in string form. SHOULD ONLY BE USED FOR DEBUGGING.  <a href="classbfb_1_1_state_machine.html#a5c8974eea14369513f7e40042dea9857">More...</a><br /></td></tr>
 <tr class="separator:a5c8974eea14369513f7e40042dea9857"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -127,7 +106,7 @@ Public Member Functions</h2></td></tr>
 <div class="textblock"><h3>template&lt;typename StateType&gt;<br />
 class bfb::StateMachine&lt; StateType &gt;</h3>
 
-<p><a class="el" href="classbfb_1_1_state_machine.html" title="StateMachine implements a queue-based finite state machine, similar to a stack-based state machine....">StateMachine</a> implements a queue-based finite state machine, similar to a stack-based state machine. States are enqueued, and when a state completes its behaviour, dequeued. A standby state should be provided. A <a class="el" href="classbfb_1_1_state_machine.html" title="StateMachine implements a queue-based finite state machine, similar to a stack-based state machine....">StateMachine</a> object can be limited to a certain type of state, via templating. If something else needs to see the state of the machine, it should probably be a part of the machine. </p>
+<p><a class="el" href="classbfb_1_1_state_machine.html" title="StateMachine implements a finite state machine. A standby state should be provided....">StateMachine</a> implements a finite state machine. A standby state should be provided. A <a class="el" href="classbfb_1_1_state_machine.html" title="StateMachine implements a finite state machine. A standby state should be provided....">StateMachine</a> object can be limited to a certain type of state, via templating. If something else needs to see the state of the machine, it should probably be a part of the machine. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">StateType</td><td></td></tr>
@@ -171,7 +150,7 @@ template&lt;typename StateType &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Construct a new <a class="el" href="classbfb_1_1_state_machine.html" title="StateMachine implements a queue-based finite state machine, similar to a stack-based state machine....">StateMachine</a> object. </p>
+<p>Construct a new <a class="el" href="classbfb_1_1_state_machine.html" title="StateMachine implements a finite state machine. A standby state should be provided....">StateMachine</a> object. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">iRobot</td><td></td></tr>
@@ -183,196 +162,8 @@ template&lt;typename StateType &gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a037c9017102640f2120348fc7ad40619"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a037c9017102640f2120348fc7ad40619">&#9670;&nbsp;</a></span>defaultToStandby()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename StateType &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="classbfb_1_1_state_machine.html">bfb::StateMachine</a>&lt; StateType &gt;::defaultToStandby </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Sets the default state to standby. </p>
-
-</div>
-</div>
-<a id="a09dc23870354898206b0226067bf812c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a09dc23870354898206b0226067bf812c">&#9670;&nbsp;</a></span>defaultToStandbyNow()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename StateType &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="classbfb_1_1_state_machine.html">bfb::StateMachine</a>&lt; StateType &gt;::defaultToStandbyNow </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Sets the default state to the standby state, and removes all states in queue so the standby state's behaviour is performed immediately. </p>
-
-</div>
-</div>
-<a id="a0a88861fc02c3d34d1fb55685d4bb212"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0a88861fc02c3d34d1fb55685d4bb212">&#9670;&nbsp;</a></span>dequeue() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename StateType &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="classbfb_1_1_state_machine.html">bfb::StateMachine</a>&lt; StateType &gt;::dequeue </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Removes a single state from the queue. </p>
-
-</div>
-</div>
-<a id="a720908a2b5634cfd2e3a74dbd10bc654"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a720908a2b5634cfd2e3a74dbd10bc654">&#9670;&nbsp;</a></span>dequeue() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename StateType &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="classbfb_1_1_state_machine.html">bfb::StateMachine</a>&lt; StateType &gt;::dequeue </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>n</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Removes n states from the queue. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">n</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a445e4476b2fbac167fb60d000fb004f8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a445e4476b2fbac167fb60d000fb004f8">&#9670;&nbsp;</a></span>dequeueAll()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename StateType &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="classbfb_1_1_state_machine.html">bfb::StateMachine</a>&lt; StateType &gt;::dequeueAll </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Removes all states from the queue. </p>
-
-</div>
-</div>
-<a id="a736175f399eba35ce0794b7b045af42b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a736175f399eba35ce0794b7b045af42b">&#9670;&nbsp;</a></span>enqueue()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename StateType &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="classbfb_1_1_state_machine.html">bfb::StateMachine</a>&lt; StateType &gt;::enqueue </td>
-          <td>(</td>
-          <td class="paramtype">const StateType &amp;&#160;</td>
-          <td class="paramname"><em>newState</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Enqueues another state to be done. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">newState</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="ae706ce5182c736f0a69f7b64ab7466dd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae706ce5182c736f0a69f7b64ab7466dd">&#9670;&nbsp;</a></span>isDone()</h2>
+<a id="ae8d396b97763b33a3b5dfbc933bec91a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae8d396b97763b33a3b5dfbc933bec91a">&#9670;&nbsp;</a></span>isDone()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -386,7 +177,7 @@ template&lt;typename StateType &gt; </div>
           <td class="memname">bool <a class="el" href="classbfb_1_1_state_machine.html">bfb::StateMachine</a>&lt; StateType &gt;::isDone </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td> const</td>
+          <td></td>
         </tr>
       </table>
   </td>
@@ -396,13 +187,13 @@ template&lt;typename StateType &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Determines if the <a class="el" href="classbfb_1_1_state_machine.html" title="StateMachine implements a queue-based finite state machine, similar to a stack-based state machine....">StateMachine</a> has completed its queue, excluding the default state. </p>
+<p>Determines if the <a class="el" href="classbfb_1_1_state_machine.html" title="StateMachine implements a finite state machine. A standby state should be provided....">StateMachine</a>'s state is done. </p>
 <dl class="section return"><dt>Returns</dt><dd>bool </dd></dl>
 
 </div>
 </div>
-<a id="aff956f9c779a2c48fa63edeb80d3cbac"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aff956f9c779a2c48fa63edeb80d3cbac">&#9670;&nbsp;</a></span>setDefault()</h2>
+<a id="a82f6a728dbe802a2bd8fe8545b5409a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a82f6a728dbe802a2bd8fe8545b5409a7">&#9670;&nbsp;</a></span>setState()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -413,7 +204,7 @@ template&lt;typename StateType &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classbfb_1_1_state_machine.html">bfb::StateMachine</a>&lt; StateType &gt;::setDefault </td>
+          <td class="memname">void <a class="el" href="classbfb_1_1_state_machine.html">bfb::StateMachine</a>&lt; StateType &gt;::setState </td>
           <td>(</td>
           <td class="paramtype">const StateType &amp;&#160;</td>
           <td class="paramname"><em>newState</em></td><td>)</td>
@@ -427,7 +218,7 @@ template&lt;typename StateType &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Set the default state. </p>
+<p>Sets the current state. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">newState</td><td></td></tr>
@@ -437,8 +228,8 @@ template&lt;typename StateType &gt; </div>
 
 </div>
 </div>
-<a id="a277d6a68dcb50165b77652f351de132c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a277d6a68dcb50165b77652f351de132c">&#9670;&nbsp;</a></span>setDefaultNow()</h2>
+<a id="a7d9e30c5362245e2e07ebf034afae829"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7d9e30c5362245e2e07ebf034afae829">&#9670;&nbsp;</a></span>standby()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -449,46 +240,10 @@ template&lt;typename StateType &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classbfb_1_1_state_machine.html">bfb::StateMachine</a>&lt; StateType &gt;::setDefaultNow </td>
-          <td>(</td>
-          <td class="paramtype">const StateType &amp;&#160;</td>
-          <td class="paramname"><em>newState</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Set the default state to a new state, and removes all states in queue so the new state's behaviour is performed immediately. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">newState</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a179f369b0041e4af5d236372561130a9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a179f369b0041e4af5d236372561130a9">&#9670;&nbsp;</a></span>size()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename StateType &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::size_t <a class="el" href="classbfb_1_1_state_machine.html">bfb::StateMachine</a>&lt; StateType &gt;::size </td>
+          <td class="memname">void <a class="el" href="classbfb_1_1_state_machine.html">bfb::StateMachine</a>&lt; StateType &gt;::standby </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td> const</td>
+          <td></td>
         </tr>
       </table>
   </td>
@@ -498,8 +253,7 @@ template&lt;typename StateType &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Gets the size of the queue. </p>
-<dl class="section return"><dt>Returns</dt><dd>std::size_t </dd></dl>
+<p>Resets the state to standby. </p>
 
 </div>
 </div>
@@ -528,7 +282,8 @@ template&lt;typename StateType &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Goes through one step of the <a class="el" href="classbfb_1_1_state_machine.html" title="StateMachine implements a queue-based finite state machine, similar to a stack-based state machine....">StateMachine</a>. </p>
+<p>Goes through one step of the <a class="el" href="classbfb_1_1_state_machine.html" title="StateMachine implements a finite state machine. A standby state should be provided....">StateMachine</a>. </p>
+<dl class="section return"><dt>Returns</dt><dd>bool </dd></dl>
 
 </div>
 </div>

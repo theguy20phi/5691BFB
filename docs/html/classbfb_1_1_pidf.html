@@ -102,20 +102,20 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a03f930e13ba56ffe6a579d836f6a3f54"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_pidf.html#a03f930e13ba56ffe6a579d836f6a3f54">Pidf</a> (const <a class="el" href="structbfb_1_1_pidf_1_1_pidf_gains.html">PidfGains</a> &amp;gains, std::unique_ptr&lt; okapi::SettledUtil &gt; iSettledChecker)</td></tr>
 <tr class="memdesc:a03f930e13ba56ffe6a579d836f6a3f54"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a <a class="el" href="classbfb_1_1_pidf.html" title="Pidf implements a basic PID+ff controller, with additions to prevent integral windup and derivative k...">Pidf</a> object.  <a href="classbfb_1_1_pidf.html#a03f930e13ba56ffe6a579d836f6a3f54">More...</a><br /></td></tr>
 <tr class="separator:a03f930e13ba56ffe6a579d836f6a3f54"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a475ad998b699698351e24748ebb77a75"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_pidf.html#a475ad998b699698351e24748ebb77a75">step</a> (const double state) override</td></tr>
-<tr class="memdesc:a475ad998b699698351e24748ebb77a75"><td class="mdescLeft">&#160;</td><td class="mdescRight">Goes through one step of the controller.  <a href="classbfb_1_1_pidf.html#a475ad998b699698351e24748ebb77a75">More...</a><br /></td></tr>
-<tr class="separator:a475ad998b699698351e24748ebb77a75"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9166a04c5e2450ec367932ee755a7012"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_pidf.html#a9166a04c5e2450ec367932ee755a7012">isDone</a> (const double state) override</td></tr>
-<tr class="memdesc:a9166a04c5e2450ec367932ee755a7012"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets if the controller is settled.  <a href="classbfb_1_1_pidf.html#a9166a04c5e2450ec367932ee755a7012">More...</a><br /></td></tr>
-<tr class="separator:a9166a04c5e2450ec367932ee755a7012"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae27e9ff558394933e3a258673273da8c"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_pidf.html#ae27e9ff558394933e3a258673273da8c">step</a> (double state) override</td></tr>
+<tr class="memdesc:ae27e9ff558394933e3a258673273da8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Goes through one step of the controller.  <a href="classbfb_1_1_pidf.html#ae27e9ff558394933e3a258673273da8c">More...</a><br /></td></tr>
+<tr class="separator:ae27e9ff558394933e3a258673273da8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab0de7f4edc4ba49c8b1612f376b100c1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_pidf.html#ab0de7f4edc4ba49c8b1612f376b100c1">isDone</a> (double state) override</td></tr>
+<tr class="memdesc:ab0de7f4edc4ba49c8b1612f376b100c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets if the controller is settled.  <a href="classbfb_1_1_pidf.html#ab0de7f4edc4ba49c8b1612f376b100c1">More...</a><br /></td></tr>
+<tr class="separator:ab0de7f4edc4ba49c8b1612f376b100c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae54df26278aa0c65a6d561696d091b36"><td class="memItemLeft" align="right" valign="top"><a id="ae54df26278aa0c65a6d561696d091b36"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_pidf.html#ae54df26278aa0c65a6d561696d091b36">reset</a> () override</td></tr>
 <tr class="memdesc:ae54df26278aa0c65a6d561696d091b36"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the internal state of the controller. <br /></td></tr>
 <tr class="separator:ae54df26278aa0c65a6d561696d091b36"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classbfb_1_1_controller"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classbfb_1_1_controller')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classbfb_1_1_controller.html">bfb::Controller</a></td></tr>
-<tr class="memitem:ac09f0e03007ff700861382916a7baaba inherit pub_methods_classbfb_1_1_controller"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_controller.html#ac09f0e03007ff700861382916a7baaba">setReference</a> (const double iReference)</td></tr>
-<tr class="memdesc:ac09f0e03007ff700861382916a7baaba inherit pub_methods_classbfb_1_1_controller"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the reference for the controller.  <a href="classbfb_1_1_controller.html#ac09f0e03007ff700861382916a7baaba">More...</a><br /></td></tr>
-<tr class="separator:ac09f0e03007ff700861382916a7baaba inherit pub_methods_classbfb_1_1_controller"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad0eab693cddd1b6a74f61c26edda7ee5 inherit pub_methods_classbfb_1_1_controller"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_controller.html#ad0eab693cddd1b6a74f61c26edda7ee5">setReference</a> (double iReference)</td></tr>
+<tr class="memdesc:ad0eab693cddd1b6a74f61c26edda7ee5 inherit pub_methods_classbfb_1_1_controller"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the reference for the controller.  <a href="classbfb_1_1_controller.html#ad0eab693cddd1b6a74f61c26edda7ee5">More...</a><br /></td></tr>
+<tr class="separator:ad0eab693cddd1b6a74f61c26edda7ee5 inherit pub_methods_classbfb_1_1_controller"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeb673f7f476e1153a3920c642bbc6e85 inherit pub_methods_classbfb_1_1_controller"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_controller.html#aeb673f7f476e1153a3920c642bbc6e85">getReference</a> () const</td></tr>
 <tr class="memdesc:aeb673f7f476e1153a3920c642bbc6e85 inherit pub_methods_classbfb_1_1_controller"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the current reference for the controller.  <a href="classbfb_1_1_controller.html#aeb673f7f476e1153a3920c642bbc6e85">More...</a><br /></td></tr>
 <tr class="separator:aeb673f7f476e1153a3920c642bbc6e85 inherit pub_methods_classbfb_1_1_controller"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -175,8 +175,8 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>reference</b> {0.0}
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a9166a04c5e2450ec367932ee755a7012"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9166a04c5e2450ec367932ee755a7012">&#9670;&nbsp;</a></span>isDone()</h2>
+<a id="ab0de7f4edc4ba49c8b1612f376b100c1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab0de7f4edc4ba49c8b1612f376b100c1">&#9670;&nbsp;</a></span>isDone()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -187,7 +187,7 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>reference</b> {0.0}
         <tr>
           <td class="memname">bool bfb::Pidf::isDone </td>
           <td>(</td>
-          <td class="paramtype">const double&#160;</td>
+          <td class="paramtype">double&#160;</td>
           <td class="paramname"><em>state</em></td><td>)</td>
           <td></td>
         </tr>
@@ -208,12 +208,12 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>reference</b> {0.0}
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>bool </dd></dl>
 
-<p>Implements <a class="el" href="classbfb_1_1_controller.html#a72ce34ca7d973a67f8f860f19927f105">bfb::Controller</a>.</p>
+<p>Implements <a class="el" href="classbfb_1_1_controller.html#a5c08721a02c4a1e33373a647c7891766">bfb::Controller</a>.</p>
 
 </div>
 </div>
-<a id="a475ad998b699698351e24748ebb77a75"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a475ad998b699698351e24748ebb77a75">&#9670;&nbsp;</a></span>step()</h2>
+<a id="ae27e9ff558394933e3a258673273da8c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae27e9ff558394933e3a258673273da8c">&#9670;&nbsp;</a></span>step()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -224,7 +224,7 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>reference</b> {0.0}
         <tr>
           <td class="memname">double bfb::Pidf::step </td>
           <td>(</td>
-          <td class="paramtype">const double&#160;</td>
+          <td class="paramtype">double&#160;</td>
           <td class="paramname"><em>state</em></td><td>)</td>
           <td></td>
         </tr>
@@ -245,7 +245,7 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>reference</b> {0.0}
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>double </dd></dl>
 
-<p>Implements <a class="el" href="classbfb_1_1_controller.html#af5d8abdb5b673a279aa58b2357434953">bfb::Controller</a>.</p>
+<p>Implements <a class="el" href="classbfb_1_1_controller.html#a8ac36b4ca1db74fed0e2263645d859aa">bfb::Controller</a>.</p>
 
 </div>
 </div>
