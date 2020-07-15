@@ -51,6 +51,6 @@ class Tbh final : public Controller {
 };
 
 #ifdef TESTING
-DECLARE_TEST(tbhTest)
+DECLARE_TEST(tbhTest);
 #endif
 } // namespace bfb

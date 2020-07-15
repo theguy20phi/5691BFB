@@ -14,51 +14,21 @@
 #include <string>
 #include <vector>
 
-#define DECLARE_SEVERITY(a)                                                                        \
-  class a final : public SeverityLevel {                                                           \
-    int getNumeric() const override;                                                               \
-    std::string getString() const override;                                                        \
-  };                                                                                               \
-  std::shared_ptr<a> make##a()
-
-#define DEFINE_SEVERITY(a, b, c)                                                                   \
-  std::shared_ptr<a> make##a() {                                                                   \
-    return std::make_shared<a>();                                                                  \
-  }                                                                                                \
-  int a::getNumeric() const {                                                                      \
-    return b;                                                                                      \
-  }                                                                                                \
-  std::string a::getString() const {                                                               \
-    return c;                                                                                      \
-  }
-
 namespace bfb {
 /**
- * @brief Provides a parent class for many SeverityLevel subclasses.
+ * @brief Used to sort and display issues of varying severity.
  *
  */
-class SeverityLevel {
-  public:
-  /**
-   * @brief Gets the numeric value of the severity level.
-   *
-   * @return int
-   */
-  virtual int getNumeric() const = 0;
-
-  /**
-   * @brief Gets the string representation of the severity level.
-   *
-   * @return std::string
-   */
-  virtual std::string getString() const = 0;
+struct SeverityLevel {
+  int numeric;
+  char alpha;
 };
 
-DECLARE_SEVERITY(Low);
-DECLARE_SEVERITY(Medium);
-DECLARE_SEVERITY(High);
+constexpr SeverityLevel Low{1, 'L'};
+constexpr SeverityLevel Medium{2, 'M'};
+constexpr SeverityLevel High{3, 'H'};
 #ifdef TESTING
-DECLARE_SEVERITY(Test);
+constexpr SeverityLevel Test{INT32_MIN, 'T'};
 #endif
 
 /**
@@ -78,7 +48,7 @@ class Issue {
    * @param iDescription
    * @param iSeverity
    */
-  Issue(const std::string &iDescription, std::shared_ptr<SeverityLevel> iSeverity);
+  Issue(const std::string &iDescription, const SeverityLevel &iSeverity);
 
   /**
    * @brief Gets the sorted list of issues.
@@ -99,16 +69,15 @@ class Issue {
    *
    * @return std::shared_ptr<SeverityLevel>
    */
-  std::shared_ptr<SeverityLevel> getSeverity() const;
+  SeverityLevel getSeverity() const;
 
   private:
   static std::vector<Issue> issueList;
-  // not const because of sort implications, objects should be constant anyways
   std::string description;
-  std::shared_ptr<SeverityLevel> severity;
+  SeverityLevel severity;
 };
 
 #ifdef TESTING
-DECLARE_TEST(issueTest)
+DECLARE_TEST(issueTest);
 #endif
 } // namespace bfb

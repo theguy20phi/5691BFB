@@ -13,14 +13,14 @@ bool isAlmostZero(double a, double thresh) {
 }
 #ifdef TESTING
 DEFINE_TEST(isAlmostEqualTest)
-IS_TRUE(isAlmostEqual(0.1, 0.12, 0.03))
-IS_FALSE(isAlmostEqual(3.0, 3.4, 0.1))
+IS_TRUE(isAlmostEqual(0.1, 0.12, 0.03));
+IS_FALSE(isAlmostEqual(3.0, 3.4, 0.1));
 END_TEST
 
 DEFINE_TEST(signTest)
-IS_EQUAL(sign(-1.5), -1)
-IS_EQUAL(sign(1), 1)
-IS_EQUAL(sign(0), 0)
+IS_EQUAL(sign(-1.5), -1);
+IS_EQUAL(sign(1), 1);
+IS_EQUAL(sign(0), 0);
 END_TEST
 #endif
 } // namespace bfb

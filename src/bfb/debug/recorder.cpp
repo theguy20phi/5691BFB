@@ -17,4 +17,12 @@ void Recorder::record(const std::string &recording, RecordID ID) {
 
 std::vector<RecordID> Recorder::IDs{};
 int Recorder::latestID{0};
+
+#ifdef TESTING
+DEFINE_TEST(recorderTest)
+const RecordID testIDA{Recorder::giveID()};
+const RecordID testIDB{Recorder::giveID()};
+IS_EQUAL(testIDA, testIDB - 1);
+END_TEST
+#endif
 } // namespace bfb

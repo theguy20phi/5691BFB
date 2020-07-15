@@ -10,6 +10,7 @@
 #include "controllers/pidf.hpp"
 #include "controllers/tbh.hpp"
 #include "debug/issue.hpp"
+#include "debug/recorder.hpp"
 #include "debug/test.hpp"
 #include "flow/state.hpp"
 #include "flow/stateMachine.hpp"

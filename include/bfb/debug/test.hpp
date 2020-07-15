@@ -14,6 +14,8 @@
 #include <iostream>
 
 #define TESTING
+// Un-comment to remove asserts.
+//#define NDEBUG
 
 #define DECLARE_TEST(a) void a();
 
@@ -48,7 +50,7 @@
 namespace bfb {
 /**
  * @brief Provided function to add user-defined tests to.
- * 
+ *
  */
 void runTests();
 } // namespace bfb

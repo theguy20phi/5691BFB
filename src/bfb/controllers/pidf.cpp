@@ -45,7 +45,7 @@ DEFINE_TEST(pidfTest)
 using namespace okapi;
 Pidf testPidf{{2.0, 2.0, 2.0, 2.0}, createSettledUtil(10, 1, 0_ms)};
 testPidf.setReference(12.0);
-IS_EQUAL(testPidf.step(2.0), 38.0)
+IS_EQUAL(testPidf.step(2.0), 38.0);
 END_TEST
 #endif
 } // namespace bfb

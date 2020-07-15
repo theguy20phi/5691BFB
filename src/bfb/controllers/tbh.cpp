@@ -40,7 +40,7 @@ using namespace okapi;
 Tbh testTbh{{2.0},
             std::make_unique<okapi::SettledUtil>(std::make_unique<okapi::Timer>(), 10, 1, 0_ms)};
 testTbh.setReference(10.0);
-IS_EQUAL(testTbh.step(2.0), 8.0)
+IS_EQUAL(testTbh.step(2.0), 8.0);
 END_TEST
 #endif
 } // namespace bfb

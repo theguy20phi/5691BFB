@@ -1,15 +1,17 @@
 #pragma once
 
+#include "test.hpp"
 #include <algorithm>
 #include <iostream>
 #include <vector>
+
 
 namespace bfb {
 using RecordID = int;
 
 /**
  * @brief Provides a way to selectively record information.
- * 
+ *
  */
 class Recorder {
   public:
@@ -39,4 +41,8 @@ class Recorder {
   static std::vector<RecordID> IDs;
   static int latestID;
 };
+
+#ifdef TESTING
+DECLARE_TEST(recorderTest);
+#endif
 } // namespace bfb

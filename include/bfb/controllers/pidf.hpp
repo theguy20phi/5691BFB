@@ -71,6 +71,6 @@ class Pidf final : public Controller {
 };
 
 #ifdef TESTING
-DECLARE_TEST(pidfTest)
+DECLARE_TEST(pidfTest);
 #endif
 } // namespace bfb

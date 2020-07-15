@@ -34,7 +34,7 @@ auto testLambda = [&testVar]() -> bool {
   testVar++;
 };
 waitUntil(testLambda);
-IS_EQUAL(testVar, 10)
+IS_EQUAL(testVar, 10);
 END_TEST
 #endif
 } // namespace bfb
