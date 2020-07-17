@@ -15,7 +15,7 @@ void Recorder::record(const std::string &recording, RecordID ID) {
     std::cout << recording << std::endl;
 }
 
-std::vector<RecordID> Recorder::IDs{};
+std::vector<RecordID> Recorder::IDs{Recorder::latestID};
 int Recorder::latestID{0};
 
 #ifdef TESTING

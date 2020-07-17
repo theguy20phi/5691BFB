@@ -9,79 +9,107 @@
 #pragma once
 
 #include "bfb/robot.hpp"
+#include <functional>
 #include <memory>
-#include <queue>
-#include <typeinfo>
 
 namespace bfb {
 /**
- * @brief StateMachine implements a finite state machine. A standby state should be provided. A
- * StateMachine object can be limited to a certain type of state, via templating. If something else
- * needs to see the state of the machine, it should probably be a part of the machine.
+ * @brief A generic StateMachine class with relatively-easy to create states and transitions
+ * that do not violate OCP, are clearly defined and distinct from one another (where states
+ * are more abstract representations for what the bot is doing, but transitions control behaviour),
+ * where transitions can be paramaterized, where transitions can call upon the methods of the
+ * StateMachine class, and where only certain states and transitions are deemed acceptable for use
+ * by the StateMachine.
  *
- * @tparam StateType
+ * States and transitions are to be defined by the user as such (replace "Mechanism" with specific
+ * mechanism), examples for use are below:
+ *
+ * #include "stateMachine.hpp"
+ *
+ * enum class MechanismStates {
+ *  Standby, //All states should probably have a standby state
+ *  On,
+ *  Off
+ * };
+ *
+ * using MechanismTransition = Transition<MechanismStates>;
+ *
+ * MechanismTransition example(std::string arg, double otherArg) {
+ *  return [=](StateMachine<MechanismStates> &machine) {
+ *    machine.getRobot()->robotAction(arg);
+ *    if(machine.getRobot()->robotSensor() < otherArg)
+ *      machine.run(otherTransition());
+ *    return Standby::On;
+ *  };
+ * }
+ * @tparam State
  */
-template <typename StateType> class StateMachine final {
+template <typename State> class StateMachine {
   public:
+  // StateMachine isn't const, so transitions can call upon run to change the transition
+  using Transition = std::function<State(StateMachine<State> &)>;
+
   /**
-   * @brief Construct a new StateMachine object.
+   * @brief Construct a new State Machine object
    *
+   * @param iState
+   * @param iTransition
    * @param iRobot
-   * @param iStandbyState
    */
-  StateMachine(const std::shared_ptr<Robot> &iRobot, const StateType &iStandbyState)
-    : robot(iRobot), state(iStandbyState), standbyState(iStandbyState) {
+  StateMachine(const State &iState,
+               const Transition &iTransition,
+               const std::shared_ptr<Robot> &iRobot)
+    : state(iState), transition(iTransition), robot(iRobot) {
   }
 
   /**
    * @brief Goes through one step of the StateMachine.
    *
-   * @return bool
+   * @return State
    */
-  bool step() {
-    if (state->step())
-      return true;
-    return false;
+  State step() {
+    state = transition(*this);
+    getState();
   }
 
   /**
-   * @brief Sets the current state.
+   * @brief Get the State of the StateMachine.
    *
-   * @param newState
+   * @return State
    */
-  void setState(const StateType &newState) {
-    state = newState;
+  State getState() const {
+    return state;
   }
 
   /**
-   * @brief Determines if the StateMachine's state is done.
+   * @brief Run a user-defined transition.
    *
-   * @return bool
+   * @param iTransition
    */
-  bool isDone() {
-    return step();
+  void run(const Transition &iTransition) {
+    transition = iTransition;
   }
 
   /**
-   * @brief Resets the state to standby.
-   * 
-   */
-  void standby() {
-    state = standbyState;
-  }
-
-  /**
-   * @brief Gets the state in string form. SHOULD ONLY BE USED FOR DEBUGGING.
+   * @brief Get the pointer to the Robot used in the StateMachine (mostly here for use in
+   * transitions).
    *
-   * @return std::string
+   * @return std::shared_ptr<Robot>
    */
-  std::string toString() const {
-    return typeid(*state).name();
+  std::shared_ptr<Robot> getRobot() const {
+    return robot;
   }
 
-  private:
+  protected:
+  State state;
+  Transition transition;
   std::shared_ptr<Robot> robot;
-  StateType state;
-  const StateType standbyState;
 };
+
+/**
+ * @brief Provides easy-to-use type aliasing for transitions.
+ *
+ * @tparam State
+ */
+template <typename State> using Transition = std::function<State(StateMachine<State> &)>;
 } // namespace bfb

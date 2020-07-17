@@ -70,8 +70,8 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#define-members">Macros</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">issue.hpp File Reference</div>  </div>
 </div><!--header-->
@@ -86,106 +86,38 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_severity_level.html">bfb::SeverityLevel</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provides a parent class for many <a class="el" href="classbfb_1_1_severity_level.html" title="Provides a parent class for many SeverityLevel subclasses.">SeverityLevel</a> subclasses.  <a href="classbfb_1_1_severity_level.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbfb_1_1_severity_level.html">bfb::SeverityLevel</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to sort and display issues of varying severity.  <a href="structbfb_1_1_severity_level.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_issue.html">bfb::Issue</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classbfb_1_1_issue.html" title="Issue provides a basis for managing and logging problems that may occur during driving....">Issue</a> provides a basis for managing and logging problems that may occur during driving. Issues should be constructed as static and constant, in the event the problem occurs. Issues are logged in vector that can be globally read from, but only modified by <a class="el" href="classbfb_1_1_issue.html" title="Issue provides a basis for managing and logging problems that may occur during driving....">Issue</a> objects. Issues are sorted by highest to lowest severity when logged.  <a href="classbfb_1_1_issue.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
-Macros</h2></td></tr>
-<tr class="memitem:ac852b759d998f25f9eeca144e458c9c9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><b>DECLARE_SEVERITY</b>(a)</td></tr>
-<tr class="separator:ac852b759d998f25f9eeca144e458c9c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7929bdb05d8cc01c6a6448b50c6e5778"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><b>DEFINE_SEVERITY</b>(a,  b,  c)</td></tr>
-<tr class="separator:a7929bdb05d8cc01c6a6448b50c6e5778"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:aa1b33b07ffff1daa042e8eefec993b93"><td class="memItemLeft" align="right" valign="top"><a id="aa1b33b07ffff1daa042e8eefec993b93"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>bfb::DECLARE_SEVERITY</b> (Low)</td></tr>
-<tr class="separator:aa1b33b07ffff1daa042e8eefec993b93"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ada36f8642b6f9eb3d0e1c233fb5df9bf"><td class="memItemLeft" align="right" valign="top"><a id="ada36f8642b6f9eb3d0e1c233fb5df9bf"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>bfb::DECLARE_SEVERITY</b> (Medium)</td></tr>
-<tr class="separator:ada36f8642b6f9eb3d0e1c233fb5df9bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4de7df1e2762cb74b5a121ee22589bbe"><td class="memItemLeft" align="right" valign="top"><a id="a4de7df1e2762cb74b5a121ee22589bbe"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>bfb::DECLARE_SEVERITY</b> (High)</td></tr>
-<tr class="separator:a4de7df1e2762cb74b5a121ee22589bbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a893399e8645fc403b2c969239e2744de"><td class="memItemLeft" align="right" valign="top"><a id="a893399e8645fc403b2c969239e2744de"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>bfb::DECLARE_SEVERITY</b> (Test)</td></tr>
-<tr class="separator:a893399e8645fc403b2c969239e2744de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a940fc61e358ec9327f2dffc41e44270f"><td class="memItemLeft" align="right" valign="top"><a id="a940fc61e358ec9327f2dffc41e44270f"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>bfb::DECLARE_TEST</b> (issueTest)</td></tr>
+<tr class="separator:a940fc61e358ec9327f2dffc41e44270f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a55981f90b201c135401d9850eba2a051"><td class="memItemLeft" align="right" valign="top"><a id="a55981f90b201c135401d9850eba2a051"></a>
+constexpr SeverityLevel&#160;</td><td class="memItemRight" valign="bottom"><b>bfb::Low</b> {1, 'L'}</td></tr>
+<tr class="separator:a55981f90b201c135401d9850eba2a051"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a6e7d94b8b9b43838209ebcccb441f9"><td class="memItemLeft" align="right" valign="top"><a id="a0a6e7d94b8b9b43838209ebcccb441f9"></a>
+constexpr SeverityLevel&#160;</td><td class="memItemRight" valign="bottom"><b>bfb::Medium</b> {2, 'M'}</td></tr>
+<tr class="separator:a0a6e7d94b8b9b43838209ebcccb441f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a968200103bb2bda313ad5d3a041bdf65"><td class="memItemLeft" align="right" valign="top"><a id="a968200103bb2bda313ad5d3a041bdf65"></a>
+constexpr SeverityLevel&#160;</td><td class="memItemRight" valign="bottom"><b>bfb::High</b> {3, 'H'}</td></tr>
+<tr class="separator:a968200103bb2bda313ad5d3a041bdf65"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a29e3945ffcb900d8a7704e63dea45a15"><td class="memItemLeft" align="right" valign="top"><a id="a29e3945ffcb900d8a7704e63dea45a15"></a>
+constexpr SeverityLevel&#160;</td><td class="memItemRight" valign="bottom"><b>bfb::Test</b> {INT32_MIN, 'T'}</td></tr>
+<tr class="separator:a29e3945ffcb900d8a7704e63dea45a15"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><dl class="section author"><dt>Author</dt><dd>Braden Pierce (<a href="#" onclick="location.href='mai'+'lto:'+'913'+'15'+'300'+'6@'+'bry'+'an'+'tsc'+'ho'+'ols'+'.o'+'rg'; return false;">91315<span style="display: none;">.nosp@m.</span>3006<span style="display: none;">.nosp@m.</span>@brya<span style="display: none;">.nosp@m.</span>ntsc<span style="display: none;">.nosp@m.</span>hools<span style="display: none;">.nosp@m.</span>.org</a>)</dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>Copyright (c) 2020 </dd></dl>
-</div><h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="ac852b759d998f25f9eeca144e458c9c9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac852b759d998f25f9eeca144e458c9c9">&#9670;&nbsp;</a></span>DECLARE_SEVERITY</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define DECLARE_SEVERITY</td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">a</td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">  <span class="keyword">class </span>a final : <span class="keyword">public</span> SeverityLevel {                                                           \</div>
-<div class="line">    int getNumeric() <span class="keyword">const override</span>;                                                               \</div>
-<div class="line">    std::string getString() <span class="keyword">const override</span>;                                                        \</div>
-<div class="line">  };                                                                                               \</div>
-<div class="line">  std::shared_ptr&lt;a&gt; make##a()</div>
-</div><!-- fragment -->
-</div>
-</div>
-<a id="a7929bdb05d8cc01c6a6448b50c6e5778"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7929bdb05d8cc01c6a6448b50c6e5778">&#9670;&nbsp;</a></span>DEFINE_SEVERITY</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define DEFINE_SEVERITY</td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">a, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">b, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">c&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">  std::shared_ptr&lt;a&gt; make##a() {                                                                   \</div>
-<div class="line">    return std::make_shared&lt;a&gt;();                                                                  \</div>
-<div class="line">  }                                                                                                \</div>
-<div class="line">  int a::getNumeric()<span class="keyword"> const </span>{                                                                      \</div>
-<div class="line">    return b;                                                                                      \</div>
-<div class="line">  }                                                                                                \</div>
-<div class="line">  std::string a::getString()<span class="keyword"> const </span>{                                                               \</div>
-<div class="line">    return c;                                                                                      \</div>
-<div class="line">  }</div>
-</div><!-- fragment -->
-</div>
-</div>
-</div><!-- contents -->
+</div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

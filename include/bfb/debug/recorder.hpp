@@ -35,7 +35,7 @@ class Recorder {
    * @param recording
    * @param ID
    */
-  static void record(const std::string &recording, RecordID ID);
+  static void record(const std::string &recording, RecordID ID = 0);
 
   private:
   static std::vector<RecordID> IDs;

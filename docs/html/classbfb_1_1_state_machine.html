@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.18"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>5691BFB: bfb::StateMachine&lt; StateType &gt; Class Template Reference</title>
+<title>5691BFB: bfb::StateMachine&lt; State &gt; Class Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -69,73 +69,100 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="classbfb_1_1_state_machine-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">bfb::StateMachine&lt; StateType &gt; Class Template Reference<span class="mlabels"><span class="mlabel">final</span></span></div>  </div>
+<div class="title">bfb::StateMachine&lt; State &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="classbfb_1_1_state_machine.html" title="StateMachine implements a finite state machine. A standby state should be provided....">StateMachine</a> implements a finite state machine. A standby state should be provided. A <a class="el" href="classbfb_1_1_state_machine.html" title="StateMachine implements a finite state machine. A standby state should be provided....">StateMachine</a> object can be limited to a certain type of state, via templating. If something else needs to see the state of the machine, it should probably be a part of the machine.  
+<p>A generic <a class="el" href="classbfb_1_1_state_machine.html" title="A generic StateMachine class with relatively-easy to create states and transitions that do not violat...">StateMachine</a> class with relatively-easy to create states and transitions that do not violate OCP, are clearly defined and distinct from one another (where states are more abstract representations for what the bot is doing, but transitions control behaviour), where transitions can be paramaterized, where transitions can call upon the methods of the <a class="el" href="classbfb_1_1_state_machine.html" title="A generic StateMachine class with relatively-easy to create states and transitions that do not violat...">StateMachine</a> class, and where only certain states and transitions are deemed acceptable for use by the <a class="el" href="classbfb_1_1_state_machine.html" title="A generic StateMachine class with relatively-easy to create states and transitions that do not violat...">StateMachine</a>.  
  <a href="classbfb_1_1_state_machine.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="state_machine_8hpp_source.html">stateMachine.hpp</a>&gt;</code></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:aeffda5c3b01296d342d585d0dcc8fa32"><td class="memItemLeft" align="right" valign="top"><a id="aeffda5c3b01296d342d585d0dcc8fa32"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>Transition</b> = std::function&lt; State(<a class="el" href="classbfb_1_1_state_machine.html">StateMachine</a>&lt; State &gt; &amp;)&gt;</td></tr>
+<tr class="separator:aeffda5c3b01296d342d585d0dcc8fa32"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a994fd86c0493baf9b1c9b6b708119454"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_state_machine.html#a994fd86c0493baf9b1c9b6b708119454">StateMachine</a> (const std::shared_ptr&lt; <a class="el" href="classbfb_1_1_robot.html">Robot</a> &gt; &amp;iRobot, const StateType &amp;iStandbyState)</td></tr>
-<tr class="memdesc:a994fd86c0493baf9b1c9b6b708119454"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classbfb_1_1_state_machine.html" title="StateMachine implements a finite state machine. A standby state should be provided....">StateMachine</a> object.  <a href="classbfb_1_1_state_machine.html#a994fd86c0493baf9b1c9b6b708119454">More...</a><br /></td></tr>
-<tr class="separator:a994fd86c0493baf9b1c9b6b708119454"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a85c3e50dcb202959255ce604c1cfb8cd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_state_machine.html#a85c3e50dcb202959255ce604c1cfb8cd">step</a> ()</td></tr>
-<tr class="memdesc:a85c3e50dcb202959255ce604c1cfb8cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Goes through one step of the <a class="el" href="classbfb_1_1_state_machine.html" title="StateMachine implements a finite state machine. A standby state should be provided....">StateMachine</a>.  <a href="classbfb_1_1_state_machine.html#a85c3e50dcb202959255ce604c1cfb8cd">More...</a><br /></td></tr>
-<tr class="separator:a85c3e50dcb202959255ce604c1cfb8cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a82f6a728dbe802a2bd8fe8545b5409a7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_state_machine.html#a82f6a728dbe802a2bd8fe8545b5409a7">setState</a> (const StateType &amp;newState)</td></tr>
-<tr class="memdesc:a82f6a728dbe802a2bd8fe8545b5409a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the current state.  <a href="classbfb_1_1_state_machine.html#a82f6a728dbe802a2bd8fe8545b5409a7">More...</a><br /></td></tr>
-<tr class="separator:a82f6a728dbe802a2bd8fe8545b5409a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae8d396b97763b33a3b5dfbc933bec91a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_state_machine.html#ae8d396b97763b33a3b5dfbc933bec91a">isDone</a> ()</td></tr>
-<tr class="memdesc:ae8d396b97763b33a3b5dfbc933bec91a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines if the <a class="el" href="classbfb_1_1_state_machine.html" title="StateMachine implements a finite state machine. A standby state should be provided....">StateMachine</a>'s state is done.  <a href="classbfb_1_1_state_machine.html#ae8d396b97763b33a3b5dfbc933bec91a">More...</a><br /></td></tr>
-<tr class="separator:ae8d396b97763b33a3b5dfbc933bec91a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7d9e30c5362245e2e07ebf034afae829"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_state_machine.html#a7d9e30c5362245e2e07ebf034afae829">standby</a> ()</td></tr>
-<tr class="memdesc:a7d9e30c5362245e2e07ebf034afae829"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the state to standby.  <a href="classbfb_1_1_state_machine.html#a7d9e30c5362245e2e07ebf034afae829">More...</a><br /></td></tr>
-<tr class="separator:a7d9e30c5362245e2e07ebf034afae829"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5c8974eea14369513f7e40042dea9857"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_state_machine.html#a5c8974eea14369513f7e40042dea9857">toString</a> () const</td></tr>
-<tr class="memdesc:a5c8974eea14369513f7e40042dea9857"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the state in string form. SHOULD ONLY BE USED FOR DEBUGGING.  <a href="classbfb_1_1_state_machine.html#a5c8974eea14369513f7e40042dea9857">More...</a><br /></td></tr>
-<tr class="separator:a5c8974eea14369513f7e40042dea9857"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab486a669edb8d89840951318d037d37f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_state_machine.html#ab486a669edb8d89840951318d037d37f">StateMachine</a> (const State &amp;iState, const Transition &amp;iTransition, const std::shared_ptr&lt; <a class="el" href="classbfb_1_1_robot.html">Robot</a> &gt; &amp;iRobot)</td></tr>
+<tr class="memdesc:ab486a669edb8d89840951318d037d37f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new State Machine object.  <a href="classbfb_1_1_state_machine.html#ab486a669edb8d89840951318d037d37f">More...</a><br /></td></tr>
+<tr class="separator:ab486a669edb8d89840951318d037d37f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5b07c63266dc2ccfc7c2786a44c13126"><td class="memItemLeft" align="right" valign="top">State&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_state_machine.html#a5b07c63266dc2ccfc7c2786a44c13126">step</a> ()</td></tr>
+<tr class="memdesc:a5b07c63266dc2ccfc7c2786a44c13126"><td class="mdescLeft">&#160;</td><td class="mdescRight">Goes through one step of the <a class="el" href="classbfb_1_1_state_machine.html" title="A generic StateMachine class with relatively-easy to create states and transitions that do not violat...">StateMachine</a>.  <a href="classbfb_1_1_state_machine.html#a5b07c63266dc2ccfc7c2786a44c13126">More...</a><br /></td></tr>
+<tr class="separator:a5b07c63266dc2ccfc7c2786a44c13126"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab586bc29134de99bd952607bd978b71a"><td class="memItemLeft" align="right" valign="top">State&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_state_machine.html#ab586bc29134de99bd952607bd978b71a">getState</a> () const</td></tr>
+<tr class="memdesc:ab586bc29134de99bd952607bd978b71a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the State of the <a class="el" href="classbfb_1_1_state_machine.html" title="A generic StateMachine class with relatively-easy to create states and transitions that do not violat...">StateMachine</a>.  <a href="classbfb_1_1_state_machine.html#ab586bc29134de99bd952607bd978b71a">More...</a><br /></td></tr>
+<tr class="separator:ab586bc29134de99bd952607bd978b71a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3213866afb30fc106da935d12bcf5bc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_state_machine.html#aa3213866afb30fc106da935d12bcf5bc">run</a> (const Transition &amp;iTransition)</td></tr>
+<tr class="memdesc:aa3213866afb30fc106da935d12bcf5bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Run a user-defined transition.  <a href="classbfb_1_1_state_machine.html#aa3213866afb30fc106da935d12bcf5bc">More...</a><br /></td></tr>
+<tr class="separator:aa3213866afb30fc106da935d12bcf5bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae03fd8cff824ca00b7a19c09ed3fdaef"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="classbfb_1_1_robot.html">Robot</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_state_machine.html#ae03fd8cff824ca00b7a19c09ed3fdaef">getRobot</a> () const</td></tr>
+<tr class="memdesc:ae03fd8cff824ca00b7a19c09ed3fdaef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the pointer to the <a class="el" href="classbfb_1_1_robot.html" title="Provides a wrapper class for devices.">Robot</a> used in the <a class="el" href="classbfb_1_1_state_machine.html" title="A generic StateMachine class with relatively-easy to create states and transitions that do not violat...">StateMachine</a> (mostly here for use in transitions).  <a href="classbfb_1_1_state_machine.html#ae03fd8cff824ca00b7a19c09ed3fdaef">More...</a><br /></td></tr>
+<tr class="separator:ae03fd8cff824ca00b7a19c09ed3fdaef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
+<tr class="memitem:a58cb5a83a1505887daa6fc64edcc3949"><td class="memItemLeft" align="right" valign="top"><a id="a58cb5a83a1505887daa6fc64edcc3949"></a>
+State&#160;</td><td class="memItemRight" valign="bottom"><b>state</b></td></tr>
+<tr class="separator:a58cb5a83a1505887daa6fc64edcc3949"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d780cba2e702fc086f77ec826de8166"><td class="memItemLeft" align="right" valign="top"><a id="a2d780cba2e702fc086f77ec826de8166"></a>
+Transition&#160;</td><td class="memItemRight" valign="bottom"><b>transition</b></td></tr>
+<tr class="separator:a2d780cba2e702fc086f77ec826de8166"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3168c607e7a1e23a70c8027afd2b9f7d"><td class="memItemLeft" align="right" valign="top"><a id="a3168c607e7a1e23a70c8027afd2b9f7d"></a>
+std::shared_ptr&lt; <a class="el" href="classbfb_1_1_robot.html">Robot</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>robot</b></td></tr>
+<tr class="separator:a3168c607e7a1e23a70c8027afd2b9f7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><h3>template&lt;typename StateType&gt;<br />
-class bfb::StateMachine&lt; StateType &gt;</h3>
+<div class="textblock"><h3>template&lt;typename State&gt;<br />
+class bfb::StateMachine&lt; State &gt;</h3>
 
-<p><a class="el" href="classbfb_1_1_state_machine.html" title="StateMachine implements a finite state machine. A standby state should be provided....">StateMachine</a> implements a finite state machine. A standby state should be provided. A <a class="el" href="classbfb_1_1_state_machine.html" title="StateMachine implements a finite state machine. A standby state should be provided....">StateMachine</a> object can be limited to a certain type of state, via templating. If something else needs to see the state of the machine, it should probably be a part of the machine. </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
+<p>A generic <a class="el" href="classbfb_1_1_state_machine.html" title="A generic StateMachine class with relatively-easy to create states and transitions that do not violat...">StateMachine</a> class with relatively-easy to create states and transitions that do not violate OCP, are clearly defined and distinct from one another (where states are more abstract representations for what the bot is doing, but transitions control behaviour), where transitions can be paramaterized, where transitions can call upon the methods of the <a class="el" href="classbfb_1_1_state_machine.html" title="A generic StateMachine class with relatively-easy to create states and transitions that do not violat...">StateMachine</a> class, and where only certain states and transitions are deemed acceptable for use by the <a class="el" href="classbfb_1_1_state_machine.html" title="A generic StateMachine class with relatively-easy to create states and transitions that do not violat...">StateMachine</a>. </p>
+<p>States and transitions are to be defined by the user as such (replace "Mechanism" with specific mechanism), examples for use are below:</p>
+<p>#include "stateMachine.hpp"</p>
+<p>enum class MechanismStates { Standby, //All states should probably have a standby state On, Off };</p>
+<p>using MechanismTransition = Transition&lt;MechanismStates&gt;;</p>
+<p>MechanismTransition example(std::string arg, double otherArg) { return [=](StateMachine&lt;MechanismStates&gt; &amp;machine) { machine.getRobot()-&gt;robotAction(arg); if(machine.getRobot()-&gt;robotSensor() &lt; otherArg) machine.run(otherTransition()); return Standby::On; }; } </p><dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">StateType</td><td></td></tr>
+    <tr><td class="paramname">State</td><td></td></tr>
   </table>
   </dd>
 </dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a994fd86c0493baf9b1c9b6b708119454"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a994fd86c0493baf9b1c9b6b708119454">&#9670;&nbsp;</a></span>StateMachine()</h2>
+<a id="ab486a669edb8d89840951318d037d37f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab486a669edb8d89840951318d037d37f">&#9670;&nbsp;</a></span>StateMachine()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename StateType &gt; </div>
+template&lt;typename State &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classbfb_1_1_state_machine.html">bfb::StateMachine</a>&lt; StateType &gt;::<a class="el" href="classbfb_1_1_state_machine.html">StateMachine</a> </td>
+          <td class="memname"><a class="el" href="classbfb_1_1_state_machine.html">bfb::StateMachine</a>&lt; State &gt;::<a class="el" href="classbfb_1_1_state_machine.html">StateMachine</a> </td>
           <td>(</td>
-          <td class="paramtype">const std::shared_ptr&lt; <a class="el" href="classbfb_1_1_robot.html">Robot</a> &gt; &amp;&#160;</td>
-          <td class="paramname"><em>iRobot</em>, </td>
+          <td class="paramtype">const State &amp;&#160;</td>
+          <td class="paramname"><em>iState</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const StateType &amp;&#160;</td>
-          <td class="paramname"><em>iStandbyState</em>&#160;</td>
+          <td class="paramtype">const Transition &amp;&#160;</td>
+          <td class="paramname"><em>iTransition</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::shared_ptr&lt; <a class="el" href="classbfb_1_1_robot.html">Robot</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>iRobot</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -150,11 +177,12 @@ template&lt;typename StateType &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Construct a new <a class="el" href="classbfb_1_1_state_machine.html" title="StateMachine implements a finite state machine. A standby state should be provided....">StateMachine</a> object. </p>
+<p>Construct a new State Machine object. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
+    <tr><td class="paramname">iState</td><td></td></tr>
+    <tr><td class="paramname">iTransition</td><td></td></tr>
     <tr><td class="paramname">iRobot</td><td></td></tr>
-    <tr><td class="paramname">iStandbyState</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -162,144 +190,19 @@ template&lt;typename StateType &gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="ae8d396b97763b33a3b5dfbc933bec91a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae8d396b97763b33a3b5dfbc933bec91a">&#9670;&nbsp;</a></span>isDone()</h2>
+<a id="ae03fd8cff824ca00b7a19c09ed3fdaef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae03fd8cff824ca00b7a19c09ed3fdaef">&#9670;&nbsp;</a></span>getRobot()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename StateType &gt; </div>
+template&lt;typename State &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="classbfb_1_1_state_machine.html">bfb::StateMachine</a>&lt; StateType &gt;::isDone </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Determines if the <a class="el" href="classbfb_1_1_state_machine.html" title="StateMachine implements a finite state machine. A standby state should be provided....">StateMachine</a>'s state is done. </p>
-<dl class="section return"><dt>Returns</dt><dd>bool </dd></dl>
-
-</div>
-</div>
-<a id="a82f6a728dbe802a2bd8fe8545b5409a7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a82f6a728dbe802a2bd8fe8545b5409a7">&#9670;&nbsp;</a></span>setState()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename StateType &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="classbfb_1_1_state_machine.html">bfb::StateMachine</a>&lt; StateType &gt;::setState </td>
-          <td>(</td>
-          <td class="paramtype">const StateType &amp;&#160;</td>
-          <td class="paramname"><em>newState</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Sets the current state. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">newState</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a7d9e30c5362245e2e07ebf034afae829"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7d9e30c5362245e2e07ebf034afae829">&#9670;&nbsp;</a></span>standby()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename StateType &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="classbfb_1_1_state_machine.html">bfb::StateMachine</a>&lt; StateType &gt;::standby </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Resets the state to standby. </p>
-
-</div>
-</div>
-<a id="a85c3e50dcb202959255ce604c1cfb8cd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a85c3e50dcb202959255ce604c1cfb8cd">&#9670;&nbsp;</a></span>step()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename StateType &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="classbfb_1_1_state_machine.html">bfb::StateMachine</a>&lt; StateType &gt;::step </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Goes through one step of the <a class="el" href="classbfb_1_1_state_machine.html" title="StateMachine implements a finite state machine. A standby state should be provided....">StateMachine</a>. </p>
-<dl class="section return"><dt>Returns</dt><dd>bool </dd></dl>
-
-</div>
-</div>
-<a id="a5c8974eea14369513f7e40042dea9857"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5c8974eea14369513f7e40042dea9857">&#9670;&nbsp;</a></span>toString()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename StateType &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::string <a class="el" href="classbfb_1_1_state_machine.html">bfb::StateMachine</a>&lt; StateType &gt;::toString </td>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="classbfb_1_1_robot.html">Robot</a>&gt; <a class="el" href="classbfb_1_1_state_machine.html">bfb::StateMachine</a>&lt; State &gt;::getRobot </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -312,8 +215,104 @@ template&lt;typename StateType &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Gets the state in string form. SHOULD ONLY BE USED FOR DEBUGGING. </p>
-<dl class="section return"><dt>Returns</dt><dd>std::string </dd></dl>
+<p>Get the pointer to the <a class="el" href="classbfb_1_1_robot.html" title="Provides a wrapper class for devices.">Robot</a> used in the <a class="el" href="classbfb_1_1_state_machine.html" title="A generic StateMachine class with relatively-easy to create states and transitions that do not violat...">StateMachine</a> (mostly here for use in transitions). </p>
+<dl class="section return"><dt>Returns</dt><dd>std::shared_ptr&lt;Robot&gt; </dd></dl>
+
+</div>
+</div>
+<a id="ab586bc29134de99bd952607bd978b71a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab586bc29134de99bd952607bd978b71a">&#9670;&nbsp;</a></span>getState()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename State &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">State <a class="el" href="classbfb_1_1_state_machine.html">bfb::StateMachine</a>&lt; State &gt;::getState </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get the State of the <a class="el" href="classbfb_1_1_state_machine.html" title="A generic StateMachine class with relatively-easy to create states and transitions that do not violat...">StateMachine</a>. </p>
+<dl class="section return"><dt>Returns</dt><dd>State </dd></dl>
+
+</div>
+</div>
+<a id="aa3213866afb30fc106da935d12bcf5bc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3213866afb30fc106da935d12bcf5bc">&#9670;&nbsp;</a></span>run()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename State &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classbfb_1_1_state_machine.html">bfb::StateMachine</a>&lt; State &gt;::run </td>
+          <td>(</td>
+          <td class="paramtype">const Transition &amp;&#160;</td>
+          <td class="paramname"><em>iTransition</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Run a user-defined transition. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">iTransition</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a5b07c63266dc2ccfc7c2786a44c13126"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5b07c63266dc2ccfc7c2786a44c13126">&#9670;&nbsp;</a></span>step()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename State &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">State <a class="el" href="classbfb_1_1_state_machine.html">bfb::StateMachine</a>&lt; State &gt;::step </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Goes through one step of the <a class="el" href="classbfb_1_1_state_machine.html" title="A generic StateMachine class with relatively-easy to create states and transitions that do not violat...">StateMachine</a>. </p>
+<dl class="section return"><dt>Returns</dt><dd>State </dd></dl>
 
 </div>
 </div>
