@@ -1,8 +1,7 @@
 #pragma once
 
 #include "okapi\api\filter\emaFilter.hpp"
-#include "pros/imu.hpp"
-#include <algorithm>
+#include "pros/imu.h"
 #include <functional>
 #include <numeric>
 #include <vector>
@@ -15,37 +14,79 @@ namespace bfb {
  * from multiple IMUs.
  *
  */
-class IMU {
+class IMU final {
   public:
   /**
    * @brief Construct a new IMU object.
-   * 
-   * @param ports 
+   *
+   * @param iPorts
    */
-  IMU(const std::vector<std::uint8_t> &ports);
+  IMU(const std::vector<uint8_t> &iPorts);
 
   /**
    * @brief Calibrate the IMUs.
-   * 
+   *
    */
-  void calibrate();
+  std::vector<int32_t> calibrate() const;
 
   /**
    * @brief Get the filter heading (yaw) of the IMU.
-   * 
-   * @return double 
+   *
+   * @return double
    */
   double getHeading();
 
   /**
+   * @brief Get the pitch.
+   *
+   * @return double
+   */
+  double getPitch() const;
+
+  /**
+   * @brief Get the roll.
+   *
+   * @return double
+   */
+  double getRoll() const;
+
+  /**
+   * @brief Get the yaw.
+   *
+   * @return double
+   */
+  double getYaw() const;
+
+  /**
+   * @brief Get the angular velocity.
+   *
+   * @return pros::c::imu_gyro_s_t
+   */
+  pros::c::imu_gyro_s_t getAngularVelocity() const;
+
+  /**
+   * @brief Get the acceleration.
+   *
+   * @return pros::c::imu_accel_s_t
+   */
+  pros::c::imu_accel_s_t getAcceleration() const;
+
+  /**
+   * @brief Get the status.
+   *
+   * @return std::vector<pros::c::imu_status_e_t>
+   */
+  std::vector<pros::c::imu_status_e_t> getStatus() const;
+
+  /**
    * @brief Determines if the IMUs are still calibrating.
-   * 
+   *
    * @return bool
    */
-  bool isCalibrating();
+  bool isCalibrating() const;
 
   private:
-  std::vector<pros::Imu> imu;
+  std::vector<uint8_t> ports;
   okapi::EmaFilter headingFilter{0.5};
 };
 } // namespace bfb
