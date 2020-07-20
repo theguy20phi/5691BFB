@@ -1,6 +1,14 @@
+/**
+ * @file IMU.hpp
+ * @author Braden Pierce (913153006@bryantschools.org)
+ * 
+ * @copyright Copyright (c) 2020
+ * 
+ */
+
 #pragma once
 
-#include "okapi\api\filter\emaFilter.hpp"
+#include "okapi/api/filter/medianFilter.hpp"
 #include "pros/imu.h"
 #include <functional>
 #include <algorithm>
@@ -88,6 +96,6 @@ class IMU final {
 
   private:
   std::vector<uint8_t> ports;
-  okapi::EmaFilter headingFilter{0.5};
+  okapi::MedianFilter<5> headingFilter;
 };
 } // namespace bfb
