@@ -3,6 +3,7 @@
 #include "okapi\api\filter\emaFilter.hpp"
 #include "pros/imu.h"
 #include <functional>
+#include <algorithm>
 #include <numeric>
 #include <vector>
 

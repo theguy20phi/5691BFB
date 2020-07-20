@@ -6,10 +6,9 @@ std::vector<Issue> Issue::issueList{};
 Issue::Issue(const std::string &iDescription, const SeverityLevel &iSeverity)
   : description(iDescription), severity(iSeverity) {
   issueList.push_back(*this);
-  auto sortBySeverity = [](const Issue &a, const Issue &b) {
+  std::sort(issueList.begin(), issueList.end(), [](const Issue &a, const Issue &b) {
     return a.getSeverity().numeric > b.getSeverity().numeric;
-  };
-  std::sort(issueList.begin(), issueList.end(), sortBySeverity);
+  });
 }
 
 std::string Issue::getDescription() const {

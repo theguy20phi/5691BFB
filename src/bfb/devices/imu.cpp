@@ -6,8 +6,9 @@ IMU::IMU(const std::vector<uint8_t> &iPorts) : ports(iPorts) {
 
 std::vector<int32_t> IMU::calibrate() const {
   std::vector<int32_t> temp;
-  for (uint8_t p : ports)
-    temp.push_back(pros::c::imu_reset(p));
+  std::transform(ports.begin(), ports.end(), std::back_inserter(temp), [](const uint8_t &p) {
+    return pros::c::imu_reset(p);
+  });
   return temp;
 }
 
@@ -65,16 +66,15 @@ pros::c::imu_accel_s_t IMU::getAcceleration() const {
 
 std::vector<pros::c::imu_status_e_t> IMU::getStatus() const {
   std::vector<pros::c::imu_status_e_t> temp;
-  for (uint8_t p : ports)
-    temp.push_back(pros::c::imu_get_status(p));
+  std::transform(ports.begin(), ports.end(), std::back_inserter(temp), [](const uint8_t &p) {
+    return pros::c::imu_get_status(p);
+  });
   return temp;
 }
 
 bool IMU::isCalibrating() const {
-  bool calibrated{true};
-  for (uint8_t p : ports)
-    if (pros::c::imu_get_status(p) && pros::c::E_IMU_STATUS_CALIBRATING)
-      calibrated = false;
-  return calibrated;
+  return std::any_of(ports.begin(), ports.end(), [](const uint8_t &p) {
+    return pros::c::imu_get_status(p) & pros::c::E_IMU_STATUS_CALIBRATING;
+  });
 }
 } // namespace bfb
