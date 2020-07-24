@@ -11,7 +11,7 @@ void waitUntil(const std::function<bool()> &condition, const int maxDelay) {
 
 void waitUntil(const std::function<bool()> &condition) {
   while (!condition())
-    wait(vex_delay);
+    wait(generalDelay);
 }
 
 void wait(const int ms) {

@@ -14,7 +14,7 @@
 #include <functional>
 
 namespace bfb {
-constexpr int vex_delay{10};
+constexpr int generalDelay{10};
 
 /**
  * @brief Provide a condition like:
