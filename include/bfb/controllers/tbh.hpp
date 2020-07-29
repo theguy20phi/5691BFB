@@ -9,6 +9,7 @@
 #pragma once
 
 #include "bfb/debug/test.hpp"
+#include "bfb/flow/wait.hpp"
 #include "bfb/utility/mathUtil.hpp"
 #include "controller.hpp"
 #include "okapi/api/control/util/SettledUtil.hpp"
@@ -44,8 +45,10 @@ class Tbh final : public Controller {
    */
   void takeBackHalf(int errorSign);
 
+  private:
   const double gain;
   std::unique_ptr<okapi::SettledUtil> settledChecker;
+  std::uint32_t lastTime{0};
   double tbh{0.0};
   double previousErrorSign{0};
 };

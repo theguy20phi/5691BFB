@@ -9,16 +9,17 @@
 #pragma once
 
 #include "bfb/debug/test.hpp"
+#include "bfb/flow/wait.hpp"
 #include "bfb/utility/mathUtil.hpp"
 #include "bfb/utility/okapiUtil.hpp"
 #include "controller.hpp"
-#include "okapi\api\filter\emaFilter.hpp"
+#include "okapi/api/filter/emaFilter.hpp"
 #include <assert.h>
 
 namespace bfb {
 /**
  * @brief Pidf implements a basic PID+ff controller, with additions to prevent integral windup and
- * derivative kick, as well as determine if the controller is settled.
+ * derivative kick, as well as determine if the controller is settled. Only calculates every >=10ms.
  *
  */
 class Pidf final : public Controller {
@@ -42,18 +43,26 @@ class Pidf final : public Controller {
    * @param iSettledChecker
    */
   Pidf(const PidfGains &gains, std::unique_ptr<okapi::SettledUtil> iSettledChecker);
-
   double step(double state) override;
   bool isDone(double state) override;
   void reset() override;
 
   private:
   /**
-   * @brief Updates the I term of the controller.
+   * @brief Calculates the P term of the controller.
    *
    * @param error
+   * @return double
    */
-  void updateI(double error);
+  double calculateP(double error);
+
+  /**
+   * @brief Calculates the I term of the controller.
+   *
+   * @param error
+   * @return double
+   */
+  double calculateI(double error);
 
   /**
    * @brief Calculates the D term for a step of the controller.
@@ -62,9 +71,12 @@ class Pidf final : public Controller {
    */
   double calculateD(double state);
 
+  private:
   static constexpr double I_DECAY{0.95};
+  int previousSign{1};
   const PidfGains gains;
   std::unique_ptr<okapi::SettledUtil> settledChecker;
+  std::uint32_t lastTime{0};
   okapi::EmaFilter dFilter{0.5};
   double I{0.0};
   double previousState{0.0};

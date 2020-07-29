@@ -7,19 +7,26 @@ Pidf::Pidf(const PidfGains &iGains, std::unique_ptr<okapi::SettledUtil> iSettled
 }
 
 double Pidf::step(double state) {
+  if (pros::millis() - lastTime >= generalDelay)
+    return output;
+  lastTime = pros::millis();
   const double error{reference - state};
-  const double P{error * gains.kP};
-  updateI(error);
-  const double D{calculateD(state)};
   settledChecker->isSettled(error);
-  output = P + I + D + gains.f;
+  output = calculateP(error) + calculateI(error) + calculateD(state) + gains.f;
   return output;
 }
 
-void Pidf::updateI(double error) {
+double Pidf::calculateP(double error) {
+  return gains.kP * error;
+}
+
+double Pidf::calculateI(double error) {
   I *= I_DECAY;
   I += error * gains.kI;
-  I = isAlmostZero(I, 0.05) ? 0.0 : I;
+  if (previousSign != sign(error))
+    I = 0;
+  previousSign = sign(error);
+  return I;
 }
 
 double Pidf::calculateD(double state) {
@@ -37,6 +44,8 @@ void Pidf::reset() {
   output = 0.0;
   previousState = 0.0;
   I = 0.0;
+  previousSign = 1;
+  lastTime = pros::millis();
   settledChecker->reset();
 }
 

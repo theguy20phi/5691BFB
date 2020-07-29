@@ -181,11 +181,11 @@ bin/main.cpp.o: src/main.cpp include/main.h include/api.h \
  include/okapi/api/units/QTorque.hpp include/okapi/api/units/QVolume.hpp \
  include/okapi/impl/util/rate.hpp include/bfb/bfb.hpp \
  include/bfb/controllers/controller.hpp include/bfb/controllers/pidf.hpp \
- include/bfb/debug/test.hpp include/bfb/utility/mathUtil.hpp \
- include/bfb/utility/okapiUtil.hpp include/bfb/controllers/tbh.hpp \
- include/bfb/debug/issue.hpp include/bfb/debug/recorder.hpp \
- include/bfb/flow/stateMachine.hpp include/bfb/robot.hpp \
- include/bfb/flow/wait.hpp include/bfb/utility/moreQLength.hpp
+ include/bfb/debug/test.hpp include/bfb/flow/wait.hpp \
+ include/bfb/utility/mathUtil.hpp include/bfb/utility/okapiUtil.hpp \
+ include/bfb/controllers/tbh.hpp include/bfb/debug/issue.hpp \
+ include/bfb/debug/recorder.hpp include/bfb/flow/stateMachine.hpp \
+ include/bfb/robot.hpp include/bfb/utility/moreQLength.hpp
 
 include/main.h:
 
@@ -699,6 +699,8 @@ include/bfb/controllers/pidf.hpp:
 
 include/bfb/debug/test.hpp:
 
+include/bfb/flow/wait.hpp:
+
 include/bfb/utility/mathUtil.hpp:
 
 include/bfb/utility/okapiUtil.hpp:
@@ -712,7 +714,5 @@ include/bfb/debug/recorder.hpp:
 include/bfb/flow/stateMachine.hpp:
 
 include/bfb/robot.hpp:
-
-include/bfb/flow/wait.hpp:
 
 include/bfb/utility/moreQLength.hpp:

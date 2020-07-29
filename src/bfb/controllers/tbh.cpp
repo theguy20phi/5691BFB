@@ -3,10 +3,13 @@
 namespace bfb {
 Tbh::Tbh(double iGain, std::unique_ptr<okapi::SettledUtil> iSettledChecker)
   : gain(iGain), settledChecker(std::move(iSettledChecker)) {
-    assert(gain >= 0.0);
+  assert(gain >= 0.0);
 }
 
 double Tbh::step(double state) {
+  if (pros::millis() - lastTime >= generalDelay)
+    return output;
+  lastTime = pros::millis();
   double error{reference - state};
   output += gain * error;
   takeBackHalf(sign(error));
