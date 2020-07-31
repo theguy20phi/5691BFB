@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['recorder_58',['Recorder',['../classbfb_1_1_recorder.html',1,'bfb']]],
-  ['robot_59',['Robot',['../classbfb_1_1_robot.html',1,'bfb']]]
+  ['pidf_64',['Pidf',['../classbfb_1_1_pidf.html',1,'bfb']]],
+  ['pidfgains_65',['PidfGains',['../structbfb_1_1_pidf_1_1_pidf_gains.html',1,'bfb::Pidf']]]
 ];

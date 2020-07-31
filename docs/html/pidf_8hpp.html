@@ -75,10 +75,11 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="test_8hpp_source.html">bfb/debug/test.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="wait_8hpp_source.html">bfb/flow/wait.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="math_util_8hpp_source.html">bfb/utility/mathUtil.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="okapi_util_8hpp_source.html">bfb/utility/okapiUtil.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="controller_8hpp_source.html">controller.hpp</a>&quot;</code><br />
-<code>#include &quot;okapi\api\filter\emaFilter.hpp&quot;</code><br />
+<code>#include &quot;okapi/api/filter/emaFilter.hpp&quot;</code><br />
 <code>#include &lt;assert.h&gt;</code><br />
 </div>
 <p><a href="pidf_8hpp_source.html">Go to the source code of this file.</a></p>
@@ -86,7 +87,7 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_pidf.html">bfb::Pidf</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classbfb_1_1_pidf.html" title="Pidf implements a basic PID+ff controller, with additions to prevent integral windup and derivative k...">Pidf</a> implements a basic PID+ff controller, with additions to prevent integral windup and derivative kick, as well as determine if the controller is settled.  <a href="classbfb_1_1_pidf.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classbfb_1_1_pidf.html" title="Pidf implements a basic PID+ff controller, with additions to prevent integral windup and derivative k...">Pidf</a> implements a basic PID+ff controller, with additions to prevent integral windup and derivative kick, as well as determine if the controller is settled. Only calculates every &gt;=10ms.  <a href="classbfb_1_1_pidf.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbfb_1_1_pidf_1_1_pidf_gains.html">bfb::Pidf::PidfGains</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provides a data structure for the <a class="el" href="classbfb_1_1_pidf.html" title="Pidf implements a basic PID+ff controller, with additions to prevent integral windup and derivative k...">Pidf</a>'s constants.  <a href="structbfb_1_1_pidf_1_1_pidf_gains.html#details">More...</a><br /></td></tr>

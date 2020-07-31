@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.18"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>5691BFB: include/bfb/controllers/tbh.hpp File Reference</title>
+<title>5691BFB: include/bfb/debug/logger.hpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -64,34 +64,29 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_d29b484ba13d1c15cf9f146d7081da96.html">bfb</a></li><li class="navelem"><a class="el" href="dir_9c8b7b7ef505a92f6ad331504ad44ad6.html">controllers</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_d29b484ba13d1c15cf9f146d7081da96.html">bfb</a></li><li class="navelem"><a class="el" href="dir_bf4e955b8ad656b4f6a9e1525e50ac9e.html">debug</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a>  </div>
   <div class="headertitle">
-<div class="title">tbh.hpp File Reference</div>  </div>
+<div class="title">logger.hpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="test_8hpp_source.html">bfb/debug/test.hpp</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="wait_8hpp_source.html">bfb/flow/wait.hpp</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="math_util_8hpp_source.html">bfb/utility/mathUtil.hpp</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="controller_8hpp_source.html">controller.hpp</a>&quot;</code><br />
-<code>#include &quot;okapi/api/control/util/SettledUtil.hpp&quot;</code><br />
-<code>#include &quot;okapi/impl/util/timer.hpp&quot;</code><br />
-<code>#include &lt;assert.h&gt;</code><br />
+<div class="textblock"><code>#include &lt;fstream&gt;</code><br />
+<code>#include &lt;iostream&gt;</code><br />
 </div>
-<p><a href="tbh_8hpp_source.html">Go to the source code of this file.</a></p>
+<p><a href="logger_8hpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_tbh.html">bfb::Tbh</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classbfb_1_1_tbh.html" title="Tbh implements a Take-Back-Half controller, essentially a modified integrator, with the addition of a...">Tbh</a> implements a Take-Back-Half controller, essentially a modified integrator, with the addition of a method to check if the controller is settled.  <a href="classbfb_1_1_tbh.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_logger.html">bfb::Logger</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Implements a logger for logging either to a file or the terminal.  <a href="classbfb_1_1_logger.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><dl class="section author"><dt>Author</dt><dd>Braden Pierce (<a href="#" onclick="location.href='mai'+'lto:'+'913'+'15'+'300'+'6@'+'bry'+'an'+'tsc'+'ho'+'ols'+'.o'+'rg'; return false;">91315<span style="display: none;">.nosp@m.</span>3006<span style="display: none;">.nosp@m.</span>@brya<span style="display: none;">.nosp@m.</span>ntsc<span style="display: none;">.nosp@m.</span>hools<span style="display: none;">.nosp@m.</span>.org</a>)</dd></dl>
+<div class="textblock"><dl class="section author"><dt>Author</dt><dd>Braden Pierce (<a href="#" onclick="location.href='mai'+'lto:'+'913'+'15'+'300'+'6@'+'bry'+'an'+'tsc'+'ho'+'ols'+'.o'+'rg'; return false;">91315<span style="display: none;">.nosp@m.</span>3006<span style="display: none;">.nosp@m.</span>@brya<span style="display: none;">.nosp@m.</span>ntsc<span style="display: none;">.nosp@m.</span>hools<span style="display: none;">.nosp@m.</span>.org</a>) </dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>Copyright (c) 2020 </dd></dl>
 </div></div><!-- contents -->
 <!-- start footer part -->

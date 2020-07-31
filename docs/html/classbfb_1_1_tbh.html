@@ -95,9 +95,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a7f4003651e58a8847cdaf38678e6c735"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_tbh.html#a7f4003651e58a8847cdaf38678e6c735">Tbh</a> (double iGain, std::unique_ptr&lt; okapi::SettledUtil &gt; iSettledChecker)</td></tr>
 <tr class="memdesc:a7f4003651e58a8847cdaf38678e6c735"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a <a class="el" href="classbfb_1_1_tbh.html" title="Tbh implements a Take-Back-Half controller, essentially a modified integrator, with the addition of a...">Tbh</a> object.  <a href="classbfb_1_1_tbh.html#a7f4003651e58a8847cdaf38678e6c735">More...</a><br /></td></tr>
 <tr class="separator:a7f4003651e58a8847cdaf38678e6c735"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0bd72a3850e5e0a775f49c0de44798d0"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_tbh.html#a0bd72a3850e5e0a775f49c0de44798d0">step</a> (double state) override</td></tr>
-<tr class="memdesc:a0bd72a3850e5e0a775f49c0de44798d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Goes through one step of the controller.  <a href="classbfb_1_1_tbh.html#a0bd72a3850e5e0a775f49c0de44798d0">More...</a><br /></td></tr>
-<tr class="separator:a0bd72a3850e5e0a775f49c0de44798d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc6b5e03f256f639b059e7afd71bb9ea"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_tbh.html#acc6b5e03f256f639b059e7afd71bb9ea">calculate</a> (double state) override</td></tr>
+<tr class="memdesc:acc6b5e03f256f639b059e7afd71bb9ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Goes through one step of the controller.  <a href="classbfb_1_1_tbh.html#acc6b5e03f256f639b059e7afd71bb9ea">More...</a><br /></td></tr>
+<tr class="separator:acc6b5e03f256f639b059e7afd71bb9ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4beddb182450e703c91aa4013aae0485"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_tbh.html#a4beddb182450e703c91aa4013aae0485">isDone</a> (double state) override</td></tr>
 <tr class="memdesc:a4beddb182450e703c91aa4013aae0485"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets if the controller is settled.  <a href="classbfb_1_1_tbh.html#a4beddb182450e703c91aa4013aae0485">More...</a><br /></td></tr>
 <tr class="separator:a4beddb182450e703c91aa4013aae0485"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -168,6 +168,43 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>reference</b> {0.0}
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="acc6b5e03f256f639b059e7afd71bb9ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc6b5e03f256f639b059e7afd71bb9ea">&#9670;&nbsp;</a></span>calculate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double bfb::Tbh::calculate </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>state</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Goes through one step of the controller. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">state</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>double </dd></dl>
+
+<p>Implements <a class="el" href="classbfb_1_1_controller.html#aa5e6687d2d1a7c037a573ebd95e1c84a">bfb::Controller</a>.</p>
+
+</div>
+</div>
 <a id="a4beddb182450e703c91aa4013aae0485"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4beddb182450e703c91aa4013aae0485">&#9670;&nbsp;</a></span>isDone()</h2>
 
@@ -202,43 +239,6 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>reference</b> {0.0}
 <dl class="section return"><dt>Returns</dt><dd>bool </dd></dl>
 
 <p>Implements <a class="el" href="classbfb_1_1_controller.html#a5c08721a02c4a1e33373a647c7891766">bfb::Controller</a>.</p>
-
-</div>
-</div>
-<a id="a0bd72a3850e5e0a775f49c0de44798d0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0bd72a3850e5e0a775f49c0de44798d0">&#9670;&nbsp;</a></span>step()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">double bfb::Tbh::step </td>
-          <td>(</td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>state</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Goes through one step of the controller. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">state</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>double </dd></dl>
-
-<p>Implements <a class="el" href="classbfb_1_1_controller.html#a8ac36b4ca1db74fed0e2263645d859aa">bfb::Controller</a>.</p>
 
 </div>
 </div>

@@ -77,7 +77,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="classbfb_1_1_pidf.html" title="Pidf implements a basic PID+ff controller, with additions to prevent integral windup and derivative k...">Pidf</a> implements a basic PID+ff controller, with additions to prevent integral windup and derivative kick, as well as determine if the controller is settled.  
+<p><a class="el" href="classbfb_1_1_pidf.html" title="Pidf implements a basic PID+ff controller, with additions to prevent integral windup and derivative k...">Pidf</a> implements a basic PID+ff controller, with additions to prevent integral windup and derivative kick, as well as determine if the controller is settled. Only calculates every &gt;=10ms.  
  <a href="classbfb_1_1_pidf.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="pidf_8hpp_source.html">pidf.hpp</a>&gt;</code></p>
@@ -102,9 +102,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a03f930e13ba56ffe6a579d836f6a3f54"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_pidf.html#a03f930e13ba56ffe6a579d836f6a3f54">Pidf</a> (const <a class="el" href="structbfb_1_1_pidf_1_1_pidf_gains.html">PidfGains</a> &amp;gains, std::unique_ptr&lt; okapi::SettledUtil &gt; iSettledChecker)</td></tr>
 <tr class="memdesc:a03f930e13ba56ffe6a579d836f6a3f54"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a <a class="el" href="classbfb_1_1_pidf.html" title="Pidf implements a basic PID+ff controller, with additions to prevent integral windup and derivative k...">Pidf</a> object.  <a href="classbfb_1_1_pidf.html#a03f930e13ba56ffe6a579d836f6a3f54">More...</a><br /></td></tr>
 <tr class="separator:a03f930e13ba56ffe6a579d836f6a3f54"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae27e9ff558394933e3a258673273da8c"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_pidf.html#ae27e9ff558394933e3a258673273da8c">step</a> (double state) override</td></tr>
-<tr class="memdesc:ae27e9ff558394933e3a258673273da8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Goes through one step of the controller.  <a href="classbfb_1_1_pidf.html#ae27e9ff558394933e3a258673273da8c">More...</a><br /></td></tr>
-<tr class="separator:ae27e9ff558394933e3a258673273da8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a35542cbe4e144c83d785f78c72922852"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_pidf.html#a35542cbe4e144c83d785f78c72922852">calculate</a> (double state) override</td></tr>
+<tr class="memdesc:a35542cbe4e144c83d785f78c72922852"><td class="mdescLeft">&#160;</td><td class="mdescRight">Goes through one step of the controller.  <a href="classbfb_1_1_pidf.html#a35542cbe4e144c83d785f78c72922852">More...</a><br /></td></tr>
+<tr class="separator:a35542cbe4e144c83d785f78c72922852"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab0de7f4edc4ba49c8b1612f376b100c1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_pidf.html#ab0de7f4edc4ba49c8b1612f376b100c1">isDone</a> (double state) override</td></tr>
 <tr class="memdesc:ab0de7f4edc4ba49c8b1612f376b100c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets if the controller is settled.  <a href="classbfb_1_1_pidf.html#ab0de7f4edc4ba49c8b1612f376b100c1">More...</a><br /></td></tr>
 <tr class="separator:ab0de7f4edc4ba49c8b1612f376b100c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -134,7 +134,7 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>reference</b> {0.0}
 <tr class="separator:a9bc32fd4a8444092f0ebce8969ab6028 inherit pro_attribs_classbfb_1_1_controller"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p><a class="el" href="classbfb_1_1_pidf.html" title="Pidf implements a basic PID+ff controller, with additions to prevent integral windup and derivative k...">Pidf</a> implements a basic PID+ff controller, with additions to prevent integral windup and derivative kick, as well as determine if the controller is settled. </p>
+<div class="textblock"><p><a class="el" href="classbfb_1_1_pidf.html" title="Pidf implements a basic PID+ff controller, with additions to prevent integral windup and derivative k...">Pidf</a> implements a basic PID+ff controller, with additions to prevent integral windup and derivative kick, as well as determine if the controller is settled. Only calculates every &gt;=10ms. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a03f930e13ba56ffe6a579d836f6a3f54"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a03f930e13ba56ffe6a579d836f6a3f54">&#9670;&nbsp;</a></span>Pidf()</h2>
@@ -175,6 +175,43 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>reference</b> {0.0}
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a35542cbe4e144c83d785f78c72922852"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a35542cbe4e144c83d785f78c72922852">&#9670;&nbsp;</a></span>calculate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double bfb::Pidf::calculate </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>state</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Goes through one step of the controller. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">state</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>double </dd></dl>
+
+<p>Implements <a class="el" href="classbfb_1_1_controller.html#aa5e6687d2d1a7c037a573ebd95e1c84a">bfb::Controller</a>.</p>
+
+</div>
+</div>
 <a id="ab0de7f4edc4ba49c8b1612f376b100c1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab0de7f4edc4ba49c8b1612f376b100c1">&#9670;&nbsp;</a></span>isDone()</h2>
 
@@ -209,43 +246,6 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>reference</b> {0.0}
 <dl class="section return"><dt>Returns</dt><dd>bool </dd></dl>
 
 <p>Implements <a class="el" href="classbfb_1_1_controller.html#a5c08721a02c4a1e33373a647c7891766">bfb::Controller</a>.</p>
-
-</div>
-</div>
-<a id="ae27e9ff558394933e3a258673273da8c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae27e9ff558394933e3a258673273da8c">&#9670;&nbsp;</a></span>step()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">double bfb::Pidf::step </td>
-          <td>(</td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>state</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Goes through one step of the controller. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">state</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>double </dd></dl>
-
-<p>Implements <a class="el" href="classbfb_1_1_controller.html#a8ac36b4ca1db74fed0e2263645d859aa">bfb::Controller</a>.</p>
 
 </div>
 </div>
