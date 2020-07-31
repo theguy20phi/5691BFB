@@ -83,9 +83,9 @@ bin/bfb/bfb.cpp.o: src/bfb/bfb.cpp include/bfb/bfb.hpp \
  include/okapi/api/filter/emaFilter.hpp \
  include/okapi/api/filter/filter.hpp include/bfb/controllers/tbh.hpp \
  include/okapi/impl/util/timer.hpp include/bfb/debug/issue.hpp \
- include/bfb/debug/recorder.hpp include/bfb/flow/stateMachine.hpp \
- include/bfb/robot.hpp include/bfb/utility/moreQLength.hpp \
- include/okapi/api/units/QLength.hpp
+ include/bfb/debug/logger.hpp include/bfb/flow/stateMachine.hpp \
+ include/bfb/robot.hpp include/bfb/flow/task.hpp include/pros/rtos.hpp \
+ include/bfb/utility/moreQLength.hpp include/okapi/api/units/QLength.hpp
 
 include/bfb/bfb.hpp:
 
@@ -393,11 +393,15 @@ include/okapi/impl/util/timer.hpp:
 
 include/bfb/debug/issue.hpp:
 
-include/bfb/debug/recorder.hpp:
+include/bfb/debug/logger.hpp:
 
 include/bfb/flow/stateMachine.hpp:
 
 include/bfb/robot.hpp:
+
+include/bfb/flow/task.hpp:
+
+include/pros/rtos.hpp:
 
 include/bfb/utility/moreQLength.hpp:
 

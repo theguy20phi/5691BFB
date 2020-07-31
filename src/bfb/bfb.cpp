@@ -10,6 +10,7 @@ void runTests() {
   issueTest();
   waitUntilTest();
   waitUntilWithTimeoutTest();
+  taskTest();
   std::cout << "Completed tests!" << std::endl;
 #endif
 }

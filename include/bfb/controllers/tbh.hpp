@@ -33,7 +33,7 @@ class Tbh final : public Controller {
    */
   Tbh(double iGain, std::unique_ptr<okapi::SettledUtil> iSettledChecker);
 
-  double step(double state) override;
+  double calculate(double state) override;
   bool isDone(double state) override;
   void reset() override;
 

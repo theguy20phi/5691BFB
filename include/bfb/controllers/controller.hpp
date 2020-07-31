@@ -33,7 +33,7 @@ class Controller {
    * @param state
    * @return double
    */
-  virtual double step(double state) = 0;
+  virtual double calculate(double state) = 0;
 
   /**
    * @brief Gets the output of the controller.

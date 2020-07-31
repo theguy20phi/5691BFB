@@ -69,7 +69,8 @@
         "fstream": "cpp",
         "numeric": "cpp",
         "memory_resource": "cpp",
-        "random": "cpp"
+        "random": "cpp",
+        "bit": "cpp"
     },
     "C_Cpp.dimInactiveRegions": false
 }

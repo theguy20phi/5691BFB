@@ -6,7 +6,7 @@ Pidf::Pidf(const PidfGains &iGains, std::unique_ptr<okapi::SettledUtil> iSettled
   assert(gains.kP >= 0.0 && gains.kI >= 0.0 && gains.kD >= 0.0 && gains.f >= 0.0);
 }
 
-double Pidf::step(double state) {
+double Pidf::calculate(double state) {
   if (pros::millis() - lastTime >= generalDelay)
     return output;
   lastTime = pros::millis();
@@ -54,7 +54,7 @@ DEFINE_TEST(pidfTest)
 using namespace okapi;
 Pidf testPidf{{2.0, 2.0, 2.0, 2.0}, createSettledUtil(10, 1, 0_ms)};
 testPidf.setReference(12.0);
-IS_EQUAL(testPidf.step(2.0), 38.0);
+IS_EQUAL(testPidf.calculate(2.0), 38.0);
 END_TEST
 #endif
 } // namespace bfb
