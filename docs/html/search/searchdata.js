@@ -3,8 +3,7 @@ var indexSectionsWithContent =
   0: "cdegilmoprstw",
   1: "cilprst",
   2: "cilmoprstw",
-  3: "cdegioprstw",
-  4: "t"
+  3: "cdegioprstw"
 };
 
 var indexSectionNames =
@@ -12,8 +11,7 @@ var indexSectionNames =
   0: "all",
   1: "classes",
   2: "files",
-  3: "functions",
-  4: "typedefs"
+  3: "functions"
 };
 
 var indexSectionLabels =
@@ -21,7 +19,6 @@ var indexSectionLabels =
   0: "All",
   1: "Classes",
   2: "Files",
-  3: "Functions",
-  4: "Typedefs"
+  3: "Functions"
 };
 

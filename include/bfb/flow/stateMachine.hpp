@@ -1,6 +1,6 @@
 /**
  * @file stateMachine.hpp
- * @author Braden Pierce
+ * @author Braden Pierce (913153006@bryantschools.org)
  *
  * @copyright Copyright (c) 2020
  *
@@ -8,108 +8,107 @@
 
 #pragma once
 
-#include "bfb/robot.hpp"
-#include <functional>
-#include <memory>
+#include "task.hpp"
+#include <iostream>
+#include <type_traits>
+#include <variant>
 
 namespace bfb {
 /**
- * @brief A generic StateMachine class with relatively-easy to create states and transitions
- * that do not violate OCP, are clearly defined and distinct from one another (where states
- * are more abstract representations for what the bot is doing, but transitions control behaviour),
- * where transitions can be paramaterized, where transitions can call upon the methods of the
- * StateMachine class, and where only certain states and transitions are deemed acceptable for use
- * by the StateMachine.
+ * @brief A template for StateMachines. The state is represented by a variant of structs that
+ * represent specific states. The subclasses must provide behavior for each possible specific state
+ * the state variant could be with a function for each state: behavior(const State &state) {...}.
  *
- * States and transitions are to be defined by the user as such (replace "Mechanism" with specific
- * mechanism), examples for use are below:
- *
- * #include "stateMachine.hpp"
- *
- * enum class MechanismStates {
- *  Standby, //All states should probably have a standby state
- *  On,
- *  Off
- * };
- *
- * using MechanismTransition = Transition<MechanismStates>;
- *
- * MechanismTransition example(std::string arg, double otherArg) {
- *  return [=](StateMachine<MechanismStates> &machine) {
- *    machine.getRobot()->robotAction(arg);
- *    if(machine.getRobot()->robotSensor() < otherArg)
- *      machine.run(otherTransition());
- *    return Standby::On;
- *  };
+ * This implementation avoids lengthy switch statements, verbose expansion using polymorphic states,
+ *  
+ * @code
+ * namespace State {
+ *  namespace Test { // probably want namespaces
+ *    struct ON{int a}; // states can be paramaterized
+ *    struct OFF{int b};
+ *    using TestStates = std::variant<ON, OFF>; // probably want a type alias
+ *  }
  * }
- * @tparam State
+ * class TestMachine final : public StateMachine<TestMachine, TestStates> {
+ *  public:
+ *  // your state machine can have a unique constructor, or just call the StateMachine constructor
+ *  TestMachine(const ValidStates &iState, <other parameters>) {...}
+ *  // define all possible behavior or face dreaded C++ template errors
+ *  void behavior(const State::Test::ON &on) {...}
+ *  void behavior(const State::Test::OFF &off) {...}
+ *
+ *  private:
+ *  void onHelper() {...} // Subclassed state machines can provide helpers for behaviors
+ *
+ *  private:
+ *  Data data; // Subclassed statemachines can store data for use in behaviors
+ * };
+ * @endcode
+ *
+ * @tparam Concrete (the subclass)
+ * @tparam ValidStates (variant of state structs)
+ * @tparam TASK_PRIORITY_DEFAULT
  */
-template <typename State> class StateMachine {
+template <class Concrete, typename ValidStates, std::uint32_t priority = TASK_PRIORITY_DEFAULT>
+class StateMachine : public Task<priority> {
   public:
-  // StateMachine isn't const, so transitions can call upon run to change the transition
-  using Transition = std::function<State(StateMachine<State> &)>;
-
   /**
    * @brief Construct a new State Machine object
    *
    * @param iState
-   * @param iTransition
-   * @param iRobot
    */
-  StateMachine(const State &iState,
-               const Transition &iTransition,
-               const std::shared_ptr<Robot> &iRobot)
-    : state(iState), transition(iTransition), robot(iRobot) {
+  StateMachine(const ValidStates &iState) : state(iState) {
   }
 
   /**
-   * @brief Goes through one step of the StateMachine.
+   * @brief Overloads bfb::Task::step, uses a visitor to run the overloaded behavior for the current
+   * state.
    *
-   * @return State
    */
-  State step() {
-    state = transition(*this);
-    getState();
+  virtual void step() final {
+    for (;;)
+      std::visit([this](const auto &s) { static_cast<Concrete *>(this)->behavior(s); }, state);
   }
 
   /**
-   * @brief Get the State of the StateMachine.
+   * @brief Set the State object
    *
-   * @return State
+   * @param iState
    */
-  State getState() const {
+  virtual void setState(const ValidStates &iState) {
+    state = iState;
+  }
+
+  /**
+   * @brief Get the State object
+   *
+   * @return ValidStates
+   */
+  virtual ValidStates getState() const final {
     return state;
   }
 
   /**
-   * @brief Run a user-defined transition.
+   * @brief Determines if two states are equal (does not take parameters into account).
    *
-   * @param iTransition
+   * @param iState
+   * @return bool
    */
-  void run(const Transition &iTransition) {
-    transition = iTransition;
+  virtual bool operator==(const ValidStates &iState) const final {
+    return state.index() == iState.index();
   }
 
   /**
-   * @brief Get the pointer to the Robot used in the StateMachine (mostly here for use in
-   * transitions).
+   * @brief Determines if two states are not equal (does not take parameters into account).
    *
-   * @return std::shared_ptr<Robot>
+   * @param iState
+   * @return bool
    */
-  std::shared_ptr<Robot> getRobot() const {
-    return robot;
+  virtual bool operator!=(const ValidStates &iState) const final {
+    return state.index() != iState.index();
   }
 
   protected:
-  State state;
-  Transition transition;
-  std::shared_ptr<Robot> robot;
+  ValidStates state;
 };
-
-/**
- * @brief Provides easy-to-use type aliasing for transitions.
- *
- * @tparam State
- */
-template <typename State> using Transition = std::function<State(StateMachine<State> &)>;
 } // namespace bfb

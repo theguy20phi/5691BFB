@@ -3,11 +3,13 @@
 namespace bfb {
 #ifdef TESTING
 void TaskTestClass::step() {
-  if (thing)
-    thing = 0;
-  else
-    thing = 1;
-  pros::delay(10);
+  for (;;) {
+    if (thing)
+      thing = 0;
+    else
+      thing = 1;
+    pros::delay(10);
+  }
 }
 
 DEFINE_TEST(taskTest)

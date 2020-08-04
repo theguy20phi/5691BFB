@@ -31,9 +31,13 @@ void waitUntil(const std::function<bool()> &condition, const int maxDelay);
 
 /**
  * @brief Provide a condition like:
+ * @code
  * waitUntil(somethingIsDone);
+ * @endcode
  * or
+ * @code
  * waitUntil([object]() -> bool { return object->isDone(); });
+ * @endcode
  * It will wait in vex_delay increments until the condition is achieved.
  * Will not timeout, see overload with maxDelay argument.
  *

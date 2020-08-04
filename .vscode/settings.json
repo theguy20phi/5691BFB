@@ -70,7 +70,8 @@
         "numeric": "cpp",
         "memory_resource": "cpp",
         "random": "cpp",
-        "bit": "cpp"
+        "bit": "cpp",
+        "variant": "cpp"
     },
     "C_Cpp.dimInactiveRegions": false
 }

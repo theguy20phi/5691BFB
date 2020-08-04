@@ -117,9 +117,6 @@ $(function() {
 <li>getReference()
 : <a class="el" href="classbfb_1_1_controller.html#aeb673f7f476e1153a3920c642bbc6e85">bfb::Controller</a>
 </li>
-<li>getRobot()
-: <a class="el" href="classbfb_1_1_state_machine.html#ae03fd8cff824ca00b7a19c09ed3fdaef">bfb::StateMachine&lt; State &gt;</a>
-</li>
 <li>getRoll()
 : <a class="el" href="classbfb_1_1_i_m_u.html#afb69825c1b02988eb1d88a437917176c">bfb::IMU&lt; size &gt;</a>
 </li>
@@ -127,7 +124,7 @@ $(function() {
 : <a class="el" href="classbfb_1_1_issue.html#a7abb27268af6c90f6b6d44f1ed8a7b44">bfb::Issue</a>
 </li>
 <li>getState()
-: <a class="el" href="classbfb_1_1_state_machine.html#ab586bc29134de99bd952607bd978b71a">bfb::StateMachine&lt; State &gt;</a>
+: <a class="el" href="classbfb_1_1_state_machine.html#a99f0cc82b1f80e826c2eff6391be20c4">bfb::StateMachine&lt; Concrete, ValidStates, priority &gt;</a>
 </li>
 <li>getStatus()
 : <a class="el" href="classbfb_1_1_i_m_u.html#ac0fcfc587416bcaffac8fd145177f398">bfb::IMU&lt; size &gt;</a>
@@ -157,8 +154,14 @@ $(function() {
 
 
 <h3><a id="index_o"></a>- o -</h3><ul>
+<li>operator!=()
+: <a class="el" href="classbfb_1_1_state_machine.html#a0be87158f53154dfe91d7d4b7a5b0cc8">bfb::StateMachine&lt; Concrete, ValidStates, priority &gt;</a>
+</li>
 <li>operator&lt;&lt;()
 : <a class="el" href="classbfb_1_1_logger.html#a4822bb6f35618fcb29ab79488e77a20a">bfb::Logger</a>
+</li>
+<li>operator==()
+: <a class="el" href="classbfb_1_1_state_machine.html#aee7e1a4dbd66feecba6453bfab90dd71">bfb::StateMachine&lt; Concrete, ValidStates, priority &gt;</a>
 </li>
 </ul>
 
@@ -176,9 +179,6 @@ $(function() {
 , <a class="el" href="classbfb_1_1_pidf.html#ae54df26278aa0c65a6d561696d091b36">bfb::Pidf</a>
 , <a class="el" href="classbfb_1_1_tbh.html#af7052f06249e71c01e89a87433407373">bfb::Tbh</a>
 </li>
-<li>run()
-: <a class="el" href="classbfb_1_1_state_machine.html#aa3213866afb30fc106da935d12bcf5bc">bfb::StateMachine&lt; State &gt;</a>
-</li>
 </ul>
 
 
@@ -189,14 +189,17 @@ $(function() {
 <li>setReference()
 : <a class="el" href="classbfb_1_1_controller.html#ad0eab693cddd1b6a74f61c26edda7ee5">bfb::Controller</a>
 </li>
+<li>setState()
+: <a class="el" href="classbfb_1_1_state_machine.html#aae51ee931609541c9b6139776d74a432">bfb::StateMachine&lt; Concrete, ValidStates, priority &gt;</a>
+</li>
 <li>start()
 : <a class="el" href="classbfb_1_1_task.html#ab505c0c908dadf59ce681fb2ed2cf7d9">bfb::Task&lt; priority &gt;</a>
 </li>
 <li>StateMachine()
-: <a class="el" href="classbfb_1_1_state_machine.html#ab486a669edb8d89840951318d037d37f">bfb::StateMachine&lt; State &gt;</a>
+: <a class="el" href="classbfb_1_1_state_machine.html#a4807887f0977aa35a53b810d0b554172">bfb::StateMachine&lt; Concrete, ValidStates, priority &gt;</a>
 </li>
 <li>step()
-: <a class="el" href="classbfb_1_1_state_machine.html#a5b07c63266dc2ccfc7c2786a44c13126">bfb::StateMachine&lt; State &gt;</a>
+: <a class="el" href="classbfb_1_1_state_machine.html#ad675f4af407587bb064991fbe7b224cf">bfb::StateMachine&lt; Concrete, ValidStates, priority &gt;</a>
 , <a class="el" href="classbfb_1_1_task.html#acbd43537642db640fb86d0ff028ea412">bfb::Task&lt; priority &gt;</a>
 </li>
 <li>stop()
