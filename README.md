@@ -8,3 +8,7 @@ Oddities include:
 - Finite state machine class.  
 - Selective recording system for debugging.  
 ...
+
+---
+permalink: /docs/index.html
+---
