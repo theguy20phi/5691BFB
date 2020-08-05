@@ -10,5 +10,5 @@ Oddities include:
 ...
 
 ---
-permalink: /docs/index.html
+permalink: /docs/html/index.html
 ---
