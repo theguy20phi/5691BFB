@@ -3,11 +3,11 @@
 namespace bfb {
 Tbh::Tbh(double iGain, std::unique_ptr<okapi::SettledUtil> iSettledChecker)
   : gain(iGain), settledChecker(std::move(iSettledChecker)) {
-  assert(gain >= 0.0);
+    tbhLog << "Tbh created.";
 }
 
 double Tbh::calculate(double state) {
-  if (pros::millis() - lastTime >= generalDelay)
+  if (pros::millis() - lastTime >= Wait::generalDelay)
     return output;
   lastTime = pros::millis();
   double error{reference - state};
@@ -35,7 +35,10 @@ void Tbh::reset() {
   tbh = 0.0;
   previousErrorSign = 0.0;
   settledChecker->reset();
+  tbhLog << "Tbh reset.";
 }
+
+Logger Tbh::tbhLog{};
 
 #ifdef TESTING
 DEFINE_TEST(tbhTest)

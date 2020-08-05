@@ -8,9 +8,10 @@
 
 #pragma once
 
+#include "bfb/debug/issue.hpp"
+#include "bfb/debug/logger.hpp"
 #include "okapi/api/filter/medianFilter.hpp"
 #include "pros/imu.h"
-#include <algorithm>
 #include <array>
 #include <functional>
 #include <numeric>
@@ -35,7 +36,7 @@ template <int size> class IMU final {
   }
 
   /**
-   * @brief Calibrate the IMUs.
+   * @brief Calibrate the IMUs. Gives issue if any IMU initializes improperly.
    *
    */
   std::array<int32_t, size> calibrate() const {
@@ -43,6 +44,8 @@ template <int size> class IMU final {
     std::transform(ports.begin(), ports.end(), std::back_inserter(temp), [](const uint8_t &p) {
       return pros::c::imu_reset(p);
     });
+    if (std::any_of(temp.begin(), temp.end(), [](const int32_t &p) { return p != 1; }))
+      static Issue imuInitIssue{"IMUInit", Severity::High};
     return temp;
   };
 
@@ -148,9 +151,15 @@ template <int size> class IMU final {
    */
   bool isCalibrating() const {
     return std::any_of(ports.begin(), ports.end(), [](const uint8_t &p) {
-      return pros::c::imu_get_status(p) & pros::c::E_IMU_STATUS_CALIBRATING;
+      return pros::c::imu_get_status(p) == pros::c::E_IMU_STATUS_CALIBRATING;
     });
   }
+
+  /**
+   * @brief Logger object for IMU.
+   *
+   */
+  static Logger imuLog;
 
   private:
   std::array<uint8_t, size> ports;

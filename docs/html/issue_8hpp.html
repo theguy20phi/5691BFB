@@ -86,8 +86,8 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbfb_1_1_severity_level.html">bfb::SeverityLevel</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to sort and display issues of varying severity.  <a href="structbfb_1_1_severity_level.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbfb_1_1_severity_1_1_severity_level.html">bfb::Severity::SeverityLevel</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to sort and display issues of varying severity.  <a href="structbfb_1_1_severity_1_1_severity_level.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_issue.html">bfb::Issue</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classbfb_1_1_issue.html" title="Issue provides a basis for managing and logging problems that may occur during driving....">Issue</a> provides a basis for managing and logging problems that may occur during driving. Issues should be constructed as static and constant, in the event the problem occurs. Issues are logged in vector that can be globally read from, but only modified by <a class="el" href="classbfb_1_1_issue.html" title="Issue provides a basis for managing and logging problems that may occur during driving....">Issue</a> objects. Issues are sorted by highest to lowest severity when logged.  <a href="classbfb_1_1_issue.html#details">More...</a><br /></td></tr>
@@ -101,18 +101,18 @@ Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a55981f90b201c135401d9850eba2a051"><td class="memItemLeft" align="right" valign="top"><a id="a55981f90b201c135401d9850eba2a051"></a>
-constexpr SeverityLevel&#160;</td><td class="memItemRight" valign="bottom"><b>bfb::Low</b> {1, 'L'}</td></tr>
-<tr class="separator:a55981f90b201c135401d9850eba2a051"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0a6e7d94b8b9b43838209ebcccb441f9"><td class="memItemLeft" align="right" valign="top"><a id="a0a6e7d94b8b9b43838209ebcccb441f9"></a>
-constexpr SeverityLevel&#160;</td><td class="memItemRight" valign="bottom"><b>bfb::Medium</b> {2, 'M'}</td></tr>
-<tr class="separator:a0a6e7d94b8b9b43838209ebcccb441f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a968200103bb2bda313ad5d3a041bdf65"><td class="memItemLeft" align="right" valign="top"><a id="a968200103bb2bda313ad5d3a041bdf65"></a>
-constexpr SeverityLevel&#160;</td><td class="memItemRight" valign="bottom"><b>bfb::High</b> {3, 'H'}</td></tr>
-<tr class="separator:a968200103bb2bda313ad5d3a041bdf65"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a29e3945ffcb900d8a7704e63dea45a15"><td class="memItemLeft" align="right" valign="top"><a id="a29e3945ffcb900d8a7704e63dea45a15"></a>
-constexpr SeverityLevel&#160;</td><td class="memItemRight" valign="bottom"><b>bfb::Test</b> {INT32_MIN, 'T'}</td></tr>
-<tr class="separator:a29e3945ffcb900d8a7704e63dea45a15"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6793cdd90a58052c381a390279ca01c0"><td class="memItemLeft" align="right" valign="top"><a id="a6793cdd90a58052c381a390279ca01c0"></a>
+constexpr SeverityLevel&#160;</td><td class="memItemRight" valign="bottom"><b>bfb::Severity::Low</b> {1, 'L'}</td></tr>
+<tr class="separator:a6793cdd90a58052c381a390279ca01c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e13a95dc646850fc6e3581c7cbd6422"><td class="memItemLeft" align="right" valign="top"><a id="a8e13a95dc646850fc6e3581c7cbd6422"></a>
+constexpr SeverityLevel&#160;</td><td class="memItemRight" valign="bottom"><b>bfb::Severity::Medium</b> {2, 'M'}</td></tr>
+<tr class="separator:a8e13a95dc646850fc6e3581c7cbd6422"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa97d86fb87182220e55b613724dad574"><td class="memItemLeft" align="right" valign="top"><a id="aa97d86fb87182220e55b613724dad574"></a>
+constexpr SeverityLevel&#160;</td><td class="memItemRight" valign="bottom"><b>bfb::Severity::High</b> {3, 'H'}</td></tr>
+<tr class="separator:aa97d86fb87182220e55b613724dad574"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a41681bbd20524c00f5c2c25c17bbc90f"><td class="memItemLeft" align="right" valign="top"><a id="a41681bbd20524c00f5c2c25c17bbc90f"></a>
+constexpr SeverityLevel&#160;</td><td class="memItemRight" valign="bottom"><b>bfb::Severity::Test</b> {INT32_MIN, 'T'}</td></tr>
+<tr class="separator:a41681bbd20524c00f5c2c25c17bbc90f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><dl class="section author"><dt>Author</dt><dd>Braden Pierce (<a href="#" onclick="location.href='mai'+'lto:'+'913'+'15'+'300'+'6@'+'bry'+'an'+'tsc'+'ho'+'ols'+'.o'+'rg'; return false;">91315<span style="display: none;">.nosp@m.</span>3006<span style="display: none;">.nosp@m.</span>@brya<span style="display: none;">.nosp@m.</span>ntsc<span style="display: none;">.nosp@m.</span>hools<span style="display: none;">.nosp@m.</span>.org</a>)</dd></dl>

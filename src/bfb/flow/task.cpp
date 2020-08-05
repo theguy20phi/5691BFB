@@ -1,15 +1,13 @@
 #include "task.hpp"
 
 namespace bfb {
+template <std::uint32_t priority> Logger Task<priority>::taskLog{};
 #ifdef TESTING
 void TaskTestClass::step() {
-  for (;;) {
-    if (thing)
-      thing = 0;
-    else
-      thing = 1;
-    pros::delay(10);
-  }
+  if (thing)
+    thing = 0;
+  else
+    thing = 1;
 }
 
 DEFINE_TEST(taskTest)

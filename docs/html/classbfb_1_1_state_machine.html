@@ -70,6 +70,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
 <a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="classbfb_1_1_state_machine-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -118,6 +119,16 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ada4b7c62f8296a2e4704340f0e1f8957 inherit pub_methods_classbfb_1_1_task"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_task.html#ada4b7c62f8296a2e4704340f0e1f8957">stop</a> () final</td></tr>
 <tr class="memdesc:ada4b7c62f8296a2e4704340f0e1f8957 inherit pub_methods_classbfb_1_1_task"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ends the task.  <a href="classbfb_1_1_task.html#ada4b7c62f8296a2e4704340f0e1f8957">More...</a><br /></td></tr>
 <tr class="separator:ada4b7c62f8296a2e4704340f0e1f8957 inherit pub_methods_classbfb_1_1_task"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
+Static Public Attributes</h2></td></tr>
+<tr class="memitem:af53e8fcb72a57a7eb37fbafec46cdbe5"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classbfb_1_1_logger.html">Logger</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_state_machine.html#af53e8fcb72a57a7eb37fbafec46cdbe5">stateMachineLog</a></td></tr>
+<tr class="memdesc:af53e8fcb72a57a7eb37fbafec46cdbe5"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classbfb_1_1_logger.html" title="Implements a logger for logging either to a file or the terminal.">Logger</a> object for <a class="el" href="classbfb_1_1_state_machine.html" title="A template for StateMachines. The state is represented by a variant of structs that represent specifi...">StateMachine</a>.  <a href="classbfb_1_1_state_machine.html#af53e8fcb72a57a7eb37fbafec46cdbe5">More...</a><br /></td></tr>
+<tr class="separator:af53e8fcb72a57a7eb37fbafec46cdbe5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_static_attribs_classbfb_1_1_task"><td colspan="2" onclick="javascript:toggleInherit('pub_static_attribs_classbfb_1_1_task')"><img src="closed.png" alt="-"/>&#160;Static Public Attributes inherited from <a class="el" href="classbfb_1_1_task.html">bfb::Task&lt; TASK_PRIORITY_DEFAULT &gt;</a></td></tr>
+<tr class="memitem:a63f5271c6a518f365bb13c3479b7bc21 inherit pub_static_attribs_classbfb_1_1_task"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classbfb_1_1_logger.html">Logger</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_task.html#a63f5271c6a518f365bb13c3479b7bc21">taskLog</a></td></tr>
+<tr class="memdesc:a63f5271c6a518f365bb13c3479b7bc21 inherit pub_static_attribs_classbfb_1_1_task"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logger object for Task.  <a href="classbfb_1_1_task.html#a63f5271c6a518f365bb13c3479b7bc21">More...</a><br /></td></tr>
+<tr class="separator:a63f5271c6a518f365bb13c3479b7bc21 inherit pub_static_attribs_classbfb_1_1_task"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
@@ -370,6 +381,33 @@ template&lt;class Concrete , typename ValidStates , std::uint32_t priority = TAS
 <p>Overloads <a class="el" href="classbfb_1_1_task.html#acbd43537642db640fb86d0ff028ea412" title="Goes through one step of the Task. Should be overwritten. Should take and return nothing.">bfb::Task::step</a>, uses a visitor to run the overloaded behavior for the current state. </p>
 
 <p>Implements <a class="el" href="classbfb_1_1_task.html#acbd43537642db640fb86d0ff028ea412">bfb::Task&lt; TASK_PRIORITY_DEFAULT &gt;</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="af53e8fcb72a57a7eb37fbafec46cdbe5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af53e8fcb72a57a7eb37fbafec46cdbe5">&#9670;&nbsp;</a></span>stateMachineLog</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Concrete , typename ValidStates , std::uint32_t priority = TASK_PRIORITY_DEFAULT&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classbfb_1_1_logger.html">Logger</a> <a class="el" href="classbfb_1_1_state_machine.html">bfb::StateMachine</a>&lt; Concrete, ValidStates, priority &gt;::stateMachineLog</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classbfb_1_1_logger.html" title="Implements a logger for logging either to a file or the terminal.">Logger</a> object for <a class="el" href="classbfb_1_1_state_machine.html" title="A template for StateMachines. The state is represented by a variant of structs that represent specifi...">StateMachine</a>. </p>
 
 </div>
 </div>

@@ -8,8 +8,10 @@
 
 #pragma once
 
+#include "bfb/debug/logger.hpp"
 #include "bfb/debug/test.hpp"
 #include "pros/rtos.hpp"
+#include "wait.hpp"
 #include <memory>
 
 namespace bfb {
@@ -33,8 +35,17 @@ template <std::uint32_t priority = TASK_PRIORITY_DEFAULT> class Task {
    *
    */
   virtual void start() final {
-    if (task)
-      task = std::make_unique<pros::Task>([this]() { this->step(); }, priority);
+    if (!task) {
+      taskLog << "Task started.";
+      task = std::make_unique<pros::Task>(
+        [this]() {
+          for (;;) {
+            this->step();
+            wait(Wait::generalDelay);
+          }
+        },
+        priority);
+    }
   }
 
   /**
@@ -42,9 +53,17 @@ template <std::uint32_t priority = TASK_PRIORITY_DEFAULT> class Task {
    *
    */
   virtual void stop() final {
-    if (!task)
+    if (task) {
+      taskLog << "Task ended.";
       task = nullptr;
+    }
   }
+
+  /**
+   * @brief Logger object for Task.
+   *
+   */
+  static Logger taskLog;
 
   protected:
   std::unique_ptr<pros::Task> task{nullptr};

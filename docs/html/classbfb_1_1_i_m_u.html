@@ -70,6 +70,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
 <a href="classbfb_1_1_i_m_u-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">bfb::IMU&lt; size &gt; Class Template Reference<span class="mlabels"><span class="mlabel">final</span></span></div>  </div>
@@ -87,7 +88,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a4eb74c0b53a235a681e14d977cfea8ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classbfb_1_1_i_m_u.html" title="Wrapper class for out-the-box pros Imu class to simplify the interface to essentially a yaw gyroscope...">IMU</a> object.  <a href="classbfb_1_1_i_m_u.html#a4eb74c0b53a235a681e14d977cfea8ed">More...</a><br /></td></tr>
 <tr class="separator:a4eb74c0b53a235a681e14d977cfea8ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7113ffdfa87cd6e2979bf78459f00d5a"><td class="memItemLeft" align="right" valign="top">std::array&lt; int32_t, size &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_i_m_u.html#a7113ffdfa87cd6e2979bf78459f00d5a">calibrate</a> () const</td></tr>
-<tr class="memdesc:a7113ffdfa87cd6e2979bf78459f00d5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calibrate the IMUs.  <a href="classbfb_1_1_i_m_u.html#a7113ffdfa87cd6e2979bf78459f00d5a">More...</a><br /></td></tr>
+<tr class="memdesc:a7113ffdfa87cd6e2979bf78459f00d5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calibrate the IMUs. Gives issue if any <a class="el" href="classbfb_1_1_i_m_u.html" title="Wrapper class for out-the-box pros Imu class to simplify the interface to essentially a yaw gyroscope...">IMU</a> initializes improperly.  <a href="classbfb_1_1_i_m_u.html#a7113ffdfa87cd6e2979bf78459f00d5a">More...</a><br /></td></tr>
 <tr class="separator:a7113ffdfa87cd6e2979bf78459f00d5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afc69f33d1b09b6d1353e522cb3e9504e"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_i_m_u.html#afc69f33d1b09b6d1353e522cb3e9504e">getHeading</a> ()</td></tr>
 <tr class="memdesc:afc69f33d1b09b6d1353e522cb3e9504e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the filter heading (yaw) of the <a class="el" href="classbfb_1_1_i_m_u.html" title="Wrapper class for out-the-box pros Imu class to simplify the interface to essentially a yaw gyroscope...">IMU</a>.  <a href="classbfb_1_1_i_m_u.html#afc69f33d1b09b6d1353e522cb3e9504e">More...</a><br /></td></tr>
@@ -113,6 +114,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a8d080a59a492e33c61552bacfb95c947"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_i_m_u.html#a8d080a59a492e33c61552bacfb95c947">isCalibrating</a> () const</td></tr>
 <tr class="memdesc:a8d080a59a492e33c61552bacfb95c947"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines if the IMUs are still calibrating.  <a href="classbfb_1_1_i_m_u.html#a8d080a59a492e33c61552bacfb95c947">More...</a><br /></td></tr>
 <tr class="separator:a8d080a59a492e33c61552bacfb95c947"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
+Static Public Attributes</h2></td></tr>
+<tr class="memitem:a9e2b204f9d72017ad1f9c6173d6f9838"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classbfb_1_1_logger.html">Logger</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_i_m_u.html#a9e2b204f9d72017ad1f9c6173d6f9838">imuLog</a></td></tr>
+<tr class="memdesc:a9e2b204f9d72017ad1f9c6173d6f9838"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classbfb_1_1_logger.html" title="Implements a logger for logging either to a file or the terminal.">Logger</a> object for <a class="el" href="classbfb_1_1_i_m_u.html" title="Wrapper class for out-the-box pros Imu class to simplify the interface to essentially a yaw gyroscope...">IMU</a>.  <a href="classbfb_1_1_i_m_u.html#a9e2b204f9d72017ad1f9c6173d6f9838">More...</a><br /></td></tr>
+<tr class="separator:a9e2b204f9d72017ad1f9c6173d6f9838"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;int size&gt;<br />
@@ -188,7 +195,7 @@ template&lt;int size&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Calibrate the IMUs. </p>
+<p>Calibrate the IMUs. Gives issue if any <a class="el" href="classbfb_1_1_i_m_u.html" title="Wrapper class for out-the-box pros Imu class to simplify the interface to essentially a yaw gyroscope...">IMU</a> initializes improperly. </p>
 
 </div>
 </div>
@@ -429,6 +436,33 @@ template&lt;int size&gt; </div>
 
 <p>Determines if the IMUs are still calibrating. </p>
 <dl class="section return"><dt>Returns</dt><dd>bool </dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a9e2b204f9d72017ad1f9c6173d6f9838"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e2b204f9d72017ad1f9c6173d6f9838">&#9670;&nbsp;</a></span>imuLog</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int size&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classbfb_1_1_logger.html">Logger</a> <a class="el" href="classbfb_1_1_i_m_u.html">bfb::IMU</a>&lt; size &gt;::imuLog</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classbfb_1_1_logger.html" title="Implements a logger for logging either to a file or the terminal.">Logger</a> object for <a class="el" href="classbfb_1_1_i_m_u.html" title="Wrapper class for out-the-box pros Imu class to simplify the interface to essentially a yaw gyroscope...">IMU</a>. </p>
 
 </div>
 </div>

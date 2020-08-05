@@ -14,7 +14,6 @@
 #include "bfb/utility/okapiUtil.hpp"
 #include "controller.hpp"
 #include "okapi/api/filter/emaFilter.hpp"
-#include <assert.h>
 
 namespace bfb {
 /**
@@ -38,7 +37,6 @@ class Pidf final : public Controller {
   /**
    * @brief Constructs a Pidf object.
    *
-   * @warning Asserted that alls gains are >= 0.0.
    * @param gains
    * @param iSettledChecker
    */
@@ -46,6 +44,12 @@ class Pidf final : public Controller {
   double calculate(double state) override;
   bool isDone(double state) override;
   void reset() override;
+
+  /**
+   * @brief Logger object for Pidf.
+   *
+   */
+  static Logger pidfLog;
 
   private:
   /**

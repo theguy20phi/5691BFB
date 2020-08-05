@@ -75,36 +75,43 @@ $(function() {
 <a href="controller_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">namespace </span>bfb {</div>
-<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="classbfb_1_1_controller.html">   12</a></span>&#160;<span class="keyword">class </span><a class="code" href="classbfb_1_1_controller.html">Controller</a> {</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;  <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;  <span class="keyword">virtual</span> ~<a class="code" href="classbfb_1_1_controller.html">Controller</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="classbfb_1_1_controller.html#ad0eab693cddd1b6a74f61c26edda7ee5">   21</a></span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classbfb_1_1_controller.html#ad0eab693cddd1b6a74f61c26edda7ee5">setReference</a>(<span class="keywordtype">double</span> iReference);</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="classbfb_1_1_controller.html#aeb673f7f476e1153a3920c642bbc6e85">   28</a></span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">double</span> <a class="code" href="classbfb_1_1_controller.html#aeb673f7f476e1153a3920c642bbc6e85">getReference</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="classbfb_1_1_controller.html#aa5e6687d2d1a7c037a573ebd95e1c84a">   36</a></span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">double</span> <a class="code" href="classbfb_1_1_controller.html#aa5e6687d2d1a7c037a573ebd95e1c84a">calculate</a>(<span class="keywordtype">double</span> state) = 0;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="classbfb_1_1_controller.html#a090841f5686c446ba0a12a7546d7423c">   43</a></span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">double</span> <a class="code" href="classbfb_1_1_controller.html#a090841f5686c446ba0a12a7546d7423c">getOutput</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
-<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="classbfb_1_1_controller.html#a5c08721a02c4a1e33373a647c7891766">   51</a></span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classbfb_1_1_controller.html#a5c08721a02c4a1e33373a647c7891766">isDone</a>(<span class="keywordtype">double</span> state) = 0;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
-<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="classbfb_1_1_controller.html#add8c609c2835c25795a08ff1e615eea9">   56</a></span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classbfb_1_1_controller.html#add8c609c2835c25795a08ff1e615eea9">reset</a>() = 0;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  <span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  <span class="keywordtype">double</span> output{0.0};</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  <span class="keywordtype">double</span> reference{0.0};</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;};</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;} <span class="comment">// namespace bfb</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="logger_8hpp.html">bfb/debug/logger.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">namespace </span>bfb {</div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="classbfb_1_1_controller.html">   14</a></span>&#160;<span class="keyword">class </span><a class="code" href="classbfb_1_1_controller.html">Controller</a> {</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;  <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;  <span class="keyword">virtual</span> ~<a class="code" href="classbfb_1_1_controller.html">Controller</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="classbfb_1_1_controller.html#ad0eab693cddd1b6a74f61c26edda7ee5">   23</a></span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classbfb_1_1_controller.html#ad0eab693cddd1b6a74f61c26edda7ee5">setReference</a>(<span class="keywordtype">double</span> iReference);</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="classbfb_1_1_controller.html#aeb673f7f476e1153a3920c642bbc6e85">   30</a></span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">double</span> <a class="code" href="classbfb_1_1_controller.html#aeb673f7f476e1153a3920c642bbc6e85">getReference</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="classbfb_1_1_controller.html#aa5e6687d2d1a7c037a573ebd95e1c84a">   38</a></span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">double</span> <a class="code" href="classbfb_1_1_controller.html#aa5e6687d2d1a7c037a573ebd95e1c84a">calculate</a>(<span class="keywordtype">double</span> state) = 0;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="classbfb_1_1_controller.html#a090841f5686c446ba0a12a7546d7423c">   45</a></span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">double</span> <a class="code" href="classbfb_1_1_controller.html#a090841f5686c446ba0a12a7546d7423c">getOutput</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="classbfb_1_1_controller.html#a5c08721a02c4a1e33373a647c7891766">   53</a></span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classbfb_1_1_controller.html#a5c08721a02c4a1e33373a647c7891766">isDone</a>(<span class="keywordtype">double</span> state) = 0;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="classbfb_1_1_controller.html#add8c609c2835c25795a08ff1e615eea9">   58</a></span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classbfb_1_1_controller.html#add8c609c2835c25795a08ff1e615eea9">reset</a>() = 0;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
+<div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="classbfb_1_1_controller.html#aee48331bafc6c7707ad7e1fbf672a309">   64</a></span>&#160;  <span class="keyword">static</span> <a class="code" href="classbfb_1_1_logger.html">Logger</a> <a class="code" href="classbfb_1_1_controller.html#aee48331bafc6c7707ad7e1fbf672a309">controllerLog</a>;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;  <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;  <span class="keywordtype">double</span> output{0.0};</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;  <span class="keywordtype">double</span> reference{0.0};</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;};</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;} <span class="comment">// namespace bfb</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="aclassbfb_1_1_controller_html_aeb673f7f476e1153a3920c642bbc6e85"><div class="ttname"><a href="classbfb_1_1_controller.html#aeb673f7f476e1153a3920c642bbc6e85">bfb::Controller::getReference</a></div><div class="ttdeci">virtual double getReference() const</div><div class="ttdoc">Gets the current reference for the controller.</div></div>
 <div class="ttc" id="aclassbfb_1_1_controller_html_a090841f5686c446ba0a12a7546d7423c"><div class="ttname"><a href="classbfb_1_1_controller.html#a090841f5686c446ba0a12a7546d7423c">bfb::Controller::getOutput</a></div><div class="ttdeci">virtual double getOutput() const</div><div class="ttdoc">Gets the output of the controller.</div></div>
 <div class="ttc" id="aclassbfb_1_1_controller_html_a5c08721a02c4a1e33373a647c7891766"><div class="ttname"><a href="classbfb_1_1_controller.html#a5c08721a02c4a1e33373a647c7891766">bfb::Controller::isDone</a></div><div class="ttdeci">virtual bool isDone(double state)=0</div><div class="ttdoc">Gets if the controller is settled.</div></div>
 <div class="ttc" id="aclassbfb_1_1_controller_html_add8c609c2835c25795a08ff1e615eea9"><div class="ttname"><a href="classbfb_1_1_controller.html#add8c609c2835c25795a08ff1e615eea9">bfb::Controller::reset</a></div><div class="ttdeci">virtual void reset()=0</div><div class="ttdoc">Resets the internal state of the controller.</div></div>
 <div class="ttc" id="aclassbfb_1_1_controller_html_ad0eab693cddd1b6a74f61c26edda7ee5"><div class="ttname"><a href="classbfb_1_1_controller.html#ad0eab693cddd1b6a74f61c26edda7ee5">bfb::Controller::setReference</a></div><div class="ttdeci">virtual void setReference(double iReference)</div><div class="ttdoc">Sets the reference for the controller.</div></div>
+<div class="ttc" id="aclassbfb_1_1_controller_html_aee48331bafc6c7707ad7e1fbf672a309"><div class="ttname"><a href="classbfb_1_1_controller.html#aee48331bafc6c7707ad7e1fbf672a309">bfb::Controller::controllerLog</a></div><div class="ttdeci">static Logger controllerLog</div><div class="ttdoc">Logger object for Controller.</div><div class="ttdef"><b>Definition:</b> controller.hpp:64</div></div>
 <div class="ttc" id="aclassbfb_1_1_controller_html_aa5e6687d2d1a7c037a573ebd95e1c84a"><div class="ttname"><a href="classbfb_1_1_controller.html#aa5e6687d2d1a7c037a573ebd95e1c84a">bfb::Controller::calculate</a></div><div class="ttdeci">virtual double calculate(double state)=0</div><div class="ttdoc">Goes through one step of the controller.</div></div>
-<div class="ttc" id="aclassbfb_1_1_controller_html"><div class="ttname"><a href="classbfb_1_1_controller.html">bfb::Controller</a></div><div class="ttdef"><b>Definition:</b> controller.hpp:12</div></div>
+<div class="ttc" id="aclassbfb_1_1_logger_html"><div class="ttname"><a href="classbfb_1_1_logger.html">bfb::Logger</a></div><div class="ttdoc">Implements a logger for logging either to a file or the terminal.</div><div class="ttdef"><b>Definition:</b> logger.hpp:20</div></div>
+<div class="ttc" id="aclassbfb_1_1_controller_html"><div class="ttname"><a href="classbfb_1_1_controller.html">bfb::Controller</a></div><div class="ttdef"><b>Definition:</b> controller.hpp:14</div></div>
+<div class="ttc" id="alogger_8hpp_html"><div class="ttname"><a href="logger_8hpp.html">logger.hpp</a></div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

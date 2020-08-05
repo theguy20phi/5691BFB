@@ -71,6 +71,7 @@ $(function() {
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
 <a href="classbfb_1_1_pidf-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">bfb::Pidf Class Reference<span class="mlabels"><span class="mlabel">final</span></span></div>  </div>
@@ -123,6 +124,16 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memdesc:a090841f5686c446ba0a12a7546d7423c inherit pub_methods_classbfb_1_1_controller"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the output of the controller.  <a href="classbfb_1_1_controller.html#a090841f5686c446ba0a12a7546d7423c">More...</a><br /></td></tr>
 <tr class="separator:a090841f5686c446ba0a12a7546d7423c inherit pub_methods_classbfb_1_1_controller"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
+Static Public Attributes</h2></td></tr>
+<tr class="memitem:a95e61e05932f8cb97c7e9277b9866363"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classbfb_1_1_logger.html">Logger</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_pidf.html#a95e61e05932f8cb97c7e9277b9866363">pidfLog</a></td></tr>
+<tr class="memdesc:a95e61e05932f8cb97c7e9277b9866363"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classbfb_1_1_logger.html" title="Implements a logger for logging either to a file or the terminal.">Logger</a> object for <a class="el" href="classbfb_1_1_pidf.html" title="Pidf implements a basic PID+ff controller, with additions to prevent integral windup and derivative k...">Pidf</a>.  <a href="classbfb_1_1_pidf.html#a95e61e05932f8cb97c7e9277b9866363">More...</a><br /></td></tr>
+<tr class="separator:a95e61e05932f8cb97c7e9277b9866363"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_static_attribs_classbfb_1_1_controller"><td colspan="2" onclick="javascript:toggleInherit('pub_static_attribs_classbfb_1_1_controller')"><img src="closed.png" alt="-"/>&#160;Static Public Attributes inherited from <a class="el" href="classbfb_1_1_controller.html">bfb::Controller</a></td></tr>
+<tr class="memitem:aee48331bafc6c7707ad7e1fbf672a309 inherit pub_static_attribs_classbfb_1_1_controller"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classbfb_1_1_logger.html">Logger</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_controller.html#aee48331bafc6c7707ad7e1fbf672a309">controllerLog</a></td></tr>
+<tr class="memdesc:aee48331bafc6c7707ad7e1fbf672a309 inherit pub_static_attribs_classbfb_1_1_controller"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classbfb_1_1_logger.html" title="Implements a logger for logging either to a file or the terminal.">Logger</a> object for <a class="el" href="classbfb_1_1_controller.html">Controller</a>.  <a href="classbfb_1_1_controller.html#aee48331bafc6c7707ad7e1fbf672a309">More...</a><br /></td></tr>
+<tr class="separator:aee48331bafc6c7707ad7e1fbf672a309 inherit pub_static_attribs_classbfb_1_1_controller"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pro_attribs_classbfb_1_1_controller"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classbfb_1_1_controller')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="classbfb_1_1_controller.html">bfb::Controller</a></td></tr>
@@ -163,7 +174,6 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>reference</b> {0.0}
 </div><div class="memdoc">
 
 <p>Constructs a <a class="el" href="classbfb_1_1_pidf.html" title="Pidf implements a basic PID+ff controller, with additions to prevent integral windup and derivative k...">Pidf</a> object. </p>
-<dl class="section warning"><dt>Warning</dt><dd>Asserted that alls gains are &gt;= 0.0. </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">gains</td><td></td></tr>
@@ -246,6 +256,31 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>reference</b> {0.0}
 <dl class="section return"><dt>Returns</dt><dd>bool </dd></dl>
 
 <p>Implements <a class="el" href="classbfb_1_1_controller.html#a5c08721a02c4a1e33373a647c7891766">bfb::Controller</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a95e61e05932f8cb97c7e9277b9866363"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a95e61e05932f8cb97c7e9277b9866363">&#9670;&nbsp;</a></span>pidfLog</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classbfb_1_1_logger.html">Logger</a> bfb::Pidf::pidfLog</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classbfb_1_1_logger.html" title="Implements a logger for logging either to a file or the terminal.">Logger</a> object for <a class="el" href="classbfb_1_1_pidf.html" title="Pidf implements a basic PID+ff controller, with additions to prevent integral windup and derivative k...">Pidf</a>. </p>
 
 </div>
 </div>

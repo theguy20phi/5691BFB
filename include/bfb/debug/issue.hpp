@@ -15,6 +15,7 @@
 #include <vector>
 
 namespace bfb {
+namespace Severity {
 /**
  * @brief Used to sort and display issues of varying severity.
  *
@@ -23,13 +24,13 @@ struct SeverityLevel {
   int numeric;
   char alpha;
 };
-
 constexpr SeverityLevel Low{1, 'L'};
 constexpr SeverityLevel Medium{2, 'M'};
 constexpr SeverityLevel High{3, 'H'};
 #ifdef TESTING
 constexpr SeverityLevel Test{INT32_MIN, 'T'};
 #endif
+} // namespace Severity
 
 /**
  * @brief Issue provides a basis for managing and logging problems that may occur during driving.
@@ -48,7 +49,7 @@ class Issue {
    * @param iDescription
    * @param iSeverity
    */
-  Issue(const std::string &iDescription, const SeverityLevel &iSeverity);
+  Issue(const std::string &iDescription, const Severity::SeverityLevel &iSeverity);
 
   /**
    * @brief Gets the sorted list of issues.
@@ -69,12 +70,12 @@ class Issue {
    *
    * @return std::shared_ptr<SeverityLevel>
    */
-  SeverityLevel getSeverity() const;
+  Severity::SeverityLevel getSeverity() const;
 
   private:
   static std::vector<Issue> issueList;
   std::string description;
-  SeverityLevel severity;
+  Severity::SeverityLevel severity;
 };
 
 #ifdef TESTING

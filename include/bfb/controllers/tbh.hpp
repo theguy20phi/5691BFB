@@ -27,7 +27,6 @@ class Tbh final : public Controller {
   /**
    * @brief Constructs a Tbh object.
    *
-   * @warning Asserted that gain >= 0.0.
    * @param iGain
    * @param iSettledChecker
    */
@@ -44,6 +43,12 @@ class Tbh final : public Controller {
    * @param errorSign
    */
   void takeBackHalf(int errorSign);
+
+  /**
+   * @brief Logger object for Tbh.
+   *
+   */
+  static Logger tbhLog;
 
   private:
   const double gain;

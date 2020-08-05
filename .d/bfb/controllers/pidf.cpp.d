@@ -80,7 +80,7 @@ bin/bfb/controllers/pidf.cpp.o: src/bfb/controllers/pidf.cpp \
  include/okapi/api/coreProsAPI.hpp include/pros/apix.h \
  include/pros/serial.h include/pros/serial.hpp \
  include/okapi/api/util/supplier.hpp \
- include/bfb/controllers/controller.hpp \
+ include/bfb/controllers/controller.hpp include/bfb/debug/logger.hpp \
  include/okapi/api/filter/emaFilter.hpp \
  include/okapi/api/filter/filter.hpp
 
@@ -377,6 +377,8 @@ include/pros/serial.hpp:
 include/okapi/api/util/supplier.hpp:
 
 include/bfb/controllers/controller.hpp:
+
+include/bfb/debug/logger.hpp:
 
 include/okapi/api/filter/emaFilter.hpp:
 

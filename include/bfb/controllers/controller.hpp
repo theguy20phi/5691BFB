@@ -8,6 +8,8 @@
 
 #pragma once
 
+#include "bfb/debug/logger.hpp"
+
 namespace bfb {
 class Controller {
   public:
@@ -54,6 +56,12 @@ class Controller {
    * @brief Resets the internal state of the controller.
    */
   virtual void reset() = 0;
+
+  /**
+   * @brief Logger object for Controller.
+   *
+   */
+  static Logger controllerLog;
 
   protected:
   double output{0.0};

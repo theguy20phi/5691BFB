@@ -81,57 +81,60 @@ $(function() {
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="okapi_util_8hpp.html">bfb/utility/okapiUtil.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="controller_8hpp.html">controller.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;okapi/api/filter/emaFilter.hpp&quot;</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &lt;assert.h&gt;</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">namespace </span>bfb {</div>
-<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="classbfb_1_1_pidf.html">   25</a></span>&#160;<span class="keyword">class </span><a class="code" href="classbfb_1_1_pidf.html">Pidf</a> final : <span class="keyword">public</span> <a class="code" href="classbfb_1_1_controller.html">Controller</a> {</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="structbfb_1_1_pidf_1_1_pidf_gains.html">   31</a></span>&#160;  <span class="keyword">struct </span><a class="code" href="structbfb_1_1_pidf_1_1_pidf_gains.html">PidfGains</a> {</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordtype">double</span> kP{};</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordtype">double</span> kI{};</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordtype">double</span> kD{};</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">double</span> f{};</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  };</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="classbfb_1_1_pidf.html#a03f930e13ba56ffe6a579d836f6a3f54">   45</a></span>&#160;  <a class="code" href="classbfb_1_1_pidf.html#a03f930e13ba56ffe6a579d836f6a3f54">Pidf</a>(<span class="keyword">const</span> <a class="code" href="structbfb_1_1_pidf_1_1_pidf_gains.html">PidfGains</a> &amp;gains, std::unique_ptr&lt;okapi::SettledUtil&gt; iSettledChecker);</div>
-<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="classbfb_1_1_pidf.html#a35542cbe4e144c83d785f78c72922852">   46</a></span>&#160;  <span class="keywordtype">double</span> <a class="code" href="classbfb_1_1_pidf.html#a35542cbe4e144c83d785f78c72922852">calculate</a>(<span class="keywordtype">double</span> state) <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="classbfb_1_1_pidf.html#ab0de7f4edc4ba49c8b1612f376b100c1">   47</a></span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="classbfb_1_1_pidf.html#ab0de7f4edc4ba49c8b1612f376b100c1">isDone</a>(<span class="keywordtype">double</span> state) <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="classbfb_1_1_pidf.html#ae54df26278aa0c65a6d561696d091b36">   48</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classbfb_1_1_pidf.html#ae54df26278aa0c65a6d561696d091b36">reset</a>() <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  <span class="keywordtype">double</span> calculateP(<span class="keywordtype">double</span> error);</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  <span class="keywordtype">double</span> calculateI(<span class="keywordtype">double</span> error);</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  <span class="keywordtype">double</span> calculateD(<span class="keywordtype">double</span> state);</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;  <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;  <span class="keyword">static</span> constexpr <span class="keywordtype">double</span> I_DECAY{0.95};</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;  <span class="keywordtype">int</span> previousSign{1};</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;  <span class="keyword">const</span> PidfGains gains;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;  std::unique_ptr&lt;okapi::SettledUtil&gt; settledChecker;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;  std::uint32_t lastTime{0};</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;  okapi::EmaFilter dFilter{0.5};</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;  <span class="keywordtype">double</span> I{0.0};</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;  <span class="keywordtype">double</span> previousState{0.0};</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;};</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="preprocessor">#ifdef TESTING</span></div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;DECLARE_TEST(pidfTest);</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="preprocessor">} // namespace bfb</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">namespace </span>bfb {</div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="classbfb_1_1_pidf.html">   24</a></span>&#160;<span class="keyword">class </span><a class="code" href="classbfb_1_1_pidf.html">Pidf</a> final : <span class="keyword">public</span> <a class="code" href="classbfb_1_1_controller.html">Controller</a> {</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;  <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="structbfb_1_1_pidf_1_1_pidf_gains.html">   30</a></span>&#160;  <span class="keyword">struct </span><a class="code" href="structbfb_1_1_pidf_1_1_pidf_gains.html">PidfGains</a> {</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordtype">double</span> kP{};</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordtype">double</span> kI{};</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordtype">double</span> kD{};</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordtype">double</span> f{};</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;  };</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="classbfb_1_1_pidf.html#a03f930e13ba56ffe6a579d836f6a3f54">   43</a></span>&#160;  <a class="code" href="classbfb_1_1_pidf.html#a03f930e13ba56ffe6a579d836f6a3f54">Pidf</a>(<span class="keyword">const</span> <a class="code" href="structbfb_1_1_pidf_1_1_pidf_gains.html">PidfGains</a> &amp;gains, std::unique_ptr&lt;okapi::SettledUtil&gt; iSettledChecker);</div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="classbfb_1_1_pidf.html#a35542cbe4e144c83d785f78c72922852">   44</a></span>&#160;  <span class="keywordtype">double</span> <a class="code" href="classbfb_1_1_pidf.html#a35542cbe4e144c83d785f78c72922852">calculate</a>(<span class="keywordtype">double</span> state) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="classbfb_1_1_pidf.html#ab0de7f4edc4ba49c8b1612f376b100c1">   45</a></span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="classbfb_1_1_pidf.html#ab0de7f4edc4ba49c8b1612f376b100c1">isDone</a>(<span class="keywordtype">double</span> state) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="classbfb_1_1_pidf.html#ae54df26278aa0c65a6d561696d091b36">   46</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classbfb_1_1_pidf.html#ae54df26278aa0c65a6d561696d091b36">reset</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="classbfb_1_1_pidf.html#a95e61e05932f8cb97c7e9277b9866363">   52</a></span>&#160;  <span class="keyword">static</span> <a class="code" href="classbfb_1_1_logger.html">Logger</a> <a class="code" href="classbfb_1_1_pidf.html#a95e61e05932f8cb97c7e9277b9866363">pidfLog</a>;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  <span class="keywordtype">double</span> calculateP(<span class="keywordtype">double</span> error);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;  <span class="keywordtype">double</span> calculateI(<span class="keywordtype">double</span> error);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;  <span class="keywordtype">double</span> calculateD(<span class="keywordtype">double</span> state);</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;  <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;  <span class="keyword">static</span> constexpr <span class="keywordtype">double</span> I_DECAY{0.95};</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;  <span class="keywordtype">int</span> previousSign{1};</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;  <span class="keyword">const</span> PidfGains gains;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;  std::unique_ptr&lt;okapi::SettledUtil&gt; settledChecker;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;  std::uint32_t lastTime{0};</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;  okapi::EmaFilter dFilter{0.5};</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;  <span class="keywordtype">double</span> I{0.0};</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;  <span class="keywordtype">double</span> previousState{0.0};</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;};</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="preprocessor">#ifdef TESTING</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;DECLARE_TEST(pidfTest);</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="preprocessor">} // namespace bfb</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="aclassbfb_1_1_pidf_html_ae54df26278aa0c65a6d561696d091b36"><div class="ttname"><a href="classbfb_1_1_pidf.html#ae54df26278aa0c65a6d561696d091b36">bfb::Pidf::reset</a></div><div class="ttdeci">void reset() override</div><div class="ttdoc">Resets the internal state of the controller.</div></div>
 <div class="ttc" id="acontroller_8hpp_html"><div class="ttname"><a href="controller_8hpp.html">controller.hpp</a></div></div>
-<div class="ttc" id="astructbfb_1_1_pidf_1_1_pidf_gains_html"><div class="ttname"><a href="structbfb_1_1_pidf_1_1_pidf_gains.html">bfb::Pidf::PidfGains</a></div><div class="ttdoc">Provides a data structure for the Pidf's constants.</div><div class="ttdef"><b>Definition:</b> pidf.hpp:31</div></div>
+<div class="ttc" id="aclassbfb_1_1_pidf_html_a95e61e05932f8cb97c7e9277b9866363"><div class="ttname"><a href="classbfb_1_1_pidf.html#a95e61e05932f8cb97c7e9277b9866363">bfb::Pidf::pidfLog</a></div><div class="ttdeci">static Logger pidfLog</div><div class="ttdoc">Logger object for Pidf.</div><div class="ttdef"><b>Definition:</b> pidf.hpp:52</div></div>
+<div class="ttc" id="astructbfb_1_1_pidf_1_1_pidf_gains_html"><div class="ttname"><a href="structbfb_1_1_pidf_1_1_pidf_gains.html">bfb::Pidf::PidfGains</a></div><div class="ttdoc">Provides a data structure for the Pidf's constants.</div><div class="ttdef"><b>Definition:</b> pidf.hpp:30</div></div>
 <div class="ttc" id="aokapi_util_8hpp_html"><div class="ttname"><a href="okapi_util_8hpp.html">okapiUtil.hpp</a></div><div class="ttdoc">The okapiUtil file provides methods to better suit the rest of the bfb library.</div></div>
 <div class="ttc" id="aclassbfb_1_1_pidf_html_ab0de7f4edc4ba49c8b1612f376b100c1"><div class="ttname"><a href="classbfb_1_1_pidf.html#ab0de7f4edc4ba49c8b1612f376b100c1">bfb::Pidf::isDone</a></div><div class="ttdeci">bool isDone(double state) override</div><div class="ttdoc">Gets if the controller is settled.</div></div>
 <div class="ttc" id="atest_8hpp_html"><div class="ttname"><a href="test_8hpp.html">test.hpp</a></div><div class="ttdoc">The test file implements a very simple framework for testing. This allows tests to be ran on the V5 b...</div></div>
 <div class="ttc" id="aclassbfb_1_1_pidf_html_a03f930e13ba56ffe6a579d836f6a3f54"><div class="ttname"><a href="classbfb_1_1_pidf.html#a03f930e13ba56ffe6a579d836f6a3f54">bfb::Pidf::Pidf</a></div><div class="ttdeci">Pidf(const PidfGains &amp;gains, std::unique_ptr&lt; okapi::SettledUtil &gt; iSettledChecker)</div><div class="ttdoc">Constructs a Pidf object.</div></div>
-<div class="ttc" id="aclassbfb_1_1_controller_html"><div class="ttname"><a href="classbfb_1_1_controller.html">bfb::Controller</a></div><div class="ttdef"><b>Definition:</b> controller.hpp:12</div></div>
+<div class="ttc" id="aclassbfb_1_1_logger_html"><div class="ttname"><a href="classbfb_1_1_logger.html">bfb::Logger</a></div><div class="ttdoc">Implements a logger for logging either to a file or the terminal.</div><div class="ttdef"><b>Definition:</b> logger.hpp:20</div></div>
+<div class="ttc" id="aclassbfb_1_1_controller_html"><div class="ttname"><a href="classbfb_1_1_controller.html">bfb::Controller</a></div><div class="ttdef"><b>Definition:</b> controller.hpp:14</div></div>
 <div class="ttc" id="aclassbfb_1_1_pidf_html_a35542cbe4e144c83d785f78c72922852"><div class="ttname"><a href="classbfb_1_1_pidf.html#a35542cbe4e144c83d785f78c72922852">bfb::Pidf::calculate</a></div><div class="ttdeci">double calculate(double state) override</div><div class="ttdoc">Goes through one step of the controller.</div></div>
 <div class="ttc" id="amath_util_8hpp_html"><div class="ttname"><a href="math_util_8hpp.html">mathUtil.hpp</a></div><div class="ttdoc">The mathUtil file implements math related methods and functions that are of use in many files.</div></div>
-<div class="ttc" id="aclassbfb_1_1_pidf_html"><div class="ttname"><a href="classbfb_1_1_pidf.html">bfb::Pidf</a></div><div class="ttdoc">Pidf implements a basic PID+ff controller, with additions to prevent integral windup and derivative k...</div><div class="ttdef"><b>Definition:</b> pidf.hpp:25</div></div>
+<div class="ttc" id="aclassbfb_1_1_pidf_html"><div class="ttname"><a href="classbfb_1_1_pidf.html">bfb::Pidf</a></div><div class="ttdoc">Pidf implements a basic PID+ff controller, with additions to prevent integral windup and derivative k...</div><div class="ttdef"><b>Definition:</b> pidf.hpp:24</div></div>
 <div class="ttc" id="await_8hpp_html"><div class="ttname"><a href="wait_8hpp.html">wait.hpp</a></div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

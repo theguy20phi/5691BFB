@@ -15,7 +15,6 @@
 #include "flow/stateMachine.hpp"
 #include "flow/task.hpp"
 #include "flow/wait.hpp"
-#include "robot.hpp"
 #include "utility/mathUtil.hpp"
 #include "utility/moreQLength.hpp"
 #include "utility/okapiUtil.hpp"

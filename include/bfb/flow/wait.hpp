@@ -14,8 +14,9 @@
 #include <functional>
 
 namespace bfb {
+namespace Wait {
 constexpr int generalDelay{10};
-
+}
 /**
  * @brief Provide a condition like:
  * waitUntil(somethingIsDone, 1000);

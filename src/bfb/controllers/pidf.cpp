@@ -3,11 +3,11 @@
 namespace bfb {
 Pidf::Pidf(const PidfGains &iGains, std::unique_ptr<okapi::SettledUtil> iSettledChecker)
   : gains(iGains), settledChecker(std::move(iSettledChecker)) {
-  assert(gains.kP >= 0.0 && gains.kI >= 0.0 && gains.kD >= 0.0 && gains.f >= 0.0);
+    pidfLog << "Pidf created.";
 }
 
 double Pidf::calculate(double state) {
-  if (pros::millis() - lastTime >= generalDelay)
+  if (pros::millis() - lastTime >= Wait::generalDelay)
     return output;
   lastTime = pros::millis();
   const double error{reference - state};
@@ -47,7 +47,10 @@ void Pidf::reset() {
   previousSign = 1;
   lastTime = pros::millis();
   settledChecker->reset();
+  pidfLog << "Pidf controller reset.";
 }
+
+Logger Pidf::pidfLog{};
 
 #ifdef TESTING
 DEFINE_TEST(pidfTest)

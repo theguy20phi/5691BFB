@@ -20,7 +20,7 @@ namespace bfb {
  * the state variant could be with a function for each state: behavior(const State &state) {...}.
  *
  * This implementation avoids lengthy switch statements, verbose expansion using polymorphic states,
- *  
+ *
  * @code
  * namespace State {
  *  namespace Test { // probably want namespaces
@@ -58,6 +58,7 @@ class StateMachine : public Task<priority> {
    * @param iState
    */
   StateMachine(const ValidStates &iState) : state(iState) {
+    stateMachineLog << "StateMachine created.";
   }
 
   /**
@@ -66,8 +67,7 @@ class StateMachine : public Task<priority> {
    *
    */
   virtual void step() final {
-    for (;;)
-      std::visit([this](const auto &s) { static_cast<Concrete *>(this)->behavior(s); }, state);
+    std::visit([this](const auto &s) { static_cast<Concrete *>(this)->behavior(s); }, state);
   }
 
   /**
@@ -107,6 +107,12 @@ class StateMachine : public Task<priority> {
   virtual bool operator!=(const ValidStates &iState) const final {
     return state.index() != iState.index();
   }
+
+  /**
+   * @brief Logger object for StateMachine.
+   *
+   */
+  static Logger stateMachineLog;
 
   protected:
   ValidStates state;

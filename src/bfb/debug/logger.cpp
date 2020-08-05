@@ -12,12 +12,12 @@ void Logger::setPath(const std::string &iPath) {
 void Logger::operator<<(const std::string &message) const {
   if (disabled)
     return;
-  std::cout << message;
+  std::cout << message << std::endl;
   if (path == "")
     return;
   std::ofstream file;
   file.open(path, std::ios::app);
-  file << message;
+  file << message << std::endl;
   file.close();
 }
 } // namespace bfb

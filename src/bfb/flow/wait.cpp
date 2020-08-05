@@ -3,15 +3,12 @@
 namespace bfb {
 void waitUntil(const std::function<bool()> &condition, const int maxDelay) {
   std::uint32_t timeout{pros::millis() + maxDelay};
-  auto timedCondition = [condition, timeout]() -> bool {
-    return condition() || pros::millis() >= timeout;
-  };
-  waitUntil(timedCondition);
+  waitUntil([condition, timeout]() { return condition() || pros::millis() >= timeout; });
 }
 
 void waitUntil(const std::function<bool()> &condition) {
   while (!condition())
-    wait(generalDelay);
+    wait(Wait::generalDelay);
 }
 
 void wait(const int ms) {
@@ -21,9 +18,8 @@ void wait(const int ms) {
 
 #ifdef TESTING
 DEFINE_TEST(waitUntilWithTimeoutTest)
-auto neverPassingLambda = []() -> bool {};
-//if it gets past this, the test has passed
-waitUntil(neverPassingLambda, 500);
+// if it gets past this, the test has passed
+waitUntil([]() -> bool {}, 500);
 END_TEST
 
 DEFINE_TEST(waitUntilTest)
