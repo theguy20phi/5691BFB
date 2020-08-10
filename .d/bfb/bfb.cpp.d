@@ -1,9 +1,9 @@
 bin/bfb/bfb.cpp.o: src/bfb/bfb.cpp include/bfb/bfb.hpp \
  include/bfb/controllers/controller.hpp include/bfb/debug/logger.hpp \
- include/bfb/controllers/pidf.hpp include/bfb/debug/test.hpp \
- include/bfb/flow/wait.hpp include/api.h include/pros/adi.h \
- include/pros/colors.h include/pros/imu.h include/pros/llemu.h \
- include/display/lvgl.h include/display/lv_version.h \
+ include/bfb/utility/attorney.hpp include/bfb/controllers/pidf.hpp \
+ include/bfb/debug/test.hpp include/bfb/flow/wait.hpp include/api.h \
+ include/pros/adi.h include/pros/colors.h include/pros/imu.h \
+ include/pros/llemu.h include/display/lvgl.h include/display/lv_version.h \
  include/display/lv_misc/lv_log.h include/display/lv_conf.h \
  include/display/lv_conf_checker.h include/display/lv_misc/lv_task.h \
  include/display/lv_misc/lv_mem.h include/display/lv_misc/lv_log.h \
@@ -93,6 +93,8 @@ include/bfb/bfb.hpp:
 include/bfb/controllers/controller.hpp:
 
 include/bfb/debug/logger.hpp:
+
+include/bfb/utility/attorney.hpp:
 
 include/bfb/controllers/pidf.hpp:
 

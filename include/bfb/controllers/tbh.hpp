@@ -48,7 +48,7 @@ class Tbh final : public Controller {
    * @brief Logger object for Tbh.
    *
    */
-  static Logger tbhLog;
+  static Logger<Tbh> tbhLog;
 
   private:
   const double gain;

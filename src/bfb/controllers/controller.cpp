@@ -14,5 +14,5 @@ double Controller::getOutput() const {
   return output;
 }
 
-Logger Controller::controllerLog{};
+Logger<Controller> Controller::controllerLog{};
 } // namespace bfb

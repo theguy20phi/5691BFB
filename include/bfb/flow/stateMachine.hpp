@@ -112,7 +112,7 @@ class StateMachine : public Task<priority> {
    * @brief Logger object for StateMachine.
    *
    */
-  static Logger stateMachineLog;
+  static Logger<StateMachine<Concrete, ValidStates, priority>> stateMachineLog;
 
   protected:
   ValidStates state;

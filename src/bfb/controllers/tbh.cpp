@@ -3,7 +3,7 @@
 namespace bfb {
 Tbh::Tbh(double iGain, std::unique_ptr<okapi::SettledUtil> iSettledChecker)
   : gain(iGain), settledChecker(std::move(iSettledChecker)) {
-    tbhLog << "Tbh created.";
+  tbhLog << "Tbh created.";
 }
 
 double Tbh::calculate(double state) {
@@ -38,7 +38,7 @@ void Tbh::reset() {
   tbhLog << "Tbh reset.";
 }
 
-Logger Tbh::tbhLog{};
+Logger<Tbh> Tbh::tbhLog{};
 
 #ifdef TESTING
 DEFINE_TEST(tbhTest)

@@ -159,7 +159,7 @@ template <int size> class IMU final {
    * @brief Logger object for IMU.
    *
    */
-  static Logger imuLog;
+  static Logger<IMU<size>> imuLog;
 
   private:
   std::array<uint8_t, size> ports;

@@ -49,7 +49,7 @@ class Pidf final : public Controller {
    * @brief Logger object for Pidf.
    *
    */
-  static Logger pidfLog;
+  static Logger<Pidf> pidfLog;
 
   private:
   /**

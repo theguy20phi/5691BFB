@@ -63,7 +63,7 @@ template <std::uint32_t priority = TASK_PRIORITY_DEFAULT> class Task {
    * @brief Logger object for Task.
    *
    */
-  static Logger taskLog;
+  static Logger<Task<priority>> taskLog;
 
   protected:
   std::unique_ptr<pros::Task> task{nullptr};

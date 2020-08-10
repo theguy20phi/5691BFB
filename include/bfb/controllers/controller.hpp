@@ -61,7 +61,7 @@ class Controller {
    * @brief Logger object for Controller.
    *
    */
-  static Logger controllerLog;
+  static Logger<Controller> controllerLog;
 
   protected:
   double output{0.0};

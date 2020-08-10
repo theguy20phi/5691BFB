@@ -9,6 +9,7 @@
 
 #pragma once
 
+#include "bfb/utility/attorney.hpp"
 #include <fstream>
 #include <iostream>
 
@@ -16,34 +17,51 @@ namespace bfb {
 /**
  * @brief Implements a logger for logging either to a file or the terminal.
  *
+ * @tparam Client
  */
-class Logger final {
+template <typename Client> class Logger final {
   public:
   /**
    * @brief Enables logging.
-   * 
+   *
    */
-  void enable();
+  void enable() {
+    disabled = false;
+  }
 
   /**
    * @brief Disables logging.
-   * 
+   *
    */
-  void disable();
+  void disable() {
+    disabled = true;
+  }
 
   /**
    * @brief Set the path to print to.
-   * 
-   * @param iPath 
+   *
+   * @param iPath
    */
-  void setPath(const std::string &iPath);
+  void setPath(const std::string &iPath) {
+    path = iPath;
+  }
 
   /**
    * @brief Output the message.
-   * 
-   * @param message 
+   *
+   * @param message
    */
-  void operator<<(const std::string &message) const;
+  void operator<<(const std::string &message) const {
+    if (disabled)
+      return;
+    std::cout << message << std::endl;
+    if (path == "")
+      return;
+    std::ofstream file;
+    file.open(path, std::ios::app);
+    file << message << std::endl;
+    file.close();
+  }
 
   private:
   bool disabled{true};

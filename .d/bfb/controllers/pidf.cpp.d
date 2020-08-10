@@ -81,7 +81,7 @@ bin/bfb/controllers/pidf.cpp.o: src/bfb/controllers/pidf.cpp \
  include/pros/serial.h include/pros/serial.hpp \
  include/okapi/api/util/supplier.hpp \
  include/bfb/controllers/controller.hpp include/bfb/debug/logger.hpp \
- include/okapi/api/filter/emaFilter.hpp \
+ include/bfb/utility/attorney.hpp include/okapi/api/filter/emaFilter.hpp \
  include/okapi/api/filter/filter.hpp
 
 include/bfb/controllers/pidf.hpp:
@@ -379,6 +379,8 @@ include/okapi/api/util/supplier.hpp:
 include/bfb/controllers/controller.hpp:
 
 include/bfb/debug/logger.hpp:
+
+include/bfb/utility/attorney.hpp:
 
 include/okapi/api/filter/emaFilter.hpp:
 

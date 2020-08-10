@@ -1,7 +1,7 @@
 #include "task.hpp"
 
 namespace bfb {
-template <std::uint32_t priority> Logger Task<priority>::taskLog{};
+template <std::uint32_t priority> Logger<Task<priority>> Task<priority>::taskLog{};
 #ifdef TESTING
 void TaskTestClass::step() {
   if (thing)
