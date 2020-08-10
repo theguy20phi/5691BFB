@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['pidf_37',['Pidf',['../classbfb_1_1_pidf.html',1,'bfb::Pidf'],['../classbfb_1_1_pidf.html#a03f930e13ba56ffe6a579d836f6a3f54',1,'bfb::Pidf::Pidf()']]],
-  ['pidf_2ehpp_38',['pidf.hpp',['../pidf_8hpp.html',1,'']]],
-  ['pidfgains_39',['PidfGains',['../structbfb_1_1_pidf_1_1_pidf_gains.html',1,'bfb::Pidf']]],
-  ['pidflog_40',['pidfLog',['../classbfb_1_1_pidf.html#a95e61e05932f8cb97c7e9277b9866363',1,'bfb::Pidf']]]
+  ['okapiutil_2ehpp_42',['okapiUtil.hpp',['../okapi_util_8hpp.html',1,'']]],
+  ['operator_21_3d_43',['operator!=',['../classbfb_1_1_state_machine.html#a0be87158f53154dfe91d7d4b7a5b0cc8',1,'bfb::StateMachine']]],
+  ['operator_3c_3c_44',['operator&lt;&lt;',['../classbfb_1_1_logger.html#acdefeb0497a45ea78dd02aeca8c2f0cd',1,'bfb::Logger']]],
+  ['operator_3d_3d_45',['operator==',['../classbfb_1_1_state_machine.html#aee7e1a4dbd66feecba6453bfab90dd71',1,'bfb::StateMachine']]]
 ];

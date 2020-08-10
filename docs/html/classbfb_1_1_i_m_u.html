@@ -90,6 +90,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a7113ffdfa87cd6e2979bf78459f00d5a"><td class="memItemLeft" align="right" valign="top">std::array&lt; int32_t, size &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_i_m_u.html#a7113ffdfa87cd6e2979bf78459f00d5a">calibrate</a> () const</td></tr>
 <tr class="memdesc:a7113ffdfa87cd6e2979bf78459f00d5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calibrate the IMUs. Gives issue if any <a class="el" href="classbfb_1_1_i_m_u.html" title="Wrapper class for out-the-box pros Imu class to simplify the interface to essentially a yaw gyroscope...">IMU</a> initializes improperly.  <a href="classbfb_1_1_i_m_u.html#a7113ffdfa87cd6e2979bf78459f00d5a">More...</a><br /></td></tr>
 <tr class="separator:a7113ffdfa87cd6e2979bf78459f00d5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3dbddbb1d5c0477255dc0e4e6c9236de"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_i_m_u.html#a3dbddbb1d5c0477255dc0e4e6c9236de">resetHeading</a> (double value=0.0)</td></tr>
+<tr class="memdesc:a3dbddbb1d5c0477255dc0e4e6c9236de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset <a class="el" href="classbfb_1_1_i_m_u.html" title="Wrapper class for out-the-box pros Imu class to simplify the interface to essentially a yaw gyroscope...">IMU</a> heading to a certain value without re-calibrating.  <a href="classbfb_1_1_i_m_u.html#a3dbddbb1d5c0477255dc0e4e6c9236de">More...</a><br /></td></tr>
+<tr class="separator:a3dbddbb1d5c0477255dc0e4e6c9236de"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afc69f33d1b09b6d1353e522cb3e9504e"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_i_m_u.html#afc69f33d1b09b6d1353e522cb3e9504e">getHeading</a> ()</td></tr>
 <tr class="memdesc:afc69f33d1b09b6d1353e522cb3e9504e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the filter heading (yaw) of the <a class="el" href="classbfb_1_1_i_m_u.html" title="Wrapper class for out-the-box pros Imu class to simplify the interface to essentially a yaw gyroscope...">IMU</a>.  <a href="classbfb_1_1_i_m_u.html#afc69f33d1b09b6d1353e522cb3e9504e">More...</a><br /></td></tr>
 <tr class="separator:afc69f33d1b09b6d1353e522cb3e9504e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -117,9 +120,9 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
-<tr class="memitem:a9e2b204f9d72017ad1f9c6173d6f9838"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classbfb_1_1_logger.html">Logger</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_i_m_u.html#a9e2b204f9d72017ad1f9c6173d6f9838">imuLog</a></td></tr>
-<tr class="memdesc:a9e2b204f9d72017ad1f9c6173d6f9838"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classbfb_1_1_logger.html" title="Implements a logger for logging either to a file or the terminal.">Logger</a> object for <a class="el" href="classbfb_1_1_i_m_u.html" title="Wrapper class for out-the-box pros Imu class to simplify the interface to essentially a yaw gyroscope...">IMU</a>.  <a href="classbfb_1_1_i_m_u.html#a9e2b204f9d72017ad1f9c6173d6f9838">More...</a><br /></td></tr>
-<tr class="separator:a9e2b204f9d72017ad1f9c6173d6f9838"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab2e3fde0aa407a7455b5c18d6e5ec135"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classbfb_1_1_logger.html">Logger</a>&lt; <a class="el" href="classbfb_1_1_i_m_u.html">IMU</a>&lt; size &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_i_m_u.html#ab2e3fde0aa407a7455b5c18d6e5ec135">imuLog</a></td></tr>
+<tr class="memdesc:ab2e3fde0aa407a7455b5c18d6e5ec135"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classbfb_1_1_logger.html" title="Implements a logger for logging either to a file or the terminal.">Logger</a> object for <a class="el" href="classbfb_1_1_i_m_u.html" title="Wrapper class for out-the-box pros Imu class to simplify the interface to essentially a yaw gyroscope...">IMU</a>.  <a href="classbfb_1_1_i_m_u.html#ab2e3fde0aa407a7455b5c18d6e5ec135">More...</a><br /></td></tr>
+<tr class="separator:ab2e3fde0aa407a7455b5c18d6e5ec135"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;int size&gt;<br />
@@ -439,9 +442,8 @@ template&lt;int size&gt; </div>
 
 </div>
 </div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a id="a9e2b204f9d72017ad1f9c6173d6f9838"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9e2b204f9d72017ad1f9c6173d6f9838">&#9670;&nbsp;</a></span>imuLog</h2>
+<a id="a3dbddbb1d5c0477255dc0e4e6c9236de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3dbddbb1d5c0477255dc0e4e6c9236de">&#9670;&nbsp;</a></span>resetHeading()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -452,7 +454,44 @@ template&lt;int size&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classbfb_1_1_logger.html">Logger</a> <a class="el" href="classbfb_1_1_i_m_u.html">bfb::IMU</a>&lt; size &gt;::imuLog</td>
+          <td class="memname">void <a class="el" href="classbfb_1_1_i_m_u.html">bfb::IMU</a>&lt; size &gt;::resetHeading </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>value</em> = <code>0.0</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reset <a class="el" href="classbfb_1_1_i_m_u.html" title="Wrapper class for out-the-box pros Imu class to simplify the interface to essentially a yaw gyroscope...">IMU</a> heading to a certain value without re-calibrating. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="ab2e3fde0aa407a7455b5c18d6e5ec135"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab2e3fde0aa407a7455b5c18d6e5ec135">&#9670;&nbsp;</a></span>imuLog</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int size&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classbfb_1_1_logger.html">Logger</a>&lt;<a class="el" href="classbfb_1_1_i_m_u.html">IMU</a>&lt;size&gt; &gt; <a class="el" href="classbfb_1_1_i_m_u.html">bfb::IMU</a>&lt; size &gt;::imuLog</td>
         </tr>
       </table>
   </td>

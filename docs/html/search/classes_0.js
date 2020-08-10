@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['controller_64',['Controller',['../classbfb_1_1_controller.html',1,'bfb']]]
+  ['attorney_74',['Attorney',['../classbfb_1_1_attorney.html',1,'bfb']]]
 ];

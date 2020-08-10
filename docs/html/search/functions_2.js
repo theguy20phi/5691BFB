@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['enable_91',['enable',['../classbfb_1_1_logger.html#ab166404655e924b543d0401c94139cae',1,'bfb::Logger']]]
+  ['enable_110',['enable',['../classbfb_1_1_logger.html#a6c747512739cddd5389f58d78c98c8f3',1,'bfb::Logger']]]
 ];

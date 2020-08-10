@@ -75,31 +75,49 @@ $(function() {
 <a href="logger_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;fstream&gt;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">namespace </span>bfb {</div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="classbfb_1_1_logger.html">   20</a></span>&#160;<span class="keyword">class </span><a class="code" href="classbfb_1_1_logger.html">Logger</a> final {</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;  <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="classbfb_1_1_logger.html#ab166404655e924b543d0401c94139cae">   26</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classbfb_1_1_logger.html#ab166404655e924b543d0401c94139cae">enable</a>();</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="classbfb_1_1_logger.html#aa2a3a7f1f901a4e2647ff11210ba456b">   32</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classbfb_1_1_logger.html#aa2a3a7f1f901a4e2647ff11210ba456b">disable</a>();</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="classbfb_1_1_logger.html#a928bba977dc10eaeaa34af3cca9343ff">   39</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classbfb_1_1_logger.html#a928bba977dc10eaeaa34af3cca9343ff">setPath</a>(<span class="keyword">const</span> std::string &amp;iPath);</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
-<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="classbfb_1_1_logger.html#a4822bb6f35618fcb29ab79488e77a20a">   46</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classbfb_1_1_logger.html#a4822bb6f35618fcb29ab79488e77a20a">operator&lt;&lt;</a>(<span class="keyword">const</span> std::string &amp;message) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  <span class="keywordtype">bool</span> disabled{<span class="keyword">true</span>};</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  std::string path{<span class="stringliteral">&quot;&quot;</span>};</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;};</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;} <span class="comment">// namespace bfb</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="attorney_8hpp.html">bfb/utility/attorney.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;fstream&gt;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">namespace </span>bfb {</div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="classbfb_1_1_logger.html">   22</a></span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> Client&gt; <span class="keyword">class </span><a class="code" href="classbfb_1_1_logger.html">Logger</a> final {</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="classbfb_1_1_logger.html#a6c747512739cddd5389f58d78c98c8f3">   28</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classbfb_1_1_logger.html#a6c747512739cddd5389f58d78c98c8f3">enable</a>() {</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    disabled = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  }</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="classbfb_1_1_logger.html#ac86c7dc84f6925d793d524d19d16b036">   36</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classbfb_1_1_logger.html#ac86c7dc84f6925d793d524d19d16b036">disable</a>() {</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    disabled = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  }</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="classbfb_1_1_logger.html#ad29baf13b7e93268b1772a276c98f05a">   45</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classbfb_1_1_logger.html#ad29baf13b7e93268b1772a276c98f05a">setPath</a>(<span class="keyword">const</span> std::string &amp;iPath) {</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    path = iPath;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  }</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="classbfb_1_1_logger.html#acdefeb0497a45ea78dd02aeca8c2f0cd">   54</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classbfb_1_1_logger.html#acdefeb0497a45ea78dd02aeca8c2f0cd">operator&lt;&lt;</a>(<span class="keyword">const</span> std::string &amp;message)<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordflow">if</span> (disabled)</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;      <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    std::cout &lt;&lt; message &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordflow">if</span> (path == <span class="stringliteral">&quot;&quot;</span>)</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;      <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    std::ofstream file;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    file.open(path, std::ios::app);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    file &lt;&lt; message &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    file.close();</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;  }</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;  <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;  <span class="keywordtype">bool</span> disabled{<span class="keyword">true</span>};</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;  std::string path{<span class="stringliteral">&quot;&quot;</span>};</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;};</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;} <span class="comment">// namespace bfb</span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aclassbfb_1_1_logger_html_a928bba977dc10eaeaa34af3cca9343ff"><div class="ttname"><a href="classbfb_1_1_logger.html#a928bba977dc10eaeaa34af3cca9343ff">bfb::Logger::setPath</a></div><div class="ttdeci">void setPath(const std::string &amp;iPath)</div><div class="ttdoc">Set the path to print to.</div></div>
-<div class="ttc" id="aclassbfb_1_1_logger_html_ab166404655e924b543d0401c94139cae"><div class="ttname"><a href="classbfb_1_1_logger.html#ab166404655e924b543d0401c94139cae">bfb::Logger::enable</a></div><div class="ttdeci">void enable()</div><div class="ttdoc">Enables logging.</div></div>
-<div class="ttc" id="aclassbfb_1_1_logger_html_a4822bb6f35618fcb29ab79488e77a20a"><div class="ttname"><a href="classbfb_1_1_logger.html#a4822bb6f35618fcb29ab79488e77a20a">bfb::Logger::operator&lt;&lt;</a></div><div class="ttdeci">void operator&lt;&lt;(const std::string &amp;message) const</div><div class="ttdoc">Output the message.</div></div>
-<div class="ttc" id="aclassbfb_1_1_logger_html_aa2a3a7f1f901a4e2647ff11210ba456b"><div class="ttname"><a href="classbfb_1_1_logger.html#aa2a3a7f1f901a4e2647ff11210ba456b">bfb::Logger::disable</a></div><div class="ttdeci">void disable()</div><div class="ttdoc">Disables logging.</div></div>
-<div class="ttc" id="aclassbfb_1_1_logger_html"><div class="ttname"><a href="classbfb_1_1_logger.html">bfb::Logger</a></div><div class="ttdoc">Implements a logger for logging either to a file or the terminal.</div><div class="ttdef"><b>Definition:</b> logger.hpp:20</div></div>
+<div class="ttc" id="aclassbfb_1_1_logger_html_ad29baf13b7e93268b1772a276c98f05a"><div class="ttname"><a href="classbfb_1_1_logger.html#ad29baf13b7e93268b1772a276c98f05a">bfb::Logger::setPath</a></div><div class="ttdeci">void setPath(const std::string &amp;iPath)</div><div class="ttdoc">Set the path to print to.</div><div class="ttdef"><b>Definition:</b> logger.hpp:45</div></div>
+<div class="ttc" id="aclassbfb_1_1_logger_html_ac86c7dc84f6925d793d524d19d16b036"><div class="ttname"><a href="classbfb_1_1_logger.html#ac86c7dc84f6925d793d524d19d16b036">bfb::Logger::disable</a></div><div class="ttdeci">void disable()</div><div class="ttdoc">Disables logging.</div><div class="ttdef"><b>Definition:</b> logger.hpp:36</div></div>
+<div class="ttc" id="aclassbfb_1_1_logger_html_acdefeb0497a45ea78dd02aeca8c2f0cd"><div class="ttname"><a href="classbfb_1_1_logger.html#acdefeb0497a45ea78dd02aeca8c2f0cd">bfb::Logger::operator&lt;&lt;</a></div><div class="ttdeci">void operator&lt;&lt;(const std::string &amp;message) const</div><div class="ttdoc">Output the message.</div><div class="ttdef"><b>Definition:</b> logger.hpp:54</div></div>
+<div class="ttc" id="aclassbfb_1_1_logger_html_a6c747512739cddd5389f58d78c98c8f3"><div class="ttname"><a href="classbfb_1_1_logger.html#a6c747512739cddd5389f58d78c98c8f3">bfb::Logger::enable</a></div><div class="ttdeci">void enable()</div><div class="ttdoc">Enables logging.</div><div class="ttdef"><b>Definition:</b> logger.hpp:28</div></div>
+<div class="ttc" id="aclassbfb_1_1_logger_html"><div class="ttname"><a href="classbfb_1_1_logger.html">bfb::Logger</a></div><div class="ttdoc">Implements a logger for logging either to a file or the terminal.</div><div class="ttdef"><b>Definition:</b> logger.hpp:22</div></div>
+<div class="ttc" id="aattorney_8hpp_html"><div class="ttname"><a href="attorney_8hpp.html">attorney.hpp</a></div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['severitylevel_70',['SeverityLevel',['../structbfb_1_1_severity_1_1_severity_level.html',1,'bfb::Severity']]],
-  ['statemachine_71',['StateMachine',['../classbfb_1_1_state_machine.html',1,'bfb']]]
+  ['pidf_86',['Pidf',['../classbfb_1_1_pidf.html',1,'bfb']]],
+  ['pidfgains_87',['PidfGains',['../structbfb_1_1_pidf_1_1_pidf_gains.html',1,'bfb::Pidf']]]
 ];

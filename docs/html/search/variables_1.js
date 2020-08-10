@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['imulog_129',['imuLog',['../classbfb_1_1_i_m_u.html#a9e2b204f9d72017ad1f9c6173d6f9838',1,'bfb::IMU']]]
+  ['imulog_149',['imuLog',['../classbfb_1_1_i_m_u.html#ab2e3fde0aa407a7455b5c18d6e5ec135',1,'bfb::IMU']]]
 ];

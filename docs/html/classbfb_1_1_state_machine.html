@@ -122,13 +122,13 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
-<tr class="memitem:af53e8fcb72a57a7eb37fbafec46cdbe5"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classbfb_1_1_logger.html">Logger</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_state_machine.html#af53e8fcb72a57a7eb37fbafec46cdbe5">stateMachineLog</a></td></tr>
-<tr class="memdesc:af53e8fcb72a57a7eb37fbafec46cdbe5"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classbfb_1_1_logger.html" title="Implements a logger for logging either to a file or the terminal.">Logger</a> object for <a class="el" href="classbfb_1_1_state_machine.html" title="A template for StateMachines. The state is represented by a variant of structs that represent specifi...">StateMachine</a>.  <a href="classbfb_1_1_state_machine.html#af53e8fcb72a57a7eb37fbafec46cdbe5">More...</a><br /></td></tr>
-<tr class="separator:af53e8fcb72a57a7eb37fbafec46cdbe5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a29ac8ef957211ece94def6fe1db2a5eb"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classbfb_1_1_logger.html">Logger</a>&lt; <a class="el" href="classbfb_1_1_state_machine.html">StateMachine</a>&lt; Concrete, ValidStates, priority &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_state_machine.html#a29ac8ef957211ece94def6fe1db2a5eb">stateMachineLog</a></td></tr>
+<tr class="memdesc:a29ac8ef957211ece94def6fe1db2a5eb"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classbfb_1_1_logger.html" title="Implements a logger for logging either to a file or the terminal.">Logger</a> object for <a class="el" href="classbfb_1_1_state_machine.html" title="A template for StateMachines. The state is represented by a variant of structs that represent specifi...">StateMachine</a>.  <a href="classbfb_1_1_state_machine.html#a29ac8ef957211ece94def6fe1db2a5eb">More...</a><br /></td></tr>
+<tr class="separator:a29ac8ef957211ece94def6fe1db2a5eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_static_attribs_classbfb_1_1_task"><td colspan="2" onclick="javascript:toggleInherit('pub_static_attribs_classbfb_1_1_task')"><img src="closed.png" alt="-"/>&#160;Static Public Attributes inherited from <a class="el" href="classbfb_1_1_task.html">bfb::Task&lt; TASK_PRIORITY_DEFAULT &gt;</a></td></tr>
-<tr class="memitem:a63f5271c6a518f365bb13c3479b7bc21 inherit pub_static_attribs_classbfb_1_1_task"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classbfb_1_1_logger.html">Logger</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_task.html#a63f5271c6a518f365bb13c3479b7bc21">taskLog</a></td></tr>
-<tr class="memdesc:a63f5271c6a518f365bb13c3479b7bc21 inherit pub_static_attribs_classbfb_1_1_task"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logger object for Task.  <a href="classbfb_1_1_task.html#a63f5271c6a518f365bb13c3479b7bc21">More...</a><br /></td></tr>
-<tr class="separator:a63f5271c6a518f365bb13c3479b7bc21 inherit pub_static_attribs_classbfb_1_1_task"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa5c385d837ba70386e9154c155b5ca70 inherit pub_static_attribs_classbfb_1_1_task"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classbfb_1_1_logger.html">Logger</a>&lt; <a class="el" href="classbfb_1_1_task.html">Task</a>&lt; priority &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_task.html#aa5c385d837ba70386e9154c155b5ca70">taskLog</a></td></tr>
+<tr class="memdesc:aa5c385d837ba70386e9154c155b5ca70 inherit pub_static_attribs_classbfb_1_1_task"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logger object for Task.  <a href="classbfb_1_1_task.html#aa5c385d837ba70386e9154c155b5ca70">More...</a><br /></td></tr>
+<tr class="separator:aa5c385d837ba70386e9154c155b5ca70 inherit pub_static_attribs_classbfb_1_1_task"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
@@ -385,8 +385,8 @@ template&lt;class Concrete , typename ValidStates , std::uint32_t priority = TAS
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="af53e8fcb72a57a7eb37fbafec46cdbe5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af53e8fcb72a57a7eb37fbafec46cdbe5">&#9670;&nbsp;</a></span>stateMachineLog</h2>
+<a id="a29ac8ef957211ece94def6fe1db2a5eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a29ac8ef957211ece94def6fe1db2a5eb">&#9670;&nbsp;</a></span>stateMachineLog</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -397,7 +397,7 @@ template&lt;class Concrete , typename ValidStates , std::uint32_t priority = TAS
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classbfb_1_1_logger.html">Logger</a> <a class="el" href="classbfb_1_1_state_machine.html">bfb::StateMachine</a>&lt; Concrete, ValidStates, priority &gt;::stateMachineLog</td>
+          <td class="memname"><a class="el" href="classbfb_1_1_logger.html">Logger</a>&lt;<a class="el" href="classbfb_1_1_state_machine.html">StateMachine</a>&lt;Concrete, ValidStates, priority&gt; &gt; <a class="el" href="classbfb_1_1_state_machine.html">bfb::StateMachine</a>&lt; Concrete, ValidStates, priority &gt;::stateMachineLog</td>
         </tr>
       </table>
   </td>

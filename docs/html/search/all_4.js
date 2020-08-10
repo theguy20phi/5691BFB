@@ -1,11 +1,16 @@
 var searchData=
 [
-  ['imu_21',['IMU',['../classbfb_1_1_i_m_u.html',1,'bfb::IMU&lt; size &gt;'],['../classbfb_1_1_i_m_u.html#a4eb74c0b53a235a681e14d977cfea8ed',1,'bfb::IMU::IMU()']]],
-  ['imulog_22',['imuLog',['../classbfb_1_1_i_m_u.html#a9e2b204f9d72017ad1f9c6173d6f9838',1,'bfb::IMU']]],
-  ['isalmostequal_23',['isAlmostEqual',['../math_util_8hpp.html#a9b5fa43461de2ccc4b23296ba981e340',1,'bfb']]],
-  ['isalmostzero_24',['isAlmostZero',['../math_util_8hpp.html#a00e4e9c5b7587277384b428fa5b55acc',1,'bfb']]],
-  ['iscalibrating_25',['isCalibrating',['../classbfb_1_1_i_m_u.html#a8d080a59a492e33c61552bacfb95c947',1,'bfb::IMU']]],
-  ['isdone_26',['isDone',['../classbfb_1_1_controller.html#a5c08721a02c4a1e33373a647c7891766',1,'bfb::Controller::isDone()'],['../classbfb_1_1_pidf.html#ab0de7f4edc4ba49c8b1612f376b100c1',1,'bfb::Pidf::isDone()'],['../classbfb_1_1_tbh.html#a4beddb182450e703c91aa4013aae0485',1,'bfb::Tbh::isDone()']]],
-  ['issue_27',['Issue',['../classbfb_1_1_issue.html',1,'bfb::Issue'],['../classbfb_1_1_issue.html#aa0fef620085aeeb95918d7a175ade969',1,'bfb::Issue::Issue()']]],
-  ['issue_2ehpp_28',['issue.hpp',['../issue_8hpp.html',1,'']]]
+  ['getacceleration_10',['getAcceleration',['../classbfb_1_1_i_m_u.html#acedebb86cee7f6f944acdef631193901',1,'bfb::IMU']]],
+  ['getangularvelocity_11',['getAngularVelocity',['../classbfb_1_1_i_m_u.html#a8854c3177f89a4e7f9a12a86622271a1',1,'bfb::IMU']]],
+  ['getdescription_12',['getDescription',['../classbfb_1_1_issue.html#ad062f4924a5260e1844b1fa08ee03137',1,'bfb::Issue']]],
+  ['getheading_13',['getHeading',['../classbfb_1_1_i_m_u.html#afc69f33d1b09b6d1353e522cb3e9504e',1,'bfb::IMU']]],
+  ['getissuelist_14',['getIssueList',['../classbfb_1_1_issue.html#aa299cb5f55606a819d0375ad72d1ada6',1,'bfb::Issue']]],
+  ['getoutput_15',['getOutput',['../classbfb_1_1_controller.html#a090841f5686c446ba0a12a7546d7423c',1,'bfb::Controller']]],
+  ['getpitch_16',['getPitch',['../classbfb_1_1_i_m_u.html#ab1b93739b0142c85a17f1903dc3d5e5f',1,'bfb::IMU']]],
+  ['getreference_17',['getReference',['../classbfb_1_1_controller.html#aeb673f7f476e1153a3920c642bbc6e85',1,'bfb::Controller']]],
+  ['getroll_18',['getRoll',['../classbfb_1_1_i_m_u.html#afb69825c1b02988eb1d88a437917176c',1,'bfb::IMU']]],
+  ['getseverity_19',['getSeverity',['../classbfb_1_1_issue.html#adb5b3deda4fdd1c31b868781e0cf876c',1,'bfb::Issue']]],
+  ['getstate_20',['getState',['../classbfb_1_1_state_machine.html#a99f0cc82b1f80e826c2eff6391be20c4',1,'bfb::StateMachine']]],
+  ['getstatus_21',['getStatus',['../classbfb_1_1_i_m_u.html#ac0fcfc587416bcaffac8fd145177f398',1,'bfb::IMU']]],
+  ['getyaw_22',['getYaw',['../classbfb_1_1_i_m_u.html#a83e2298014f9c0c13b0a470833d3c8ee',1,'bfb::IMU']]]
 ];
