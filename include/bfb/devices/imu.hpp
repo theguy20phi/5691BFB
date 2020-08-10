@@ -50,12 +50,21 @@ template <int size> class IMU final {
   };
 
   /**
+   * @brief Reset IMU heading to a certain value without re-calibrating.
+   *
+   * @param value
+   */
+  void resetHeading(double value = 0.0) {
+    offset = value - getHeading();
+  }
+
+  /**
    * @brief Get the filter heading (yaw) of the IMU.
    *
    * @return double
    */
   double getHeading() {
-    return headingFilter.filter(getYaw()) / ports.size();
+    return offset + headingFilter.filter(getYaw()) / ports.size();
   }
 
   /**
@@ -162,6 +171,7 @@ template <int size> class IMU final {
   static Logger<IMU<size>> imuLog;
 
   private:
+  double offset;
   std::array<uint8_t, size> ports;
   okapi::MedianFilter<5> headingFilter;
 };
