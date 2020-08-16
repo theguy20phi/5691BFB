@@ -33,6 +33,7 @@ template <int size> class IMU final {
    * @param iPorts
    */
   IMU(const std::array<uint8_t, size> &iPorts) : ports(iPorts) {
+    imuLog.log("Imu created", {});
   }
 
   /**
@@ -40,6 +41,7 @@ template <int size> class IMU final {
    *
    */
   std::array<int32_t, size> calibrate() const {
+    imuLog.log("Imu calibrating...", {});
     std::array<int32_t, size> temp;
     std::transform(ports.begin(), ports.end(), std::back_inserter(temp), [](const uint8_t &p) {
       return pros::c::imu_reset(p);
@@ -55,6 +57,7 @@ template <int size> class IMU final {
    * @param value
    */
   void resetHeading(double value = 0.0) {
+    imuLog.log("Imu reset to: " + std::to_string(value), {});
     offset = value - getHeading();
   }
 
@@ -171,7 +174,7 @@ template <int size> class IMU final {
   static Logger<IMU<size>> imuLog;
 
   private:
-  double offset;
+  double offset{0.0};
   std::array<uint8_t, size> ports;
   okapi::MedianFilter<5> headingFilter;
 };

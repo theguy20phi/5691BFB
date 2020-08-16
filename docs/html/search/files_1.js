@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['controller_2ehpp_94',['controller.hpp',['../controller_8hpp.html',1,'']]]
+  ['issue_2ehpp_99',['issue.hpp',['../issue_8hpp.html',1,'']]]
 ];

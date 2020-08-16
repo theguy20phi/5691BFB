@@ -18,3 +18,4 @@
 #include "utility/mathUtil.hpp"
 #include "utility/moreQLength.hpp"
 #include "utility/okapiUtil.hpp"
+#include "utility/key.hpp"

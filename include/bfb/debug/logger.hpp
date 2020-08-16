@@ -9,7 +9,7 @@
 
 #pragma once
 
-#include "bfb/utility/attorney.hpp"
+#include "bfb/utility/key.hpp"
 #include <fstream>
 #include <iostream>
 
@@ -51,7 +51,7 @@ template <typename Client> class Logger final {
    *
    * @param message
    */
-  void operator<<(const std::string &message) const {
+  void log(const std::string &message, const Key<Client> &key) const {
     if (disabled)
       return;
     std::cout << message << std::endl;

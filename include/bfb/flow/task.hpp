@@ -36,7 +36,7 @@ template <std::uint32_t priority = TASK_PRIORITY_DEFAULT> class Task {
    */
   virtual void start() final {
     if (!task) {
-      taskLog << "Task started.";
+      taskLog.log("Task started.", {});
       task = std::make_unique<pros::Task>(
         [this]() {
           for (;;) {
@@ -54,7 +54,7 @@ template <std::uint32_t priority = TASK_PRIORITY_DEFAULT> class Task {
    */
   virtual void stop() final {
     if (task) {
-      taskLog << "Task ended.";
+      taskLog.log("Task ended.", {});
       task = nullptr;
     }
   }

@@ -58,7 +58,7 @@ class StateMachine : public Task<priority> {
    * @param iState
    */
   StateMachine(const ValidStates &iState) : state(iState) {
-    stateMachineLog << "StateMachine created.";
+    stateMachineLog.log("StateMachine created.", {});
   }
 
   /**

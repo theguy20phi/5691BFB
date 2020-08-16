@@ -88,7 +88,7 @@ $(function() {
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
 <div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="classbfb_1_1_task.html#ab505c0c908dadf59ce681fb2ed2cf7d9">   37</a></span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classbfb_1_1_task.html#ab505c0c908dadf59ce681fb2ed2cf7d9">start</a>() final {</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordflow">if</span> (!task) {</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;      <a class="code" href="classbfb_1_1_task.html#aa5c385d837ba70386e9154c155b5ca70">taskLog</a> &lt;&lt; <span class="stringliteral">&quot;Task started.&quot;</span>;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;      <a class="code" href="classbfb_1_1_task.html#aa5c385d837ba70386e9154c155b5ca70">taskLog</a>.log(<span class="stringliteral">&quot;Task started.&quot;</span>, {});</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;      task = std::make_unique&lt;pros::Task&gt;(</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        [<span class="keyword">this</span>]() {</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;          <span class="keywordflow">for</span> (;;) {</div>
@@ -102,7 +102,7 @@ $(function() {
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
 <div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="classbfb_1_1_task.html#ada4b7c62f8296a2e4704340f0e1f8957">   55</a></span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classbfb_1_1_task.html#ada4b7c62f8296a2e4704340f0e1f8957">stop</a>() final {</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordflow">if</span> (task) {</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;      <a class="code" href="classbfb_1_1_task.html#aa5c385d837ba70386e9154c155b5ca70">taskLog</a> &lt;&lt; <span class="stringliteral">&quot;Task ended.&quot;</span>;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;      <a class="code" href="classbfb_1_1_task.html#aa5c385d837ba70386e9154c155b5ca70">taskLog</a>.log(<span class="stringliteral">&quot;Task ended.&quot;</span>, {});</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;      task = <span class="keyword">nullptr</span>;</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    }</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  }</div>

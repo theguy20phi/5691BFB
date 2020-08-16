@@ -3,7 +3,7 @@
 namespace bfb {
 Pidf::Pidf(const PidfGains &iGains, std::unique_ptr<okapi::SettledUtil> iSettledChecker)
   : gains(iGains), settledChecker(std::move(iSettledChecker)) {
-  pidfLog << "Pidf created.";
+  pidfLog.log("Pidf created.", {});
 }
 
 double Pidf::calculate(double state) {
@@ -47,7 +47,7 @@ void Pidf::reset() {
   previousSign = 1;
   lastTime = pros::millis();
   settledChecker->reset();
-  pidfLog << "Pidf controller reset.";
+  pidfLog.log("Pidf controller reset.", {});
 }
 
 Logger<Pidf> Pidf::pidfLog{};

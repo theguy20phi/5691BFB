@@ -1,6 +1,6 @@
 bin/bfb/bfb.cpp.o: src/bfb/bfb.cpp include/bfb/bfb.hpp \
  include/bfb/controllers/controller.hpp include/bfb/debug/logger.hpp \
- include/bfb/utility/attorney.hpp include/bfb/controllers/pidf.hpp \
+ include/bfb/utility/key.hpp include/bfb/controllers/pidf.hpp \
  include/bfb/debug/test.hpp include/bfb/flow/wait.hpp include/api.h \
  include/pros/adi.h include/pros/colors.h include/pros/imu.h \
  include/pros/llemu.h include/display/lvgl.h include/display/lv_version.h \
@@ -94,7 +94,7 @@ include/bfb/controllers/controller.hpp:
 
 include/bfb/debug/logger.hpp:
 
-include/bfb/utility/attorney.hpp:
+include/bfb/utility/key.hpp:
 
 include/bfb/controllers/pidf.hpp:
 

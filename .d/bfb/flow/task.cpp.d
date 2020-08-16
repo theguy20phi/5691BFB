@@ -1,5 +1,5 @@
 bin/bfb/flow/task.cpp.o: src/bfb/flow/task.cpp include/bfb/flow/task.hpp \
- include/bfb/debug/logger.hpp include/bfb/utility/attorney.hpp \
+ include/bfb/debug/logger.hpp include/bfb/utility/key.hpp \
  include/bfb/debug/test.hpp include/pros/rtos.hpp include/pros/rtos.h \
  include/bfb/flow/wait.hpp include/api.h include/pros/adi.h \
  include/pros/colors.h include/pros/imu.h include/pros/llemu.h \
@@ -75,7 +75,7 @@ include/bfb/flow/task.hpp:
 
 include/bfb/debug/logger.hpp:
 
-include/bfb/utility/attorney.hpp:
+include/bfb/utility/key.hpp:
 
 include/bfb/debug/test.hpp:
 

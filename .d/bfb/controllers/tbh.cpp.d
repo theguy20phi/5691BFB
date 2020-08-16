@@ -70,7 +70,7 @@ bin/bfb/controllers/tbh.cpp.o: src/bfb/controllers/tbh.cpp \
  include/pros/motors.hpp include/pros/motors.h include/pros/rtos.hpp \
  include/pros/rtos.h include/pros/vision.hpp include/pros/vision.h \
  include/bfb/utility/mathUtil.hpp include/bfb/controllers/controller.hpp \
- include/bfb/debug/logger.hpp include/bfb/utility/attorney.hpp \
+ include/bfb/debug/logger.hpp include/bfb/utility/key.hpp \
  include/okapi/api/control/util/SettledUtil.hpp \
  include/okapi/api/units/QTime.hpp include/okapi/api/units/RQuantity.hpp \
  include/okapi/api/util/abstractTimer.hpp \
@@ -344,7 +344,7 @@ include/bfb/controllers/controller.hpp:
 
 include/bfb/debug/logger.hpp:
 
-include/bfb/utility/attorney.hpp:
+include/bfb/utility/key.hpp:
 
 include/okapi/api/control/util/SettledUtil.hpp:
 

@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['attorney_0',['Attorney',['../classbfb_1_1_attorney.html',1,'bfb']]],
-  ['attorney_2ehpp_1',['attorney.hpp',['../attorney_8hpp.html',1,'']]]
+  ['bangbang_0',['BangBang',['../classbfb_1_1_bang_bang.html',1,'bfb']]],
+  ['bangbangpair_1',['BangBangPair',['../structbfb_1_1_bang_bang_1_1_bang_bang_pair.html',1,'bfb::BangBang']]]
 ];

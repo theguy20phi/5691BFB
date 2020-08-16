@@ -6,15 +6,17 @@
  *
  */
 
+#pragma once
+
 namespace bfb {
 /**
- * @brief Makes using the Client-Attorney pattern much easier for safer friendship.
+ * @brief Makes using the Passkey pattern much easier for safer friendship.
  *
  * @tparam Client
  */
-template <typename Client> class Attorney {
+template <typename Client> class Key {
   friend Client;
-  Attorney() {
+  Key() {
   }
 };
 } // namespace bfb
