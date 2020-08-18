@@ -2,9 +2,9 @@ var indexSectionsWithContent =
 {
   0: "bcdegiklmoprstw",
   1: "bciklpst",
-  2: "cilmopstw",
-  3: "cdegiloprstw",
-  4: "cipst"
+  2: "bcilmopstw",
+  3: "bcdegiloprstw",
+  4: "bcipst"
 };
 
 var indexSectionNames =

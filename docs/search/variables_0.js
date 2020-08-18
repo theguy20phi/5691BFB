@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['controllerlog_152',['controllerLog',['../classbfb_1_1_controller.html#acbf163c822961e73352c44ba00b71aec',1,'bfb::Controller']]]
+  ['bangbanglog_156',['bangBangLog',['../classbfb_1_1_bang_bang.html#a8fbf9c8d660af34b91cc7ceb2854ba76',1,'bfb::BangBang']]]
 ];

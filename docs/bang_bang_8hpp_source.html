@@ -72,66 +72,70 @@ $(function() {
 <div class="title">bangBang.hpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;F#pragma once</div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="math_util_8hpp.html">bfb/utility/mathUtil.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="controller_8hpp.html">controller.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;algorithm&gt;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;array&gt;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">namespace </span>bfb {</div>
-<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="classbfb_1_1_bang_bang.html">    9</a></span>&#160;<span class="keyword">template</span> &lt;<span class="keywordtype">int</span> <span class="keywordtype">int</span>ervals&gt; <span class="keyword">class </span><a class="code" href="classbfb_1_1_bang_bang.html">BangBang</a> final : <span class="keyword">public</span> <a class="code" href="classbfb_1_1_controller.html">Controller</a> {</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;  <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="structbfb_1_1_bang_bang_1_1_bang_bang_pair.html">   11</a></span>&#160;  <span class="keyword">struct </span><a class="code" href="structbfb_1_1_bang_bang_1_1_bang_bang_pair.html">BangBangPair</a> {</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">double</span> error;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">double</span> output;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;  };</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;  <span class="keyword">using</span> BangBangMap = std::array&lt;BangBangPair, intervals&gt;;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;  <a class="code" href="classbfb_1_1_bang_bang.html">BangBang</a>(<span class="keyword">const</span> BangBangMap &amp;iMap, <span class="keywordtype">double</span> iMax) : map(iMap), max(iMax) {</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    std::sort(map.begin(), map.end(), [](<span class="keyword">const</span> <a class="code" href="structbfb_1_1_bang_bang_1_1_bang_bang_pair.html">BangBangPair</a> &amp;a, <span class="keyword">const</span> <a class="code" href="structbfb_1_1_bang_bang_1_1_bang_bang_pair.html">BangBangPair</a> &amp;b) {</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;      return a.error &gt; b.error;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    });</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    bangBangLog.log(<span class="stringliteral">&quot;Bang-Bang created.&quot;</span>, {});</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;  }</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="classbfb_1_1_bang_bang.html#acba0e520430781f7f177a70d79dcb2e3">   23</a></span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">double</span> <a class="code" href="classbfb_1_1_bang_bang.html#acba0e520430781f7f177a70d79dcb2e3">calculate</a>(<span class="keywordtype">double</span> state)<span class="keyword"> override </span>{</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordtype">double</span> error{abs(state - reference)};</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordtype">double</span> temp{max};</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="comment">// works because map should be sorted from greatest to least error</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordflow">for</span> (<a class="code" href="structbfb_1_1_bang_bang_1_1_bang_bang_pair.html">BangBangPair</a> p : map)</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;      <span class="keywordflow">if</span> (error &lt; p.error)</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        temp = p.output;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    output = <a class="code" href="math_util_8hpp.html#a20bfb6ad2861cd53960cf741909906f2">sign</a>(error) * temp;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordflow">return</span> output;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  }</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="classbfb_1_1_bang_bang.html#a8f295d5caaf838e1ed561d14001f854d">   34</a></span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classbfb_1_1_bang_bang.html#a8f295d5caaf838e1ed561d14001f854d">isDone</a>(<span class="keywordtype">double</span> state)<span class="keyword"> override </span>{</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordflow">if</span> (state - reference &lt; map.back().error)</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;      <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  }</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
-<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="classbfb_1_1_bang_bang.html#a9697624786e6a9d8bd3beabdc05c0472">   40</a></span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classbfb_1_1_bang_bang.html#a9697624786e6a9d8bd3beabdc05c0472">reset</a>()<span class="keyword"> override </span>{</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    output = 0.0;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    reference = 0.0;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  }</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  <span class="keyword">static</span> <a class="code" href="classbfb_1_1_logger.html">Logger&lt;BangBang&gt;</a> bangBangLog;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  BangBangMap map;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">double</span> max;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;};</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;} <span class="comment">// namespace bfb</span></div>
+<a href="bang_bang_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="math_util_8hpp.html">bfb/utility/mathUtil.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="controller_8hpp.html">controller.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;algorithm&gt;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;array&gt;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">namespace </span>bfb {</div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="classbfb_1_1_bang_bang.html">   22</a></span>&#160;<span class="keyword">template</span> &lt;<span class="keywordtype">int</span> <span class="keywordtype">int</span>ervals&gt; <span class="keyword">class </span><a class="code" href="classbfb_1_1_bang_bang.html">BangBang</a> final : <span class="keyword">public</span> <a class="code" href="classbfb_1_1_controller.html">Controller</a> {</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="structbfb_1_1_bang_bang_1_1_bang_bang_pair.html">   24</a></span>&#160;  <span class="keyword">struct </span><a class="code" href="structbfb_1_1_bang_bang_1_1_bang_bang_pair.html">BangBangPair</a> {</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">double</span> error;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">double</span> output;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  };</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  <span class="keyword">using</span> BangBangMap = std::array&lt;BangBangPair, intervals&gt;;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="classbfb_1_1_bang_bang.html#a0859438f354d37924e872eb209f09e06">   36</a></span>&#160;  <a class="code" href="classbfb_1_1_bang_bang.html#a0859438f354d37924e872eb209f09e06">BangBang</a>(<span class="keyword">const</span> BangBangMap &amp;iMap, <span class="keywordtype">double</span> iMax) : map(iMap), max(iMax) {</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    std::sort(map.begin(), map.end(), [](<span class="keyword">const</span> <a class="code" href="structbfb_1_1_bang_bang_1_1_bang_bang_pair.html">BangBangPair</a> &amp;a, <span class="keyword">const</span> <a class="code" href="structbfb_1_1_bang_bang_1_1_bang_bang_pair.html">BangBangPair</a> &amp;b) {</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;      return a.error &gt; b.error;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    });</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <a class="code" href="classbfb_1_1_bang_bang.html#a8fbf9c8d660af34b91cc7ceb2854ba76">bangBangLog</a>.log(<span class="stringliteral">&quot;Bang-Bang created.&quot;</span>, {});</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  }</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="classbfb_1_1_bang_bang.html#acba0e520430781f7f177a70d79dcb2e3">   43</a></span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">double</span> <a class="code" href="classbfb_1_1_bang_bang.html#acba0e520430781f7f177a70d79dcb2e3">calculate</a>(<span class="keywordtype">double</span> state)<span class="keyword"> override </span>{</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">double</span> error{abs(state - reference)};</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">double</span> temp{max};</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="comment">// works because map should be sorted from greatest to least error</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordflow">for</span> (<a class="code" href="structbfb_1_1_bang_bang_1_1_bang_bang_pair.html">BangBangPair</a> p : map)</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;      <span class="keywordflow">if</span> (error &lt; p.error)</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        temp = p.output;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    output = <a class="code" href="math_util_8hpp.html#a20bfb6ad2861cd53960cf741909906f2">sign</a>(error) * temp;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordflow">return</span> output;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  }</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="classbfb_1_1_bang_bang.html#a8f295d5caaf838e1ed561d14001f854d">   54</a></span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classbfb_1_1_bang_bang.html#a8f295d5caaf838e1ed561d14001f854d">isDone</a>(<span class="keywordtype">double</span> state)<span class="keyword"> override </span>{</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordflow">if</span> (state - reference &lt; map.back().error)</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;      <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  }</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="classbfb_1_1_bang_bang.html#a9697624786e6a9d8bd3beabdc05c0472">   60</a></span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classbfb_1_1_bang_bang.html#a9697624786e6a9d8bd3beabdc05c0472">reset</a>()<span class="keyword"> override </span>{</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    output = 0.0;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    reference = 0.0;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  }</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
+<div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="classbfb_1_1_bang_bang.html#a8fbf9c8d660af34b91cc7ceb2854ba76">   69</a></span>&#160;  <span class="keyword">static</span> <a class="code" href="classbfb_1_1_logger.html">Logger&lt;BangBang&gt;</a> <a class="code" href="classbfb_1_1_bang_bang.html#a8fbf9c8d660af34b91cc7ceb2854ba76">bangBangLog</a>;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;  <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  BangBangMap map;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">double</span> max;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;};</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;} <span class="comment">// namespace bfb</span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aclassbfb_1_1_bang_bang_html"><div class="ttname"><a href="classbfb_1_1_bang_bang.html">bfb::BangBang</a></div><div class="ttdef"><b>Definition:</b> bangBang.hpp:9</div></div>
-<div class="ttc" id="astructbfb_1_1_bang_bang_1_1_bang_bang_pair_html"><div class="ttname"><a href="structbfb_1_1_bang_bang_1_1_bang_bang_pair.html">bfb::BangBang::BangBangPair</a></div><div class="ttdef"><b>Definition:</b> bangBang.hpp:11</div></div>
-<div class="ttc" id="aclassbfb_1_1_bang_bang_html_a8f295d5caaf838e1ed561d14001f854d"><div class="ttname"><a href="classbfb_1_1_bang_bang.html#a8f295d5caaf838e1ed561d14001f854d">bfb::BangBang::isDone</a></div><div class="ttdeci">virtual bool isDone(double state) override</div><div class="ttdoc">Gets if the controller is settled.</div><div class="ttdef"><b>Definition:</b> bangBang.hpp:34</div></div>
+<div class="ttc" id="aclassbfb_1_1_bang_bang_html"><div class="ttname"><a href="classbfb_1_1_bang_bang.html">bfb::BangBang</a></div><div class="ttdoc">Implements a simple Bang-Bang controller.</div><div class="ttdef"><b>Definition:</b> bangBang.hpp:22</div></div>
+<div class="ttc" id="astructbfb_1_1_bang_bang_1_1_bang_bang_pair_html"><div class="ttname"><a href="structbfb_1_1_bang_bang_1_1_bang_bang_pair.html">bfb::BangBang::BangBangPair</a></div><div class="ttdef"><b>Definition:</b> bangBang.hpp:24</div></div>
+<div class="ttc" id="aclassbfb_1_1_bang_bang_html_a8f295d5caaf838e1ed561d14001f854d"><div class="ttname"><a href="classbfb_1_1_bang_bang.html#a8f295d5caaf838e1ed561d14001f854d">bfb::BangBang::isDone</a></div><div class="ttdeci">virtual bool isDone(double state) override</div><div class="ttdoc">Gets if the controller is settled.</div><div class="ttdef"><b>Definition:</b> bangBang.hpp:54</div></div>
 <div class="ttc" id="acontroller_8hpp_html"><div class="ttname"><a href="controller_8hpp.html">controller.hpp</a></div></div>
 <div class="ttc" id="aclassbfb_1_1_logger_html"><div class="ttname"><a href="classbfb_1_1_logger.html">bfb::Logger</a></div><div class="ttdoc">Implements a logger for logging either to a file or the terminal.</div><div class="ttdef"><b>Definition:</b> logger.hpp:22</div></div>
-<div class="ttc" id="aclassbfb_1_1_bang_bang_html_acba0e520430781f7f177a70d79dcb2e3"><div class="ttname"><a href="classbfb_1_1_bang_bang.html#acba0e520430781f7f177a70d79dcb2e3">bfb::BangBang::calculate</a></div><div class="ttdeci">virtual double calculate(double state) override</div><div class="ttdoc">Goes through one step of the controller.</div><div class="ttdef"><b>Definition:</b> bangBang.hpp:23</div></div>
-<div class="ttc" id="aclassbfb_1_1_bang_bang_html_a9697624786e6a9d8bd3beabdc05c0472"><div class="ttname"><a href="classbfb_1_1_bang_bang.html#a9697624786e6a9d8bd3beabdc05c0472">bfb::BangBang::reset</a></div><div class="ttdeci">virtual void reset() override</div><div class="ttdoc">Resets the internal state of the controller.</div><div class="ttdef"><b>Definition:</b> bangBang.hpp:40</div></div>
+<div class="ttc" id="aclassbfb_1_1_bang_bang_html_acba0e520430781f7f177a70d79dcb2e3"><div class="ttname"><a href="classbfb_1_1_bang_bang.html#acba0e520430781f7f177a70d79dcb2e3">bfb::BangBang::calculate</a></div><div class="ttdeci">virtual double calculate(double state) override</div><div class="ttdoc">Goes through one step of the controller.</div><div class="ttdef"><b>Definition:</b> bangBang.hpp:43</div></div>
+<div class="ttc" id="aclassbfb_1_1_bang_bang_html_a9697624786e6a9d8bd3beabdc05c0472"><div class="ttname"><a href="classbfb_1_1_bang_bang.html#a9697624786e6a9d8bd3beabdc05c0472">bfb::BangBang::reset</a></div><div class="ttdeci">virtual void reset() override</div><div class="ttdoc">Resets the internal state of the controller.</div><div class="ttdef"><b>Definition:</b> bangBang.hpp:60</div></div>
 <div class="ttc" id="aclassbfb_1_1_controller_html"><div class="ttname"><a href="classbfb_1_1_controller.html">bfb::Controller</a></div><div class="ttdef"><b>Definition:</b> controller.hpp:14</div></div>
+<div class="ttc" id="aclassbfb_1_1_bang_bang_html_a8fbf9c8d660af34b91cc7ceb2854ba76"><div class="ttname"><a href="classbfb_1_1_bang_bang.html#a8fbf9c8d660af34b91cc7ceb2854ba76">bfb::BangBang::bangBangLog</a></div><div class="ttdeci">static Logger&lt; BangBang &gt; bangBangLog</div><div class="ttdoc">Logger object for BangBang.</div><div class="ttdef"><b>Definition:</b> bangBang.hpp:69</div></div>
+<div class="ttc" id="aclassbfb_1_1_bang_bang_html_a0859438f354d37924e872eb209f09e06"><div class="ttname"><a href="classbfb_1_1_bang_bang.html#a0859438f354d37924e872eb209f09e06">bfb::BangBang::BangBang</a></div><div class="ttdeci">BangBang(const BangBangMap &amp;iMap, double iMax)</div><div class="ttdoc">Construct a new BangBang object.</div><div class="ttdef"><b>Definition:</b> bangBang.hpp:36</div></div>
 <div class="ttc" id="amath_util_8hpp_html_a20bfb6ad2861cd53960cf741909906f2"><div class="ttname"><a href="math_util_8hpp.html#a20bfb6ad2861cd53960cf741909906f2">bfb::sign</a></div><div class="ttdeci">int sign(const T &amp;value)</div><div class="ttdoc">Determines the sign of a value.</div><div class="ttdef"><b>Definition:</b> mathUtil.hpp:42</div></div>
 <div class="ttc" id="amath_util_8hpp_html"><div class="ttname"><a href="math_util_8hpp.html">mathUtil.hpp</a></div><div class="ttdoc">The mathUtil file implements math related methods and functions that are of use in many files.</div></div>
 <!-- start footer part -->

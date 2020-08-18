@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['pidflog_154',['pidfLog',['../classbfb_1_1_pidf.html#a574c1835a7ce0241c56e8afc60218dd6',1,'bfb::Pidf']]]
+  ['imulog_158',['imuLog',['../classbfb_1_1_i_m_u.html#ab2e3fde0aa407a7455b5c18d6e5ec135',1,'bfb::IMU']]]
 ];

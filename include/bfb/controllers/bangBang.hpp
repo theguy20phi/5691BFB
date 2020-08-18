@@ -1,4 +1,12 @@
-F#pragma once
+/**
+ * @file bangBang.hpp
+ * @author Braden Pierce (913153006@bryantschools.org)
+ *
+ * @copyright Copyright (c) 2020
+ *
+ */
+
+#pragma once
 
 #include "bfb/utility/mathUtil.hpp"
 #include "controller.hpp"
@@ -6,6 +14,11 @@ F#pragma once
 #include <array>
 
 namespace bfb {
+/**
+ * @brief Implements a simple Bang-Bang controller.
+ *
+ * @tparam intervals
+ */
 template <int intervals> class BangBang final : public Controller {
   public:
   struct BangBangPair {
@@ -13,6 +26,13 @@ template <int intervals> class BangBang final : public Controller {
     const double output;
   };
   using BangBangMap = std::array<BangBangPair, intervals>;
+
+  /**
+   * @brief Construct a new BangBang object.
+   *
+   * @param iMap
+   * @param iMax
+   */
   BangBang(const BangBangMap &iMap, double iMax) : map(iMap), max(iMax) {
     std::sort(map.begin(), map.end(), [](const BangBangPair &a, const BangBangPair &b) {
       return a.error > b.error;
@@ -42,6 +62,10 @@ template <int intervals> class BangBang final : public Controller {
     reference = 0.0;
   }
 
+  /**
+   * @brief Logger object for BangBang.
+   *
+   */
   static Logger<BangBang> bangBangLog;
 
   private:
