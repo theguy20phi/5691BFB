@@ -11,6 +11,8 @@ void runTests() {
   waitUntilTest();
   waitUntilWithTimeoutTest();
   taskTest();
+  bangBangTest();
+  initializeCrossOdometryTest();
   std::cout << "Completed tests!" << std::endl;
 #endif
 }

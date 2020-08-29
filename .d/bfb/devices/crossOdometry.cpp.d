@@ -1,10 +1,13 @@
-bin/bfb/bfb.cpp.o: src/bfb/bfb.cpp include/bfb/bfb.hpp \
- include/bfb/controllers/bangBang.hpp include/bfb/debug/test.hpp \
- include/bfb/utility/mathUtil.hpp include/bfb/controllers/controller.hpp \
+bin/bfb/devices/crossOdometry.cpp.o: src/bfb/devices/crossOdometry.cpp \
+ include/bfb/devices/crossOdometry.hpp include/bfb/debug/test.hpp \
+ include/bfb/devices/imu.hpp include/bfb/debug/issue.hpp \
  include/bfb/debug/logger.hpp include/bfb/utility/key.hpp \
- include/bfb/controllers/pidf.hpp include/bfb/flow/wait.hpp include/api.h \
- include/pros/adi.h include/pros/colors.h include/pros/imu.h \
- include/pros/llemu.h include/display/lvgl.h include/display/lv_version.h \
+ include/okapi/api/filter/medianFilter.hpp \
+ include/okapi/api/filter/filter.hpp include/pros/imu.h \
+ include/bfb/flow/task.hpp include/pros/rtos.hpp include/pros/rtos.h \
+ include/bfb/flow/wait.hpp include/api.h include/pros/adi.h \
+ include/pros/colors.h include/pros/imu.h include/pros/llemu.h \
+ include/display/lvgl.h include/display/lv_version.h \
  include/display/lv_misc/lv_log.h include/display/lv_conf.h \
  include/display/lv_conf_checker.h include/display/lv_misc/lv_task.h \
  include/display/lv_misc/lv_mem.h include/display/lv_misc/lv_log.h \
@@ -67,45 +70,36 @@ bin/bfb/bfb.cpp.o: src/bfb/bfb.cpp include/bfb/bfb.hpp \
  include/display/lv_objx/lv_spinbox.h include/display/lv_objx/lv_ta.h \
  include/pros/misc.h include/pros/motors.h include/pros/rtos.h \
  include/pros/vision.h include/pros/adi.hpp include/pros/adi.h \
- include/pros/imu.hpp include/pros/imu.h include/pros/llemu.hpp \
- include/pros/llemu.h include/pros/misc.hpp include/pros/misc.h \
- include/pros/motors.hpp include/pros/motors.h include/pros/rtos.hpp \
- include/pros/rtos.h include/pros/vision.hpp include/pros/vision.h \
- include/bfb/utility/okapiUtil.hpp \
- include/okapi/api/control/util/SettledUtil.hpp \
- include/okapi/api/units/QTime.hpp include/okapi/api/units/RQuantity.hpp \
- include/okapi/api/util/abstractTimer.hpp \
- include/okapi/api/units/QFrequency.hpp \
- include/okapi/impl/util/timeUtilFactory.hpp \
- include/okapi/api/util/timeUtil.hpp \
- include/okapi/api/util/abstractRate.hpp \
- include/okapi/api/coreProsAPI.hpp include/pros/apix.h \
- include/pros/serial.h include/pros/serial.hpp \
- include/okapi/api/util/supplier.hpp \
- include/okapi/api/filter/emaFilter.hpp \
- include/okapi/api/filter/filter.hpp include/bfb/controllers/tbh.hpp \
- include/okapi/impl/util/timer.hpp include/bfb/debug/issue.hpp \
- include/bfb/devices/crossOdometry.hpp include/bfb/devices/imu.hpp \
- include/okapi/api/filter/medianFilter.hpp include/bfb/flow/task.hpp \
- include/pros/rtos.hpp include/okapi/api/units/QAngle.hpp \
- include/okapi/api/units/QLength.hpp include/pros/adi.hpp \
- include/bfb/flow/stateMachine.hpp include/bfb/utility/moreQLength.hpp
+ include/pros/imu.hpp include/pros/llemu.hpp include/pros/llemu.h \
+ include/pros/misc.hpp include/pros/misc.h include/pros/motors.hpp \
+ include/pros/motors.h include/pros/rtos.hpp include/pros/vision.hpp \
+ include/pros/vision.h include/okapi/api/units/QAngle.hpp \
+ include/okapi/api/units/RQuantity.hpp \
+ include/okapi/api/units/QLength.hpp include/pros/adi.hpp
 
-include/bfb/bfb.hpp:
-
-include/bfb/controllers/bangBang.hpp:
+include/bfb/devices/crossOdometry.hpp:
 
 include/bfb/debug/test.hpp:
 
-include/bfb/utility/mathUtil.hpp:
+include/bfb/devices/imu.hpp:
 
-include/bfb/controllers/controller.hpp:
+include/bfb/debug/issue.hpp:
 
 include/bfb/debug/logger.hpp:
 
 include/bfb/utility/key.hpp:
 
-include/bfb/controllers/pidf.hpp:
+include/okapi/api/filter/medianFilter.hpp:
+
+include/okapi/api/filter/filter.hpp:
+
+include/pros/imu.h:
+
+include/bfb/flow/task.hpp:
+
+include/pros/rtos.hpp:
+
+include/pros/rtos.h:
 
 include/bfb/flow/wait.hpp:
 
@@ -343,8 +337,6 @@ include/pros/adi.h:
 
 include/pros/imu.hpp:
 
-include/pros/imu.h:
-
 include/pros/llemu.hpp:
 
 include/pros/llemu.h:
@@ -359,66 +351,14 @@ include/pros/motors.h:
 
 include/pros/rtos.hpp:
 
-include/pros/rtos.h:
-
 include/pros/vision.hpp:
 
 include/pros/vision.h:
 
-include/bfb/utility/okapiUtil.hpp:
-
-include/okapi/api/control/util/SettledUtil.hpp:
-
-include/okapi/api/units/QTime.hpp:
+include/okapi/api/units/QAngle.hpp:
 
 include/okapi/api/units/RQuantity.hpp:
-
-include/okapi/api/util/abstractTimer.hpp:
-
-include/okapi/api/units/QFrequency.hpp:
-
-include/okapi/impl/util/timeUtilFactory.hpp:
-
-include/okapi/api/util/timeUtil.hpp:
-
-include/okapi/api/util/abstractRate.hpp:
-
-include/okapi/api/coreProsAPI.hpp:
-
-include/pros/apix.h:
-
-include/pros/serial.h:
-
-include/pros/serial.hpp:
-
-include/okapi/api/util/supplier.hpp:
-
-include/okapi/api/filter/emaFilter.hpp:
-
-include/okapi/api/filter/filter.hpp:
-
-include/bfb/controllers/tbh.hpp:
-
-include/okapi/impl/util/timer.hpp:
-
-include/bfb/debug/issue.hpp:
-
-include/bfb/devices/crossOdometry.hpp:
-
-include/bfb/devices/imu.hpp:
-
-include/okapi/api/filter/medianFilter.hpp:
-
-include/bfb/flow/task.hpp:
-
-include/pros/rtos.hpp:
-
-include/okapi/api/units/QAngle.hpp:
 
 include/okapi/api/units/QLength.hpp:
 
 include/pros/adi.hpp:
-
-include/bfb/flow/stateMachine.hpp:
-
-include/bfb/utility/moreQLength.hpp:

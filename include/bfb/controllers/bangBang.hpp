@@ -8,6 +8,7 @@
 
 #pragma once
 
+#include "bfb/debug/test.hpp"
 #include "bfb/utility/mathUtil.hpp"
 #include "controller.hpp"
 #include <algorithm>
@@ -22,8 +23,8 @@ namespace bfb {
 template <int intervals> class BangBang final : public Controller {
   public:
   struct BangBangPair {
-    const double error;
-    const double output;
+    double error;
+    double output;
   };
   using BangBangMap = std::array<BangBangPair, intervals>;
 
@@ -34,6 +35,7 @@ template <int intervals> class BangBang final : public Controller {
    * @param iMax
    */
   BangBang(const BangBangMap &iMap, double iMax) : map(iMap), max(iMax) {
+    // should be sorted from greatest to least error
     std::sort(map.begin(), map.end(), [](const BangBangPair &a, const BangBangPair &b) {
       return a.error > b.error;
     });
@@ -41,9 +43,8 @@ template <int intervals> class BangBang final : public Controller {
   }
 
   virtual double calculate(double state) override {
-    double error{abs(state - reference)};
+    double error{fabs(state - reference)};
     double temp{max};
-    // works because map should be sorted from greatest to least error
     for (BangBangPair p : map)
       if (error < p.error)
         temp = p.output;
@@ -72,4 +73,8 @@ template <int intervals> class BangBang final : public Controller {
   BangBangMap map;
   const double max;
 };
+
+#ifdef TESTING
+DECLARE_TEST(bangBangTest);
+#endif
 } // namespace bfb

@@ -171,7 +171,7 @@ template <int size> class IMU final {
    * @brief Logger object for IMU.
    *
    */
-  static Logger<IMU<size>> imuLog;
+  Logger<IMU<size>> imuLog{};
 
   private:
   double offset{0.0};

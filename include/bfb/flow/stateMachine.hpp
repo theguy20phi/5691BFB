@@ -68,6 +68,14 @@ class StateMachine : public Task<priority> {
    */
   virtual void step() final {
     std::visit([this](const auto &s) { static_cast<Concrete *>(this)->behavior(s); }, state);
+    update();
+  }
+
+  /**
+   * @brief Does various updates for the StateMachine each step.
+   *
+   */
+  virtual void update() {
   }
 
   /**
@@ -112,9 +120,13 @@ class StateMachine : public Task<priority> {
    * @brief Logger object for StateMachine.
    *
    */
-  static Logger<StateMachine<Concrete, ValidStates, priority>> stateMachineLog;
+  Logger<StateMachine<Concrete, ValidStates, priority>> stateMachineLog{};
 
   protected:
+  virtual void setStateInternally(const ValidStates &iState) {
+    state = iState;
+    step();
+  }
   ValidStates state;
 };
 } // namespace bfb

@@ -1,4 +1,5 @@
-bin/main.cpp.o: src/main.cpp include/main.h include/api.h \
+bin/rollersMachine.cpp.o: src/rollersMachine.cpp \
+ include/rollersMachine.hpp include/main.h include/api.h \
  include/pros/adi.h include/pros/colors.h include/pros/imu.h \
  include/pros/llemu.h include/display/lvgl.h include/display/lv_version.h \
  include/display/lv_misc/lv_log.h include/display/lv_conf.h \
@@ -188,8 +189,9 @@ bin/main.cpp.o: src/main.cpp include/main.h include/api.h \
  include/bfb/debug/issue.hpp include/bfb/devices/crossOdometry.hpp \
  include/bfb/devices/imu.hpp include/bfb/flow/task.hpp \
  include/pros/rtos.hpp include/pros/adi.hpp \
- include/bfb/flow/stateMachine.hpp include/bfb/utility/moreQLength.hpp \
- include/rollersMachine.hpp
+ include/bfb/flow/stateMachine.hpp include/bfb/utility/moreQLength.hpp
+
+include/rollersMachine.hpp:
 
 include/main.h:
 
@@ -732,5 +734,3 @@ include/pros/adi.hpp:
 include/bfb/flow/stateMachine.hpp:
 
 include/bfb/utility/moreQLength.hpp:
-
-include/rollersMachine.hpp:

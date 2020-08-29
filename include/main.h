@@ -23,6 +23,8 @@
 using namespace okapi::literals;
 using namespace bfb::literals;
 
+#include "rollersMachine.hpp"
+
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -40,4 +42,5 @@ void opcontrol(void);
 #include <exception>
 #include <vector>
 #include <iostream>
+#include <variant>
 #endif

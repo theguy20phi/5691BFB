@@ -1,7 +1,9 @@
 #include "main.h"
 
+std::unique_ptr<RollersMachine> rollers;
+
 void initialize() {
-  
+  rollers = std::make_unique<RollersMachine>(States::Rollers::Standby{});
 }
 
 void disabled() {
@@ -35,26 +37,6 @@ void opcontrol() {
     x_drive_model->xArcade(master_remote.getAnalog(okapi::ControllerAnalog::leftX),
                            master_remote.getAnalog(okapi::ControllerAnalog::leftY),
                            master_remote.getAnalog(okapi::ControllerAnalog::rightX));
-
-    double error{upper_differential->getActualVelocity() - lower_differential->getActualVelocity()};
-    double kP{0.0};
-    if (master_remote.getDigital(okapi::ControllerDigital::R1)) {
-      upper_differential->moveVoltage(12000);
-      lower_differential->moveVoltage(12000 + kP * error);
-    } else if (master_remote.getDigital(okapi::ControllerDigital::R2)) {
-      upper_differential->moveVoltage(-12000);
-      lower_differential->moveVoltage(-12000 + kP * error);
-    } else if (master_remote.getDigital(okapi::ControllerDigital::L1)) {
-      upper_differential->moveVoltage(6000);
-      lower_differential->moveVoltage(-6000 + kP * error);
-    } else if (master_remote.getDigital(okapi::ControllerDigital::L2)) {
-      upper_differential->moveVoltage(-6000);
-      lower_differential->moveVoltage(6000 + kP * error);
-    } else {
-      upper_differential->moveVoltage(0);
-      lower_differential->moveVoltage(0);
-    }
-
     pros::Task::delay(10);
   }
 }
