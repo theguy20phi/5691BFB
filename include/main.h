@@ -14,15 +14,16 @@
 
 #pragma once
 
-//comment out if not running tests
+// comment out if not running tests
 #define TESTING
 
 #include "api.h"
-#include "okapi/api.hpp"
 #include "bfb/bfb.hpp"
-using namespace okapi::literals;
+#include "okapi/api.hpp"
 using namespace bfb::literals;
+using namespace okapi::literals;
 
+#include "chassisMachine.hpp"
 #include "rollersMachine.hpp"
 
 #ifdef __cplusplus
@@ -38,9 +39,9 @@ void opcontrol(void);
 #endif
 
 #ifdef __cplusplus
-//C++ only headers here
+// C++ only headers here
 #include <exception>
-#include <vector>
 #include <iostream>
 #include <variant>
+#include <vector>
 #endif

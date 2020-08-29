@@ -30,58 +30,26 @@ class Odometer {
   int previousValue{0};
 };
 
-template <int numberOfIMUs, std::uint32_t priority = TASK_PRIORITY_DEFAULT>
-class CrossOdometry : public Task<priority> {
+class CrossOdometry : public Task {
   public:
   CrossOdometry(const Odometer &iForwardOdometer,
                 const Odometer &iSideOdometer,
-                const IMU<numberOfIMUs> &iImus)
-    : forwardOdometer(iForwardOdometer), sideOdometer(iSideOdometer), imus(iImus) {
-  }
+                const IMU &iImus,
+                int iPriority = TASK_PRIORITY_DEFAULT);
 
-  void step() override {
-    const double tempH{imus.getHeading()};
-    const double deltaH{tempH - previousH};
-    double localX{0.0};
-    double localY{0.0};
-    if (deltaH) {
-      double twoSinHalfDeltaH{2.0 * sin(deltaH / 2.0)};
-      localX = twoSinHalfDeltaH * sideOdometer.getDelta() / deltaH + sideOdometer.getDisp();
-      localY = twoSinHalfDeltaH * forwardOdometer.getDelta() / deltaH + forwardOdometer.getDisp();
-    } else {
-      localX = sideOdometer.getDelta();
-      localY = forwardOdometer.getDelta();
-    }
-    const double avgH{previousH + deltaH / 2.0};
-    x += okapi::inch * (localX * cos(avgH) - localY * sin(avgH));
-    y += okapi::inch * (localX * sin(avgH) + localY * cos(avgH));
-    h = okapi::degree * tempH;
-    previousH = tempH;
-  }
+  void step() override;
 
-  okapi::QLength X() const {
-    return x;
-  }
+  okapi::QLength X() const;
 
-  okapi::QLength Y() const {
-    return y;
-  }
+  okapi::QLength Y() const;
 
-  okapi::QAngle H() const {
-    return h;
-  }
+  okapi::QAngle H() const;
 
-  void setX(const okapi::QLength iX) {
-    x = iX;
-  }
+  void setX(const okapi::QLength iX);
 
-  void setY(const okapi::QLength iY) {
-    y = iY;
-  }
+  void setY(const okapi::QLength iY);
 
-  void setH(const okapi::QAngle iH) {
-    h = iH;
-  }
+  void setH(const okapi::QAngle iH);
 
   private:
   okapi::QLength x;
@@ -89,7 +57,7 @@ class CrossOdometry : public Task<priority> {
   okapi::QAngle h;
   Odometer forwardOdometer;
   Odometer sideOdometer;
-  IMU<numberOfIMUs> imus;
+  IMU imus;
   double previousH{0};
 };
 

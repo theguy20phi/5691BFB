@@ -12,7 +12,7 @@
 #include "bfb/utility/mathUtil.hpp"
 #include "controller.hpp"
 #include <algorithm>
-#include <array>
+#include <vector>
 
 namespace bfb {
 /**
@@ -20,13 +20,13 @@ namespace bfb {
  *
  * @tparam intervals
  */
-template <int intervals> class BangBang final : public Controller {
+class BangBang final : public Controller {
   public:
   struct BangBangPair {
     double error;
     double output;
   };
-  using BangBangMap = std::array<BangBangPair, intervals>;
+  using BangBangMap = std::vector<BangBangPair>;
 
   /**
    * @brief Construct a new BangBang object.
@@ -34,35 +34,13 @@ template <int intervals> class BangBang final : public Controller {
    * @param iMap
    * @param iMax
    */
-  BangBang(const BangBangMap &iMap, double iMax) : map(iMap), max(iMax) {
-    // should be sorted from greatest to least error
-    std::sort(map.begin(), map.end(), [](const BangBangPair &a, const BangBangPair &b) {
-      return a.error > b.error;
-    });
-    bangBangLog.log("Bang-Bang created.", {});
-  }
+  BangBang(const BangBangMap &iMap, double iMax);
 
-  virtual double calculate(double state) override {
-    double error{fabs(state - reference)};
-    double temp{max};
-    for (BangBangPair p : map)
-      if (error < p.error)
-        temp = p.output;
-    output = sign(error) * temp;
-    return output;
-  }
+  double calculate(double state) override;
 
-  virtual bool isDone(double state) override {
-    if (state - reference < map.back().error)
-      return true;
-    return false;
-  }
+  bool isDone(double state) override;
 
-  virtual void reset() override {
-    output = 0.0;
-    reference = 0.0;
-  }
-
+  void reset() override;
   /**
    * @brief Logger object for BangBang.
    *

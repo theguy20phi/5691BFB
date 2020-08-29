@@ -49,15 +49,15 @@ namespace bfb {
  * @tparam ValidStates (variant of state structs)
  * @tparam TASK_PRIORITY_DEFAULT
  */
-template <class Concrete, typename ValidStates, std::uint32_t priority = TASK_PRIORITY_DEFAULT>
-class StateMachine : public Task<priority> {
+template <class Concrete, typename ValidStates> class StateMachine : public Task {
   public:
   /**
    * @brief Construct a new State Machine object
    *
    * @param iState
    */
-  StateMachine(const ValidStates &iState) : state(iState) {
+  StateMachine(const ValidStates &iState, int iPriority = TASK_PRIORITY_DEFAULT)
+    : state(iState), Task(iPriority) {
     stateMachineLog.log("StateMachine created.", {});
   }
 
@@ -120,7 +120,7 @@ class StateMachine : public Task<priority> {
    * @brief Logger object for StateMachine.
    *
    */
-  Logger<StateMachine<Concrete, ValidStates, priority>> stateMachineLog{};
+  Logger<StateMachine<Concrete, ValidStates>> stateMachineLog{};
 
   protected:
   virtual void setStateInternally(const ValidStates &iState) {

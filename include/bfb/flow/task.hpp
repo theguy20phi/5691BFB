@@ -19,10 +19,16 @@ namespace bfb {
  * @brief Allows an easy-to-use way to assign "give" (more like make) a class a task by inheriting
  * from this class.
  *
- * @tparam priority = TASK_PRIORITY_DEFAULT
  */
-template <std::uint32_t priority = TASK_PRIORITY_DEFAULT> class Task {
+class Task {
   public:
+  /**
+   * @brief Construct a new Task object
+   *
+   * @param iPriority
+   */
+  Task(std::uint32_t iPriority = TASK_PRIORITY_DEFAULT);
+
   /**
    * @brief Goes through one step of the Task. Should be overwritten. Should take and return
    * nothing.
@@ -34,45 +40,29 @@ template <std::uint32_t priority = TASK_PRIORITY_DEFAULT> class Task {
    * @brief Starts the task.
    *
    */
-  virtual void start() final {
-    if (!task) {
-      taskLog.log("Task started.", {});
-      task = std::make_unique<pros::Task>(
-        [this]() {
-          for (;;) {
-            this->step();
-            wait(Wait::generalDelay);
-          }
-        },
-        priority);
-    }
-  }
+  virtual void start() final;
 
   /**
    * @brief Ends the task.
    *
    */
-  virtual void stop() final {
-    if (task) {
-      taskLog.log("Task ended.", {});
-      task = nullptr;
-    }
-  }
+  virtual void stop() final;
 
   /**
    * @brief Logger object for Task.
    *
    */
-  static Logger<Task<priority>> taskLog;
+  static Logger<Task> taskLog;
 
   protected:
+  std::uint32_t priority;
   std::unique_ptr<pros::Task> task{nullptr};
 };
 
 #ifdef TESTING
-class TaskTestClass final : public Task<> {
+class TaskTestClass final : public Task {
   public:
-  virtual void step() override;
+  void step() override;
 
   private:
   int thing{0};
