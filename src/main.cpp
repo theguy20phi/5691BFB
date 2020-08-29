@@ -3,7 +3,10 @@
 std::unique_ptr<RollersMachine> rollers;
 
 void initialize() {
+<<<<<<< HEAD
   rollers = std::make_unique<RollersMachine>(States::Rollers::Standby{});
+=======
+>>>>>>> 71095c11112a6361dd03636eb1ab18b512f9a1b1
 }
 
 void disabled() {
