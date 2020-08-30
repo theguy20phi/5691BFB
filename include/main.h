@@ -20,8 +20,8 @@
 #include "api.h"
 #include "bfb/bfb.hpp"
 #include "okapi/api.hpp"
-using namespace bfb::literals;
 using namespace okapi::literals;
+using namespace bfb::literals;
 
 #include "chassisMachine.hpp"
 #include "rollersMachine.hpp"

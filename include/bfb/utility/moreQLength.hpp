@@ -31,8 +31,4 @@ constexpr okapi::QLength operator"" _bot_length(long double x) {
   return static_cast<double>(x) * bot_length;
 }
 } // namespace literals
-
-#ifdef TESTING
-DECLARE_TEST(moreQLengthTest)
-#endif
 } // namespace bfb

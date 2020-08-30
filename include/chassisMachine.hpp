@@ -1,11 +1,3 @@
-/**
- * @file roller.hpp
- * @author Braden Pierce (913153006@bryantschools.org)
- *
- * @copyright Copyright (c) 2020
- *
- */
-
 #pragma once
 
 #include "main.h"
@@ -35,7 +27,18 @@ class ChassisMachine : public bfb::StateMachine<ChassisMachine, States::Chassis:
   void behavior(const States::Chassis::MoveTo &moveTo);
 
   private:
+  void controlDrive(double forward, double strafe, double turn);
+  double getDistanceTo(const okapi::QAngle &h, const States::Chassis::MoveTo &moveTo);
+
+  private:
   bfb::CrossOdometry odometry{bfb::Odometer{pros::ADIEncoder{1, 2}, 1.0},
                               bfb::Odometer{pros::ADIEncoder{3, 4}, 1.0},
                               bfb::IMU{{9, 10}}};
+  pros::Motor lFWheel{1};
+  pros::Motor lBWheel{2};
+  pros::Motor rFWheel{3};
+  pros::Motor rBWheel{4};
+  bfb::Pidf xPidf{{0.0, 0.0, 0.0, 0.0}, bfb::createSettledUtil()};
+  bfb::Pidf yPidf{{0.0, 0.0, 0.0, 0.0}, bfb::createSettledUtil()};
+  bfb::Pidf hPidf{{0.0, 0.0, 0.0, 0.0}, bfb::createSettledUtil()};
 };

@@ -52,9 +52,9 @@ class CrossOdometry : public Task {
   void setH(const okapi::QAngle iH);
 
   private:
-  okapi::QLength x;
-  okapi::QLength y;
-  okapi::QAngle h;
+  okapi::QLength x{0_in};
+  okapi::QLength y{0_in};
+  okapi::QAngle h{0_deg};
   Odometer forwardOdometer;
   Odometer sideOdometer;
   IMU imus;
