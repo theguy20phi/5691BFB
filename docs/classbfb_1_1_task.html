@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.18"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>5691BFB: bfb::Task&lt; priority &gt; Class Template Reference</title>
+<title>5691BFB: bfb::Task Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -74,7 +74,7 @@ $(function() {
 <a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="classbfb_1_1_task-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">bfb::Task&lt; priority &gt; Class Template Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
+<div class="title">bfb::Task Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
 
@@ -82,56 +82,88 @@ $(function() {
  <a href="classbfb_1_1_task.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="task_8hpp_source.html">task.hpp</a>&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for bfb::Task:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="classbfb_1_1_task.png" usemap="#bfb::Task_map" alt=""/>
+  <map id="bfb::Task_map" name="bfb::Task_map">
+<area href="classbfb_1_1_cross_odometry.html" title="The CrossOdometry class provides the implementation for a form of odometry that uses two odometers th..." alt="bfb::CrossOdometry" shape="rect" coords="0,56,261,80"/>
+<area href="classbfb_1_1_state_machine.html" title="A template for StateMachines. The state is represented by a variant of structs that represent specifi..." alt="bfb::StateMachine&lt; Concrete, ValidStates &gt;" shape="rect" coords="271,56,532,80"/>
+  </map>
+</div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:acbd43537642db640fb86d0ff028ea412"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_task.html#acbd43537642db640fb86d0ff028ea412">step</a> ()=0</td></tr>
-<tr class="memdesc:acbd43537642db640fb86d0ff028ea412"><td class="mdescLeft">&#160;</td><td class="mdescRight">Goes through one step of the <a class="el" href="classbfb_1_1_task.html" title="Allows an easy-to-use way to assign &quot;give&quot; (more like make) a class a task by inheriting from this cl...">Task</a>. Should be overwritten. Should take and return nothing.  <a href="classbfb_1_1_task.html#acbd43537642db640fb86d0ff028ea412">More...</a><br /></td></tr>
-<tr class="separator:acbd43537642db640fb86d0ff028ea412"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab505c0c908dadf59ce681fb2ed2cf7d9"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_task.html#ab505c0c908dadf59ce681fb2ed2cf7d9">start</a> () final</td></tr>
-<tr class="memdesc:ab505c0c908dadf59ce681fb2ed2cf7d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts the task.  <a href="classbfb_1_1_task.html#ab505c0c908dadf59ce681fb2ed2cf7d9">More...</a><br /></td></tr>
-<tr class="separator:ab505c0c908dadf59ce681fb2ed2cf7d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ada4b7c62f8296a2e4704340f0e1f8957"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_task.html#ada4b7c62f8296a2e4704340f0e1f8957">stop</a> () final</td></tr>
-<tr class="memdesc:ada4b7c62f8296a2e4704340f0e1f8957"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ends the task.  <a href="classbfb_1_1_task.html#ada4b7c62f8296a2e4704340f0e1f8957">More...</a><br /></td></tr>
-<tr class="separator:ada4b7c62f8296a2e4704340f0e1f8957"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a573fa3e6c271cf734bd1d5bf654b3a08"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_task.html#a573fa3e6c271cf734bd1d5bf654b3a08">Task</a> (std::uint32_t iPriority=TASK_PRIORITY_DEFAULT)</td></tr>
+<tr class="memdesc:a573fa3e6c271cf734bd1d5bf654b3a08"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classbfb_1_1_task.html" title="Allows an easy-to-use way to assign &quot;give&quot; (more like make) a class a task by inheriting from this cl...">Task</a> object.  <a href="classbfb_1_1_task.html#a573fa3e6c271cf734bd1d5bf654b3a08">More...</a><br /></td></tr>
+<tr class="separator:a573fa3e6c271cf734bd1d5bf654b3a08"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5992f5276212c16bc7a2c0bedb36f781"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_task.html#a5992f5276212c16bc7a2c0bedb36f781">step</a> ()=0</td></tr>
+<tr class="memdesc:a5992f5276212c16bc7a2c0bedb36f781"><td class="mdescLeft">&#160;</td><td class="mdescRight">Goes through one step of the <a class="el" href="classbfb_1_1_task.html" title="Allows an easy-to-use way to assign &quot;give&quot; (more like make) a class a task by inheriting from this cl...">Task</a>. Should be overwritten. Should take and return nothing.  <a href="classbfb_1_1_task.html#a5992f5276212c16bc7a2c0bedb36f781">More...</a><br /></td></tr>
+<tr class="separator:a5992f5276212c16bc7a2c0bedb36f781"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a12e333f1c323b041b20b0ce9938ce853"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_task.html#a12e333f1c323b041b20b0ce9938ce853">start</a> () final</td></tr>
+<tr class="memdesc:a12e333f1c323b041b20b0ce9938ce853"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts the task.  <a href="classbfb_1_1_task.html#a12e333f1c323b041b20b0ce9938ce853">More...</a><br /></td></tr>
+<tr class="separator:a12e333f1c323b041b20b0ce9938ce853"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00ea715a5299057a3f028198a90a9039"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_task.html#a00ea715a5299057a3f028198a90a9039">stop</a> () final</td></tr>
+<tr class="memdesc:a00ea715a5299057a3f028198a90a9039"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ends the task.  <a href="classbfb_1_1_task.html#a00ea715a5299057a3f028198a90a9039">More...</a><br /></td></tr>
+<tr class="separator:a00ea715a5299057a3f028198a90a9039"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
-<tr class="memitem:aa5c385d837ba70386e9154c155b5ca70"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classbfb_1_1_logger.html">Logger</a>&lt; <a class="el" href="classbfb_1_1_task.html">Task</a>&lt; priority &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_task.html#aa5c385d837ba70386e9154c155b5ca70">taskLog</a></td></tr>
-<tr class="memdesc:aa5c385d837ba70386e9154c155b5ca70"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classbfb_1_1_logger.html" title="Implements a logger for logging either to a file or the terminal.">Logger</a> object for <a class="el" href="classbfb_1_1_task.html" title="Allows an easy-to-use way to assign &quot;give&quot; (more like make) a class a task by inheriting from this cl...">Task</a>.  <a href="classbfb_1_1_task.html#aa5c385d837ba70386e9154c155b5ca70">More...</a><br /></td></tr>
-<tr class="separator:aa5c385d837ba70386e9154c155b5ca70"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd3af44e3102c13f3cd1ca4b3a62bfe1"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classbfb_1_1_logger.html">Logger</a>&lt; <a class="el" href="classbfb_1_1_task.html">Task</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_task.html#acd3af44e3102c13f3cd1ca4b3a62bfe1">taskLog</a></td></tr>
+<tr class="memdesc:acd3af44e3102c13f3cd1ca4b3a62bfe1"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classbfb_1_1_logger.html" title="Implements a logger for logging either to a file or the terminal.">Logger</a> object for <a class="el" href="classbfb_1_1_task.html" title="Allows an easy-to-use way to assign &quot;give&quot; (more like make) a class a task by inheriting from this cl...">Task</a>.  <a href="classbfb_1_1_task.html#acd3af44e3102c13f3cd1ca4b3a62bfe1">More...</a><br /></td></tr>
+<tr class="separator:acd3af44e3102c13f3cd1ca4b3a62bfe1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:ae54f8f0824a6fbbb0875c417ce7aac5a"><td class="memItemLeft" align="right" valign="top"><a id="ae54f8f0824a6fbbb0875c417ce7aac5a"></a>
+<tr class="memitem:a5b6407b1399e78085d423f8ed8d08560"><td class="memItemLeft" align="right" valign="top"><a id="a5b6407b1399e78085d423f8ed8d08560"></a>
+std::uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>priority</b></td></tr>
+<tr class="separator:a5b6407b1399e78085d423f8ed8d08560"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a718c19f1163761036b5dc63399b7e457"><td class="memItemLeft" align="right" valign="top"><a id="a718c19f1163761036b5dc63399b7e457"></a>
 std::unique_ptr&lt; pros::Task &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>task</b> {nullptr}</td></tr>
-<tr class="separator:ae54f8f0824a6fbbb0875c417ce7aac5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:a718c19f1163761036b5dc63399b7e457"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><h3>template&lt;std::uint32_t priority = TASK_PRIORITY_DEFAULT&gt;<br />
-class bfb::Task&lt; priority &gt;</h3>
-
-<p>Allows an easy-to-use way to assign "give" (more like make) a class a task by inheriting from this class. </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">priority</td><td>= TASK_PRIORITY_DEFAULT </td></tr>
-  </table>
-  </dd>
-</dl>
-</div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="ab505c0c908dadf59ce681fb2ed2cf7d9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab505c0c908dadf59ce681fb2ed2cf7d9">&#9670;&nbsp;</a></span>start()</h2>
+<div class="textblock"><p>Allows an easy-to-use way to assign "give" (more like make) a class a task by inheriting from this class. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a573fa3e6c271cf734bd1d5bf654b3a08"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a573fa3e6c271cf734bd1d5bf654b3a08">&#9670;&nbsp;</a></span>Task()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;std::uint32_t priority = TASK_PRIORITY_DEFAULT&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bfb::Task::Task </td>
+          <td>(</td>
+          <td class="paramtype">std::uint32_t&#160;</td>
+          <td class="paramname"><em>iPriority</em> = <code>TASK_PRIORITY_DEFAULT</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Construct a new <a class="el" href="classbfb_1_1_task.html" title="Allows an easy-to-use way to assign &quot;give&quot; (more like make) a class a task by inheriting from this cl...">Task</a> object. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">iPriority</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a12e333f1c323b041b20b0ce9938ce853"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a12e333f1c323b041b20b0ce9938ce853">&#9670;&nbsp;</a></span>start()</h2>
+
+<div class="memitem">
+<div class="memproto">
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void <a class="el" href="classbfb_1_1_task.html">bfb::Task</a>&lt; priority &gt;::start </td>
+          <td class="memname">virtual void bfb::Task::start </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -139,7 +171,7 @@ template&lt;std::uint32_t priority = TASK_PRIORITY_DEFAULT&gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">final</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">final</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -148,19 +180,17 @@ template&lt;std::uint32_t priority = TASK_PRIORITY_DEFAULT&gt; </div>
 
 </div>
 </div>
-<a id="acbd43537642db640fb86d0ff028ea412"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acbd43537642db640fb86d0ff028ea412">&#9670;&nbsp;</a></span>step()</h2>
+<a id="a5992f5276212c16bc7a2c0bedb36f781"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5992f5276212c16bc7a2c0bedb36f781">&#9670;&nbsp;</a></span>step()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;std::uint32_t priority = TASK_PRIORITY_DEFAULT&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void <a class="el" href="classbfb_1_1_task.html">bfb::Task</a>&lt; priority &gt;::step </td>
+          <td class="memname">virtual void bfb::Task::step </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -175,23 +205,21 @@ template&lt;std::uint32_t priority = TASK_PRIORITY_DEFAULT&gt; </div>
 
 <p>Goes through one step of the <a class="el" href="classbfb_1_1_task.html" title="Allows an easy-to-use way to assign &quot;give&quot; (more like make) a class a task by inheriting from this cl...">Task</a>. Should be overwritten. Should take and return nothing. </p>
 
-<p>Implemented in <a class="el" href="classbfb_1_1_state_machine.html#ad675f4af407587bb064991fbe7b224cf">bfb::StateMachine&lt; Concrete, ValidStates, priority &gt;</a>.</p>
+<p>Implemented in <a class="el" href="classbfb_1_1_cross_odometry.html#ac37d167312223ffacf2db7f76fcca12b">bfb::CrossOdometry</a>, and <a class="el" href="classbfb_1_1_state_machine.html#a3e23f40c66e2522411438e2157f7e1cb">bfb::StateMachine&lt; Concrete, ValidStates &gt;</a>.</p>
 
 </div>
 </div>
-<a id="ada4b7c62f8296a2e4704340f0e1f8957"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ada4b7c62f8296a2e4704340f0e1f8957">&#9670;&nbsp;</a></span>stop()</h2>
+<a id="a00ea715a5299057a3f028198a90a9039"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a00ea715a5299057a3f028198a90a9039">&#9670;&nbsp;</a></span>stop()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;std::uint32_t priority = TASK_PRIORITY_DEFAULT&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void <a class="el" href="classbfb_1_1_task.html">bfb::Task</a>&lt; priority &gt;::stop </td>
+          <td class="memname">virtual void bfb::Task::stop </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -199,7 +227,7 @@ template&lt;std::uint32_t priority = TASK_PRIORITY_DEFAULT&gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">final</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">final</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -209,19 +237,17 @@ template&lt;std::uint32_t priority = TASK_PRIORITY_DEFAULT&gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="aa5c385d837ba70386e9154c155b5ca70"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa5c385d837ba70386e9154c155b5ca70">&#9670;&nbsp;</a></span>taskLog</h2>
+<a id="acd3af44e3102c13f3cd1ca4b3a62bfe1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd3af44e3102c13f3cd1ca4b3a62bfe1">&#9670;&nbsp;</a></span>taskLog</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;std::uint32_t priority = TASK_PRIORITY_DEFAULT&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classbfb_1_1_logger.html">Logger</a>&lt;<a class="el" href="classbfb_1_1_task.html">Task</a>&lt;priority&gt; &gt; <a class="el" href="classbfb_1_1_task.html">bfb::Task</a>&lt; priority &gt;::taskLog</td>
+          <td class="memname"><a class="el" href="classbfb_1_1_logger.html">Logger</a>&lt;<a class="el" href="classbfb_1_1_task.html">Task</a>&gt; bfb::Task::taskLog</td>
         </tr>
       </table>
   </td>

@@ -25,6 +25,7 @@ using namespace bfb::literals;
 
 #include "chassisMachine.hpp"
 #include "rollersMachine.hpp"
+#include "match.hpp"
 
 #ifdef __cplusplus
 extern "C" {

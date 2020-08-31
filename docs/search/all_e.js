@@ -1,6 +1,9 @@
 var searchData=
 [
-  ['wait_75',['wait',['../wait_8hpp.html#a6c6be2a0f991c10d252a043104dbe65f',1,'bfb']]],
-  ['wait_2ehpp_76',['wait.hpp',['../wait_8hpp.html',1,'']]],
-  ['waituntil_77',['waitUntil',['../wait_8hpp.html#a0834b3af8f725d309c136f5727510745',1,'bfb::waitUntil(const std::function&lt; bool()&gt; &amp;condition, const int maxDelay)'],['../wait_8hpp.html#a471774454cb5ce657200f441686191c2',1,'bfb::waitUntil(const std::function&lt; bool()&gt; &amp;condition)']]]
+  ['task_75',['Task',['../classbfb_1_1_task.html',1,'bfb::Task'],['../classbfb_1_1_task.html#a573fa3e6c271cf734bd1d5bf654b3a08',1,'bfb::Task::Task()']]],
+  ['task_2ehpp_76',['task.hpp',['../task_8hpp.html',1,'']]],
+  ['tasklog_77',['taskLog',['../classbfb_1_1_task.html#acd3af44e3102c13f3cd1ca4b3a62bfe1',1,'bfb::Task']]],
+  ['tbh_78',['Tbh',['../classbfb_1_1_tbh.html',1,'bfb::Tbh'],['../classbfb_1_1_tbh.html#a7f4003651e58a8847cdaf38678e6c735',1,'bfb::Tbh::Tbh()']]],
+  ['tbh_2ehpp_79',['tbh.hpp',['../tbh_8hpp.html',1,'']]],
+  ['test_2ehpp_80',['test.hpp',['../test_8hpp.html',1,'']]]
 ];

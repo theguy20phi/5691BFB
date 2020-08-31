@@ -82,59 +82,45 @@ $(function() {
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">namespace </span>bfb {</div>
-<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="classbfb_1_1_task.html">   24</a></span>&#160;<span class="keyword">template</span> &lt;std::u<span class="keywordtype">int</span>32_t priority = TASK_PRIORITY_DEFAULT&gt; <span class="keyword">class </span><a class="code" href="classbfb_1_1_task.html">Task</a> {</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;  <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="classbfb_1_1_task.html#acbd43537642db640fb86d0ff028ea412">   31</a></span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classbfb_1_1_task.html#acbd43537642db640fb86d0ff028ea412">step</a>() = 0;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="classbfb_1_1_task.html#ab505c0c908dadf59ce681fb2ed2cf7d9">   37</a></span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classbfb_1_1_task.html#ab505c0c908dadf59ce681fb2ed2cf7d9">start</a>() final {</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordflow">if</span> (!task) {</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;      <a class="code" href="classbfb_1_1_task.html#aa5c385d837ba70386e9154c155b5ca70">taskLog</a>.log(<span class="stringliteral">&quot;Task started.&quot;</span>, {});</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;      task = std::make_unique&lt;pros::Task&gt;(</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        [<span class="keyword">this</span>]() {</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;          <span class="keywordflow">for</span> (;;) {</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;            this-&gt;<a class="code" href="classbfb_1_1_task.html#acbd43537642db640fb86d0ff028ea412">step</a>();</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            <a class="code" href="wait_8hpp.html#a6c6be2a0f991c10d252a043104dbe65f">wait</a>(Wait::generalDelay);</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;          }</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        },</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        priority);</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    }</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  }</div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="classbfb_1_1_task.html">   23</a></span>&#160;<span class="keyword">class </span><a class="code" href="classbfb_1_1_task.html">Task</a> {</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="classbfb_1_1_task.html#a573fa3e6c271cf734bd1d5bf654b3a08">   30</a></span>&#160;  <a class="code" href="classbfb_1_1_task.html#a573fa3e6c271cf734bd1d5bf654b3a08">Task</a>(std::uint32_t iPriority = TASK_PRIORITY_DEFAULT);</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="classbfb_1_1_task.html#a5992f5276212c16bc7a2c0bedb36f781">   37</a></span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classbfb_1_1_task.html#a5992f5276212c16bc7a2c0bedb36f781">step</a>() = 0;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="classbfb_1_1_task.html#a12e333f1c323b041b20b0ce9938ce853">   43</a></span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classbfb_1_1_task.html#a12e333f1c323b041b20b0ce9938ce853">start</a>() final;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="classbfb_1_1_task.html#a00ea715a5299057a3f028198a90a9039">   49</a></span>&#160;  virtual <span class="keywordtype">void</span> <a class="code" href="classbfb_1_1_task.html#a00ea715a5299057a3f028198a90a9039">stop</a>() final;</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
-<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="classbfb_1_1_task.html#ada4b7c62f8296a2e4704340f0e1f8957">   55</a></span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classbfb_1_1_task.html#ada4b7c62f8296a2e4704340f0e1f8957">stop</a>() final {</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordflow">if</span> (task) {</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;      <a class="code" href="classbfb_1_1_task.html#aa5c385d837ba70386e9154c155b5ca70">taskLog</a>.log(<span class="stringliteral">&quot;Task ended.&quot;</span>, {});</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;      task = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    }</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  }</div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="classbfb_1_1_task.html#acd3af44e3102c13f3cd1ca4b3a62bfe1">   55</a></span>&#160;  static <a class="code" href="classbfb_1_1_logger.html">Logger</a>&lt;<a class="code" href="classbfb_1_1_task.html">Task</a>&gt; <a class="code" href="classbfb_1_1_task.html#acd3af44e3102c13f3cd1ca4b3a62bfe1">taskLog</a>;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  protected:</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  std::uint32_t priority;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  std::unique_ptr&lt;pros::<a class="code" href="classbfb_1_1_task.html">Task</a>&gt; task{<span class="keyword">nullptr</span>};</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;};</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
-<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="classbfb_1_1_task.html#aa5c385d837ba70386e9154c155b5ca70">   66</a></span>&#160;  <span class="keyword">static</span> <a class="code" href="classbfb_1_1_logger.html">Logger&lt;Task&lt;priority&gt;</a>&gt; <a class="code" href="classbfb_1_1_task.html#aa5c385d837ba70386e9154c155b5ca70">taskLog</a>;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;  <span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;  std::unique_ptr&lt;pros::Task&gt; task{<span class="keyword">nullptr</span>};</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;};</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="preprocessor">#ifdef TESTING</span></div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="keyword">class </span>TaskTestClass final : <span class="keyword">public</span> Task&lt;&gt; {</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;  <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> step() <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;  <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;  <span class="keywordtype">int</span> thing{0};</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;};</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;DECLARE_TEST(taskTest);</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;} <span class="comment">// namespace bfb</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="preprocessor">#ifdef TESTING</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="keyword">class </span>TaskTestClass final : <span class="keyword">public</span> Task {</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;  <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  <span class="keywordtype">void</span> step() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;  <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;  <span class="keywordtype">int</span> thing{0};</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;};</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;DECLARE_TEST(taskTest);</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;} <span class="comment">// namespace bfb</span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aclassbfb_1_1_task_html_aa5c385d837ba70386e9154c155b5ca70"><div class="ttname"><a href="classbfb_1_1_task.html#aa5c385d837ba70386e9154c155b5ca70">bfb::Task::taskLog</a></div><div class="ttdeci">static Logger&lt; Task&lt; priority &gt; &gt; taskLog</div><div class="ttdoc">Logger object for Task.</div><div class="ttdef"><b>Definition:</b> task.hpp:66</div></div>
-<div class="ttc" id="aclassbfb_1_1_task_html"><div class="ttname"><a href="classbfb_1_1_task.html">bfb::Task</a></div><div class="ttdoc">Allows an easy-to-use way to assign &quot;give&quot; (more like make) a class a task by inheriting from this cl...</div><div class="ttdef"><b>Definition:</b> task.hpp:24</div></div>
-<div class="ttc" id="aclassbfb_1_1_task_html_acbd43537642db640fb86d0ff028ea412"><div class="ttname"><a href="classbfb_1_1_task.html#acbd43537642db640fb86d0ff028ea412">bfb::Task::step</a></div><div class="ttdeci">virtual void step()=0</div><div class="ttdoc">Goes through one step of the Task. Should be overwritten. Should take and return nothing.</div></div>
-<div class="ttc" id="aclassbfb_1_1_task_html_ada4b7c62f8296a2e4704340f0e1f8957"><div class="ttname"><a href="classbfb_1_1_task.html#ada4b7c62f8296a2e4704340f0e1f8957">bfb::Task::stop</a></div><div class="ttdeci">virtual void stop() final</div><div class="ttdoc">Ends the task.</div><div class="ttdef"><b>Definition:</b> task.hpp:55</div></div>
-<div class="ttc" id="aclassbfb_1_1_task_html_ab505c0c908dadf59ce681fb2ed2cf7d9"><div class="ttname"><a href="classbfb_1_1_task.html#ab505c0c908dadf59ce681fb2ed2cf7d9">bfb::Task::start</a></div><div class="ttdeci">virtual void start() final</div><div class="ttdoc">Starts the task.</div><div class="ttdef"><b>Definition:</b> task.hpp:37</div></div>
+<div class="ttc" id="aclassbfb_1_1_task_html_a5992f5276212c16bc7a2c0bedb36f781"><div class="ttname"><a href="classbfb_1_1_task.html#a5992f5276212c16bc7a2c0bedb36f781">bfb::Task::step</a></div><div class="ttdeci">virtual void step()=0</div><div class="ttdoc">Goes through one step of the Task. Should be overwritten. Should take and return nothing.</div></div>
+<div class="ttc" id="aclassbfb_1_1_task_html"><div class="ttname"><a href="classbfb_1_1_task.html">bfb::Task</a></div><div class="ttdoc">Allows an easy-to-use way to assign &quot;give&quot; (more like make) a class a task by inheriting from this cl...</div><div class="ttdef"><b>Definition:</b> task.hpp:23</div></div>
+<div class="ttc" id="aclassbfb_1_1_task_html_acd3af44e3102c13f3cd1ca4b3a62bfe1"><div class="ttname"><a href="classbfb_1_1_task.html#acd3af44e3102c13f3cd1ca4b3a62bfe1">bfb::Task::taskLog</a></div><div class="ttdeci">static Logger&lt; Task &gt; taskLog</div><div class="ttdoc">Logger object for Task.</div><div class="ttdef"><b>Definition:</b> task.hpp:55</div></div>
+<div class="ttc" id="aclassbfb_1_1_task_html_a12e333f1c323b041b20b0ce9938ce853"><div class="ttname"><a href="classbfb_1_1_task.html#a12e333f1c323b041b20b0ce9938ce853">bfb::Task::start</a></div><div class="ttdeci">virtual void start() final</div><div class="ttdoc">Starts the task.</div></div>
+<div class="ttc" id="aclassbfb_1_1_task_html_a573fa3e6c271cf734bd1d5bf654b3a08"><div class="ttname"><a href="classbfb_1_1_task.html#a573fa3e6c271cf734bd1d5bf654b3a08">bfb::Task::Task</a></div><div class="ttdeci">Task(std::uint32_t iPriority=TASK_PRIORITY_DEFAULT)</div><div class="ttdoc">Construct a new Task object.</div></div>
 <div class="ttc" id="atest_8hpp_html"><div class="ttname"><a href="test_8hpp.html">test.hpp</a></div><div class="ttdoc">The test file implements a very simple framework for testing. This allows tests to be ran on the V5 b...</div></div>
-<div class="ttc" id="await_8hpp_html_a6c6be2a0f991c10d252a043104dbe65f"><div class="ttname"><a href="wait_8hpp.html#a6c6be2a0f991c10d252a043104dbe65f">bfb::wait</a></div><div class="ttdeci">void wait(const int time)</div><div class="ttdoc">Makes pros::Task::delay_until a bit easier to use, while still being useful for periodic tasks that b...</div></div>
 <div class="ttc" id="aclassbfb_1_1_logger_html"><div class="ttname"><a href="classbfb_1_1_logger.html">bfb::Logger</a></div><div class="ttdoc">Implements a logger for logging either to a file or the terminal.</div><div class="ttdef"><b>Definition:</b> logger.hpp:22</div></div>
 <div class="ttc" id="alogger_8hpp_html"><div class="ttname"><a href="logger_8hpp.html">logger.hpp</a></div></div>
+<div class="ttc" id="aclassbfb_1_1_task_html_a00ea715a5299057a3f028198a90a9039"><div class="ttname"><a href="classbfb_1_1_task.html#a00ea715a5299057a3f028198a90a9039">bfb::Task::stop</a></div><div class="ttdeci">virtual void stop() final</div><div class="ttdoc">Ends the task.</div></div>
 <div class="ttc" id="await_8hpp_html"><div class="ttname"><a href="wait_8hpp.html">wait.hpp</a></div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

@@ -1,11 +1,6 @@
 var searchData=
 [
-  ['setpath_145',['setPath',['../classbfb_1_1_logger.html#ad29baf13b7e93268b1772a276c98f05a',1,'bfb::Logger']]],
-  ['setreference_146',['setReference',['../classbfb_1_1_controller.html#ad0eab693cddd1b6a74f61c26edda7ee5',1,'bfb::Controller']]],
-  ['setstate_147',['setState',['../classbfb_1_1_state_machine.html#aae51ee931609541c9b6139776d74a432',1,'bfb::StateMachine']]],
-  ['sign_148',['sign',['../math_util_8hpp.html#a20bfb6ad2861cd53960cf741909906f2',1,'bfb']]],
-  ['start_149',['start',['../classbfb_1_1_task.html#ab505c0c908dadf59ce681fb2ed2cf7d9',1,'bfb::Task']]],
-  ['statemachine_150',['StateMachine',['../classbfb_1_1_state_machine.html#a4807887f0977aa35a53b810d0b554172',1,'bfb::StateMachine']]],
-  ['step_151',['step',['../classbfb_1_1_state_machine.html#ad675f4af407587bb064991fbe7b224cf',1,'bfb::StateMachine::step()'],['../classbfb_1_1_task.html#acbd43537642db640fb86d0ff028ea412',1,'bfb::Task::step()']]],
-  ['stop_152',['stop',['../classbfb_1_1_task.html#ada4b7c62f8296a2e4704340f0e1f8957',1,'bfb::Task']]]
+  ['reset_156',['reset',['../classbfb_1_1_bang_bang.html#a9c27db916583e65d0059afb5ad043282',1,'bfb::BangBang::reset()'],['../classbfb_1_1_controller.html#add8c609c2835c25795a08ff1e615eea9',1,'bfb::Controller::reset()'],['../classbfb_1_1_pidf.html#ae54df26278aa0c65a6d561696d091b36',1,'bfb::Pidf::reset()'],['../classbfb_1_1_tbh.html#af7052f06249e71c01e89a87433407373',1,'bfb::Tbh::reset()']]],
+  ['resetheading_157',['resetHeading',['../classbfb_1_1_i_m_u.html#a0b27d0c2324cf331f36b9c151198db1e',1,'bfb::IMU']]],
+  ['runtests_158',['runTests',['../test_8hpp.html#ad817a6cbafc72a4ab2486d556923db35',1,'bfb']]]
 ];

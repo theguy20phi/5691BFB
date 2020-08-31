@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.18"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>5691BFB: bfb::BangBang&lt; intervals &gt; Class Template Reference</title>
+<title>5691BFB: bfb::BangBang Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -75,7 +75,7 @@ $(function() {
 <a href="#pub-static-attribs">Static Public Attributes</a> &#124;
 <a href="classbfb_1_1_bang_bang-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">bfb::BangBang&lt; intervals &gt; Class Template Reference<span class="mlabels"><span class="mlabel">final</span></span></div>  </div>
+<div class="title">bfb::BangBang Class Reference<span class="mlabels"><span class="mlabel">final</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
 
@@ -84,12 +84,12 @@ $(function() {
 
 <p><code>#include &lt;<a class="el" href="bang_bang_8hpp_source.html">bangBang.hpp</a>&gt;</code></p>
 <div class="dynheader">
-Inheritance diagram for bfb::BangBang&lt; intervals &gt;:</div>
+Inheritance diagram for bfb::BangBang:</div>
 <div class="dyncontent">
  <div class="center">
-  <img src="classbfb_1_1_bang_bang.png" usemap="#bfb::BangBang_3C_20intervals_20_3E_map" alt=""/>
-  <map id="bfb::BangBang_3C_20intervals_20_3E_map" name="bfb::BangBang_3C_20intervals_20_3E_map">
-<area href="classbfb_1_1_controller.html" alt="bfb::Controller" shape="rect" coords="0,0,166,24"/>
+  <img src="classbfb_1_1_bang_bang.png" usemap="#bfb::BangBang_map" alt=""/>
+  <map id="bfb::BangBang_map" name="bfb::BangBang_map">
+<area href="classbfb_1_1_controller.html" alt="bfb::Controller" shape="rect" coords="0,0,94,24"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -100,25 +100,25 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a3e76026c9b1e710323bfbc4e57da12f1"><td class="memItemLeft" align="right" valign="top"><a id="a3e76026c9b1e710323bfbc4e57da12f1"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>BangBangMap</b> = std::array&lt; <a class="el" href="structbfb_1_1_bang_bang_1_1_bang_bang_pair.html">BangBangPair</a>, intervals &gt;</td></tr>
-<tr class="separator:a3e76026c9b1e710323bfbc4e57da12f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5dfba3d42a1fecbf0aca05343516d474"><td class="memItemLeft" align="right" valign="top"><a id="a5dfba3d42a1fecbf0aca05343516d474"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>BangBangMap</b> = std::vector&lt; <a class="el" href="structbfb_1_1_bang_bang_1_1_bang_bang_pair.html">BangBangPair</a> &gt;</td></tr>
+<tr class="separator:a5dfba3d42a1fecbf0aca05343516d474"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a0859438f354d37924e872eb209f09e06"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_bang_bang.html#a0859438f354d37924e872eb209f09e06">BangBang</a> (const BangBangMap &amp;iMap, double iMax)</td></tr>
-<tr class="memdesc:a0859438f354d37924e872eb209f09e06"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classbfb_1_1_bang_bang.html" title="Implements a simple Bang-Bang controller.">BangBang</a> object.  <a href="classbfb_1_1_bang_bang.html#a0859438f354d37924e872eb209f09e06">More...</a><br /></td></tr>
-<tr class="separator:a0859438f354d37924e872eb209f09e06"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acba0e520430781f7f177a70d79dcb2e3"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_bang_bang.html#acba0e520430781f7f177a70d79dcb2e3">calculate</a> (double state) override</td></tr>
-<tr class="memdesc:acba0e520430781f7f177a70d79dcb2e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Goes through one step of the controller.  <a href="classbfb_1_1_bang_bang.html#acba0e520430781f7f177a70d79dcb2e3">More...</a><br /></td></tr>
-<tr class="separator:acba0e520430781f7f177a70d79dcb2e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8f295d5caaf838e1ed561d14001f854d"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_bang_bang.html#a8f295d5caaf838e1ed561d14001f854d">isDone</a> (double state) override</td></tr>
-<tr class="memdesc:a8f295d5caaf838e1ed561d14001f854d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets if the controller is settled.  <a href="classbfb_1_1_bang_bang.html#a8f295d5caaf838e1ed561d14001f854d">More...</a><br /></td></tr>
-<tr class="separator:a8f295d5caaf838e1ed561d14001f854d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9697624786e6a9d8bd3beabdc05c0472"><td class="memItemLeft" align="right" valign="top"><a id="a9697624786e6a9d8bd3beabdc05c0472"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_bang_bang.html#a9697624786e6a9d8bd3beabdc05c0472">reset</a> () override</td></tr>
-<tr class="memdesc:a9697624786e6a9d8bd3beabdc05c0472"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the internal state of the controller. <br /></td></tr>
-<tr class="separator:a9697624786e6a9d8bd3beabdc05c0472"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a06bd53842a3b6fbbaa00383b69ba1266"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_bang_bang.html#a06bd53842a3b6fbbaa00383b69ba1266">BangBang</a> (const BangBangMap &amp;iMap, double iMax)</td></tr>
+<tr class="memdesc:a06bd53842a3b6fbbaa00383b69ba1266"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classbfb_1_1_bang_bang.html" title="Implements a simple Bang-Bang controller.">BangBang</a> object.  <a href="classbfb_1_1_bang_bang.html#a06bd53842a3b6fbbaa00383b69ba1266">More...</a><br /></td></tr>
+<tr class="separator:a06bd53842a3b6fbbaa00383b69ba1266"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a27e9479e395fcefaeadf4b01b18253c5"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_bang_bang.html#a27e9479e395fcefaeadf4b01b18253c5">calculate</a> (double state) override</td></tr>
+<tr class="memdesc:a27e9479e395fcefaeadf4b01b18253c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Goes through one step of the controller.  <a href="classbfb_1_1_bang_bang.html#a27e9479e395fcefaeadf4b01b18253c5">More...</a><br /></td></tr>
+<tr class="separator:a27e9479e395fcefaeadf4b01b18253c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8120e3829e263b5854e563eb17e6ef52"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_bang_bang.html#a8120e3829e263b5854e563eb17e6ef52">isDone</a> (double state) override</td></tr>
+<tr class="memdesc:a8120e3829e263b5854e563eb17e6ef52"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets if the controller is settled.  <a href="classbfb_1_1_bang_bang.html#a8120e3829e263b5854e563eb17e6ef52">More...</a><br /></td></tr>
+<tr class="separator:a8120e3829e263b5854e563eb17e6ef52"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c27db916583e65d0059afb5ad043282"><td class="memItemLeft" align="right" valign="top"><a id="a9c27db916583e65d0059afb5ad043282"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_bang_bang.html#a9c27db916583e65d0059afb5ad043282">reset</a> () override</td></tr>
+<tr class="memdesc:a9c27db916583e65d0059afb5ad043282"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the internal state of the controller. <br /></td></tr>
+<tr class="separator:a9c27db916583e65d0059afb5ad043282"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classbfb_1_1_controller"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classbfb_1_1_controller')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classbfb_1_1_controller.html">bfb::Controller</a></td></tr>
 <tr class="memitem:ad0eab693cddd1b6a74f61c26edda7ee5 inherit pub_methods_classbfb_1_1_controller"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_controller.html#ad0eab693cddd1b6a74f61c26edda7ee5">setReference</a> (double iReference)</td></tr>
 <tr class="memdesc:ad0eab693cddd1b6a74f61c26edda7ee5 inherit pub_methods_classbfb_1_1_controller"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the reference for the controller.  <a href="classbfb_1_1_controller.html#ad0eab693cddd1b6a74f61c26edda7ee5">More...</a><br /></td></tr>
@@ -132,9 +132,9 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
-<tr class="memitem:a8fbf9c8d660af34b91cc7ceb2854ba76"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classbfb_1_1_logger.html">Logger</a>&lt; <a class="el" href="classbfb_1_1_bang_bang.html">BangBang</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_bang_bang.html#a8fbf9c8d660af34b91cc7ceb2854ba76">bangBangLog</a></td></tr>
-<tr class="memdesc:a8fbf9c8d660af34b91cc7ceb2854ba76"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classbfb_1_1_logger.html" title="Implements a logger for logging either to a file or the terminal.">Logger</a> object for <a class="el" href="classbfb_1_1_bang_bang.html" title="Implements a simple Bang-Bang controller.">BangBang</a>.  <a href="classbfb_1_1_bang_bang.html#a8fbf9c8d660af34b91cc7ceb2854ba76">More...</a><br /></td></tr>
-<tr class="separator:a8fbf9c8d660af34b91cc7ceb2854ba76"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a742f8ace4a3b91ca205a67d461f33959"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classbfb_1_1_logger.html">Logger</a>&lt; <a class="el" href="classbfb_1_1_bang_bang.html">BangBang</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_bang_bang.html#a742f8ace4a3b91ca205a67d461f33959">bangBangLog</a></td></tr>
+<tr class="memdesc:a742f8ace4a3b91ca205a67d461f33959"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classbfb_1_1_logger.html" title="Implements a logger for logging either to a file or the terminal.">Logger</a> object for <a class="el" href="classbfb_1_1_bang_bang.html" title="Implements a simple Bang-Bang controller.">BangBang</a>.  <a href="classbfb_1_1_bang_bang.html#a742f8ace4a3b91ca205a67d461f33959">More...</a><br /></td></tr>
+<tr class="separator:a742f8ace4a3b91ca205a67d461f33959"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_static_attribs_classbfb_1_1_controller"><td colspan="2" onclick="javascript:toggleInherit('pub_static_attribs_classbfb_1_1_controller')"><img src="closed.png" alt="-"/>&#160;Static Public Attributes inherited from <a class="el" href="classbfb_1_1_controller.html">bfb::Controller</a></td></tr>
 <tr class="memitem:acbf163c822961e73352c44ba00b71aec inherit pub_static_attribs_classbfb_1_1_controller"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classbfb_1_1_logger.html">Logger</a>&lt; <a class="el" href="classbfb_1_1_controller.html">Controller</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_controller.html#acbf163c822961e73352c44ba00b71aec">controllerLog</a></td></tr>
 <tr class="memdesc:acbf163c822961e73352c44ba00b71aec inherit pub_static_attribs_classbfb_1_1_controller"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classbfb_1_1_logger.html" title="Implements a logger for logging either to a file or the terminal.">Logger</a> object for <a class="el" href="classbfb_1_1_controller.html">Controller</a>.  <a href="classbfb_1_1_controller.html#acbf163c822961e73352c44ba00b71aec">More...</a><br /></td></tr>
@@ -151,10 +151,7 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>reference</b> {0.0}
 <tr class="separator:a9bc32fd4a8444092f0ebce8969ab6028 inherit pro_attribs_classbfb_1_1_controller"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><h3>template&lt;int intervals&gt;<br />
-class bfb::BangBang&lt; intervals &gt;</h3>
-
-<p>Implements a simple Bang-Bang controller. </p>
+<div class="textblock"><p>Implements a simple Bang-Bang controller. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">intervals</td><td></td></tr>
@@ -162,19 +159,14 @@ class bfb::BangBang&lt; intervals &gt;</h3>
   </dd>
 </dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a0859438f354d37924e872eb209f09e06"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0859438f354d37924e872eb209f09e06">&#9670;&nbsp;</a></span>BangBang()</h2>
+<a id="a06bd53842a3b6fbbaa00383b69ba1266"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a06bd53842a3b6fbbaa00383b69ba1266">&#9670;&nbsp;</a></span>BangBang()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;int intervals&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classbfb_1_1_bang_bang.html">bfb::BangBang</a>&lt; intervals &gt;::<a class="el" href="classbfb_1_1_bang_bang.html">BangBang</a> </td>
+          <td class="memname">bfb::BangBang::BangBang </td>
           <td>(</td>
           <td class="paramtype">const BangBangMap &amp;&#160;</td>
           <td class="paramname"><em>iMap</em>, </td>
@@ -191,11 +183,6 @@ template&lt;int intervals&gt; </div>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Construct a new <a class="el" href="classbfb_1_1_bang_bang.html" title="Implements a simple Bang-Bang controller.">BangBang</a> object. </p>
@@ -210,19 +197,17 @@ template&lt;int intervals&gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="acba0e520430781f7f177a70d79dcb2e3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acba0e520430781f7f177a70d79dcb2e3">&#9670;&nbsp;</a></span>calculate()</h2>
+<a id="a27e9479e395fcefaeadf4b01b18253c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a27e9479e395fcefaeadf4b01b18253c5">&#9670;&nbsp;</a></span>calculate()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;int intervals&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual double <a class="el" href="classbfb_1_1_bang_bang.html">bfb::BangBang</a>&lt; intervals &gt;::calculate </td>
+          <td class="memname">double bfb::BangBang::calculate </td>
           <td>(</td>
           <td class="paramtype">double&#160;</td>
           <td class="paramname"><em>state</em></td><td>)</td>
@@ -231,7 +216,7 @@ template&lt;int intervals&gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -249,19 +234,17 @@ template&lt;int intervals&gt; </div>
 
 </div>
 </div>
-<a id="a8f295d5caaf838e1ed561d14001f854d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8f295d5caaf838e1ed561d14001f854d">&#9670;&nbsp;</a></span>isDone()</h2>
+<a id="a8120e3829e263b5854e563eb17e6ef52"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8120e3829e263b5854e563eb17e6ef52">&#9670;&nbsp;</a></span>isDone()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;int intervals&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual bool <a class="el" href="classbfb_1_1_bang_bang.html">bfb::BangBang</a>&lt; intervals &gt;::isDone </td>
+          <td class="memname">bool bfb::BangBang::isDone </td>
           <td>(</td>
           <td class="paramtype">double&#160;</td>
           <td class="paramname"><em>state</em></td><td>)</td>
@@ -270,7 +253,7 @@ template&lt;int intervals&gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -289,19 +272,17 @@ template&lt;int intervals&gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="a8fbf9c8d660af34b91cc7ceb2854ba76"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8fbf9c8d660af34b91cc7ceb2854ba76">&#9670;&nbsp;</a></span>bangBangLog</h2>
+<a id="a742f8ace4a3b91ca205a67d461f33959"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a742f8ace4a3b91ca205a67d461f33959">&#9670;&nbsp;</a></span>bangBangLog</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;int intervals&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classbfb_1_1_logger.html">Logger</a>&lt;<a class="el" href="classbfb_1_1_bang_bang.html">BangBang</a>&gt; <a class="el" href="classbfb_1_1_bang_bang.html">bfb::BangBang</a>&lt; intervals &gt;::bangBangLog</td>
+          <td class="memname"><a class="el" href="classbfb_1_1_logger.html">Logger</a>&lt;<a class="el" href="classbfb_1_1_bang_bang.html">BangBang</a>&gt; bfb::BangBang::bangBangLog</td>
         </tr>
       </table>
   </td>

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.18"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>5691BFB: bfb::StateMachine&lt; Concrete, ValidStates, priority &gt; Class Template Reference</title>
+<title>5691BFB: bfb::StateMachine&lt; Concrete, ValidStates &gt; Class Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -70,11 +70,12 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
+<a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="classbfb_1_1_state_machine-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">bfb::StateMachine&lt; Concrete, ValidStates, priority &gt; Class Template Reference</div>  </div>
+<div class="title">bfb::StateMachine&lt; Concrete, ValidStates &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
@@ -83,66 +84,84 @@ $(function() {
 
 <p><code>#include &lt;<a class="el" href="state_machine_8hpp_source.html">stateMachine.hpp</a>&gt;</code></p>
 <div class="dynheader">
-Inheritance diagram for bfb::StateMachine&lt; Concrete, ValidStates, priority &gt;:</div>
+Inheritance diagram for bfb::StateMachine&lt; Concrete, ValidStates &gt;:</div>
 <div class="dyncontent">
  <div class="center">
-  <img src="classbfb_1_1_state_machine.png" usemap="#bfb::StateMachine_3C_20Concrete_2C_20ValidStates_2C_20priority_20_3E_map" alt=""/>
-  <map id="bfb::StateMachine_3C_20Concrete_2C_20ValidStates_2C_20priority_20_3E_map" name="bfb::StateMachine_3C_20Concrete_2C_20ValidStates_2C_20priority_20_3E_map">
-<area href="classbfb_1_1_task.html" alt="bfb::Task&lt; TASK_PRIORITY_DEFAULT &gt;" shape="rect" coords="0,0,310,24"/>
+  <img src="classbfb_1_1_state_machine.png" usemap="#bfb::StateMachine_3C_20Concrete_2C_20ValidStates_20_3E_map" alt=""/>
+  <map id="bfb::StateMachine_3C_20Concrete_2C_20ValidStates_20_3E_map" name="bfb::StateMachine_3C_20Concrete_2C_20ValidStates_20_3E_map">
+<area href="classbfb_1_1_task.html" title="Allows an easy-to-use way to assign &quot;give&quot; (more like make) a class a task by inheriting from this cl..." alt="bfb::Task" shape="rect" coords="0,0,261,24"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a4807887f0977aa35a53b810d0b554172"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_state_machine.html#a4807887f0977aa35a53b810d0b554172">StateMachine</a> (const ValidStates &amp;iState)</td></tr>
-<tr class="memdesc:a4807887f0977aa35a53b810d0b554172"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new State Machine object.  <a href="classbfb_1_1_state_machine.html#a4807887f0977aa35a53b810d0b554172">More...</a><br /></td></tr>
-<tr class="separator:a4807887f0977aa35a53b810d0b554172"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad675f4af407587bb064991fbe7b224cf"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_state_machine.html#ad675f4af407587bb064991fbe7b224cf">step</a> () final</td></tr>
-<tr class="memdesc:ad675f4af407587bb064991fbe7b224cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overloads <a class="el" href="classbfb_1_1_task.html#acbd43537642db640fb86d0ff028ea412" title="Goes through one step of the Task. Should be overwritten. Should take and return nothing.">bfb::Task::step</a>, uses a visitor to run the overloaded behavior for the current state.  <a href="classbfb_1_1_state_machine.html#ad675f4af407587bb064991fbe7b224cf">More...</a><br /></td></tr>
-<tr class="separator:ad675f4af407587bb064991fbe7b224cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aae51ee931609541c9b6139776d74a432"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_state_machine.html#aae51ee931609541c9b6139776d74a432">setState</a> (const ValidStates &amp;iState)</td></tr>
-<tr class="memdesc:aae51ee931609541c9b6139776d74a432"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the State object.  <a href="classbfb_1_1_state_machine.html#aae51ee931609541c9b6139776d74a432">More...</a><br /></td></tr>
-<tr class="separator:aae51ee931609541c9b6139776d74a432"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a99f0cc82b1f80e826c2eff6391be20c4"><td class="memItemLeft" align="right" valign="top">virtual ValidStates&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_state_machine.html#a99f0cc82b1f80e826c2eff6391be20c4">getState</a> () const final</td></tr>
-<tr class="memdesc:a99f0cc82b1f80e826c2eff6391be20c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the State object.  <a href="classbfb_1_1_state_machine.html#a99f0cc82b1f80e826c2eff6391be20c4">More...</a><br /></td></tr>
-<tr class="separator:a99f0cc82b1f80e826c2eff6391be20c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aee7e1a4dbd66feecba6453bfab90dd71"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_state_machine.html#aee7e1a4dbd66feecba6453bfab90dd71">operator==</a> (const ValidStates &amp;iState) const final</td></tr>
-<tr class="memdesc:aee7e1a4dbd66feecba6453bfab90dd71"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines if two states are equal (does not take parameters into account).  <a href="classbfb_1_1_state_machine.html#aee7e1a4dbd66feecba6453bfab90dd71">More...</a><br /></td></tr>
-<tr class="separator:aee7e1a4dbd66feecba6453bfab90dd71"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0be87158f53154dfe91d7d4b7a5b0cc8"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_state_machine.html#a0be87158f53154dfe91d7d4b7a5b0cc8">operator!=</a> (const ValidStates &amp;iState) const final</td></tr>
-<tr class="memdesc:a0be87158f53154dfe91d7d4b7a5b0cc8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines if two states are not equal (does not take parameters into account).  <a href="classbfb_1_1_state_machine.html#a0be87158f53154dfe91d7d4b7a5b0cc8">More...</a><br /></td></tr>
-<tr class="separator:a0be87158f53154dfe91d7d4b7a5b0cc8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pub_methods_classbfb_1_1_task"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classbfb_1_1_task')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classbfb_1_1_task.html">bfb::Task&lt; TASK_PRIORITY_DEFAULT &gt;</a></td></tr>
-<tr class="memitem:ab505c0c908dadf59ce681fb2ed2cf7d9 inherit pub_methods_classbfb_1_1_task"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_task.html#ab505c0c908dadf59ce681fb2ed2cf7d9">start</a> () final</td></tr>
-<tr class="memdesc:ab505c0c908dadf59ce681fb2ed2cf7d9 inherit pub_methods_classbfb_1_1_task"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts the task.  <a href="classbfb_1_1_task.html#ab505c0c908dadf59ce681fb2ed2cf7d9">More...</a><br /></td></tr>
-<tr class="separator:ab505c0c908dadf59ce681fb2ed2cf7d9 inherit pub_methods_classbfb_1_1_task"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ada4b7c62f8296a2e4704340f0e1f8957 inherit pub_methods_classbfb_1_1_task"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_task.html#ada4b7c62f8296a2e4704340f0e1f8957">stop</a> () final</td></tr>
-<tr class="memdesc:ada4b7c62f8296a2e4704340f0e1f8957 inherit pub_methods_classbfb_1_1_task"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ends the task.  <a href="classbfb_1_1_task.html#ada4b7c62f8296a2e4704340f0e1f8957">More...</a><br /></td></tr>
-<tr class="separator:ada4b7c62f8296a2e4704340f0e1f8957 inherit pub_methods_classbfb_1_1_task"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac4d8eec1634717909d1ad3cd7c8589b7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_state_machine.html#ac4d8eec1634717909d1ad3cd7c8589b7">StateMachine</a> (const ValidStates &amp;iState, int iPriority=TASK_PRIORITY_DEFAULT)</td></tr>
+<tr class="memdesc:ac4d8eec1634717909d1ad3cd7c8589b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new State Machine object.  <a href="classbfb_1_1_state_machine.html#ac4d8eec1634717909d1ad3cd7c8589b7">More...</a><br /></td></tr>
+<tr class="separator:ac4d8eec1634717909d1ad3cd7c8589b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3e23f40c66e2522411438e2157f7e1cb"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_state_machine.html#a3e23f40c66e2522411438e2157f7e1cb">step</a> () final</td></tr>
+<tr class="memdesc:a3e23f40c66e2522411438e2157f7e1cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overloads <a class="el" href="classbfb_1_1_task.html#a5992f5276212c16bc7a2c0bedb36f781" title="Goes through one step of the Task. Should be overwritten. Should take and return nothing.">bfb::Task::step</a>, uses a visitor to run the overloaded behavior for the current state.  <a href="classbfb_1_1_state_machine.html#a3e23f40c66e2522411438e2157f7e1cb">More...</a><br /></td></tr>
+<tr class="separator:a3e23f40c66e2522411438e2157f7e1cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a42087bc3318c4ac8b4c3193c640c4add"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_state_machine.html#a42087bc3318c4ac8b4c3193c640c4add">update</a> ()</td></tr>
+<tr class="memdesc:a42087bc3318c4ac8b4c3193c640c4add"><td class="mdescLeft">&#160;</td><td class="mdescRight">Does various updates for the <a class="el" href="classbfb_1_1_state_machine.html" title="A template for StateMachines. The state is represented by a variant of structs that represent specifi...">StateMachine</a> each step.  <a href="classbfb_1_1_state_machine.html#a42087bc3318c4ac8b4c3193c640c4add">More...</a><br /></td></tr>
+<tr class="separator:a42087bc3318c4ac8b4c3193c640c4add"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace1388a3002567f5456e6c7629112ccc"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_state_machine.html#ace1388a3002567f5456e6c7629112ccc">setState</a> (const ValidStates &amp;iState)</td></tr>
+<tr class="memdesc:ace1388a3002567f5456e6c7629112ccc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the State object.  <a href="classbfb_1_1_state_machine.html#ace1388a3002567f5456e6c7629112ccc">More...</a><br /></td></tr>
+<tr class="separator:ace1388a3002567f5456e6c7629112ccc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1138b9e1fe5ca82d942168ba2db0ceef"><td class="memItemLeft" align="right" valign="top">virtual ValidStates&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_state_machine.html#a1138b9e1fe5ca82d942168ba2db0ceef">getState</a> () const final</td></tr>
+<tr class="memdesc:a1138b9e1fe5ca82d942168ba2db0ceef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the State object.  <a href="classbfb_1_1_state_machine.html#a1138b9e1fe5ca82d942168ba2db0ceef">More...</a><br /></td></tr>
+<tr class="separator:a1138b9e1fe5ca82d942168ba2db0ceef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc2609f2377e721ccd2c9564a2e9d657"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_state_machine.html#afc2609f2377e721ccd2c9564a2e9d657">operator==</a> (const ValidStates &amp;iState) const final</td></tr>
+<tr class="memdesc:afc2609f2377e721ccd2c9564a2e9d657"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines if two states are equal (does not take parameters into account).  <a href="classbfb_1_1_state_machine.html#afc2609f2377e721ccd2c9564a2e9d657">More...</a><br /></td></tr>
+<tr class="separator:afc2609f2377e721ccd2c9564a2e9d657"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2371bb4df158ae8d0190de76a73641b"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_state_machine.html#af2371bb4df158ae8d0190de76a73641b">operator!=</a> (const ValidStates &amp;iState) const final</td></tr>
+<tr class="memdesc:af2371bb4df158ae8d0190de76a73641b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines if two states are not equal (does not take parameters into account).  <a href="classbfb_1_1_state_machine.html#af2371bb4df158ae8d0190de76a73641b">More...</a><br /></td></tr>
+<tr class="separator:af2371bb4df158ae8d0190de76a73641b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classbfb_1_1_task"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classbfb_1_1_task')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classbfb_1_1_task.html">bfb::Task</a></td></tr>
+<tr class="memitem:a573fa3e6c271cf734bd1d5bf654b3a08 inherit pub_methods_classbfb_1_1_task"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_task.html#a573fa3e6c271cf734bd1d5bf654b3a08">Task</a> (std::uint32_t iPriority=TASK_PRIORITY_DEFAULT)</td></tr>
+<tr class="memdesc:a573fa3e6c271cf734bd1d5bf654b3a08 inherit pub_methods_classbfb_1_1_task"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classbfb_1_1_task.html" title="Allows an easy-to-use way to assign &quot;give&quot; (more like make) a class a task by inheriting from this cl...">Task</a> object.  <a href="classbfb_1_1_task.html#a573fa3e6c271cf734bd1d5bf654b3a08">More...</a><br /></td></tr>
+<tr class="separator:a573fa3e6c271cf734bd1d5bf654b3a08 inherit pub_methods_classbfb_1_1_task"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a12e333f1c323b041b20b0ce9938ce853 inherit pub_methods_classbfb_1_1_task"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_task.html#a12e333f1c323b041b20b0ce9938ce853">start</a> () final</td></tr>
+<tr class="memdesc:a12e333f1c323b041b20b0ce9938ce853 inherit pub_methods_classbfb_1_1_task"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts the task.  <a href="classbfb_1_1_task.html#a12e333f1c323b041b20b0ce9938ce853">More...</a><br /></td></tr>
+<tr class="separator:a12e333f1c323b041b20b0ce9938ce853 inherit pub_methods_classbfb_1_1_task"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00ea715a5299057a3f028198a90a9039 inherit pub_methods_classbfb_1_1_task"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_task.html#a00ea715a5299057a3f028198a90a9039">stop</a> () final</td></tr>
+<tr class="memdesc:a00ea715a5299057a3f028198a90a9039 inherit pub_methods_classbfb_1_1_task"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ends the task.  <a href="classbfb_1_1_task.html#a00ea715a5299057a3f028198a90a9039">More...</a><br /></td></tr>
+<tr class="separator:a00ea715a5299057a3f028198a90a9039 inherit pub_methods_classbfb_1_1_task"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
-Static Public Attributes</h2></td></tr>
-<tr class="memitem:a29ac8ef957211ece94def6fe1db2a5eb"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classbfb_1_1_logger.html">Logger</a>&lt; <a class="el" href="classbfb_1_1_state_machine.html">StateMachine</a>&lt; Concrete, ValidStates, priority &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_state_machine.html#a29ac8ef957211ece94def6fe1db2a5eb">stateMachineLog</a></td></tr>
-<tr class="memdesc:a29ac8ef957211ece94def6fe1db2a5eb"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classbfb_1_1_logger.html" title="Implements a logger for logging either to a file or the terminal.">Logger</a> object for <a class="el" href="classbfb_1_1_state_machine.html" title="A template for StateMachines. The state is represented by a variant of structs that represent specifi...">StateMachine</a>.  <a href="classbfb_1_1_state_machine.html#a29ac8ef957211ece94def6fe1db2a5eb">More...</a><br /></td></tr>
-<tr class="separator:a29ac8ef957211ece94def6fe1db2a5eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pub_static_attribs_classbfb_1_1_task"><td colspan="2" onclick="javascript:toggleInherit('pub_static_attribs_classbfb_1_1_task')"><img src="closed.png" alt="-"/>&#160;Static Public Attributes inherited from <a class="el" href="classbfb_1_1_task.html">bfb::Task&lt; TASK_PRIORITY_DEFAULT &gt;</a></td></tr>
-<tr class="memitem:aa5c385d837ba70386e9154c155b5ca70 inherit pub_static_attribs_classbfb_1_1_task"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classbfb_1_1_logger.html">Logger</a>&lt; <a class="el" href="classbfb_1_1_task.html">Task</a>&lt; priority &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_task.html#aa5c385d837ba70386e9154c155b5ca70">taskLog</a></td></tr>
-<tr class="memdesc:aa5c385d837ba70386e9154c155b5ca70 inherit pub_static_attribs_classbfb_1_1_task"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logger object for Task.  <a href="classbfb_1_1_task.html#aa5c385d837ba70386e9154c155b5ca70">More...</a><br /></td></tr>
-<tr class="separator:aa5c385d837ba70386e9154c155b5ca70 inherit pub_static_attribs_classbfb_1_1_task"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:acca4b39afb8be1de2df4bc2d5aac477c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classbfb_1_1_logger.html">Logger</a>&lt; <a class="el" href="classbfb_1_1_state_machine.html">StateMachine</a>&lt; Concrete, ValidStates &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_state_machine.html#acca4b39afb8be1de2df4bc2d5aac477c">stateMachineLog</a> {}</td></tr>
+<tr class="memdesc:acca4b39afb8be1de2df4bc2d5aac477c"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classbfb_1_1_logger.html" title="Implements a logger for logging either to a file or the terminal.">Logger</a> object for <a class="el" href="classbfb_1_1_state_machine.html" title="A template for StateMachines. The state is represented by a variant of structs that represent specifi...">StateMachine</a>.  <a href="classbfb_1_1_state_machine.html#acca4b39afb8be1de2df4bc2d5aac477c">More...</a><br /></td></tr>
+<tr class="separator:acca4b39afb8be1de2df4bc2d5aac477c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:a9840468345cff40d0d3e155111098c34"><td class="memItemLeft" align="right" valign="top"><a id="a9840468345cff40d0d3e155111098c34"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>setStateInternally</b> (const ValidStates &amp;iState)</td></tr>
+<tr class="separator:a9840468345cff40d0d3e155111098c34"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:a2e0aa1bb39ce2c7f37a55ab8d173589d"><td class="memItemLeft" align="right" valign="top"><a id="a2e0aa1bb39ce2c7f37a55ab8d173589d"></a>
+<tr class="memitem:abb33616f43092ebae58d2a669af45942"><td class="memItemLeft" align="right" valign="top"><a id="abb33616f43092ebae58d2a669af45942"></a>
 ValidStates&#160;</td><td class="memItemRight" valign="bottom"><b>state</b></td></tr>
-<tr class="separator:a2e0aa1bb39ce2c7f37a55ab8d173589d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pro_attribs_classbfb_1_1_task"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classbfb_1_1_task')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="classbfb_1_1_task.html">bfb::Task&lt; TASK_PRIORITY_DEFAULT &gt;</a></td></tr>
-<tr class="memitem:ae54f8f0824a6fbbb0875c417ce7aac5a inherit pro_attribs_classbfb_1_1_task"><td class="memItemLeft" align="right" valign="top"><a id="ae54f8f0824a6fbbb0875c417ce7aac5a"></a>
-std::unique_ptr&lt; pros::Task &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>task</b></td></tr>
-<tr class="separator:ae54f8f0824a6fbbb0875c417ce7aac5a inherit pro_attribs_classbfb_1_1_task"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:abb33616f43092ebae58d2a669af45942"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_attribs_classbfb_1_1_task"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classbfb_1_1_task')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="classbfb_1_1_task.html">bfb::Task</a></td></tr>
+<tr class="memitem:a5b6407b1399e78085d423f8ed8d08560 inherit pro_attribs_classbfb_1_1_task"><td class="memItemLeft" align="right" valign="top"><a id="a5b6407b1399e78085d423f8ed8d08560"></a>
+std::uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>priority</b></td></tr>
+<tr class="separator:a5b6407b1399e78085d423f8ed8d08560 inherit pro_attribs_classbfb_1_1_task"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a718c19f1163761036b5dc63399b7e457 inherit pro_attribs_classbfb_1_1_task"><td class="memItemLeft" align="right" valign="top"><a id="a718c19f1163761036b5dc63399b7e457"></a>
+std::unique_ptr&lt; pros::Task &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>task</b> {nullptr}</td></tr>
+<tr class="separator:a718c19f1163761036b5dc63399b7e457 inherit pro_attribs_classbfb_1_1_task"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
+Additional Inherited Members</h2></td></tr>
+<tr class="inherit_header pub_static_attribs_classbfb_1_1_task"><td colspan="2" onclick="javascript:toggleInherit('pub_static_attribs_classbfb_1_1_task')"><img src="closed.png" alt="-"/>&#160;Static Public Attributes inherited from <a class="el" href="classbfb_1_1_task.html">bfb::Task</a></td></tr>
+<tr class="memitem:acd3af44e3102c13f3cd1ca4b3a62bfe1 inherit pub_static_attribs_classbfb_1_1_task"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classbfb_1_1_logger.html">Logger</a>&lt; <a class="el" href="classbfb_1_1_task.html">Task</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_task.html#acd3af44e3102c13f3cd1ca4b3a62bfe1">taskLog</a></td></tr>
+<tr class="memdesc:acd3af44e3102c13f3cd1ca4b3a62bfe1 inherit pub_static_attribs_classbfb_1_1_task"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classbfb_1_1_logger.html" title="Implements a logger for logging either to a file or the terminal.">Logger</a> object for <a class="el" href="classbfb_1_1_task.html" title="Allows an easy-to-use way to assign &quot;give&quot; (more like make) a class a task by inheriting from this cl...">Task</a>.  <a href="classbfb_1_1_task.html#acd3af44e3102c13f3cd1ca4b3a62bfe1">More...</a><br /></td></tr>
+<tr class="separator:acd3af44e3102c13f3cd1ca4b3a62bfe1 inherit pub_static_attribs_classbfb_1_1_task"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><h3>template&lt;class Concrete, typename ValidStates, std::uint32_t priority = TASK_PRIORITY_DEFAULT&gt;<br />
-class bfb::StateMachine&lt; Concrete, ValidStates, priority &gt;</h3>
+<div class="textblock"><h3>template&lt;class Concrete, typename ValidStates&gt;<br />
+class bfb::StateMachine&lt; Concrete, ValidStates &gt;</h3>
 
 <p>A template for StateMachines. The state is represented by a variant of structs that represent specific states. The subclasses must provide behavior for each possible specific state the state variant could be with a function for each state: behavior(const State &amp;state) {...}. </p>
 <p>This implementation avoids lengthy switch statements, verbose expansion using polymorphic states,</p>
@@ -153,7 +172,7 @@ class bfb::StateMachine&lt; Concrete, ValidStates, priority &gt;</h3>
 <div class="line">   <span class="keyword">using</span> TestStates = std::variant&lt;ON, OFF&gt;; <span class="comment">// probably want a type alias</span></div>
 <div class="line"> }</div>
 <div class="line">}</div>
-<div class="line"><span class="keyword">class </span>TestMachine final : <span class="keyword">public</span> <a class="code" href="classbfb_1_1_state_machine.html#a4807887f0977aa35a53b810d0b554172">StateMachine</a>&lt;TestMachine, TestStates&gt; {</div>
+<div class="line"><span class="keyword">class </span>TestMachine final : <span class="keyword">public</span> <a class="code" href="classbfb_1_1_state_machine.html#ac4d8eec1634717909d1ad3cd7c8589b7">StateMachine</a>&lt;TestMachine, TestStates&gt; {</div>
 <div class="line"> <span class="keyword">public</span>:</div>
 <div class="line"> <span class="comment">// your state machine can have a unique constructor, or just call the StateMachine constructor</span></div>
 <div class="line"> TestMachine(<span class="keyword">const</span> ValidStates &amp;iState, &lt;other parameters&gt;) {...}</div>
@@ -176,23 +195,33 @@ class bfb::StateMachine&lt; Concrete, ValidStates, priority &gt;</h3>
   </dd>
 </dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a4807887f0977aa35a53b810d0b554172"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4807887f0977aa35a53b810d0b554172">&#9670;&nbsp;</a></span>StateMachine()</h2>
+<a id="ac4d8eec1634717909d1ad3cd7c8589b7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac4d8eec1634717909d1ad3cd7c8589b7">&#9670;&nbsp;</a></span>StateMachine()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class Concrete , typename ValidStates , std::uint32_t priority = TASK_PRIORITY_DEFAULT&gt; </div>
+template&lt;class Concrete , typename ValidStates &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classbfb_1_1_state_machine.html">bfb::StateMachine</a>&lt; Concrete, ValidStates, priority &gt;::<a class="el" href="classbfb_1_1_state_machine.html">StateMachine</a> </td>
+          <td class="memname"><a class="el" href="classbfb_1_1_state_machine.html">bfb::StateMachine</a>&lt; Concrete, ValidStates &gt;::<a class="el" href="classbfb_1_1_state_machine.html">StateMachine</a> </td>
           <td>(</td>
           <td class="paramtype">const ValidStates &amp;&#160;</td>
-          <td class="paramname"><em>iState</em></td><td>)</td>
+          <td class="paramname"><em>iState</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>iPriority</em> = <code>TASK_PRIORITY_DEFAULT</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -213,19 +242,19 @@ template&lt;class Concrete , typename ValidStates , std::uint32_t priority = TAS
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a99f0cc82b1f80e826c2eff6391be20c4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a99f0cc82b1f80e826c2eff6391be20c4">&#9670;&nbsp;</a></span>getState()</h2>
+<a id="a1138b9e1fe5ca82d942168ba2db0ceef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1138b9e1fe5ca82d942168ba2db0ceef">&#9670;&nbsp;</a></span>getState()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class Concrete , typename ValidStates , std::uint32_t priority = TASK_PRIORITY_DEFAULT&gt; </div>
+template&lt;class Concrete , typename ValidStates &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual ValidStates <a class="el" href="classbfb_1_1_state_machine.html">bfb::StateMachine</a>&lt; Concrete, ValidStates, priority &gt;::getState </td>
+          <td class="memname">virtual ValidStates <a class="el" href="classbfb_1_1_state_machine.html">bfb::StateMachine</a>&lt; Concrete, ValidStates &gt;::getState </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -243,19 +272,19 @@ template&lt;class Concrete , typename ValidStates , std::uint32_t priority = TAS
 
 </div>
 </div>
-<a id="a0be87158f53154dfe91d7d4b7a5b0cc8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0be87158f53154dfe91d7d4b7a5b0cc8">&#9670;&nbsp;</a></span>operator!=()</h2>
+<a id="af2371bb4df158ae8d0190de76a73641b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af2371bb4df158ae8d0190de76a73641b">&#9670;&nbsp;</a></span>operator!=()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class Concrete , typename ValidStates , std::uint32_t priority = TASK_PRIORITY_DEFAULT&gt; </div>
+template&lt;class Concrete , typename ValidStates &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual bool <a class="el" href="classbfb_1_1_state_machine.html">bfb::StateMachine</a>&lt; Concrete, ValidStates, priority &gt;::operator!= </td>
+          <td class="memname">virtual bool <a class="el" href="classbfb_1_1_state_machine.html">bfb::StateMachine</a>&lt; Concrete, ValidStates &gt;::operator!= </td>
           <td>(</td>
           <td class="paramtype">const ValidStates &amp;&#160;</td>
           <td class="paramname"><em>iState</em></td><td>)</td>
@@ -280,19 +309,19 @@ template&lt;class Concrete , typename ValidStates , std::uint32_t priority = TAS
 
 </div>
 </div>
-<a id="aee7e1a4dbd66feecba6453bfab90dd71"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aee7e1a4dbd66feecba6453bfab90dd71">&#9670;&nbsp;</a></span>operator==()</h2>
+<a id="afc2609f2377e721ccd2c9564a2e9d657"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afc2609f2377e721ccd2c9564a2e9d657">&#9670;&nbsp;</a></span>operator==()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class Concrete , typename ValidStates , std::uint32_t priority = TASK_PRIORITY_DEFAULT&gt; </div>
+template&lt;class Concrete , typename ValidStates &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual bool <a class="el" href="classbfb_1_1_state_machine.html">bfb::StateMachine</a>&lt; Concrete, ValidStates, priority &gt;::operator== </td>
+          <td class="memname">virtual bool <a class="el" href="classbfb_1_1_state_machine.html">bfb::StateMachine</a>&lt; Concrete, ValidStates &gt;::operator== </td>
           <td>(</td>
           <td class="paramtype">const ValidStates &amp;&#160;</td>
           <td class="paramname"><em>iState</em></td><td>)</td>
@@ -317,19 +346,19 @@ template&lt;class Concrete , typename ValidStates , std::uint32_t priority = TAS
 
 </div>
 </div>
-<a id="aae51ee931609541c9b6139776d74a432"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aae51ee931609541c9b6139776d74a432">&#9670;&nbsp;</a></span>setState()</h2>
+<a id="ace1388a3002567f5456e6c7629112ccc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ace1388a3002567f5456e6c7629112ccc">&#9670;&nbsp;</a></span>setState()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class Concrete , typename ValidStates , std::uint32_t priority = TASK_PRIORITY_DEFAULT&gt; </div>
+template&lt;class Concrete , typename ValidStates &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void <a class="el" href="classbfb_1_1_state_machine.html">bfb::StateMachine</a>&lt; Concrete, ValidStates, priority &gt;::setState </td>
+          <td class="memname">virtual void <a class="el" href="classbfb_1_1_state_machine.html">bfb::StateMachine</a>&lt; Concrete, ValidStates &gt;::setState </td>
           <td>(</td>
           <td class="paramtype">const ValidStates &amp;&#160;</td>
           <td class="paramname"><em>iState</em></td><td>)</td>
@@ -353,19 +382,19 @@ template&lt;class Concrete , typename ValidStates , std::uint32_t priority = TAS
 
 </div>
 </div>
-<a id="ad675f4af407587bb064991fbe7b224cf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad675f4af407587bb064991fbe7b224cf">&#9670;&nbsp;</a></span>step()</h2>
+<a id="a3e23f40c66e2522411438e2157f7e1cb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3e23f40c66e2522411438e2157f7e1cb">&#9670;&nbsp;</a></span>step()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class Concrete , typename ValidStates , std::uint32_t priority = TASK_PRIORITY_DEFAULT&gt; </div>
+template&lt;class Concrete , typename ValidStates &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void <a class="el" href="classbfb_1_1_state_machine.html">bfb::StateMachine</a>&lt; Concrete, ValidStates, priority &gt;::step </td>
+          <td class="memname">virtual void <a class="el" href="classbfb_1_1_state_machine.html">bfb::StateMachine</a>&lt; Concrete, ValidStates &gt;::step </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -378,33 +407,54 @@ template&lt;class Concrete , typename ValidStates , std::uint32_t priority = TAS
 </table>
 </div><div class="memdoc">
 
-<p>Overloads <a class="el" href="classbfb_1_1_task.html#acbd43537642db640fb86d0ff028ea412" title="Goes through one step of the Task. Should be overwritten. Should take and return nothing.">bfb::Task::step</a>, uses a visitor to run the overloaded behavior for the current state. </p>
+<p>Overloads <a class="el" href="classbfb_1_1_task.html#a5992f5276212c16bc7a2c0bedb36f781" title="Goes through one step of the Task. Should be overwritten. Should take and return nothing.">bfb::Task::step</a>, uses a visitor to run the overloaded behavior for the current state. </p>
 
-<p>Implements <a class="el" href="classbfb_1_1_task.html#acbd43537642db640fb86d0ff028ea412">bfb::Task&lt; TASK_PRIORITY_DEFAULT &gt;</a>.</p>
+<p>Implements <a class="el" href="classbfb_1_1_task.html#a5992f5276212c16bc7a2c0bedb36f781">bfb::Task</a>.</p>
 
 </div>
 </div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a id="a29ac8ef957211ece94def6fe1db2a5eb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a29ac8ef957211ece94def6fe1db2a5eb">&#9670;&nbsp;</a></span>stateMachineLog</h2>
+<a id="a42087bc3318c4ac8b4c3193c640c4add"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a42087bc3318c4ac8b4c3193c640c4add">&#9670;&nbsp;</a></span>update()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class Concrete , typename ValidStates , std::uint32_t priority = TASK_PRIORITY_DEFAULT&gt; </div>
+template&lt;class Concrete , typename ValidStates &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classbfb_1_1_logger.html">Logger</a>&lt;<a class="el" href="classbfb_1_1_state_machine.html">StateMachine</a>&lt;Concrete, ValidStates, priority&gt; &gt; <a class="el" href="classbfb_1_1_state_machine.html">bfb::StateMachine</a>&lt; Concrete, ValidStates, priority &gt;::stateMachineLog</td>
+          <td class="memname">virtual void <a class="el" href="classbfb_1_1_state_machine.html">bfb::StateMachine</a>&lt; Concrete, ValidStates &gt;::update </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
+</div><div class="memdoc">
+
+<p>Does various updates for the <a class="el" href="classbfb_1_1_state_machine.html" title="A template for StateMachines. The state is represented by a variant of structs that represent specifi...">StateMachine</a> each step. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="acca4b39afb8be1de2df4bc2d5aac477c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acca4b39afb8be1de2df4bc2d5aac477c">&#9670;&nbsp;</a></span>stateMachineLog</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Concrete , typename ValidStates &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classbfb_1_1_logger.html">Logger</a>&lt;<a class="el" href="classbfb_1_1_state_machine.html">StateMachine</a>&lt;Concrete, ValidStates&gt; &gt; <a class="el" href="classbfb_1_1_state_machine.html">bfb::StateMachine</a>&lt; Concrete, ValidStates &gt;::stateMachineLog {}</td>
+        </tr>
+      </table>
 </div><div class="memdoc">
 
 <p><a class="el" href="classbfb_1_1_logger.html" title="Implements a logger for logging either to a file or the terminal.">Logger</a> object for <a class="el" href="classbfb_1_1_state_machine.html" title="A template for StateMachines. The state is represented by a variant of structs that represent specifi...">StateMachine</a>. </p>
@@ -415,7 +465,7 @@ template&lt;class Concrete , typename ValidStates , std::uint32_t priority = TAS
 <li>include/bfb/flow/<a class="el" href="state_machine_8hpp_source.html">stateMachine.hpp</a></li>
 </ul>
 </div><!-- contents -->
-<div class="ttc" id="aclassbfb_1_1_state_machine_html_a4807887f0977aa35a53b810d0b554172"><div class="ttname"><a href="classbfb_1_1_state_machine.html#a4807887f0977aa35a53b810d0b554172">bfb::StateMachine::StateMachine</a></div><div class="ttdeci">StateMachine(const ValidStates &amp;iState)</div><div class="ttdoc">Construct a new State Machine object.</div><div class="ttdef"><b>Definition:</b> stateMachine.hpp:60</div></div>
+<div class="ttc" id="aclassbfb_1_1_state_machine_html_ac4d8eec1634717909d1ad3cd7c8589b7"><div class="ttname"><a href="classbfb_1_1_state_machine.html#ac4d8eec1634717909d1ad3cd7c8589b7">bfb::StateMachine::StateMachine</a></div><div class="ttdeci">StateMachine(const ValidStates &amp;iState, int iPriority=TASK_PRIORITY_DEFAULT)</div><div class="ttdoc">Construct a new State Machine object.</div><div class="ttdef"><b>Definition:</b> stateMachine.hpp:59</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

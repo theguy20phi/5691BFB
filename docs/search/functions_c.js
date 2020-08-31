@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['wait_154',['wait',['../wait_8hpp.html#a6c6be2a0f991c10d252a043104dbe65f',1,'bfb']]],
-  ['waituntil_155',['waitUntil',['../wait_8hpp.html#a0834b3af8f725d309c136f5727510745',1,'bfb::waitUntil(const std::function&lt; bool()&gt; &amp;condition, const int maxDelay)'],['../wait_8hpp.html#a471774454cb5ce657200f441686191c2',1,'bfb::waitUntil(const std::function&lt; bool()&gt; &amp;condition)']]]
+  ['task_170',['Task',['../classbfb_1_1_task.html#a573fa3e6c271cf734bd1d5bf654b3a08',1,'bfb::Task']]],
+  ['tbh_171',['Tbh',['../classbfb_1_1_tbh.html#a7f4003651e58a8847cdaf38678e6c735',1,'bfb::Tbh']]]
 ];

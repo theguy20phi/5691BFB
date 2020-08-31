@@ -6,9 +6,9 @@ namespace States {
 namespace Chassis {
 struct Standby {};
 struct Control {
-  double forward;
-  double strafe;
-  double turn;
+  int forward;
+  int strafe;
+  int turn;
 };
 struct MoveTo {
   okapi::QLength x;
@@ -25,6 +25,7 @@ class ChassisMachine : public bfb::StateMachine<ChassisMachine, States::Chassis:
   void behavior(const States::Chassis::Standby &standby);
   void behavior(const States::Chassis::Control &control);
   void behavior(const States::Chassis::MoveTo &moveTo);
+  void toggleHold();
 
   private:
   void controlDrive(double forward, double strafe, double turn);

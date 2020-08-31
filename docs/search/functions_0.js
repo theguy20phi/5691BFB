@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['bangbang_113',['BangBang',['../classbfb_1_1_bang_bang.html#a0859438f354d37924e872eb209f09e06',1,'bfb::BangBang']]]
+  ['bangbang_123',['BangBang',['../classbfb_1_1_bang_bang.html#a06bd53842a3b6fbbaa00383b69ba1266',1,'bfb::BangBang']]]
 ];

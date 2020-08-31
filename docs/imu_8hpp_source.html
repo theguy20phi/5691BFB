@@ -79,125 +79,59 @@ $(function() {
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="logger_8hpp.html">bfb/debug/logger.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;okapi/api/filter/medianFilter.hpp&quot;</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;pros/imu.h&quot;</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;array&gt;</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &lt;functional&gt;</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &lt;numeric&gt;</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">namespace </span>bfb {</div>
-<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="classbfb_1_1_i_m_u.html">   28</a></span>&#160;<span class="keyword">template</span> &lt;<span class="keywordtype">int</span> size&gt; <span class="keyword">class </span><a class="code" href="classbfb_1_1_i_m_u.html">IMU</a> final {</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;  <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="classbfb_1_1_i_m_u.html#a4eb74c0b53a235a681e14d977cfea8ed">   35</a></span>&#160;  <a class="code" href="classbfb_1_1_i_m_u.html#a4eb74c0b53a235a681e14d977cfea8ed">IMU</a>(<span class="keyword">const</span> std::array&lt;uint8_t, size&gt; &amp;iPorts) : ports(iPorts) {</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <a class="code" href="classbfb_1_1_i_m_u.html#ab2e3fde0aa407a7455b5c18d6e5ec135">imuLog</a>.log(<span class="stringliteral">&quot;Imu created&quot;</span>, {});</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  }</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
-<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="classbfb_1_1_i_m_u.html#a7113ffdfa87cd6e2979bf78459f00d5a">   43</a></span>&#160;  std::array&lt;int32_t, size&gt; <a class="code" href="classbfb_1_1_i_m_u.html#a7113ffdfa87cd6e2979bf78459f00d5a">calibrate</a>()<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <a class="code" href="classbfb_1_1_i_m_u.html#ab2e3fde0aa407a7455b5c18d6e5ec135">imuLog</a>.log(<span class="stringliteral">&quot;Imu calibrating...&quot;</span>, {});</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    std::array&lt;int32_t, size&gt; temp;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    std::transform(ports.begin(), ports.end(), std::back_inserter(temp), [](<span class="keyword">const</span> uint8_t &amp;p) {</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;      return pros::c::imu_reset(p);</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    });</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordflow">if</span> (std::any_of(temp.begin(), temp.end(), [](<span class="keyword">const</span> int32_t &amp;p) { return p != 1; }))</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;      <span class="keyword">static</span> <a class="code" href="classbfb_1_1_issue.html">Issue</a> imuInitIssue{<span class="stringliteral">&quot;IMUInit&quot;</span>, Severity::High};</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordflow">return</span> temp;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  };</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
-<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="classbfb_1_1_i_m_u.html#a3dbddbb1d5c0477255dc0e4e6c9236de">   59</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classbfb_1_1_i_m_u.html#a3dbddbb1d5c0477255dc0e4e6c9236de">resetHeading</a>(<span class="keywordtype">double</span> value = 0.0) {</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <a class="code" href="classbfb_1_1_i_m_u.html#ab2e3fde0aa407a7455b5c18d6e5ec135">imuLog</a>.log(<span class="stringliteral">&quot;Imu reset to: &quot;</span> + std::to_string(value), {});</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    offset = value - <a class="code" href="classbfb_1_1_i_m_u.html#afc69f33d1b09b6d1353e522cb3e9504e">getHeading</a>();</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;  }</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
-<div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="classbfb_1_1_i_m_u.html#afc69f33d1b09b6d1353e522cb3e9504e">   69</a></span>&#160;  <span class="keywordtype">double</span> <a class="code" href="classbfb_1_1_i_m_u.html#afc69f33d1b09b6d1353e522cb3e9504e">getHeading</a>() {</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordflow">return</span> offset + headingFilter.filter(<a class="code" href="classbfb_1_1_i_m_u.html#a83e2298014f9c0c13b0a470833d3c8ee">getYaw</a>()) / ports.size();</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;  }</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
-<div class="line"><a name="l00078"></a><span class="lineno"><a class="line" href="classbfb_1_1_i_m_u.html#ab1b93739b0142c85a17f1903dc3d5e5f">   78</a></span>&#160;  <span class="keywordtype">double</span> <a class="code" href="classbfb_1_1_i_m_u.html#ab1b93739b0142c85a17f1903dc3d5e5f">getPitch</a>()<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">double</span> sum =</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;      std::accumulate(ports.begin(), ports.end(), 0.0, [](<span class="keyword">const</span> uint8_t &amp;a, <span class="keyword">const</span> uint8_t &amp;b) {</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        return pros::c::imu_get_euler(a).pitch + pros::c::imu_get_euler(b).pitch;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;      });</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keywordflow">return</span> sum / ports.size();</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;  }</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
-<div class="line"><a name="l00091"></a><span class="lineno"><a class="line" href="classbfb_1_1_i_m_u.html#afb69825c1b02988eb1d88a437917176c">   91</a></span>&#160;  <span class="keywordtype">double</span> <a class="code" href="classbfb_1_1_i_m_u.html#afb69825c1b02988eb1d88a437917176c">getRoll</a>()<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">double</span> sum =</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;      std::accumulate(ports.begin(), ports.end(), 0.0, [](<span class="keyword">const</span> uint8_t &amp;a, <span class="keyword">const</span> uint8_t &amp;b) {</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        return pros::c::imu_get_euler(a).roll + pros::c::imu_get_euler(b).roll;</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;      });</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="keywordflow">return</span> sum / ports.size();</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;  }</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
-<div class="line"><a name="l00104"></a><span class="lineno"><a class="line" href="classbfb_1_1_i_m_u.html#a83e2298014f9c0c13b0a470833d3c8ee">  104</a></span>&#160;  <span class="keywordtype">double</span> <a class="code" href="classbfb_1_1_i_m_u.html#a83e2298014f9c0c13b0a470833d3c8ee">getYaw</a>()<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">double</span> sum =</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;      std::accumulate(ports.begin(), ports.end(), 0.0, [](<span class="keyword">const</span> uint8_t &amp;a, <span class="keyword">const</span> uint8_t &amp;b) {</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        return pros::c::imu_get_euler(a).yaw + pros::c::imu_get_euler(b).yaw;</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;      });</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    <span class="keywordflow">return</span> sum / ports.size();</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;  }</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160; </div>
-<div class="line"><a name="l00117"></a><span class="lineno"><a class="line" href="classbfb_1_1_i_m_u.html#a8854c3177f89a4e7f9a12a86622271a1">  117</a></span>&#160;  pros::c::imu_gyro_s_t <a class="code" href="classbfb_1_1_i_m_u.html#a8854c3177f89a4e7f9a12a86622271a1">getAngularVelocity</a>()<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    <span class="keyword">const</span> pros::c::imu_gyro_s_t sum =</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;      std::accumulate(ports.begin(),</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;                      ports.end(),</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;                      pros::c::imu_gyro_s_t{0.0, 0.0, 0.0},</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;                      [](<span class="keyword">const</span> pros::c::imu_gyro_s_t &amp;a, <span class="keyword">const</span> uint8_t &amp;b) {</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;                        pros::c::imu_gyro_s_t bVal{pros::c::imu_get_gyro_rate(b)};</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;                        <span class="keywordflow">return</span> pros::c::imu_gyro_s_t{a.x + bVal.x, a.y + bVal.y, a.z + bVal.z};</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;                      });</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <span class="keywordflow">return</span> pros::c::imu_gyro_s_t{sum.x / ports.size(), sum.y / ports.size(), sum.z / ports.size()};</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;  }</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160; </div>
-<div class="line"><a name="l00134"></a><span class="lineno"><a class="line" href="classbfb_1_1_i_m_u.html#acedebb86cee7f6f944acdef631193901">  134</a></span>&#160;  pros::c::imu_accel_s_t <a class="code" href="classbfb_1_1_i_m_u.html#acedebb86cee7f6f944acdef631193901">getAcceleration</a>()<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    <span class="keyword">const</span> pros::c::imu_accel_s_t sum =</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;      std::accumulate(ports.begin(),</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;                      ports.end(),</div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;                      pros::c::imu_accel_s_t{0.0, 0.0, 0.0},</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;                      [](<span class="keyword">const</span> pros::c::imu_accel_s_t &amp;a, <span class="keyword">const</span> uint8_t &amp;b) {</div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;                        pros::c::imu_accel_s_t bVal{pros::c::imu_get_gyro_rate(b)};</div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;                        <span class="keywordflow">return</span> pros::c::imu_accel_s_t{a.x + bVal.x, a.y + bVal.y, a.z + bVal.z};</div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;                      });</div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;    <span class="keywordflow">return</span> pros::c::imu_accel_s_t{sum.x / ports.size(), sum.y / ports.size(), sum.z / ports.size()};</div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;  }</div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160; </div>
-<div class="line"><a name="l00151"></a><span class="lineno"><a class="line" href="classbfb_1_1_i_m_u.html#ac0fcfc587416bcaffac8fd145177f398">  151</a></span>&#160;  std::array&lt;pros::c::imu_status_e_t, size&gt; <a class="code" href="classbfb_1_1_i_m_u.html#ac0fcfc587416bcaffac8fd145177f398">getStatus</a>()<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    std::array&lt;pros::c::imu_status_e_t, size&gt; temp;</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    std::transform(ports.begin(), ports.end(), std::back_inserter(temp), [](<span class="keyword">const</span> uint8_t &amp;p) {</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;      return pros::c::imu_get_status(p);</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    });</div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    <span class="keywordflow">return</span> temp;</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;  };</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160; </div>
-<div class="line"><a name="l00164"></a><span class="lineno"><a class="line" href="classbfb_1_1_i_m_u.html#a8d080a59a492e33c61552bacfb95c947">  164</a></span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="classbfb_1_1_i_m_u.html#a8d080a59a492e33c61552bacfb95c947">isCalibrating</a>()<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    <span class="keywordflow">return</span> std::any_of(ports.begin(), ports.end(), [](<span class="keyword">const</span> uint8_t &amp;p) {</div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;      return pros::c::imu_get_status(p) == pros::c::E_IMU_STATUS_CALIBRATING;</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    });</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;  }</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160; </div>
-<div class="line"><a name="l00174"></a><span class="lineno"><a class="line" href="classbfb_1_1_i_m_u.html#ab2e3fde0aa407a7455b5c18d6e5ec135">  174</a></span>&#160;  <span class="keyword">static</span> <a class="code" href="classbfb_1_1_logger.html">Logger&lt;IMU&lt;size&gt;</a>&gt; <a class="code" href="classbfb_1_1_i_m_u.html#ab2e3fde0aa407a7455b5c18d6e5ec135">imuLog</a>;</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160; </div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;  <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;  <span class="keywordtype">double</span> offset{0.0};</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;  std::array&lt;uint8_t, size&gt; ports;</div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;  okapi::MedianFilter&lt;5&gt; headingFilter;</div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;};</div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;} <span class="comment">// namespace bfb</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;functional&gt;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &lt;numeric&gt;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">namespace </span>bfb {</div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="classbfb_1_1_i_m_u.html">   26</a></span>&#160;<span class="keyword">class </span><a class="code" href="classbfb_1_1_i_m_u.html">IMU</a> final {</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="classbfb_1_1_i_m_u.html#ac5fe05b65380165170397c38e22ade51">   33</a></span>&#160;  <a class="code" href="classbfb_1_1_i_m_u.html#ac5fe05b65380165170397c38e22ade51">IMU</a>(<span class="keyword">const</span> std::vector&lt;uint8_t&gt; &amp;iPorts);</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="classbfb_1_1_i_m_u.html#a6593da7645ffb56aeca8e717428abc91">   39</a></span>&#160;  std::vector&lt;int32_t&gt; <a class="code" href="classbfb_1_1_i_m_u.html#a6593da7645ffb56aeca8e717428abc91">calibrate</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="classbfb_1_1_i_m_u.html#a0b27d0c2324cf331f36b9c151198db1e">   46</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classbfb_1_1_i_m_u.html#a0b27d0c2324cf331f36b9c151198db1e">resetHeading</a>(<span class="keywordtype">double</span> value = 0.0);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="classbfb_1_1_i_m_u.html#a07645ecc5379bb69bd98d1e08c28e169">   53</a></span>&#160;  <span class="keywordtype">double</span> <a class="code" href="classbfb_1_1_i_m_u.html#a07645ecc5379bb69bd98d1e08c28e169">getHeading</a>();</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="classbfb_1_1_i_m_u.html#a0dde94855eabf77e3eef64a076cf5d3e">   60</a></span>&#160;  <span class="keywordtype">double</span> <a class="code" href="classbfb_1_1_i_m_u.html#a0dde94855eabf77e3eef64a076cf5d3e">getPitch</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
+<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="classbfb_1_1_i_m_u.html#a311b6cac718d677e8bb82038de0b32c3">   67</a></span>&#160;  <span class="keywordtype">double</span> <a class="code" href="classbfb_1_1_i_m_u.html#a311b6cac718d677e8bb82038de0b32c3">getRoll</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
+<div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="classbfb_1_1_i_m_u.html#ade8d2f7d32e00dfbdfb1d7c8a0236b7a">   74</a></span>&#160;  <span class="keywordtype">double</span> <a class="code" href="classbfb_1_1_i_m_u.html#ade8d2f7d32e00dfbdfb1d7c8a0236b7a">getYaw</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
+<div class="line"><a name="l00081"></a><span class="lineno"><a class="line" href="classbfb_1_1_i_m_u.html#af5ff15d2effa054b946bce17b8aa9380">   81</a></span>&#160;  pros::c::imu_gyro_s_t <a class="code" href="classbfb_1_1_i_m_u.html#af5ff15d2effa054b946bce17b8aa9380">getAngularVelocity</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
+<div class="line"><a name="l00088"></a><span class="lineno"><a class="line" href="classbfb_1_1_i_m_u.html#ab893c28d5844d31002735b5019f513c9">   88</a></span>&#160;  pros::c::imu_accel_s_t <a class="code" href="classbfb_1_1_i_m_u.html#ab893c28d5844d31002735b5019f513c9">getAcceleration</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
+<div class="line"><a name="l00095"></a><span class="lineno"><a class="line" href="classbfb_1_1_i_m_u.html#a64bf68b38f94bfef693fd138b1a8ca9b">   95</a></span>&#160;  std::vector&lt;pros::c::imu_status_e_t&gt; <a class="code" href="classbfb_1_1_i_m_u.html#a64bf68b38f94bfef693fd138b1a8ca9b">getStatus</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
+<div class="line"><a name="l00102"></a><span class="lineno"><a class="line" href="classbfb_1_1_i_m_u.html#a55c6a378921989e3608c680c211a556e">  102</a></span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="classbfb_1_1_i_m_u.html#a55c6a378921989e3608c680c211a556e">isCalibrating</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
+<div class="line"><a name="l00108"></a><span class="lineno"><a class="line" href="classbfb_1_1_i_m_u.html#aa3115a7f85477fc4db8c77e4e1bade13">  108</a></span>&#160;  <a class="code" href="classbfb_1_1_logger.html">Logger&lt;IMU&gt;</a> <a class="code" href="classbfb_1_1_i_m_u.html#aa3115a7f85477fc4db8c77e4e1bade13">imuLog</a>{};</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; </div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;  <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;  <span class="keywordtype">double</span> offset{0.0};</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;  std::vector&lt;uint8_t&gt; ports;</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;  okapi::MedianFilter&lt;5&gt; headingFilter;</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;};</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;} <span class="comment">// namespace bfb</span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aclassbfb_1_1_i_m_u_html_a8d080a59a492e33c61552bacfb95c947"><div class="ttname"><a href="classbfb_1_1_i_m_u.html#a8d080a59a492e33c61552bacfb95c947">bfb::IMU::isCalibrating</a></div><div class="ttdeci">bool isCalibrating() const</div><div class="ttdoc">Determines if the IMUs are still calibrating.</div><div class="ttdef"><b>Definition:</b> imu.hpp:164</div></div>
-<div class="ttc" id="aclassbfb_1_1_i_m_u_html_ab1b93739b0142c85a17f1903dc3d5e5f"><div class="ttname"><a href="classbfb_1_1_i_m_u.html#ab1b93739b0142c85a17f1903dc3d5e5f">bfb::IMU::getPitch</a></div><div class="ttdeci">double getPitch() const</div><div class="ttdoc">Get the pitch.</div><div class="ttdef"><b>Definition:</b> imu.hpp:78</div></div>
-<div class="ttc" id="aclassbfb_1_1_i_m_u_html_a8854c3177f89a4e7f9a12a86622271a1"><div class="ttname"><a href="classbfb_1_1_i_m_u.html#a8854c3177f89a4e7f9a12a86622271a1">bfb::IMU::getAngularVelocity</a></div><div class="ttdeci">pros::c::imu_gyro_s_t getAngularVelocity() const</div><div class="ttdoc">Get the angular velocity.</div><div class="ttdef"><b>Definition:</b> imu.hpp:117</div></div>
-<div class="ttc" id="aclassbfb_1_1_i_m_u_html_afc69f33d1b09b6d1353e522cb3e9504e"><div class="ttname"><a href="classbfb_1_1_i_m_u.html#afc69f33d1b09b6d1353e522cb3e9504e">bfb::IMU::getHeading</a></div><div class="ttdeci">double getHeading()</div><div class="ttdoc">Get the filter heading (yaw) of the IMU.</div><div class="ttdef"><b>Definition:</b> imu.hpp:69</div></div>
-<div class="ttc" id="aclassbfb_1_1_i_m_u_html_a7113ffdfa87cd6e2979bf78459f00d5a"><div class="ttname"><a href="classbfb_1_1_i_m_u.html#a7113ffdfa87cd6e2979bf78459f00d5a">bfb::IMU::calibrate</a></div><div class="ttdeci">std::array&lt; int32_t, size &gt; calibrate() const</div><div class="ttdoc">Calibrate the IMUs. Gives issue if any IMU initializes improperly.</div><div class="ttdef"><b>Definition:</b> imu.hpp:43</div></div>
-<div class="ttc" id="aclassbfb_1_1_i_m_u_html_a83e2298014f9c0c13b0a470833d3c8ee"><div class="ttname"><a href="classbfb_1_1_i_m_u.html#a83e2298014f9c0c13b0a470833d3c8ee">bfb::IMU::getYaw</a></div><div class="ttdeci">double getYaw() const</div><div class="ttdoc">Get the yaw.</div><div class="ttdef"><b>Definition:</b> imu.hpp:104</div></div>
+<div class="ttc" id="aclassbfb_1_1_i_m_u_html_a0b27d0c2324cf331f36b9c151198db1e"><div class="ttname"><a href="classbfb_1_1_i_m_u.html#a0b27d0c2324cf331f36b9c151198db1e">bfb::IMU::resetHeading</a></div><div class="ttdeci">void resetHeading(double value=0.0)</div><div class="ttdoc">Reset IMU heading to a certain value without re-calibrating.</div></div>
+<div class="ttc" id="aclassbfb_1_1_i_m_u_html_a07645ecc5379bb69bd98d1e08c28e169"><div class="ttname"><a href="classbfb_1_1_i_m_u.html#a07645ecc5379bb69bd98d1e08c28e169">bfb::IMU::getHeading</a></div><div class="ttdeci">double getHeading()</div><div class="ttdoc">Get the filter heading (yaw) of the IMU.</div></div>
+<div class="ttc" id="aclassbfb_1_1_i_m_u_html_a0dde94855eabf77e3eef64a076cf5d3e"><div class="ttname"><a href="classbfb_1_1_i_m_u.html#a0dde94855eabf77e3eef64a076cf5d3e">bfb::IMU::getPitch</a></div><div class="ttdeci">double getPitch() const</div><div class="ttdoc">Get the pitch.</div></div>
+<div class="ttc" id="aclassbfb_1_1_i_m_u_html_af5ff15d2effa054b946bce17b8aa9380"><div class="ttname"><a href="classbfb_1_1_i_m_u.html#af5ff15d2effa054b946bce17b8aa9380">bfb::IMU::getAngularVelocity</a></div><div class="ttdeci">pros::c::imu_gyro_s_t getAngularVelocity() const</div><div class="ttdoc">Get the angular velocity.</div></div>
+<div class="ttc" id="aclassbfb_1_1_i_m_u_html_a55c6a378921989e3608c680c211a556e"><div class="ttname"><a href="classbfb_1_1_i_m_u.html#a55c6a378921989e3608c680c211a556e">bfb::IMU::isCalibrating</a></div><div class="ttdeci">bool isCalibrating() const</div><div class="ttdoc">Determines if the IMUs are still calibrating.</div></div>
+<div class="ttc" id="aclassbfb_1_1_i_m_u_html_ac5fe05b65380165170397c38e22ade51"><div class="ttname"><a href="classbfb_1_1_i_m_u.html#ac5fe05b65380165170397c38e22ade51">bfb::IMU::IMU</a></div><div class="ttdeci">IMU(const std::vector&lt; uint8_t &gt; &amp;iPorts)</div><div class="ttdoc">Construct a new IMU object.</div></div>
 <div class="ttc" id="aissue_8hpp_html"><div class="ttname"><a href="issue_8hpp.html">issue.hpp</a></div></div>
-<div class="ttc" id="aclassbfb_1_1_i_m_u_html"><div class="ttname"><a href="classbfb_1_1_i_m_u.html">bfb::IMU</a></div><div class="ttdoc">Wrapper class for out-the-box pros Imu class to simplify the interface to essentially a yaw gyroscope...</div><div class="ttdef"><b>Definition:</b> imu.hpp:28</div></div>
-<div class="ttc" id="aclassbfb_1_1_i_m_u_html_acedebb86cee7f6f944acdef631193901"><div class="ttname"><a href="classbfb_1_1_i_m_u.html#acedebb86cee7f6f944acdef631193901">bfb::IMU::getAcceleration</a></div><div class="ttdeci">pros::c::imu_accel_s_t getAcceleration() const</div><div class="ttdoc">Get the acceleration.</div><div class="ttdef"><b>Definition:</b> imu.hpp:134</div></div>
-<div class="ttc" id="aclassbfb_1_1_issue_html"><div class="ttname"><a href="classbfb_1_1_issue.html">bfb::Issue</a></div><div class="ttdoc">Issue provides a basis for managing and logging problems that may occur during driving....</div><div class="ttdef"><b>Definition:</b> issue.hpp:42</div></div>
-<div class="ttc" id="aclassbfb_1_1_i_m_u_html_a4eb74c0b53a235a681e14d977cfea8ed"><div class="ttname"><a href="classbfb_1_1_i_m_u.html#a4eb74c0b53a235a681e14d977cfea8ed">bfb::IMU::IMU</a></div><div class="ttdeci">IMU(const std::array&lt; uint8_t, size &gt; &amp;iPorts)</div><div class="ttdoc">Construct a new IMU object.</div><div class="ttdef"><b>Definition:</b> imu.hpp:35</div></div>
+<div class="ttc" id="aclassbfb_1_1_i_m_u_html"><div class="ttname"><a href="classbfb_1_1_i_m_u.html">bfb::IMU</a></div><div class="ttdoc">Wrapper class for out-the-box pros Imu class to simplify the interface to essentially a yaw gyroscope...</div><div class="ttdef"><b>Definition:</b> imu.hpp:26</div></div>
+<div class="ttc" id="aclassbfb_1_1_i_m_u_html_aa3115a7f85477fc4db8c77e4e1bade13"><div class="ttname"><a href="classbfb_1_1_i_m_u.html#aa3115a7f85477fc4db8c77e4e1bade13">bfb::IMU::imuLog</a></div><div class="ttdeci">Logger&lt; IMU &gt; imuLog</div><div class="ttdoc">Logger object for IMU.</div><div class="ttdef"><b>Definition:</b> imu.hpp:108</div></div>
+<div class="ttc" id="aclassbfb_1_1_i_m_u_html_ade8d2f7d32e00dfbdfb1d7c8a0236b7a"><div class="ttname"><a href="classbfb_1_1_i_m_u.html#ade8d2f7d32e00dfbdfb1d7c8a0236b7a">bfb::IMU::getYaw</a></div><div class="ttdeci">double getYaw() const</div><div class="ttdoc">Get the yaw.</div></div>
+<div class="ttc" id="aclassbfb_1_1_i_m_u_html_a6593da7645ffb56aeca8e717428abc91"><div class="ttname"><a href="classbfb_1_1_i_m_u.html#a6593da7645ffb56aeca8e717428abc91">bfb::IMU::calibrate</a></div><div class="ttdeci">std::vector&lt; int32_t &gt; calibrate() const</div><div class="ttdoc">Calibrate the IMUs. Gives issue if any IMU initializes improperly.</div></div>
 <div class="ttc" id="aclassbfb_1_1_logger_html"><div class="ttname"><a href="classbfb_1_1_logger.html">bfb::Logger</a></div><div class="ttdoc">Implements a logger for logging either to a file or the terminal.</div><div class="ttdef"><b>Definition:</b> logger.hpp:22</div></div>
-<div class="ttc" id="aclassbfb_1_1_i_m_u_html_ac0fcfc587416bcaffac8fd145177f398"><div class="ttname"><a href="classbfb_1_1_i_m_u.html#ac0fcfc587416bcaffac8fd145177f398">bfb::IMU::getStatus</a></div><div class="ttdeci">std::array&lt; pros::c::imu_status_e_t, size &gt; getStatus() const</div><div class="ttdoc">Get the status.</div><div class="ttdef"><b>Definition:</b> imu.hpp:151</div></div>
 <div class="ttc" id="alogger_8hpp_html"><div class="ttname"><a href="logger_8hpp.html">logger.hpp</a></div></div>
-<div class="ttc" id="aclassbfb_1_1_i_m_u_html_a3dbddbb1d5c0477255dc0e4e6c9236de"><div class="ttname"><a href="classbfb_1_1_i_m_u.html#a3dbddbb1d5c0477255dc0e4e6c9236de">bfb::IMU::resetHeading</a></div><div class="ttdeci">void resetHeading(double value=0.0)</div><div class="ttdoc">Reset IMU heading to a certain value without re-calibrating.</div><div class="ttdef"><b>Definition:</b> imu.hpp:59</div></div>
-<div class="ttc" id="aclassbfb_1_1_i_m_u_html_afb69825c1b02988eb1d88a437917176c"><div class="ttname"><a href="classbfb_1_1_i_m_u.html#afb69825c1b02988eb1d88a437917176c">bfb::IMU::getRoll</a></div><div class="ttdeci">double getRoll() const</div><div class="ttdoc">Get the roll.</div><div class="ttdef"><b>Definition:</b> imu.hpp:91</div></div>
-<div class="ttc" id="aclassbfb_1_1_i_m_u_html_ab2e3fde0aa407a7455b5c18d6e5ec135"><div class="ttname"><a href="classbfb_1_1_i_m_u.html#ab2e3fde0aa407a7455b5c18d6e5ec135">bfb::IMU::imuLog</a></div><div class="ttdeci">static Logger&lt; IMU&lt; size &gt; &gt; imuLog</div><div class="ttdoc">Logger object for IMU.</div><div class="ttdef"><b>Definition:</b> imu.hpp:174</div></div>
+<div class="ttc" id="aclassbfb_1_1_i_m_u_html_a311b6cac718d677e8bb82038de0b32c3"><div class="ttname"><a href="classbfb_1_1_i_m_u.html#a311b6cac718d677e8bb82038de0b32c3">bfb::IMU::getRoll</a></div><div class="ttdeci">double getRoll() const</div><div class="ttdoc">Get the roll.</div></div>
+<div class="ttc" id="aclassbfb_1_1_i_m_u_html_ab893c28d5844d31002735b5019f513c9"><div class="ttname"><a href="classbfb_1_1_i_m_u.html#ab893c28d5844d31002735b5019f513c9">bfb::IMU::getAcceleration</a></div><div class="ttdeci">pros::c::imu_accel_s_t getAcceleration() const</div><div class="ttdoc">Get the acceleration.</div></div>
+<div class="ttc" id="aclassbfb_1_1_i_m_u_html_a64bf68b38f94bfef693fd138b1a8ca9b"><div class="ttname"><a href="classbfb_1_1_i_m_u.html#a64bf68b38f94bfef693fd138b1a8ca9b">bfb::IMU::getStatus</a></div><div class="ttdeci">std::vector&lt; pros::c::imu_status_e_t &gt; getStatus() const</div><div class="ttdoc">Get the status.</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

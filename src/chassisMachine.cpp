@@ -23,6 +23,20 @@ void ChassisMachine::behavior(const States::Chassis::MoveTo &moveTo) {
     setState(States::Chassis::Standby{});
 }
 
+void ChassisMachine::toggleHold() {
+  if (lFWheel.get_brake_mode() == pros::E_MOTOR_BRAKE_COAST) {
+    lFWheel.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
+    lBWheel.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
+    rFWheel.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
+    rBWheel.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
+  } else {
+    lFWheel.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
+    lBWheel.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
+    rFWheel.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
+    rBWheel.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
+  }
+}
+
 double ChassisMachine::getDistanceTo(const okapi::QAngle &h,
                                      const States::Chassis::MoveTo &moveTo) {
   const double m{sin(h.convert(okapi::radian) / cos(h.convert(okapi::radian)))};
