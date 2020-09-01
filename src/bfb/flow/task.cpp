@@ -4,6 +4,9 @@ namespace bfb {
 Task::Task(std::uint32_t iPriority) : priority(iPriority) {
 }
 
+void Task::step() {
+}
+
 void Task::start() {
   if (!task) {
     taskLog.log("Task started.", {});
@@ -14,34 +17,10 @@ void Task::start() {
           wait(Wait::generalDelay);
         }
       },
-      priority);
-  }
-}
-
-void Task::stop() {
-  if (task) {
-    taskLog.log("Task ended.", {});
-    task = nullptr;
+      "BFB TASK");
   }
 }
 
 Logger<Task> Task::taskLog{};
 
-#ifdef TESTING
-void TaskTestClass::step() {
-  if (thing)
-    thing = 0;
-  else
-    thing = 1;
-}
-
-DEFINE_TEST(taskTest)
-TaskTestClass test;
-test.start();
-test.start();
-pros::delay(50);
-test.stop();
-test.stop();
-END_TEST
-#endif
 } // namespace bfb

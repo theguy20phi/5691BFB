@@ -34,19 +34,13 @@ class Task {
    * nothing.
    *
    */
-  virtual void step() = 0;
+  virtual void step();
 
   /**
    * @brief Starts the task.
    *
    */
   virtual void start() final;
-
-  /**
-   * @brief Ends the task.
-   *
-   */
-  virtual void stop() final;
 
   /**
    * @brief Logger object for Task.
@@ -58,16 +52,4 @@ class Task {
   std::uint32_t priority;
   std::unique_ptr<pros::Task> task{nullptr};
 };
-
-#ifdef TESTING
-class TaskTestClass final : public Task {
-  public:
-  void step() override;
-
-  private:
-  int thing{0};
-};
-DECLARE_TEST(taskTest);
-#endif
-
 } // namespace bfb

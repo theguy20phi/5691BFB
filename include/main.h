@@ -14,8 +14,7 @@
 
 #pragma once
 
-// comment out if not running tests
-#define TESTING
+#define TESTING 0
 
 #include "api.h"
 #include "bfb/bfb.hpp"

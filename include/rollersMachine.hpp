@@ -37,6 +37,6 @@ class RollersMachine : public bfb::StateMachine<RollersMachine, States::Rollers:
   pros::ADILineSensor indexer{'E'};
   pros::Motor lowerBigRoller{5, pros::motor_gearset_e_t::E_MOTOR_GEARSET_06};
   pros::Motor upperBigRoller{6, pros::motor_gearset_e_t::E_MOTOR_GEARSET_06};
-  pros::Motor leftSideRoller{7, pros::motor_gearset_e_t::E_MOTOR_GEARSET_06};
-  pros::Motor rightSideRoller{8, pros::motor_gearset_e_t::E_MOTOR_GEARSET_06};
+  pros::Motor leftSideRoller{9, pros::motor_gearset_e_t::E_MOTOR_GEARSET_06};
+  pros::Motor rightSideRoller{10, pros::motor_gearset_e_t::E_MOTOR_GEARSET_06};
 };

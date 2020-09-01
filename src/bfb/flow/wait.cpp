@@ -28,6 +28,7 @@ auto testLambda = [&testVar]() -> bool {
   if (testVar == 10)
     return true;
   testVar++;
+  return false;
 };
 waitUntil(testLambda);
 IS_EQUAL(testVar, 10);

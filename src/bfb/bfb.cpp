@@ -10,7 +10,6 @@ void runTests() {
   issueTest();
   waitUntilTest();
   waitUntilWithTimeoutTest();
-  taskTest();
   bangBangTest();
   initializeCrossOdometryTest();
   std::cout << "Completed tests!" << std::endl;

@@ -7,11 +7,53 @@ std::unique_ptr<RollersMachine> rollers;
 std::unique_ptr<ChassisMachine> chassis;
 std::unique_ptr<Match> match;
 pros::Controller master{pros::E_CONTROLLER_MASTER};
-pros::Controller partner{pros::E_CONTROLLER_PARTNER};
 
 auto chassisStandby = []() -> bool {
   return std::holds_alternative<States::Chassis::Standby>(chassis->getState());
 };
+
+void extraChecks() {
+  if (master.get_battery_level() < 50)
+    static bfb::Issue controllerLow{"CtrlLow", bfb::Severity::Medium};
+  if (pros::battery::get_capacity() < 50)
+    static bfb::Issue batteryLow{"BattLow", bfb::Severity::Medium};
+  static bfb::Issue testIssue{"Test", bfb::Severity::Low};
+}
+
+void controllerGUITaskFn() {
+  master.clear();
+  for (;;) {
+    if (!pros::competition::is_disabled()) {
+      if (bfb::Issue::getIssueList().size() >= 1)
+        master.print(0,
+                     0,
+                     "%s: %c",
+                     bfb::Issue::getIssueList()[0].getDescription(),
+                     bfb::Issue::getIssueList()[0].getSeverity().alpha);
+
+      bfb::wait(50);
+      if (bfb::Issue::getIssueList().size() >= 2)
+        master.print(1,
+                     0,
+                     "%s: %c",
+                     bfb::Issue::getIssueList()[1].getDescription(),
+                     bfb::Issue::getIssueList()[1].getSeverity().alpha);
+
+      bfb::wait(50);
+      if (bfb::Issue::getIssueList().size() >= 3)
+        master.print(2,
+                     0,
+                     "%s: %c",
+                     bfb::Issue::getIssueList()[2].getDescription(),
+                     bfb::Issue::getIssueList()[2].getSeverity().alpha);
+    } else {
+
+    }
+    extraChecks();
+    master.clear();
+    bfb::wait(50);
+  }
+}
 
 LV_IMG_DECLARE(DOOM);
 void doomScreen() {
@@ -22,12 +64,15 @@ void doomScreen() {
 }
 
 void initialize() {
+  pros::Task::delay(200);
   doomScreen();
+  pros::Task controllerGUITask{controllerGUITaskFn};
   rollers = std::make_unique<RollersMachine>(States::Rollers::Standby{});
   chassis = std::make_unique<ChassisMachine>(States::Chassis::Standby{});
   match = std::make_unique<Match>();
   rollers->start();
   chassis->start();
+  pros::Task::delay(2000);
 }
 
 void disabled() {
@@ -35,14 +80,14 @@ void disabled() {
   chassis->setState(States::Chassis::Standby{});
   for (;;) {
     match->update();
-    bfb::wait(10);
+    bfb::wait(bfb::Wait::generalDelay);
   }
 }
 
 void competition_initialize() {
   for (;;) {
     match->update();
-    bfb::wait(10);
+    bfb::wait(bfb::Wait::generalDelay);
   }
 }
 
@@ -105,6 +150,7 @@ void rollerControls() {
       rollers->setState(States::Rollers::FastShoot{});
     else
       rollers->setState(States::Rollers::Shoot{});
+    static bfb::Issue rollerIssue{"RollRan", bfb::Severity::High};
   } else if (master.get_digital(pros::E_CONTROLLER_DIGITAL_L1))
     rollers->setState(States::Rollers::Intake{});
   else if (master.get_digital(pros::E_CONTROLLER_DIGITAL_L2))
@@ -114,7 +160,7 @@ void rollerControls() {
 }
 
 void contingencies() {
-  if (partner.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_B))
+  if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_B))
     chassis->toggleHold();
 }
 
@@ -122,9 +168,9 @@ void opcontrol() {
   bfb::runTests();
   for (;;) {
     chassis->setState(
-      States::Chassis::Control{master.get_analog(pros::E_CONTROLLER_ANALOG_LEFT_Y),
-                               master.get_analog(pros::E_CONTROLLER_ANALOG_LEFT_X),
-                               master.get_analog(pros::E_CONTROLLER_ANALOG_RIGHT_X)});
+      States::Chassis::Control{master.get_analog(pros::E_CONTROLLER_ANALOG_LEFT_Y) * 100,
+                               master.get_analog(pros::E_CONTROLLER_ANALOG_LEFT_X) * 100,
+                               master.get_analog(pros::E_CONTROLLER_ANALOG_RIGHT_X) * 100});
     rollerControls();
     contingencies();
     bfb::wait(10);

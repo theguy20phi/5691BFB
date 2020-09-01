@@ -66,7 +66,7 @@ template <class Concrete, typename ValidStates> class StateMachine : public Task
    * state.
    *
    */
-  virtual void step() final {
+  void step() final {
     std::visit([this](const auto &s) { static_cast<Concrete *>(this)->behavior(s); }, state);
     update();
   }

@@ -13,10 +13,6 @@
 
 #include <iostream>
 
-#define TESTING
-// Un-comment to remove asserts.
-//#define NDEBUG
-
 #define DECLARE_TEST(a) void a();
 
 #define DEFINE_TEST(a) void a() {

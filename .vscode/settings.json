@@ -71,7 +71,10 @@
         "memory_resource": "cpp",
         "random": "cpp",
         "bit": "cpp",
-        "variant": "cpp"
+        "variant": "cpp",
+        "compare": "cpp",
+        "concepts": "cpp",
+        "queue": "cpp"
     },
     "C_Cpp.dimInactiveRegions": false
 }

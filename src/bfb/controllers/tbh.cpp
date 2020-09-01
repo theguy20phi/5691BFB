@@ -7,7 +7,7 @@ Tbh::Tbh(double iGain, std::unique_ptr<okapi::SettledUtil> iSettledChecker)
 }
 
 double Tbh::calculate(double state) {
-  if (pros::millis() - lastTime >= Wait::generalDelay)
+  if (pros::millis() - lastTime < Wait::generalDelay)
     return output;
   lastTime = pros::millis();
   double error{reference - state};
@@ -45,6 +45,7 @@ DEFINE_TEST(tbhTest)
 using namespace okapi;
 Tbh testTbh{{2.0},
             std::make_unique<okapi::SettledUtil>(std::make_unique<okapi::Timer>(), 10, 1, 0_ms)};
+wait(100);
 testTbh.setReference(10.0);
 IS_EQUAL(testTbh.calculate(2.0), 8.0);
 END_TEST
