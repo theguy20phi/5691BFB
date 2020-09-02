@@ -4,20 +4,36 @@
 
 enum class Color { Red, Blue };
 
-enum class Routine { Left, LeftMiddle, RightMiddle, Right, Row, None };
+class Routine {
+  public:
+  struct Info {
+    Color color;
+    std::string name;
+    std::string description;
+    std::string setup;
+  };
+  Routine(const std::function<void()> &iRoutine, const Info &iInfo);
+  void execute();
+  Info getInfo() const;
+
+  private:
+  std::function<void()> routine;
+  const Info info;
+};
 
 class Match {
   public:
-  Match();
+  Match(const std::array<Routine, 12> &iRoutines);
   void update();
   Routine getRoutine() const;
   Color getColor() const;
-  void setRoutine(const Routine &iRoutine);
+  void setRoutine(int iIndex);
   void setColor(const Color &iColor);
 
   private:
-  Color color{Color::Red};
-  Routine routine{Routine::Left};
   pros::ADIPotentiometer routineSelector{5};
   pros::ADIPotentiometer colorSelector{6};
+  std::array<Routine, 12> routines;
+  int index{0};
+  Color color;
 };

@@ -1,44 +1,42 @@
 #include "match.hpp"
 
-Match::Match() {
+Routine::Routine(const std::function<void()> &iRoutine, const Info &iInfo)
+  : routine(iRoutine), info(iInfo) {
+}
+
+void Routine::execute() {
+  routine();
+}
+
+Routine::Info Routine::getInfo() const {
+  return info;
+}
+
+Match::Match(const std::array<Routine, 12> &iRoutines) : routines(iRoutines) {
   routineSelector.calibrate();
   colorSelector.calibrate();
+  update();
 }
 
 void Match::update() {
-  if (routineSelector.get_value_calibrated() < 682)
-    routine = Routine::Left;
-  else if (routineSelector.get_value_calibrated() >= 682 &&
-           routineSelector.get_value_calibrated() < 1364)
-    routine = Routine::LeftMiddle;
-  else if (routineSelector.get_value_calibrated() >= 1364 &&
-           routineSelector.get_value_calibrated() < 2046)
-    routine = Routine::RightMiddle;
-  else if (routineSelector.get_value_calibrated() >= 2046 &&
-           routineSelector.get_value_calibrated() < 2728)
-    routine = Routine::Right;
-  else if (routineSelector.get_value_calibrated() >= 2728 &&
-           routineSelector.get_value_calibrated() < 3410)
-    routine = Routine::Row;
-  else
-    routine = Routine::None;
-
-  if (colorSelector.get_value_calibrated() < 2048)
-    color = Color::Blue;
-  else
-    color = Color::Red;
+  int tempIndex{0};
+  if (colorSelector.get_value_calibrated() > 2048)
+    tempIndex += 6;
+  tempIndex += routineSelector.get_value_calibrated() / 683;
+  index = tempIndex;
+  color = getRoutine().getInfo().color;
 }
 
 Routine Match::getRoutine() const {
-  return routine;
+  return routines[index];
 }
 
 Color Match::getColor() const {
   return color;
 }
 
-void Match::setRoutine(const Routine &iRoutine) {
-  routine = iRoutine;
+void Match::setRoutine(int iIndex) {
+  index = iIndex;
 }
 
 void Match::setColor(const Color &iColor) {

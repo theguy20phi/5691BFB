@@ -12,6 +12,66 @@ auto chassisStandby = []() -> bool {
   return std::holds_alternative<States::Chassis::Standby>(chassis->getState());
 };
 
+Routine redLeft{[]() {
+
+                },
+                {Color::Red, "Red Left", "Fill left", "(x, y, h)"}};
+
+Routine redMidLeft{[]() {
+
+                   },
+                   {Color::Red, "Red Mid-Left", "Fill left & mid", "(x, y, h)"}};
+
+Routine redMidRight{[]() {
+
+                    },
+                    {Color::Red, "Red Mid-Right", "Fill right & mid", "(x, y, h)"}};
+
+Routine redRight{[]() {
+
+                 },
+                 {Color::Red, "Red Right", "Fill right", "(x, y, h)"}};
+
+Routine redRow{[]() {
+
+               },
+               {Color::Red, "Red Row", "Fill row", "(x, y, h)"}};
+
+Routine skills{[]() {
+
+               },
+               {Color::Red, "Skills", "Prog skills", "(x, y, h)"}};
+
+Routine blueLeft{[]() {
+
+                 },
+                 {Color::Blue, "Blue Left", "Fill left", "(x, y, h)"}};
+
+Routine blueMidLeft{[]() {
+
+                    },
+                    {Color::Blue, "Blue Mid-Left", "Fill left & mid", "(x, y, h)"}};
+
+Routine blueMidRight{[]() {
+
+                     },
+                     {Color::Blue, "Blue Mid-Right", "Fill right & mid", "(x, y, h)"}};
+
+Routine blueRight{[]() {
+
+                  },
+                  {Color::Blue, "Blue Right", "Fill right", "(x, y, h)"}};
+
+Routine blueRow{[]() {
+
+                },
+                {Color::Blue, "Blue Row", "Fill row", "(x, y, h)"}};
+
+Routine none{[]() {
+
+             },
+             {Color::Blue, "None", "Does nothing", "N/A"}};
+
 void extraChecks() {
   if (master.get_battery_level() < 50)
     static bfb::Issue controllerLow{"CtrlLow", bfb::Severity::Medium};
@@ -47,7 +107,11 @@ void controllerGUITaskFn() {
                      bfb::Issue::getIssueList()[2].getDescription(),
                      bfb::Issue::getIssueList()[2].getSeverity().alpha);
     } else {
-
+      master.print(0, 0, "%s", match->getRoutine().getInfo().name);
+      bfb::wait(50);
+      master.print(1, 0, "%s", match->getRoutine().getInfo().description);
+      bfb::wait(50);
+      master.print(2, 0, "%s", match->getRoutine().getInfo().setup);
     }
     extraChecks();
     master.clear();
@@ -64,15 +128,24 @@ void doomScreen() {
 }
 
 void initialize() {
-  pros::Task::delay(200);
-  doomScreen();
   pros::Task controllerGUITask{controllerGUITaskFn};
   rollers = std::make_unique<RollersMachine>(States::Rollers::Standby{});
   chassis = std::make_unique<ChassisMachine>(States::Chassis::Standby{});
-  match = std::make_unique<Match>();
+  match = std::make_unique<Match>(std::array<Routine, 12>{redLeft,
+                                                          redMidLeft,
+                                                          redMidRight,
+                                                          redRight,
+                                                          redRow,
+                                                          skills,
+                                                          blueLeft,
+                                                          blueMidLeft,
+                                                          blueMidRight,
+                                                          blueRight,
+                                                          blueRow,
+                                                          none});
   rollers->start();
   chassis->start();
-  pros::Task::delay(2000);
+  doomScreen();
 }
 
 void disabled() {
@@ -97,37 +170,7 @@ void competition_initialize() {
 void autonomous() {
   chassis->setState(States::Chassis::MoveTo{1 * bfb::tile, 1 * bfb::tile, 180_deg});
   bfb::waitUntil(chassisStandby);
-  if (match->getColor() == Color::Red) {
-    switch (match->getRoutine()) {
-    case Routine::Left:
-      break;
-    case Routine::LeftMiddle:
-      break;
-    case Routine::RightMiddle:
-      break;
-    case Routine::Right:
-      break;
-    case Routine::Row:
-      break;
-    case Routine::None:
-      break;
-    }
-  } else {
-    switch (match->getRoutine()) {
-    case Routine::Left:
-      break;
-    case Routine::LeftMiddle:
-      break;
-    case Routine::RightMiddle:
-      break;
-    case Routine::Right:
-      break;
-    case Routine::Row:
-      break;
-    case Routine::None:
-      break;
-    }
-  }
+  match->getRoutine().execute();
 }
 
 /* -------------------------------------------------------------------------- */
@@ -150,7 +193,6 @@ void rollerControls() {
       rollers->setState(States::Rollers::FastShoot{});
     else
       rollers->setState(States::Rollers::Shoot{});
-    static bfb::Issue rollerIssue{"RollRan", bfb::Severity::High};
   } else if (master.get_digital(pros::E_CONTROLLER_DIGITAL_L1))
     rollers->setState(States::Rollers::Intake{});
   else if (master.get_digital(pros::E_CONTROLLER_DIGITAL_L2))
