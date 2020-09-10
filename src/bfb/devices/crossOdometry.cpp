@@ -43,6 +43,8 @@ void CrossOdometry::step() {
   y += okapi::inch * (localX * sin(avgH) + localY * cos(avgH));
   h = okapi::degree * tempH;
   previousH = tempH;
+  std::cout << "X: " << x.convert(okapi::meter) << " Y: " << y.convert(okapi::meter)
+            << " H: " << h.convert(okapi::radian) << std::endl;
 }
 
 okapi::QLength CrossOdometry::X() const {
@@ -67,6 +69,12 @@ void CrossOdometry::setY(const okapi::QLength iY) {
 
 void CrossOdometry::setH(const okapi::QAngle iH) {
   h = iH;
+}
+
+void CrossOdometry::reset(const okapi::QLength iX, const okapi::QLength iY, const okapi::QAngle iH) {
+  setX(iX);
+  setY(iY);
+  setH(iH);
 }
 
 DEFINE_TEST(initializeCrossOdometryTest)

@@ -1,15 +1,15 @@
-bin/match.cpp.o: src/match.cpp include/match.hpp include/main.h \
- include/api.h include/pros/adi.h include/pros/colors.h \
- include/pros/imu.h include/pros/llemu.h include/display/lvgl.h \
- include/display/lv_version.h include/display/lv_misc/lv_log.h \
- include/display/lv_conf.h include/display/lv_conf_checker.h \
- include/display/lv_misc/lv_task.h include/display/lv_misc/lv_mem.h \
- include/display/lv_misc/lv_log.h include/display/lv_misc/lv_ll.h \
- include/display/lv_hal/lv_hal.h include/display/lv_hal/lv_hal_disp.h \
- include/display/lv_hal/lv_hal.h include/display/lv_misc/lv_color.h \
- include/display/lv_misc/lv_area.h include/display/lv_hal/lv_hal_indev.h \
- include/display/lv_core/lv_obj.h include/display/lv_core/lv_style.h \
- include/display/lv_misc/lv_font.h \
+bin/bfb/specificGlobals.cpp.o: src/bfb/specificGlobals.cpp \
+ include/specificGlobals.hpp include/main.h include/api.h \
+ include/pros/adi.h include/pros/colors.h include/pros/imu.h \
+ include/pros/llemu.h include/display/lvgl.h include/display/lv_version.h \
+ include/display/lv_misc/lv_log.h include/display/lv_conf.h \
+ include/display/lv_conf_checker.h include/display/lv_misc/lv_task.h \
+ include/display/lv_misc/lv_mem.h include/display/lv_misc/lv_log.h \
+ include/display/lv_misc/lv_ll.h include/display/lv_hal/lv_hal.h \
+ include/display/lv_hal/lv_hal_disp.h include/display/lv_hal/lv_hal.h \
+ include/display/lv_misc/lv_color.h include/display/lv_misc/lv_area.h \
+ include/display/lv_hal/lv_hal_indev.h include/display/lv_core/lv_obj.h \
+ include/display/lv_core/lv_style.h include/display/lv_misc/lv_font.h \
  include/display/lv_misc/lv_symbol_def.h \
  include/display/lv_fonts/lv_font_builtin.h \
  include/display/lv_misc/lv_anim.h include/display/lv_misc/lv_mem.h \
@@ -88,10 +88,11 @@ bin/match.cpp.o: src/match.cpp include/match.hpp include/main.h \
  include/okapi/api/filter/filter.hpp include/bfb/controllers/tbh.hpp \
  include/okapi/impl/util/timer.hpp include/bfb/debug/issue.hpp \
  include/bfb/devices/crossOdometry.hpp include/bfb/devices/imu.hpp \
- include/bfb/flow/task.hpp include/pros/rtos.hpp \
- include/okapi/api/units/QAngle.hpp include/okapi/api/units/QLength.hpp \
- include/pros/adi.hpp include/bfb/flow/stateMachine.hpp \
- include/bfb/utility/moreQLength.hpp include/okapi/api.hpp \
+ include/okapi/api/filter/medianFilter.hpp include/bfb/flow/task.hpp \
+ include/pros/rtos.hpp include/okapi/api/units/QAngle.hpp \
+ include/okapi/api/units/QLength.hpp include/pros/adi.hpp \
+ include/bfb/flow/stateMachine.hpp include/bfb/utility/moreQLength.hpp \
+ include/okapi/api.hpp \
  include/okapi/api/chassis/controller/chassisControllerIntegrated.hpp \
  include/okapi/api/chassis/controller/chassisController.hpp \
  include/okapi/api/chassis/controller/chassisScales.hpp \
@@ -182,7 +183,6 @@ bin/match.cpp.o: src/match.cpp include/match.hpp include/main.h \
  include/okapi/api/filter/demaFilter.hpp \
  include/okapi/api/filter/ekfFilter.hpp \
  include/okapi/api/filter/filteredControllerInput.hpp \
- include/okapi/api/filter/medianFilter.hpp \
  include/okapi/api/units/QAcceleration.hpp \
  include/okapi/api/units/QAngularJerk.hpp \
  include/okapi/api/units/QArea.hpp include/okapi/api/units/QForce.hpp \
@@ -190,9 +190,9 @@ bin/match.cpp.o: src/match.cpp include/match.hpp include/main.h \
  include/okapi/api/units/QPressure.hpp \
  include/okapi/api/units/QTorque.hpp include/okapi/api/units/QVolume.hpp \
  include/okapi/impl/util/rate.hpp include/chassisMachine.hpp \
- include/rollersMachine.hpp
+ include/match.hpp include/rollersMachine.hpp
 
-include/match.hpp:
+include/specificGlobals.hpp:
 
 include/main.h:
 
@@ -514,6 +514,8 @@ include/bfb/devices/crossOdometry.hpp:
 
 include/bfb/devices/imu.hpp:
 
+include/okapi/api/filter/medianFilter.hpp:
+
 include/bfb/flow/task.hpp:
 
 include/pros/rtos.hpp:
@@ -714,8 +716,6 @@ include/okapi/api/filter/ekfFilter.hpp:
 
 include/okapi/api/filter/filteredControllerInput.hpp:
 
-include/okapi/api/filter/medianFilter.hpp:
-
 include/okapi/api/units/QAcceleration.hpp:
 
 include/okapi/api/units/QAngularJerk.hpp:
@@ -737,5 +737,7 @@ include/okapi/api/units/QVolume.hpp:
 include/okapi/impl/util/rate.hpp:
 
 include/chassisMachine.hpp:
+
+include/match.hpp:
 
 include/rollersMachine.hpp:

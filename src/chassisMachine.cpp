@@ -2,6 +2,13 @@
 
 ChassisMachine::ChassisMachine(const States::Chassis::ChassisStates &iState)
   : StateMachine(iState) {
+  lFWheel.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
+  lBWheel.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
+  rFWheel.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
+  rBWheel.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
+  odometry.start();
+  bfb::wait(2000);
+  odometry.reset(0_m, 0_m, 0_rad);
 }
 
 void ChassisMachine::behavior(const States::Chassis::Standby &standby) {
@@ -46,8 +53,8 @@ double ChassisMachine::getDistanceTo(const okapi::QAngle &h,
 }
 
 void ChassisMachine::controlDrive(double forward, double strafe, double turn) {
-  lFWheel.move_voltage(forward + strafe + turn);
-  lBWheel.move_voltage(forward - strafe + turn);
-  rFWheel.move_voltage(forward - strafe - turn);
-  rBWheel.move_voltage(forward + strafe - turn);
+  lFWheel.move_voltage(forward - strafe + turn);
+  lBWheel.move_voltage(forward + strafe + turn);
+  rFWheel.move_voltage(forward + strafe - turn);
+  rBWheel.move_voltage(forward - strafe - turn);
 }

@@ -20,12 +20,12 @@ Routine redLeft{[]() {
 Routine redMidLeft{[]() {
 
                    },
-                   {Color::Red, "Red Mid-Left", "Fill left & mid", "(x, y, h)"}};
+                   {Color::Red, "Red Mid-Left", "Fill left&mid", "(x, y, h)"}};
 
 Routine redMidRight{[]() {
 
                     },
-                    {Color::Red, "Red Mid-Right", "Fill right & mid", "(x, y, h)"}};
+                    {Color::Red, "Red Mid-Right", "Fill right&mid", "(x, y, h)"}};
 
 Routine redRight{[]() {
 
@@ -50,12 +50,12 @@ Routine blueLeft{[]() {
 Routine blueMidLeft{[]() {
 
                     },
-                    {Color::Blue, "Blue Mid-Left", "Fill left & mid", "(x, y, h)"}};
+                    {Color::Blue, "Blue Mid-Left", "Fill left&mid", "(x, y, h)"}};
 
 Routine blueMidRight{[]() {
 
                      },
-                     {Color::Blue, "Blue Mid-Right", "Fill right & mid", "(x, y, h)"}};
+                     {Color::Blue, "Blue Mid-Right", "Fill right&mid", "(x, y, h)"}};
 
 Routine blueRight{[]() {
 
@@ -77,7 +77,6 @@ void extraChecks() {
     static bfb::Issue controllerLow{"CtrlLow", bfb::Severity::Medium};
   if (pros::battery::get_capacity() < 50)
     static bfb::Issue batteryLow{"BattLow", bfb::Severity::Medium};
-  static bfb::Issue testIssue{"Test", bfb::Severity::Low};
 }
 
 void controllerGUITaskFn() {
@@ -87,34 +86,38 @@ void controllerGUITaskFn() {
       if (bfb::Issue::getIssueList().size() >= 1)
         master.print(0,
                      0,
-                     "%s: %c",
+                     "%s: %c                ",
                      bfb::Issue::getIssueList()[0].getDescription(),
                      bfb::Issue::getIssueList()[0].getSeverity().alpha);
-
+      else 
+        master.clear_line(0);
       bfb::wait(50);
       if (bfb::Issue::getIssueList().size() >= 2)
         master.print(1,
                      0,
-                     "%s: %c",
+                     "%s: %c                ",
                      bfb::Issue::getIssueList()[1].getDescription(),
                      bfb::Issue::getIssueList()[1].getSeverity().alpha);
+      else
+        master.clear_line(1);
 
       bfb::wait(50);
       if (bfb::Issue::getIssueList().size() >= 3)
         master.print(2,
                      0,
-                     "%s: %c",
+                     "%s: %c                ",
                      bfb::Issue::getIssueList()[2].getDescription(),
                      bfb::Issue::getIssueList()[2].getSeverity().alpha);
+      else
+        master.clear_line(2);
     } else {
-      master.print(0, 0, "%s", match->getRoutine().getInfo().name);
+      master.print(0, 0, "%s                ", match->getRoutine().getInfo().name);
       bfb::wait(50);
-      master.print(1, 0, "%s", match->getRoutine().getInfo().description);
+      master.print(1, 0, "%s                ", match->getRoutine().getInfo().description);
       bfb::wait(50);
-      master.print(2, 0, "%s", match->getRoutine().getInfo().setup);
+      master.print(2, 0, "%s                ", match->getRoutine().getInfo().setup);
     }
     extraChecks();
-    master.clear();
     bfb::wait(50);
   }
 }
@@ -128,7 +131,6 @@ void doomScreen() {
 }
 
 void initialize() {
-  pros::Task controllerGUITask{controllerGUITaskFn};
   rollers = std::make_unique<RollersMachine>(States::Rollers::Standby{});
   chassis = std::make_unique<ChassisMachine>(States::Chassis::Standby{});
   match = std::make_unique<Match>(std::array<Routine, 12>{redLeft,
@@ -143,6 +145,7 @@ void initialize() {
                                                           blueRight,
                                                           blueRow,
                                                           none});
+  pros::Task controllerGUITask{controllerGUITaskFn};
   rollers->start();
   chassis->start();
   doomScreen();

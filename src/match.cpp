@@ -13,16 +13,14 @@ Routine::Info Routine::getInfo() const {
 }
 
 Match::Match(const std::array<Routine, 12> &iRoutines) : routines(iRoutines) {
-  routineSelector.calibrate();
-  colorSelector.calibrate();
   update();
 }
 
 void Match::update() {
   int tempIndex{0};
-  if (colorSelector.get_value_calibrated() > 2048)
+  if (colorSelector.get_value() > 2048)
     tempIndex += 6;
-  tempIndex += routineSelector.get_value_calibrated() / 683;
+  tempIndex += routineSelector.get_value() / 819;
   index = tempIndex;
   color = getRoutine().getInfo().color;
 }

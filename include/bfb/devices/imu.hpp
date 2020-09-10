@@ -10,7 +10,7 @@
 
 #include "bfb/debug/issue.hpp"
 #include "bfb/debug/logger.hpp"
-#include "okapi/api/filter/medianFilter.hpp"
+#include "okapi/api/filter/emaFilter.hpp"
 #include "pros/imu.h"
 #include <functional>
 #include <numeric>
@@ -110,6 +110,6 @@ class IMU final {
   private:
   double offset{0.0};
   std::vector<uint8_t> ports;
-  okapi::MedianFilter<5> headingFilter;
+  okapi::EmaFilter headingFilter{0.5};
 };
 } // namespace bfb

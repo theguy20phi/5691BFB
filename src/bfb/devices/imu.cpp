@@ -41,7 +41,7 @@ void IMU::resetHeading(double value) {
  * @return double
  */
 double IMU::getHeading() {
-  return offset + headingFilter.filter(getYaw()) / ports.size();
+  return offset + headingFilter.filter(getYaw());
 }
 
 /**
@@ -76,10 +76,10 @@ double IMU::getRoll() const {
  * @return double
  */
 double IMU::getYaw() const {
-  const double sum =
-    std::accumulate(ports.begin(), ports.end(), 0.0, [](const uint8_t &a, const uint8_t &b) {
-      return pros::c::imu_get_euler(a).yaw + pros::c::imu_get_euler(b).yaw;
-    });
+  double sum{0.0};
+  for(uint8_t port : ports) {
+    sum += pros::c::imu_get_euler(port).yaw;
+  }
   return sum / ports.size();
 }
 

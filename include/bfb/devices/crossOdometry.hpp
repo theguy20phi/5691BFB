@@ -113,6 +113,17 @@ class CrossOdometry : public Task {
    */
   void setH(const okapi::QAngle iH);
 
+  /**
+   * @brief Resets the odometry.
+   *
+   * @param iX
+   * @param iY
+   * @param iH
+   */
+  void reset(const okapi::QLength iX = 0 * okapi::meter,
+             const okapi::QLength iY = 0 * okapi::meter,
+             const okapi::QAngle iH = 0 * okapi::radian);
+
   private:
   okapi::QLength x{0_in};
   okapi::QLength y{0_in};
