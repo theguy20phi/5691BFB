@@ -26,7 +26,8 @@ class ChassisMachine : public bfb::StateMachine<ChassisMachine, States::Chassis:
   void behavior(const States::Chassis::Control &control);
   void behavior(const States::Chassis::MoveTo &moveTo);
   void toggleHold();
-  bfb::CrossOdometry getOdometry() const;
+  void hold();
+  void coast();
 
   private:
   void controlDrive(double forward, double strafe, double turn);
@@ -40,6 +41,7 @@ class ChassisMachine : public bfb::StateMachine<ChassisMachine, States::Chassis:
   pros::Motor lBWheel{2};
   pros::Motor rFWheel{3, true};
   pros::Motor rBWheel{6, true};
+  const double deadband{100.0};
   bfb::Pidf xPidf{{0.0, 0.0, 0.0, 0.0}, bfb::createSettledUtil()};
   bfb::Pidf yPidf{{0.0, 0.0, 0.0, 0.0}, bfb::createSettledUtil()};
   bfb::Pidf hPidf{{0.0, 0.0, 0.0, 0.0}, bfb::createSettledUtil()};

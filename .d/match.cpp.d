@@ -190,7 +190,7 @@ bin/match.cpp.o: src/match.cpp include/match.hpp include/main.h \
  include/okapi/api/units/QPressure.hpp \
  include/okapi/api/units/QTorque.hpp include/okapi/api/units/QVolume.hpp \
  include/okapi/impl/util/rate.hpp include/chassisMachine.hpp \
- include/rollersMachine.hpp
+ include/rollersMachine.hpp include/globals.hpp
 
 include/match.hpp:
 
@@ -739,3 +739,5 @@ include/okapi/impl/util/rate.hpp:
 include/chassisMachine.hpp:
 
 include/rollersMachine.hpp:
+
+include/globals.hpp:

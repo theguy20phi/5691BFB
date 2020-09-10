@@ -188,8 +188,9 @@ bin/main.cpp.o: src/main.cpp include/main.h include/api.h \
  include/okapi/api/units/QMass.hpp include/okapi/api/units/QJerk.hpp \
  include/okapi/api/units/QPressure.hpp \
  include/okapi/api/units/QTorque.hpp include/okapi/api/units/QVolume.hpp \
- include/okapi/impl/util/rate.hpp include/chassisMachine.hpp \
- include/rollersMachine.hpp include/match.hpp
+ include/okapi/impl/util/rate.hpp include/specific/chassisMachine.hpp \
+ include/specific/rollersMachine.hpp include/specific/match.hpp \
+ include/specific/globals.hpp include/specific/routines.hpp
 
 include/main.h:
 
@@ -733,8 +734,12 @@ include/okapi/api/units/QVolume.hpp:
 
 include/okapi/impl/util/rate.hpp:
 
-include/chassisMachine.hpp:
+include/specific/chassisMachine.hpp:
 
-include/rollersMachine.hpp:
+include/specific/rollersMachine.hpp:
 
-include/match.hpp:
+include/specific/match.hpp:
+
+include/specific/globals.hpp:
+
+include/specific/routines.hpp:
