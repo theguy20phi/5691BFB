@@ -2,12 +2,12 @@ bin/bfb/devices/crossOdometry.cpp.o: src/bfb/devices/crossOdometry.cpp \
  include/bfb/devices/crossOdometry.hpp include/bfb/debug/test.hpp \
  include/bfb/devices/imu.hpp include/bfb/debug/issue.hpp \
  include/bfb/debug/logger.hpp include/bfb/utility/key.hpp \
- include/okapi/api/filter/emaFilter.hpp \
- include/okapi/api/filter/filter.hpp include/pros/imu.h \
- include/bfb/flow/task.hpp include/pros/rtos.hpp include/pros/rtos.h \
- include/bfb/flow/wait.hpp include/api.h include/pros/adi.h \
- include/pros/colors.h include/pros/imu.h include/pros/llemu.h \
- include/display/lvgl.h include/display/lv_version.h \
+ include/okapi/api/filter/medianFilter.hpp \
+ include/okapi/api/filter/filter.hpp include/pros/imu.hpp \
+ include/pros/imu.h include/bfb/flow/task.hpp include/pros/rtos.hpp \
+ include/pros/rtos.h include/bfb/flow/wait.hpp include/api.h \
+ include/pros/adi.h include/pros/colors.h include/pros/imu.h \
+ include/pros/llemu.h include/display/lvgl.h include/display/lv_version.h \
  include/display/lv_misc/lv_log.h include/display/lv_conf.h \
  include/display/lv_conf_checker.h include/display/lv_misc/lv_task.h \
  include/display/lv_misc/lv_mem.h include/display/lv_misc/lv_log.h \
@@ -89,9 +89,11 @@ include/bfb/debug/logger.hpp:
 
 include/bfb/utility/key.hpp:
 
-include/okapi/api/filter/emaFilter.hpp:
+include/okapi/api/filter/medianFilter.hpp:
 
 include/okapi/api/filter/filter.hpp:
+
+include/pros/imu.hpp:
 
 include/pros/imu.h:
 

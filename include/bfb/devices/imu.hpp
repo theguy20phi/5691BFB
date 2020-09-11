@@ -10,8 +10,8 @@
 
 #include "bfb/debug/issue.hpp"
 #include "bfb/debug/logger.hpp"
-#include "okapi/api/filter/emaFilter.hpp"
-#include "pros/imu.h"
+#include "okapi/api/filter/medianFilter.hpp"
+#include "pros/imu.hpp"
 #include <functional>
 #include <numeric>
 
@@ -30,13 +30,7 @@ class IMU final {
    *
    * @param iPorts
    */
-  IMU(const std::vector<uint8_t> &iPorts);
-
-  /**
-   * @brief Calibrate the IMUs. Gives issue if any IMU initializes improperly.
-   *
-   */
-  std::vector<int32_t> calibrate() const;
+  IMU(const std::vector<int> &iPorts);
 
   /**
    * @brief Reset IMU heading to a certain value without re-calibrating.
@@ -53,48 +47,6 @@ class IMU final {
   double getHeading();
 
   /**
-   * @brief Get the pitch.
-   *
-   * @return double
-   */
-  double getPitch() const;
-
-  /**
-   * @brief Get the roll.
-   *
-   * @return double
-   */
-  double getRoll() const;
-
-  /**
-   * @brief Get the yaw.
-   *
-   * @return double
-   */
-  double getYaw() const;
-
-  /**
-   * @brief Get the angular velocity.
-   *
-   * @return pros::c::imu_gyro_s_t
-   */
-  pros::c::imu_gyro_s_t getAngularVelocity() const;
-
-  /**
-   * @brief Get the acceleration.
-   *
-   * @return pros::c::imu_accel_s_t
-   */
-  pros::c::imu_accel_s_t getAcceleration() const;
-
-  /**
-   * @brief Get the status.
-   *
-   * @return std::vector<pros::c::imu_status_e_t>
-   */
-  std::vector<pros::c::imu_status_e_t> getStatus() const;
-
-  /**
    * @brief Determines if the IMUs are still calibrating.
    *
    * @return bool
@@ -109,7 +61,7 @@ class IMU final {
 
   private:
   double offset{0.0};
-  std::vector<uint8_t> ports;
-  okapi::EmaFilter headingFilter{0.5};
+  std::vector<pros::Imu> imus;
+  okapi::MedianFilter<5> headingFilter;
 };
 } // namespace bfb

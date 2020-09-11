@@ -87,6 +87,7 @@ bin/main.cpp.o: src/main.cpp include/main.h include/api.h \
  include/okapi/api/filter/filter.hpp include/bfb/controllers/tbh.hpp \
  include/okapi/impl/util/timer.hpp include/bfb/debug/issue.hpp \
  include/bfb/devices/crossOdometry.hpp include/bfb/devices/imu.hpp \
+ include/okapi/api/filter/medianFilter.hpp include/pros/imu.hpp \
  include/bfb/flow/task.hpp include/pros/rtos.hpp \
  include/okapi/api/units/QAngle.hpp include/okapi/api/units/QLength.hpp \
  include/pros/adi.hpp include/bfb/flow/stateMachine.hpp \
@@ -181,7 +182,6 @@ bin/main.cpp.o: src/main.cpp include/main.h include/api.h \
  include/okapi/api/filter/demaFilter.hpp \
  include/okapi/api/filter/ekfFilter.hpp \
  include/okapi/api/filter/filteredControllerInput.hpp \
- include/okapi/api/filter/medianFilter.hpp \
  include/okapi/api/units/QAcceleration.hpp \
  include/okapi/api/units/QAngularJerk.hpp \
  include/okapi/api/units/QArea.hpp include/okapi/api/units/QForce.hpp \
@@ -512,6 +512,10 @@ include/bfb/devices/crossOdometry.hpp:
 
 include/bfb/devices/imu.hpp:
 
+include/okapi/api/filter/medianFilter.hpp:
+
+include/pros/imu.hpp:
+
 include/bfb/flow/task.hpp:
 
 include/pros/rtos.hpp:
@@ -711,8 +715,6 @@ include/okapi/api/filter/demaFilter.hpp:
 include/okapi/api/filter/ekfFilter.hpp:
 
 include/okapi/api/filter/filteredControllerInput.hpp:
-
-include/okapi/api/filter/medianFilter.hpp:
 
 include/okapi/api/units/QAcceleration.hpp:
 
