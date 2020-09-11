@@ -36,6 +36,15 @@ template <typename Type> class SlewRate final {
     return value;
   }
 
+  /**
+   * @brief Get the value of the slew rate.
+   *
+   * @return Type
+   */
+  Type getValue() const {
+    return value;
+  }
+
   private:
   const Type maxChange;
   Type value;

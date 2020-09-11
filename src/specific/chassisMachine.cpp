@@ -58,14 +58,17 @@ void ChassisMachine::coast() {
 }
 
 void ChassisMachine::controlDrive(double forward, double strafe, double turn) {
+  rFSlew.slew(forward + strafe - turn);
+  rBSlew.slew(forward - strafe - turn);
   if (forward + strafe + turn < deadband) {
     lFWheel.move_velocity(0);
     lBWheel.move_velocity(0);
     rFWheel.move_velocity(0);
     rBWheel.move_velocity(0);
+  } else {
+    lFWheel.move_voltage(forward - strafe + turn);
+    lBWheel.move_voltage(forward + strafe + turn);
+    rFWheel.move_voltage(rFSlew.getValue());
+    rBWheel.move_voltage(rBSlew.getValue());
   }
-  lFWheel.move_voltage(forward - strafe + turn);
-  lBWheel.move_voltage(forward + strafe + turn);
-  rFWheel.move_voltage(forward + strafe - turn);
-  rBWheel.move_voltage(forward - strafe - turn);
 }

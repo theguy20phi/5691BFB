@@ -42,6 +42,8 @@ class ChassisMachine : public bfb::StateMachine<ChassisMachine, States::Chassis:
   pros::Motor rFWheel{3, true};
   pros::Motor rBWheel{6, true};
   const double deadband{100.0};
+  bfb::SlewRate<double> rFSlew{500.0};
+  bfb::SlewRate<double> rBSlew{500.0};
   bfb::Pidf xPidf{{0.0, 0.0, 0.0, 0.0}, bfb::createSettledUtil()};
   bfb::Pidf yPidf{{0.0, 0.0, 0.0, 0.0}, bfb::createSettledUtil()};
   bfb::Pidf hPidf{{0.0, 0.0, 0.0, 0.0}, bfb::createSettledUtil()};
