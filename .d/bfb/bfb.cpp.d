@@ -89,8 +89,8 @@ bin/bfb/bfb.cpp.o: src/bfb/bfb.cpp include/bfb/bfb.hpp \
  include/okapi/api/filter/medianFilter.hpp include/pros/imu.hpp \
  include/bfb/flow/task.hpp include/pros/rtos.hpp \
  include/okapi/api/units/QAngle.hpp include/okapi/api/units/QLength.hpp \
- include/pros/adi.hpp include/bfb/flow/stateMachine.hpp \
- include/bfb/utility/moreQLength.hpp
+ include/pros/adi.hpp include/bfb/devices/slewRate.hpp \
+ include/bfb/flow/stateMachine.hpp include/bfb/utility/moreQLength.hpp
 
 include/bfb/bfb.hpp:
 
@@ -421,6 +421,8 @@ include/okapi/api/units/QAngle.hpp:
 include/okapi/api/units/QLength.hpp:
 
 include/pros/adi.hpp:
+
+include/bfb/devices/slewRate.hpp:
 
 include/bfb/flow/stateMachine.hpp:
 

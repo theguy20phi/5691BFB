@@ -90,8 +90,9 @@ bin/main.cpp.o: src/main.cpp include/main.h include/api.h \
  include/okapi/api/filter/medianFilter.hpp include/pros/imu.hpp \
  include/bfb/flow/task.hpp include/pros/rtos.hpp \
  include/okapi/api/units/QAngle.hpp include/okapi/api/units/QLength.hpp \
- include/pros/adi.hpp include/bfb/flow/stateMachine.hpp \
- include/bfb/utility/moreQLength.hpp include/okapi/api.hpp \
+ include/pros/adi.hpp include/bfb/devices/slewRate.hpp \
+ include/bfb/flow/stateMachine.hpp include/bfb/utility/moreQLength.hpp \
+ include/okapi/api.hpp \
  include/okapi/api/chassis/controller/chassisControllerIntegrated.hpp \
  include/okapi/api/chassis/controller/chassisController.hpp \
  include/okapi/api/chassis/controller/chassisScales.hpp \
@@ -525,6 +526,8 @@ include/okapi/api/units/QAngle.hpp:
 include/okapi/api/units/QLength.hpp:
 
 include/pros/adi.hpp:
+
+include/bfb/devices/slewRate.hpp:
 
 include/bfb/flow/stateMachine.hpp:
 
