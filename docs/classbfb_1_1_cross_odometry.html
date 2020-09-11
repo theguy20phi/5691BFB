@@ -116,6 +116,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a483afe23e34057f68a0a49166bf7bb2a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_cross_odometry.html#a483afe23e34057f68a0a49166bf7bb2a">setH</a> (const okapi::QAngle iH)</td></tr>
 <tr class="memdesc:a483afe23e34057f68a0a49166bf7bb2a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets h.  <a href="classbfb_1_1_cross_odometry.html#a483afe23e34057f68a0a49166bf7bb2a">More...</a><br /></td></tr>
 <tr class="separator:a483afe23e34057f68a0a49166bf7bb2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae9ffd5197515090c83a22610fd3ac3ff"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_cross_odometry.html#ae9ffd5197515090c83a22610fd3ac3ff">reset</a> (const okapi::QLength iX=0 *okapi::meter, const okapi::QLength iY=0 *okapi::meter, const okapi::QAngle iH=0 *okapi::radian)</td></tr>
+<tr class="memdesc:ae9ffd5197515090c83a22610fd3ac3ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the odometry.  <a href="classbfb_1_1_cross_odometry.html#ae9ffd5197515090c83a22610fd3ac3ff">More...</a><br /></td></tr>
+<tr class="separator:ae9ffd5197515090c83a22610fd3ac3ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classbfb_1_1_task"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classbfb_1_1_task')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classbfb_1_1_task.html">bfb::Task</a></td></tr>
 <tr class="memitem:a573fa3e6c271cf734bd1d5bf654b3a08 inherit pub_methods_classbfb_1_1_task"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_task.html#a573fa3e6c271cf734bd1d5bf654b3a08">Task</a> (std::uint32_t iPriority=TASK_PRIORITY_DEFAULT)</td></tr>
 <tr class="memdesc:a573fa3e6c271cf734bd1d5bf654b3a08 inherit pub_methods_classbfb_1_1_task"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classbfb_1_1_task.html" title="Allows an easy-to-use way to assign &quot;give&quot; (more like make) a class a task by inheriting from this cl...">Task</a> object.  <a href="classbfb_1_1_task.html#a573fa3e6c271cf734bd1d5bf654b3a08">More...</a><br /></td></tr>
@@ -123,9 +126,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a12e333f1c323b041b20b0ce9938ce853 inherit pub_methods_classbfb_1_1_task"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_task.html#a12e333f1c323b041b20b0ce9938ce853">start</a> () final</td></tr>
 <tr class="memdesc:a12e333f1c323b041b20b0ce9938ce853 inherit pub_methods_classbfb_1_1_task"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts the task.  <a href="classbfb_1_1_task.html#a12e333f1c323b041b20b0ce9938ce853">More...</a><br /></td></tr>
 <tr class="separator:a12e333f1c323b041b20b0ce9938ce853 inherit pub_methods_classbfb_1_1_task"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00ea715a5299057a3f028198a90a9039 inherit pub_methods_classbfb_1_1_task"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_task.html#a00ea715a5299057a3f028198a90a9039">stop</a> () final</td></tr>
-<tr class="memdesc:a00ea715a5299057a3f028198a90a9039 inherit pub_methods_classbfb_1_1_task"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ends the task.  <a href="classbfb_1_1_task.html#a00ea715a5299057a3f028198a90a9039">More...</a><br /></td></tr>
-<tr class="separator:a00ea715a5299057a3f028198a90a9039 inherit pub_methods_classbfb_1_1_task"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -213,6 +213,50 @@ std::unique_ptr&lt; pros::Task &gt;&#160;</td><td class="memItemRight" valign="b
 
 <p>Gets h. </p>
 <dl class="section return"><dt>Returns</dt><dd>okapi::QAngle </dd></dl>
+
+</div>
+</div>
+<a id="ae9ffd5197515090c83a22610fd3ac3ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae9ffd5197515090c83a22610fd3ac3ff">&#9670;&nbsp;</a></span>reset()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void bfb::CrossOdometry::reset </td>
+          <td>(</td>
+          <td class="paramtype">const okapi::QLength&#160;</td>
+          <td class="paramname"><em>iX</em> = <code>0&#160;*okapi::meter</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const okapi::QLength&#160;</td>
+          <td class="paramname"><em>iY</em> = <code>0&#160;*okapi::meter</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const okapi::QAngle&#160;</td>
+          <td class="paramname"><em>iH</em> = <code>0&#160;*okapi::radian</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Resets the odometry. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">iX</td><td></td></tr>
+    <tr><td class="paramname">iY</td><td></td></tr>
+    <tr><td class="paramname">iH</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -319,7 +363,7 @@ std::unique_ptr&lt; pros::Task &gt;&#160;</td><td class="memItemRight" valign="b
 
 <p>Goes through one step of the <a class="el" href="classbfb_1_1_task.html" title="Allows an easy-to-use way to assign &quot;give&quot; (more like make) a class a task by inheriting from this cl...">Task</a>. Should be overwritten. Should take and return nothing. </p>
 
-<p>Implements <a class="el" href="classbfb_1_1_task.html#a5992f5276212c16bc7a2c0bedb36f781">bfb::Task</a>.</p>
+<p>Reimplemented from <a class="el" href="classbfb_1_1_task.html#acb82619736938e6c4a2e5dbcb9f610f3">bfb::Task</a>.</p>
 
 </div>
 </div>

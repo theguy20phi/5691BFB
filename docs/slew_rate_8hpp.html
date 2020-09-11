@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.18"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>5691BFB: include/bfb/debug/issue.hpp File Reference</title>
+<title>5691BFB: include/bfb/devices/slewRate.hpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -64,45 +64,25 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_d29b484ba13d1c15cf9f146d7081da96.html">bfb</a></li><li class="navelem"><a class="el" href="dir_bf4e955b8ad656b4f6a9e1525e50ac9e.html">debug</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_d29b484ba13d1c15cf9f146d7081da96.html">bfb</a></li><li class="navelem"><a class="el" href="dir_634234d522d177de0d2f07510e41db03.html">devices</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
-<a href="#var-members">Variables</a>  </div>
+<a href="#nested-classes">Classes</a>  </div>
   <div class="headertitle">
-<div class="title">issue.hpp File Reference</div>  </div>
+<div class="title">slewRate.hpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="test_8hpp_source.html">test.hpp</a>&quot;</code><br />
-<code>#include &lt;algorithm&gt;</code><br />
-<code>#include &lt;memory&gt;</code><br />
-<code>#include &lt;string&gt;</code><br />
-<code>#include &lt;vector&gt;</code><br />
+<div class="textblock"><code>#include &lt;algorithm&gt;</code><br />
 </div>
-<p><a href="issue_8hpp_source.html">Go to the source code of this file.</a></p>
+<p><a href="slew_rate_8hpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbfb_1_1_severity_1_1_severity_level.html">bfb::Severity::SeverityLevel</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to sort and display issues of varying severity.  <a href="structbfb_1_1_severity_1_1_severity_level.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_slew_rate.html">bfb::SlewRate&lt; Type &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Implements a slew rate to manipulate maximum acceleration.  <a href="classbfb_1_1_slew_rate.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_issue.html">bfb::Issue</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classbfb_1_1_issue.html" title="Issue provides a basis for managing and logging problems that may occur during driving....">Issue</a> provides a basis for managing and logging problems that may occur during driving. Issues should be constructed as static and constant, in the event the problem occurs. Issues are logged in vector that can be globally read from, but only modified by <a class="el" href="classbfb_1_1_issue.html" title="Issue provides a basis for managing and logging problems that may occur during driving....">Issue</a> objects. Issues are sorted by highest to lowest severity when logged.  <a href="classbfb_1_1_issue.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:a6793cdd90a58052c381a390279ca01c0"><td class="memItemLeft" align="right" valign="top"><a id="a6793cdd90a58052c381a390279ca01c0"></a>
-constexpr SeverityLevel&#160;</td><td class="memItemRight" valign="bottom"><b>bfb::Severity::Low</b> {1, 'L'}</td></tr>
-<tr class="separator:a6793cdd90a58052c381a390279ca01c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8e13a95dc646850fc6e3581c7cbd6422"><td class="memItemLeft" align="right" valign="top"><a id="a8e13a95dc646850fc6e3581c7cbd6422"></a>
-constexpr SeverityLevel&#160;</td><td class="memItemRight" valign="bottom"><b>bfb::Severity::Medium</b> {2, 'M'}</td></tr>
-<tr class="separator:a8e13a95dc646850fc6e3581c7cbd6422"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa97d86fb87182220e55b613724dad574"><td class="memItemLeft" align="right" valign="top"><a id="aa97d86fb87182220e55b613724dad574"></a>
-constexpr SeverityLevel&#160;</td><td class="memItemRight" valign="bottom"><b>bfb::Severity::High</b> {3, 'H'}</td></tr>
-<tr class="separator:aa97d86fb87182220e55b613724dad574"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><dl class="section author"><dt>Author</dt><dd>Braden Pierce (<a href="#" onclick="location.href='mai'+'lto:'+'913'+'15'+'300'+'6@'+'bry'+'an'+'tsc'+'ho'+'ols'+'.o'+'rg'; return false;">91315<span style="display: none;">.nosp@m.</span>3006<span style="display: none;">.nosp@m.</span>@brya<span style="display: none;">.nosp@m.</span>ntsc<span style="display: none;">.nosp@m.</span>hools<span style="display: none;">.nosp@m.</span>.org</a>)</dd></dl>

@@ -74,7 +74,7 @@ $(function() {
 <a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="classbfb_1_1_task-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">bfb::Task Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
+<div class="title">bfb::Task Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
@@ -98,15 +98,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a573fa3e6c271cf734bd1d5bf654b3a08"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_task.html#a573fa3e6c271cf734bd1d5bf654b3a08">Task</a> (std::uint32_t iPriority=TASK_PRIORITY_DEFAULT)</td></tr>
 <tr class="memdesc:a573fa3e6c271cf734bd1d5bf654b3a08"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classbfb_1_1_task.html" title="Allows an easy-to-use way to assign &quot;give&quot; (more like make) a class a task by inheriting from this cl...">Task</a> object.  <a href="classbfb_1_1_task.html#a573fa3e6c271cf734bd1d5bf654b3a08">More...</a><br /></td></tr>
 <tr class="separator:a573fa3e6c271cf734bd1d5bf654b3a08"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5992f5276212c16bc7a2c0bedb36f781"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_task.html#a5992f5276212c16bc7a2c0bedb36f781">step</a> ()=0</td></tr>
-<tr class="memdesc:a5992f5276212c16bc7a2c0bedb36f781"><td class="mdescLeft">&#160;</td><td class="mdescRight">Goes through one step of the <a class="el" href="classbfb_1_1_task.html" title="Allows an easy-to-use way to assign &quot;give&quot; (more like make) a class a task by inheriting from this cl...">Task</a>. Should be overwritten. Should take and return nothing.  <a href="classbfb_1_1_task.html#a5992f5276212c16bc7a2c0bedb36f781">More...</a><br /></td></tr>
-<tr class="separator:a5992f5276212c16bc7a2c0bedb36f781"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acb82619736938e6c4a2e5dbcb9f610f3"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_task.html#acb82619736938e6c4a2e5dbcb9f610f3">step</a> ()</td></tr>
+<tr class="memdesc:acb82619736938e6c4a2e5dbcb9f610f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Goes through one step of the <a class="el" href="classbfb_1_1_task.html" title="Allows an easy-to-use way to assign &quot;give&quot; (more like make) a class a task by inheriting from this cl...">Task</a>. Should be overwritten. Should take and return nothing.  <a href="classbfb_1_1_task.html#acb82619736938e6c4a2e5dbcb9f610f3">More...</a><br /></td></tr>
+<tr class="separator:acb82619736938e6c4a2e5dbcb9f610f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a12e333f1c323b041b20b0ce9938ce853"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_task.html#a12e333f1c323b041b20b0ce9938ce853">start</a> () final</td></tr>
 <tr class="memdesc:a12e333f1c323b041b20b0ce9938ce853"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts the task.  <a href="classbfb_1_1_task.html#a12e333f1c323b041b20b0ce9938ce853">More...</a><br /></td></tr>
 <tr class="separator:a12e333f1c323b041b20b0ce9938ce853"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00ea715a5299057a3f028198a90a9039"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbfb_1_1_task.html#a00ea715a5299057a3f028198a90a9039">stop</a> () final</td></tr>
-<tr class="memdesc:a00ea715a5299057a3f028198a90a9039"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ends the task.  <a href="classbfb_1_1_task.html#a00ea715a5299057a3f028198a90a9039">More...</a><br /></td></tr>
-<tr class="separator:a00ea715a5299057a3f028198a90a9039"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
@@ -180,8 +177,8 @@ std::unique_ptr&lt; pros::Task &gt;&#160;</td><td class="memItemRight" valign="b
 
 </div>
 </div>
-<a id="a5992f5276212c16bc7a2c0bedb36f781"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5992f5276212c16bc7a2c0bedb36f781">&#9670;&nbsp;</a></span>step()</h2>
+<a id="acb82619736938e6c4a2e5dbcb9f610f3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acb82619736938e6c4a2e5dbcb9f610f3">&#9670;&nbsp;</a></span>step()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -198,41 +195,14 @@ std::unique_ptr&lt; pros::Task &gt;&#160;</td><td class="memItemRight" valign="b
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 <p>Goes through one step of the <a class="el" href="classbfb_1_1_task.html" title="Allows an easy-to-use way to assign &quot;give&quot; (more like make) a class a task by inheriting from this cl...">Task</a>. Should be overwritten. Should take and return nothing. </p>
 
-<p>Implemented in <a class="el" href="classbfb_1_1_cross_odometry.html#ac37d167312223ffacf2db7f76fcca12b">bfb::CrossOdometry</a>, and <a class="el" href="classbfb_1_1_state_machine.html#a3e23f40c66e2522411438e2157f7e1cb">bfb::StateMachine&lt; Concrete, ValidStates &gt;</a>.</p>
-
-</div>
-</div>
-<a id="a00ea715a5299057a3f028198a90a9039"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a00ea715a5299057a3f028198a90a9039">&#9670;&nbsp;</a></span>stop()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual void bfb::Task::stop </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">final</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Ends the task. </p>
+<p>Reimplemented in <a class="el" href="classbfb_1_1_cross_odometry.html#ac37d167312223ffacf2db7f76fcca12b">bfb::CrossOdometry</a>, and <a class="el" href="classbfb_1_1_state_machine.html#a9ca8700ec39e2f438a1ba8d4c4efdfbb">bfb::StateMachine&lt; Concrete, ValidStates &gt;</a>.</p>
 
 </div>
 </div>
