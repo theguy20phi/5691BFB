@@ -1,9 +1,9 @@
 #include "imu.hpp"
 
 namespace bfb {
-IMU::IMU(const std::vector<int> &iPorts) {
+IMU::IMU(const std::vector<uint8_t> &iPorts) {
   imuLog.log("Imu created", {});
-  for (int port : iPorts)
+  for (uint8_t port : iPorts)
     imus.push_back(pros::Imu{port});
 }
 
@@ -13,19 +13,21 @@ void IMU::resetHeading(double value) {
 }
 
 double IMU::getHeading() {
-  double yawSum{0.0};
+  double sum{0.0};
   for (pros::Imu imu : imus)
-    yawSum += imu.get_yaw();
-  return offset + headingFilter.filter(yawSum / imus.size());
+    sum += imu.get_rotation();
+  return offset + headingFilter.filter(sum / imus.size());
+}
+
+void IMU::calibrate() {
+  for (pros::Imu imu : imus)
+    imu.reset();
 }
 
 bool IMU::isCalibrating() const {
-  if (std::any_of(imus.begin(), imus.end(), [](const pros::Imu &imu) {
-        return imu.get_status() == pros::c::E_IMU_STATUS_ERROR;
-      }))
-    static Issue imuInitIssue{"IMUInit", Severity::High};
-  return std::any_of(imus.begin(), imus.end(), [](const pros::Imu &imu) {
-    return imu.get_status() == pros::c::E_IMU_STATUS_CALIBRATING;
-  });
+  for (pros::Imu imu : imus) {
+    if (imu.is_calibrating())
+      return true;
+  }
 }
 } // namespace bfb

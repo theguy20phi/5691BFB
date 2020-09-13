@@ -4,24 +4,41 @@ auto chassisStandby = []() -> bool {
   return std::holds_alternative<States::Chassis::Standby>(chassis->getState());
 };
 
-Routine redLeft{[]() {
-                  chassis->setState(States::Chassis::MoveTo{
-                    1 * okapi::meter, 1 * okapi::meter, 180 * okapi::degree});
-                  bfb::waitUntil(chassisStandby);
-                  chassis->setState(
-                    States::Chassis::MoveTo{0 * okapi::meter, 0 * okapi::meter, 0 * okapi::degree});
-                },
-                {Color::Red, "Red Left", "Fill left", "(x, y, h)"}};
+Routine redLeft{
+  []() {
+    chassis->setState(States::Chassis::MoveTo{0 * bfb::tile, 1 * bfb::tile, 90 * okapi::degree});
+    bfb::waitUntil(chassisStandby);
+    chassis->setState(States::Chassis::MoveTo{1 * bfb::tile, 1 * bfb::tile, 180 * okapi::degree});
+    bfb::waitUntil(chassisStandby);
+    chassis->setState(States::Chassis::MoveTo{1 * bfb::tile, 0 * bfb::tile, 270 * okapi::degree});
+    bfb::waitUntil(chassisStandby);
+    chassis->setState(States::Chassis::MoveTo{0 * bfb::tile, 0 * bfb::tile, 0 * okapi::degree});
+    bfb::waitUntil(chassisStandby);
+    chassis->setState(States::Chassis::MoveTo{1 * bfb::tile, 0 * bfb::tile, -90 * okapi::degree});
+    bfb::waitUntil(chassisStandby);
+    chassis->setState(States::Chassis::MoveTo{1 * bfb::tile, 1 * bfb::tile, -180 * okapi::degree});
+    bfb::waitUntil(chassisStandby);
+    chassis->setState(States::Chassis::MoveTo{0 * bfb::tile, 1 * bfb::tile, -270 * okapi::degree});
+    bfb::waitUntil(chassisStandby);
+    chassis->setState(States::Chassis::MoveTo{0 * bfb::tile, 0 * bfb::tile, 0 * okapi::degree});
+    bfb::waitUntil(chassisStandby);
+    chassis->setState(States::Chassis::MoveTo{1 * bfb::tile, 1 * bfb::tile, 180 * okapi::degree});
+    bfb::waitUntil(chassisStandby);
+    chassis->setState(States::Chassis::MoveTo{0 * bfb::tile, 0 * bfb::tile, 0 * okapi::degree});
+  },
+  {Color::Red, "Red Left", "Fill left", "(x, y, h)"}};
 
 Routine redMidLeft{[]() {
-
+                     chassis->setState(States::Chassis::MoveTo{
+                       -1 * bfb::tile, -1 * bfb::tile, -180 * okapi::degree});
                    },
                    {Color::Red, "Red Mid-Left", "Fill left&mid", "(x, y, h)"}};
 
-Routine redMidRight{[]() {
-
-                    },
-                    {Color::Red, "Red Mid-Right", "Fill right&mid", "(x, y, h)"}};
+Routine redMidRight{
+  []() {
+    chassis->setState(States::Chassis::MoveTo{0 * bfb::tile, 0 * bfb::tile, 180 * okapi::degree});
+  },
+  {Color::Red, "Red Mid-Right", "Fill right&mid", "(x, y, h)"}};
 
 Routine redRight{[]() {
 

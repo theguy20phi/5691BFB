@@ -30,7 +30,7 @@ class IMU final {
    *
    * @param iPorts
    */
-  IMU(const std::vector<int> &iPorts);
+  IMU(const std::vector<uint8_t> &iPorts);
 
   /**
    * @brief Reset IMU heading to a certain value without re-calibrating.
@@ -47,6 +47,12 @@ class IMU final {
   double getHeading();
 
   /**
+   * @brief Calibrates the imus.
+   *
+   */
+  void calibrate();
+
+  /**
    * @brief Determines if the IMUs are still calibrating.
    *
    * @return bool
@@ -60,8 +66,9 @@ class IMU final {
   Logger<IMU> imuLog{};
 
   private:
+  double raw{0.0};
   double offset{0.0};
   std::vector<pros::Imu> imus;
-  okapi::MedianFilter<5> headingFilter;
+  okapi::MedianFilter<5> headingFilter{};
 };
 } // namespace bfb

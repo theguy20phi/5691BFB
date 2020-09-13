@@ -41,6 +41,12 @@ class Task {
    *
    */
   virtual void start() final;
+  
+  /**
+   * @brief Stops the task.
+   * 
+   */
+  virtual void stop() final;
 
   /**
    * @brief Logger object for Task.

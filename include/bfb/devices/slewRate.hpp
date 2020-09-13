@@ -47,6 +47,6 @@ template <typename Type> class SlewRate final {
 
   private:
   const Type maxChange;
-  Type value;
+  Type value{0};
 };
 } // namespace bfb

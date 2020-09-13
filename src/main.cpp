@@ -104,6 +104,7 @@ void competition_initialize() {
 /*                                 Autonomous                                 */
 /* -------------------------------------------------------------------------- */
 void autonomous() {
+  chassis->reset();
   match->getRoutine().execute();
 }
 

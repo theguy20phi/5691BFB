@@ -8,6 +8,7 @@ ChassisMachine::ChassisMachine(const States::Chassis::ChassisStates &iState)
 }
 
 void ChassisMachine::behavior(const States::Chassis::Standby &standby) {
+  brake();
 }
 
 void ChassisMachine::behavior(const States::Chassis::Control &control) {
@@ -15,24 +16,36 @@ void ChassisMachine::behavior(const States::Chassis::Control &control) {
 }
 
 void ChassisMachine::behavior(const States::Chassis::MoveTo &moveTo) {
-  const double xDist{getDistanceTo(odometry.H(), moveTo)};
-  const double yDist{getDistanceTo(odometry.H() - 90_deg, moveTo)};
-  const double hDist{moveTo.h.convert(okapi::radian) - odometry.H().convert(okapi::radian)};
-  xPidf.calculate(xDist);
-  yPidf.calculate(yDist);
-  hPidf.calculate(hDist);
-  controlDrive(xPidf.getOutput(), yPidf.getOutput(), hPidf.getOutput());
-  if (xPidf.isDone(xDist) && yPidf.isDone(yDist) && hPidf.isDone(hDist))
-    setState(States::Chassis::Standby{});
+  updatePids(moveTo);
+  const double sum{xPidf.getOutput() + yPidf.getOutput() + hPidf.getOutput()};
+  const double value{std::clamp(fabs(sum), 0.0, 12000.0)};
+  controlDrive(yPidf.getOutput(), xPidf.getOutput(), hPidf.getOutput());
 }
 
-double ChassisMachine::getDistanceTo(const okapi::QAngle &h,
-                                     const States::Chassis::MoveTo &moveTo) {
-  // May need edge case for m if cos(h) == 0
-  const double m{sin(h.convert(okapi::radian) / cos(h.convert(okapi::radian)))};
-  const double bT{moveTo.y.convert(okapi::meter) - m * moveTo.x.convert(okapi::meter)};
-  const double bR{odometry.Y().convert(okapi::meter) - m * odometry.X().convert(okapi::meter)};
-  return fabs(bT - bR) / sqrt(m * m + 1);
+void ChassisMachine::reset(const okapi::QLength iX,
+                           const okapi::QLength iY,
+                           const okapi::QAngle iH) {
+  odometry.reset(iX, iY, iH);
+  setState(States::Chassis::Standby{});
+}
+
+void ChassisMachine::updatePids(const States::Chassis::MoveTo &moveTo) {
+  const double xDiff{(odometry.X() - moveTo.x).convert(okapi::meter)};
+  const double yDiff{(odometry.Y() - moveTo.y).convert(okapi::meter)};
+  const double distance{sqrt(xDiff * xDiff + yDiff * yDiff)};
+  const double direction{odometry.H().convert(okapi::radian) + atan2(yDiff, xDiff)};
+  double xDistance{distance * cos(direction)};
+  double yDistance{distance * sin(direction)};
+  const double hDistance{
+    okapi::OdomMath::constrainAngle180(odometry.H() - moveTo.h).convert(okapi::radian)};
+  std::cout << xDistance << " " << yDistance << " " << hDistance << " " << atan2(yDiff, xDiff)
+            << std::endl;
+
+  xPidf.calculate(xDistance);
+  yPidf.calculate(yDistance);
+  hPidf.calculate(hDistance);
+  if (xPidf.isDone(xDistance) && yPidf.isDone(yDistance) && hPidf.isDone(hDistance))
+    setState(States::Chassis::Standby{});
 }
 
 void ChassisMachine::toggleHold() {
@@ -58,17 +71,30 @@ void ChassisMachine::coast() {
 }
 
 void ChassisMachine::controlDrive(double forward, double strafe, double turn) {
-  rFSlew.slew(forward + strafe - turn);
-  rBSlew.slew(forward - strafe - turn);
-  if (forward + strafe + turn < deadband) {
-    lFWheel.move_velocity(0);
-    lBWheel.move_velocity(0);
-    rFWheel.move_velocity(0);
-    rBWheel.move_velocity(0);
-  } else {
-    lFWheel.move_voltage(forward - strafe + turn);
-    lBWheel.move_voltage(forward + strafe + turn);
-    rFWheel.move_voltage(rFSlew.getValue());
-    rBWheel.move_voltage(rBSlew.getValue());
-  }
+  updateSlewRates(forward, strafe, turn);
+  if (fabs(forward + strafe + turn) < deadband)
+    brake();
+  else
+    move();
+}
+
+void ChassisMachine::updateSlewRates(double forward, double strafe, double turn) {
+  lFSlew.slew(forward + strafe + turn);
+  lBSlew.slew(forward - strafe + turn);
+  rFSlew.slew(forward - strafe - turn);
+  rBSlew.slew(forward + strafe - turn);
+}
+
+void ChassisMachine::brake() {
+  lFWheel.move_velocity(0);
+  lBWheel.move_velocity(0);
+  rFWheel.move_velocity(0);
+  rBWheel.move_velocity(0);
+}
+
+void ChassisMachine::move() {
+  lFWheel.move_voltage(lFSlew.getValue());
+  lBWheel.move_voltage(lBSlew.getValue());
+  rFWheel.move_voltage(rFSlew.getValue());
+  rBWheel.move_voltage(rBSlew.getValue());
 }

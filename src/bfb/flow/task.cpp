@@ -8,17 +8,20 @@ void Task::step() {
 }
 
 void Task::start() {
-  if (!task) {
-    taskLog.log("Task started.", {});
-    task = std::make_unique<pros::Task>(
-      [this]() {
-        for (;;) {
-          this->step();
-          wait(Wait::generalDelay);
-        }
-      },
-      "BFB TASK");
-  }
+  taskLog.log("Task started.", {});
+  task = std::make_unique<pros::Task>(
+    [this]() {
+      for (;;) {
+        this->step();
+        wait(Wait::generalDelay);
+      }
+    },
+    "BFB TASK");
+}
+
+void Task::stop() {
+  taskLog.log("Task stopped.", {});
+  task = nullptr;
 }
 
 Logger<Task> Task::taskLog{};
