@@ -190,9 +190,10 @@ bin/specific/globals.cpp.o: src/specific/globals.cpp \
  include/okapi/api/units/QMass.hpp include/okapi/api/units/QJerk.hpp \
  include/okapi/api/units/QPressure.hpp \
  include/okapi/api/units/QTorque.hpp include/okapi/api/units/QVolume.hpp \
- include/okapi/impl/util/rate.hpp include/specific/chassisMachine.hpp \
- include/specific/rollersMachine.hpp include/specific/match.hpp \
- include/specific/routines.hpp
+ include/okapi/impl/util/rate.hpp include/specific/specific.hpp \
+ include/specific/chassisMachine.hpp include/specific/controls.hpp \
+ include/specific/gui.hpp include/specific/match.hpp \
+ include/specific/rollersMachine.hpp include/specific/routines.hpp
 
 include/specific/globals.hpp:
 
@@ -742,10 +743,16 @@ include/okapi/api/units/QVolume.hpp:
 
 include/okapi/impl/util/rate.hpp:
 
+include/specific/specific.hpp:
+
 include/specific/chassisMachine.hpp:
 
-include/specific/rollersMachine.hpp:
+include/specific/controls.hpp:
+
+include/specific/gui.hpp:
 
 include/specific/match.hpp:
+
+include/specific/rollersMachine.hpp:
 
 include/specific/routines.hpp:

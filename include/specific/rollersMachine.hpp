@@ -34,7 +34,8 @@ class RollersMachine : public bfb::StateMachine<RollersMachine, States::Rollers:
 
   private:
   const int indexerThreshold{2000};
-  pros::ADILineSensor indexer{'E'};
+  pros::ADILineSensor indexer{'G'};
+  pros::ADILightSensor colorSensor{'H'};
   pros::Motor lowerBigRoller{5, pros::motor_gearset_e_t::E_MOTOR_GEARSET_06};
   pros::Motor upperBigRoller{6, pros::motor_gearset_e_t::E_MOTOR_GEARSET_06};
   pros::Motor leftSideRoller{9, pros::motor_gearset_e_t::E_MOTOR_GEARSET_06};

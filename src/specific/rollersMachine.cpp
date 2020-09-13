@@ -3,6 +3,7 @@
 RollersMachine::RollersMachine(const States::Rollers::RollersStates &iState)
   : StateMachine(iState) {
   indexer.calibrate();
+  colorSensor.calibrate();
   lowerBigRoller.set_brake_mode(pros::E_MOTOR_BRAKE_BRAKE);
   upperBigRoller.set_brake_mode(pros::E_MOTOR_BRAKE_BRAKE);
   leftSideRoller.set_brake_mode(pros::E_MOTOR_BRAKE_BRAKE);

@@ -22,11 +22,7 @@
 using namespace okapi::literals;
 using namespace bfb::literals;
 
-#include "specific/chassisMachine.hpp"
-#include "specific/rollersMachine.hpp"
-#include "specific/match.hpp"
-#include "specific/globals.hpp"
-#include "specific/routines.hpp"
+#include "specific/specific.hpp"
 
 #ifdef __cplusplus
 extern "C" {

@@ -17,57 +17,7 @@ void ChassisMachine::behavior(const States::Chassis::Control &control) {
 
 void ChassisMachine::behavior(const States::Chassis::MoveTo &moveTo) {
   updatePids(moveTo);
-  const double sum{xPidf.getOutput() + yPidf.getOutput() + hPidf.getOutput()};
-  const double value{std::clamp(fabs(sum), 0.0, 12000.0)};
   controlDrive(yPidf.getOutput(), xPidf.getOutput(), hPidf.getOutput());
-}
-
-void ChassisMachine::reset(const okapi::QLength iX,
-                           const okapi::QLength iY,
-                           const okapi::QAngle iH) {
-  odometry.reset(iX, iY, iH);
-  setState(States::Chassis::Standby{});
-}
-
-void ChassisMachine::updatePids(const States::Chassis::MoveTo &moveTo) {
-  const double xDiff{(odometry.X() - moveTo.x).convert(okapi::meter)};
-  const double yDiff{(odometry.Y() - moveTo.y).convert(okapi::meter)};
-  const double distance{sqrt(xDiff * xDiff + yDiff * yDiff)};
-  const double direction{odometry.H().convert(okapi::radian) + atan2(yDiff, xDiff)};
-  double xDistance{distance * cos(direction)};
-  double yDistance{distance * sin(direction)};
-  const double hDistance{
-    okapi::OdomMath::constrainAngle180(odometry.H() - moveTo.h).convert(okapi::radian)};
-  std::cout << xDistance << " " << yDistance << " " << hDistance << " " << atan2(yDiff, xDiff)
-            << std::endl;
-
-  xPidf.calculate(xDistance);
-  yPidf.calculate(yDistance);
-  hPidf.calculate(hDistance);
-  if (xPidf.isDone(xDistance) && yPidf.isDone(yDistance) && hPidf.isDone(hDistance))
-    setState(States::Chassis::Standby{});
-}
-
-void ChassisMachine::toggleHold() {
-  if (lFWheel.get_brake_mode() == pros::E_MOTOR_BRAKE_COAST) {
-    hold();
-  } else {
-    coast();
-  }
-}
-
-void ChassisMachine::hold() {
-  lFWheel.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
-  lBWheel.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
-  rFWheel.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
-  rBWheel.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
-}
-
-void ChassisMachine::coast() {
-  lFWheel.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
-  lBWheel.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
-  rFWheel.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
-  rBWheel.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
 }
 
 void ChassisMachine::controlDrive(double forward, double strafe, double turn) {
@@ -97,4 +47,49 @@ void ChassisMachine::move() {
   lBWheel.move_voltage(lBSlew.getValue());
   rFWheel.move_voltage(rFSlew.getValue());
   rBWheel.move_voltage(rBSlew.getValue());
+}
+
+void ChassisMachine::updatePids(const States::Chassis::MoveTo &moveTo) {
+  const double xDiff{(odometry.X() - moveTo.x).convert(okapi::meter)};
+  const double yDiff{(odometry.Y() - moveTo.y).convert(okapi::meter)};
+  const double distance{sqrt(xDiff * xDiff + yDiff * yDiff)};
+  const double direction{odometry.H().convert(okapi::radian) + atan2(yDiff, xDiff)};
+  double xDistance{distance * cos(direction)};
+  double yDistance{distance * sin(direction)};
+  const double hDistance{
+    okapi::OdomMath::constrainAngle180(odometry.H() - moveTo.h).convert(okapi::radian)};
+  xPidf.calculate(xDistance);
+  yPidf.calculate(yDistance);
+  hPidf.calculate(hDistance);
+  if (xPidf.isDone(xDistance) && yPidf.isDone(yDistance) && hPidf.isDone(hDistance))
+    setState(States::Chassis::Standby{});
+}
+
+void ChassisMachine::reset(const okapi::QLength iX,
+                           const okapi::QLength iY,
+                           const okapi::QAngle iH) {
+  odometry.reset(iX, iY, iH);
+  setState(States::Chassis::Standby{});
+}
+
+void ChassisMachine::toggleHold() {
+  if (lFWheel.get_brake_mode() == pros::E_MOTOR_BRAKE_COAST) {
+    hold();
+  } else {
+    coast();
+  }
+}
+
+void ChassisMachine::hold() {
+  lFWheel.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
+  lBWheel.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
+  rFWheel.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
+  rBWheel.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
+}
+
+void ChassisMachine::coast() {
+  lFWheel.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
+  lBWheel.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
+  rFWheel.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
+  rBWheel.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
 }
