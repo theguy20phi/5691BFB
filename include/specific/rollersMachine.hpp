@@ -10,13 +10,17 @@
 
 #include "main.h"
 
+enum class Color;
+
 namespace States {
 namespace Rollers {
 struct Standby {};
 struct Intake {};
 struct Outtake {};
 struct Shoot {};
-struct Cycle {};
+struct Cycle {
+  Color color;
+};
 struct FastShoot {};
 using RollersStates = std::variant<Standby, Intake, Outtake, Shoot, Cycle, FastShoot>;
 } // namespace Rollers
@@ -33,11 +37,11 @@ class RollersMachine : public bfb::StateMachine<RollersMachine, States::Rollers:
   void behavior(const States::Rollers::FastShoot &fastShoot);
 
   private:
-  const int indexerThreshold{2000};
-  pros::ADILineSensor indexer{'G'};
-  pros::ADILightSensor colorSensor{'H'};
-  pros::Motor lowerBigRoller{5, pros::motor_gearset_e_t::E_MOTOR_GEARSET_06};
-  pros::Motor upperBigRoller{6, pros::motor_gearset_e_t::E_MOTOR_GEARSET_06};
+  const int indexerThreshold{250};
+  pros::ADIUltrasonic indexer{'G', 'H'};
+  pros::Vision visionSensor{20};
+  pros::Motor lowerBigRoller{5, pros::motor_gearset_e_t::E_MOTOR_GEARSET_06, true};
+  pros::Motor upperBigRoller{6, pros::motor_gearset_e_t::E_MOTOR_GEARSET_06, true};
   pros::Motor leftSideRoller{9, pros::motor_gearset_e_t::E_MOTOR_GEARSET_06};
   pros::Motor rightSideRoller{10, pros::motor_gearset_e_t::E_MOTOR_GEARSET_06};
 };

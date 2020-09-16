@@ -10,7 +10,7 @@ void chassisControls() {
 void rollerControls() {
   if (master.get_digital(pros::E_CONTROLLER_DIGITAL_R1)) {
     if (master.get_digital(pros::E_CONTROLLER_DIGITAL_L1))
-      rollers->setState(States::Rollers::Cycle{});
+      rollers->setState(States::Rollers::Cycle{match->getColor()});
     else if (master.get_digital(pros::E_CONTROLLER_DIGITAL_L2))
       rollers->setState(States::Rollers::FastShoot{});
     else
