@@ -12,7 +12,9 @@
 #include "bfb/devices/imu.hpp"
 #include "bfb/flow/task.hpp"
 #include "okapi/api/units/QAngle.hpp"
+#include "okapi/api/units/QAngularSpeed.hpp"
 #include "okapi/api/units/QLength.hpp"
+#include "okapi/api/units/QSpeed.hpp"
 #include "pros/adi.hpp"
 
 using namespace okapi::literals;
@@ -57,6 +59,19 @@ class Odometer {
 class CrossOdometry : public Task {
   public:
   /**
+   * @brief Structure to represent position data.
+   *
+   */
+  struct Pose {
+    okapi::QLength X{0_in};
+    okapi::QLength Y{0_in};
+    okapi::QAngle H{0_deg};
+    okapi::QSpeed VX{0_mps};
+    okapi::QSpeed VY{0_mps};
+    okapi::QAngularSpeed W{0_rpm};
+  };
+
+  /**
    * @brief Construct a new Cross Odometry object
    *
    * @param iForwardOdometer
@@ -72,62 +87,21 @@ class CrossOdometry : public Task {
   void step() override;
 
   /**
-   * @brief Gets x.
+   * @brief Get the Pose object.
    *
-   * @return okapi::QLength
+   * @return Pose
    */
-  okapi::QLength X() const;
-
-  /**
-   * @brief Gets y.
-   *
-   * @return okapi::QLength
-   */
-  okapi::QLength Y() const;
-
-  /**
-   * @brief Gets h.
-   *
-   * @return okapi::QAngle
-   */
-  okapi::QAngle H() const;
-
-  /**
-   * @brief Sets x.
-   *
-   * @param iX
-   */
-  void setX(const okapi::QLength iX);
-
-  /**
-   * @brief Sets y.
-   *
-   * @param iY
-   */
-  void setY(const okapi::QLength iY);
-
-  /**
-   * @brief Sets h.
-   *
-   * @param iH
-   */
-  void setH(const okapi::QAngle iH);
+  Pose getPose() const;
 
   /**
    * @brief Resets the odometry.
    *
-   * @param iX
-   * @param iY
-   * @param iH
+   * @param iPose
    */
-  void reset(const okapi::QLength iX = 0 * okapi::meter,
-             const okapi::QLength iY = 0 * okapi::meter,
-             const okapi::QAngle iH = 0 * okapi::radian);
+  void reset(const Pose &iPose = Pose{0_in, 0_in, 0_deg, 0_mps, 0_mps, 0_rpm});
 
   private:
-  okapi::QLength x{0_in};
-  okapi::QLength y{0_in};
-  okapi::QAngle h{0_deg};
+  Pose pose;
   Odometer forwardOdometer;
   Odometer sideOdometer;
   IMU imus;

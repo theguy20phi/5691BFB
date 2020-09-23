@@ -25,9 +25,8 @@ class ChassisMachine : public bfb::StateMachine<ChassisMachine, States::Chassis:
   void behavior(const States::Chassis::Standby &standby);
   void behavior(const States::Chassis::Control &control);
   void behavior(const States::Chassis::MoveTo &moveTo);
-  void reset(const okapi::QLength iX = 0_m,
-             const okapi::QLength iY = 0_m,
-             const okapi::QAngle iH = 0_deg);
+  void reset(const bfb::CrossOdometry::Pose &iPose = bfb::CrossOdometry::Pose{0_in, 0_in, 0_deg, 0_mps, 0_mps, 0_rpm});
+  bfb::CrossOdometry::Pose getPose() const;
   void toggleHold();
   void hold();
   void coast();

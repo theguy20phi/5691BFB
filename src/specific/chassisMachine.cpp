@@ -4,7 +4,7 @@ ChassisMachine::ChassisMachine(const States::Chassis::ChassisStates &iState)
   : StateMachine(iState) {
   coast();
   odometry.start();
-  odometry.reset(0_m, 0_m, 0_rad);
+  odometry.reset();
 }
 
 void ChassisMachine::behavior(const States::Chassis::Standby &standby) {
@@ -50,14 +50,17 @@ void ChassisMachine::move() {
 }
 
 void ChassisMachine::updatePids(const States::Chassis::MoveTo &moveTo) {
-  const double xDiff{(odometry.X() - moveTo.x).convert(okapi::meter)};
-  const double yDiff{(odometry.Y() - moveTo.y).convert(okapi::meter)};
+  const double xDiff{(odometry.getPose().X - moveTo.x).convert(okapi::meter)};
+  const double yDiff{(odometry.getPose().Y - moveTo.y).convert(okapi::meter)};
   const double distance{sqrt(xDiff * xDiff + yDiff * yDiff)};
-  const double direction{odometry.H().convert(okapi::radian) + atan2(yDiff, xDiff)};
+  const double direction{odometry.getPose().H.convert(okapi::radian) +
+                         odometry.getPose().W.convert(okapi::radps) *
+                           (bfb::Wait::generalDelay / 2000.0) +
+                         atan2(yDiff, xDiff)};
   double xDistance{distance * cos(direction)};
   double yDistance{distance * sin(direction)};
   const double hDistance{
-    okapi::OdomMath::constrainAngle180(odometry.H() - moveTo.h).convert(okapi::radian)};
+    okapi::OdomMath::constrainAngle180(odometry.getPose().H - moveTo.h).convert(okapi::radian)};
   xPidf.calculate(xDistance);
   yPidf.calculate(yDistance);
   hPidf.calculate(hDistance);
@@ -65,10 +68,8 @@ void ChassisMachine::updatePids(const States::Chassis::MoveTo &moveTo) {
     setState(States::Chassis::Standby{});
 }
 
-void ChassisMachine::reset(const okapi::QLength iX,
-                           const okapi::QLength iY,
-                           const okapi::QAngle iH) {
-  odometry.reset(iX, iY, iH);
+void ChassisMachine::reset(const bfb::CrossOdometry::Pose &iPose) {
+  odometry.reset(iPose);
   setState(States::Chassis::Standby{});
 }
 

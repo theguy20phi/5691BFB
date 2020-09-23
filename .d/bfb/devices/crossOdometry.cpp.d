@@ -75,7 +75,10 @@ bin/bfb/devices/crossOdometry.cpp.o: src/bfb/devices/crossOdometry.cpp \
  include/pros/motors.h include/pros/rtos.hpp include/pros/vision.hpp \
  include/pros/vision.h include/okapi/api/units/QAngle.hpp \
  include/okapi/api/units/RQuantity.hpp \
- include/okapi/api/units/QLength.hpp include/pros/adi.hpp
+ include/okapi/api/units/QAngularSpeed.hpp \
+ include/okapi/api/units/QFrequency.hpp include/okapi/api/units/QTime.hpp \
+ include/okapi/api/units/QLength.hpp include/okapi/api/units/QSpeed.hpp \
+ include/pros/adi.hpp
 
 include/bfb/devices/crossOdometry.hpp:
 
@@ -361,6 +364,14 @@ include/okapi/api/units/QAngle.hpp:
 
 include/okapi/api/units/RQuantity.hpp:
 
+include/okapi/api/units/QAngularSpeed.hpp:
+
+include/okapi/api/units/QFrequency.hpp:
+
+include/okapi/api/units/QTime.hpp:
+
 include/okapi/api/units/QLength.hpp:
+
+include/okapi/api/units/QSpeed.hpp:
 
 include/pros/adi.hpp:

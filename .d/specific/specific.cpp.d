@@ -91,7 +91,9 @@ bin/specific/specific.cpp.o: src/specific/specific.cpp \
  include/bfb/devices/crossOdometry.hpp include/bfb/devices/imu.hpp \
  include/okapi/api/filter/medianFilter.hpp include/pros/imu.hpp \
  include/bfb/flow/task.hpp include/pros/rtos.hpp \
- include/okapi/api/units/QAngle.hpp include/okapi/api/units/QLength.hpp \
+ include/okapi/api/units/QAngle.hpp \
+ include/okapi/api/units/QAngularSpeed.hpp \
+ include/okapi/api/units/QLength.hpp include/okapi/api/units/QSpeed.hpp \
  include/pros/adi.hpp include/bfb/devices/slewRate.hpp \
  include/bfb/flow/stateMachine.hpp include/bfb/utility/moreQLength.hpp \
  include/okapi/api.hpp \
@@ -121,7 +123,7 @@ bin/specific/specific.cpp.o: src/specific/specific.cpp \
  include/okapi/api/odometry/odometry.hpp \
  include/okapi/api/odometry/odomState.hpp \
  include/okapi/api/odometry/stateMode.hpp \
- include/okapi/api/odometry/point.hpp include/okapi/api/units/QSpeed.hpp \
+ include/okapi/api/odometry/point.hpp \
  include/okapi/api/chassis/model/hDriveModel.hpp \
  include/okapi/api/chassis/model/threeEncoderSkidSteerModel.hpp \
  include/okapi/api/chassis/model/threeEncoderXDriveModel.hpp \
@@ -133,7 +135,6 @@ bin/specific/specific.cpp.o: src/specific/specific.cpp \
  include/okapi/impl/device/rotarysensor/integratedEncoder.hpp \
  include/okapi/api/control/async/asyncLinearMotionProfileController.hpp \
  include/okapi/api/control/util/pathfinderUtil.hpp \
- include/okapi/api/units/QAngularSpeed.hpp \
  include/okapi/pathfinder/include/pathfinder.h \
  include/okapi/pathfinder/include/pathfinder/mathutil.h \
  include/okapi/pathfinder/include/pathfinder/lib.h \
@@ -530,7 +531,11 @@ include/pros/rtos.hpp:
 
 include/okapi/api/units/QAngle.hpp:
 
+include/okapi/api/units/QAngularSpeed.hpp:
+
 include/okapi/api/units/QLength.hpp:
+
+include/okapi/api/units/QSpeed.hpp:
 
 include/pros/adi.hpp:
 
@@ -598,8 +603,6 @@ include/okapi/api/odometry/stateMode.hpp:
 
 include/okapi/api/odometry/point.hpp:
 
-include/okapi/api/units/QSpeed.hpp:
-
 include/okapi/api/chassis/model/hDriveModel.hpp:
 
 include/okapi/api/chassis/model/threeEncoderSkidSteerModel.hpp:
@@ -621,8 +624,6 @@ include/okapi/impl/device/rotarysensor/integratedEncoder.hpp:
 include/okapi/api/control/async/asyncLinearMotionProfileController.hpp:
 
 include/okapi/api/control/util/pathfinderUtil.hpp:
-
-include/okapi/api/units/QAngularSpeed.hpp:
 
 include/okapi/pathfinder/include/pathfinder.h:
 
