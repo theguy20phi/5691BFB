@@ -37,9 +37,13 @@ class RollersMachine : public bfb::StateMachine<RollersMachine, States::Rollers:
   void behavior(const States::Rollers::FastShoot &fastShoot);
 
   private:
-  const int indexerThreshold{250};
-  pros::ADIUltrasonic indexer{'G', 'H'};
+  void cycleDecision(const States::Rollers::Cycle &cycle);
+
+  private:
+  const int threshold{250};
+  pros::ADIUltrasonic indexerSensor{'E', 'F'};
   pros::Vision visionSensor{20};
+  pros::ADIUltrasonic shootingSensor{'G', 'H'};
   pros::Motor lowerBigRoller{5, pros::motor_gearset_e_t::E_MOTOR_GEARSET_06, true};
   pros::Motor upperBigRoller{6, pros::motor_gearset_e_t::E_MOTOR_GEARSET_06, true};
   pros::Motor leftSideRoller{9, pros::motor_gearset_e_t::E_MOTOR_GEARSET_06};

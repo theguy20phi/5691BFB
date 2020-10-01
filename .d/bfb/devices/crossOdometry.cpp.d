@@ -6,7 +6,8 @@ bin/bfb/devices/crossOdometry.cpp.o: src/bfb/devices/crossOdometry.cpp \
  include/okapi/api/filter/filter.hpp include/pros/imu.hpp \
  include/pros/imu.h include/bfb/flow/task.hpp include/pros/rtos.hpp \
  include/pros/rtos.h include/bfb/flow/wait.hpp include/api.h \
- include/pros/adi.h include/pros/colors.h include/pros/imu.h \
+ include/pros/adi.h include/pros/colors.h include/pros/ext_adi.h \
+ include/pros/adi.h include/pros/adi.h include/pros/imu.h \
  include/pros/llemu.h include/display/lvgl.h include/display/lv_version.h \
  include/display/lv_misc/lv_log.h include/display/lv_conf.h \
  include/display/lv_conf_checker.h include/display/lv_misc/lv_task.h \
@@ -69,12 +70,11 @@ bin/bfb/devices/crossOdometry.cpp.o: src/bfb/devices/crossOdometry.cpp \
  include/display/lv_objx/lv_arc.h include/display/lv_objx/lv_calendar.h \
  include/display/lv_objx/lv_spinbox.h include/display/lv_objx/lv_ta.h \
  include/pros/misc.h include/pros/motors.h include/pros/rtos.h \
- include/pros/vision.h include/pros/adi.hpp include/pros/adi.h \
- include/pros/imu.hpp include/pros/llemu.hpp include/pros/llemu.h \
- include/pros/misc.hpp include/pros/misc.h include/pros/motors.hpp \
- include/pros/motors.h include/pros/rtos.hpp include/pros/vision.hpp \
- include/pros/vision.h include/okapi/api/units/QAngle.hpp \
- include/okapi/api/units/RQuantity.hpp \
+ include/pros/vision.h include/pros/adi.hpp include/pros/imu.hpp \
+ include/pros/llemu.hpp include/pros/llemu.h include/pros/misc.hpp \
+ include/pros/misc.h include/pros/motors.hpp include/pros/motors.h \
+ include/pros/rtos.hpp include/pros/vision.hpp include/pros/vision.h \
+ include/okapi/api/units/QAngle.hpp include/okapi/api/units/RQuantity.hpp \
  include/okapi/api/units/QAngularSpeed.hpp \
  include/okapi/api/units/QFrequency.hpp include/okapi/api/units/QTime.hpp \
  include/okapi/api/units/QLength.hpp include/okapi/api/units/QSpeed.hpp \
@@ -113,6 +113,12 @@ include/api.h:
 include/pros/adi.h:
 
 include/pros/colors.h:
+
+include/pros/ext_adi.h:
+
+include/pros/adi.h:
+
+include/pros/adi.h:
 
 include/pros/imu.h:
 
@@ -337,8 +343,6 @@ include/pros/rtos.h:
 include/pros/vision.h:
 
 include/pros/adi.hpp:
-
-include/pros/adi.h:
 
 include/pros/imu.hpp:
 

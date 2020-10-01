@@ -2,7 +2,8 @@ bin/bfb/flow/task.cpp.o: src/bfb/flow/task.cpp include/bfb/flow/task.hpp \
  include/bfb/debug/logger.hpp include/bfb/utility/key.hpp \
  include/bfb/debug/test.hpp include/pros/rtos.hpp include/pros/rtos.h \
  include/bfb/flow/wait.hpp include/api.h include/pros/adi.h \
- include/pros/colors.h include/pros/imu.h include/pros/llemu.h \
+ include/pros/colors.h include/pros/ext_adi.h include/pros/adi.h \
+ include/pros/adi.h include/pros/imu.h include/pros/llemu.h \
  include/display/lvgl.h include/display/lv_version.h \
  include/display/lv_misc/lv_log.h include/display/lv_conf.h \
  include/display/lv_conf_checker.h include/display/lv_misc/lv_task.h \
@@ -65,11 +66,11 @@ bin/bfb/flow/task.cpp.o: src/bfb/flow/task.cpp include/bfb/flow/task.hpp \
  include/display/lv_objx/lv_arc.h include/display/lv_objx/lv_calendar.h \
  include/display/lv_objx/lv_spinbox.h include/display/lv_objx/lv_ta.h \
  include/pros/misc.h include/pros/motors.h include/pros/rtos.h \
- include/pros/vision.h include/pros/adi.hpp include/pros/adi.h \
- include/pros/imu.hpp include/pros/imu.h include/pros/llemu.hpp \
- include/pros/llemu.h include/pros/misc.hpp include/pros/misc.h \
- include/pros/motors.hpp include/pros/motors.h include/pros/rtos.hpp \
- include/pros/vision.hpp include/pros/vision.h
+ include/pros/vision.h include/pros/adi.hpp include/pros/imu.hpp \
+ include/pros/imu.h include/pros/llemu.hpp include/pros/llemu.h \
+ include/pros/misc.hpp include/pros/misc.h include/pros/motors.hpp \
+ include/pros/motors.h include/pros/rtos.hpp include/pros/vision.hpp \
+ include/pros/vision.h
 
 include/bfb/flow/task.hpp:
 
@@ -90,6 +91,12 @@ include/api.h:
 include/pros/adi.h:
 
 include/pros/colors.h:
+
+include/pros/ext_adi.h:
+
+include/pros/adi.h:
+
+include/pros/adi.h:
 
 include/pros/imu.h:
 
@@ -314,8 +321,6 @@ include/pros/rtos.h:
 include/pros/vision.h:
 
 include/pros/adi.hpp:
-
-include/pros/adi.h:
 
 include/pros/imu.hpp:
 

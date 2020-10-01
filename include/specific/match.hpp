@@ -31,8 +31,8 @@ class Match {
   void setColor(const Color &iColor);
 
   private:
-  pros::ADIPotentiometer routineSelector{5};
-  pros::ADIPotentiometer colorSelector{6};
+  pros::ADIAnalogIn routineSelector{{19, 1}};
+  pros::ADIAnalogIn colorSelector{{19, 2}};
   std::array<Routine, 12> routines;
   int index{0};
   Color color;

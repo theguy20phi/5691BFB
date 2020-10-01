@@ -16,7 +16,7 @@ void RollersMachine::behavior(const States::Rollers::Standby &standby) {
 }
 
 void RollersMachine::behavior(const States::Rollers::Intake &intake) {
-  if (indexer.get_value() < indexerThreshold) {
+  if (shootingSensor.get_value() < threshold) {
     lowerBigRoller.move_velocity(0);
     upperBigRoller.move_velocity(0);
   } else {
@@ -45,7 +45,11 @@ void RollersMachine::behavior(const States::Rollers::Cycle &cycle) {
   lowerBigRoller.move_velocity(600);
   leftSideRoller.move_velocity(600);
   rightSideRoller.move_velocity(600);
-  if (indexer.get_value() < indexerThreshold) {
+  cycleDecision(cycle);
+}
+
+void RollersMachine::cycleDecision(const States::Rollers::Cycle &cycle) {
+  if (indexerSensor.get_value() < threshold) {
     if (visionSensor.get_by_size(0).signature == 1) { // blue
       if (cycle.color == Color::Red) {
         upperBigRoller.move_velocity(-600);
