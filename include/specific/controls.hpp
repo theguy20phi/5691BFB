@@ -3,11 +3,13 @@
 #include "main.h"
 
 /**
- * Standard x-arcade scheme.
+ * @brief Standard x-drive controls.
+ *
  */
 void chassisControls();
 
 /**
+ * @brief The controls for the rollers.
  * L1 = Intake
  * L2 = Outtake
  * R1 = Shoot
@@ -18,4 +20,8 @@ void chassisControls();
  */
 void rollerControls();
 
+/**
+ * @brief Special-use buttons and Issues.
+ * 
+ */
 void contingencies();

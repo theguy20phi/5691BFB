@@ -1,3 +1,11 @@
+/**
+ * @file specific.hpp
+ * @author Braden Pierce (913153006@bryantschools.org)
+ *
+ * @copyright Copyright (c) 2020
+ *
+ */
+
 #pragma once
 
 #include "chassisMachine.hpp"
