@@ -30,7 +30,7 @@ bool isAlmostEqual(double a, double b, double thresh);
  * @param thresh
  * @return bool
  */
-bool isAlmostZero(double a, double thresh);
+bool isAlmostZero(double a, double thresh = 0.1);
 
 /**
  * @brief Determines the sign of a value.

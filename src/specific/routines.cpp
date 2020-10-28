@@ -6,25 +6,8 @@ auto chassisStandby = []() -> bool {
 
 Routine redLeft{
   []() {
-    chassis->setState(States::Chassis::MoveTo{0 * bfb::tile, 1 * bfb::tile, 90 * okapi::degree});
+    chassis->setState(States::Chassis::MoveTo{1 * bfb::tile, 1 * bfb::tile, 0 * okapi::degree});
     bfb::waitUntil(chassisStandby);
-    chassis->setState(States::Chassis::MoveTo{1 * bfb::tile, 1 * bfb::tile, 180 * okapi::degree});
-    bfb::waitUntil(chassisStandby);
-    chassis->setState(States::Chassis::MoveTo{1 * bfb::tile, 0 * bfb::tile, 270 * okapi::degree});
-    bfb::waitUntil(chassisStandby);
-    chassis->setState(States::Chassis::MoveTo{0 * bfb::tile, 0 * bfb::tile, 0 * okapi::degree});
-    bfb::waitUntil(chassisStandby);
-    chassis->setState(States::Chassis::MoveTo{1 * bfb::tile, 0 * bfb::tile, -90 * okapi::degree});
-    bfb::waitUntil(chassisStandby);
-    chassis->setState(States::Chassis::MoveTo{1 * bfb::tile, 1 * bfb::tile, -180 * okapi::degree});
-    bfb::waitUntil(chassisStandby);
-    chassis->setState(States::Chassis::MoveTo{0 * bfb::tile, 1 * bfb::tile, -270 * okapi::degree});
-    bfb::waitUntil(chassisStandby);
-    chassis->setState(States::Chassis::MoveTo{0 * bfb::tile, 0 * bfb::tile, 0 * okapi::degree});
-    bfb::waitUntil(chassisStandby);
-    chassis->setState(States::Chassis::MoveTo{1 * bfb::tile, 1 * bfb::tile, 180 * okapi::degree});
-    bfb::waitUntil(chassisStandby);
-    chassis->setState(States::Chassis::MoveTo{0 * bfb::tile, 0 * bfb::tile, 0 * okapi::degree});
   },
   {Color::Red, "Red Left", "Fill left", "(x, y, h)"}};
 

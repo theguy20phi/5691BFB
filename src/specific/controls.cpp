@@ -21,6 +21,7 @@ void rollerControls() {
     rollers->setState(States::Rollers::Outtake{});
   else
     rollers->setState(States::Rollers::Standby{});
+  rollers->slowRollers(master.get_digital(pros::E_CONTROLLER_DIGITAL_R2));
 }
 
 void contingencies() {

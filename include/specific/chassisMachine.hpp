@@ -93,25 +93,21 @@ class ChassisMachine : public bfb::StateMachine<ChassisMachine, States::Chassis:
 
   private:
   void controlDrive(double forward, double strafe, double turn);
-  void updatePids(const States::Chassis::MoveTo &moveTo);
-  void updateSlewRates(double forward, double strafe, double turn);
+  void moveVelocity(double forward, double strafe, double turn);
+  void moveVoltage(double forward, double strafe, double turn);
+  void planStep(const States::Chassis::MoveTo &moveTo);
   void brake();
-  void move();
 
   private:
-  bfb::CrossOdometry odometry{bfb::Odometer{pros::ADIEncoder{1, 2}, -1.0},
-                              bfb::Odometer{pros::ADIEncoder{3, 4}, 0.0},
-                              bfb::IMU{{11, 12}}};
-  pros::Motor lFWheel{1};
-  pros::Motor lBWheel{2};
-  pros::Motor rFWheel{3, true};
-  pros::Motor rBWheel{4, true};
+  bfb::CrossOdometry odometry{bfb::Odometer{pros::ADIEncoder{7, 8, true}, 0.0},
+                              bfb::Odometer{pros::ADIEncoder{5, 6, true}, 0.0},
+                              bfb::IMU{{13, 14}}};
+  pros::Motor lFWheel{11};
+  pros::Motor lBWheel{20};
+  pros::Motor rFWheel{12, true};
+  pros::Motor rBWheel{18, true};
   const double deadband{100.0};
-  bfb::SlewRate<double> lFSlew{500.0};
-  bfb::SlewRate<double> lBSlew{500.0};
-  bfb::SlewRate<double> rFSlew{500.0};
-  bfb::SlewRate<double> rBSlew{500.0};
-  bfb::Pidf xPidf{{27500.0, 0.0, 0.0, 0.0}, bfb::createSettledUtil(0.05, 0.005)};
-  bfb::Pidf yPidf{{27500.0, 0.0, 0.0, 0.0}, bfb::createSettledUtil(0.05, 0.005)};
+  bfb::Tbh xPidf{{27500.0}, bfb::createSettledUtil(0.05, 0.005)};
+  bfb::Tbh yPidf{{27500.0}, bfb::createSettledUtil(0.05, 0.005)};
   bfb::Pidf hPidf{{7500.0, 0.0, 0.0, 0.0}, bfb::createSettledUtil(0.05, 0.005)};
 };

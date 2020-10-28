@@ -9,7 +9,7 @@ IMU::IMU(const std::vector<uint8_t> &iPorts) {
 
 void IMU::resetHeading(double value) {
   imuLog.log("Imu reset to: " + std::to_string(value), {});
-  offset = value - getHeading();
+  offset += value - getHeading();
 }
 
 double IMU::getHeading() {

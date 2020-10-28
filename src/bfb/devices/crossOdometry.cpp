@@ -57,6 +57,7 @@ CrossOdometry::Pose CrossOdometry::getPose() const {
 
 void CrossOdometry::reset(const Pose &iPose) {
   pose = iPose;
+  imus.resetHeading(iPose.H.convert(okapi::degree));
 }
 
 DEFINE_TEST(initializeCrossOdometryTest)

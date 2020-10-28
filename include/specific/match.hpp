@@ -107,8 +107,9 @@ class Match {
   void setColor(const Color &iColor);
 
   private:
-  pros::ADIPotentiometer routineSelector{'G'};
-  pros::ADIPotentiometer colorSelector{'H'};
+  //TODO: Change ADI Extender
+  pros::ADIPotentiometer routineSelector{'C'};
+  pros::ADIPotentiometer colorSelector{'D'};
   std::array<Routine, 12> routines;
   int index{0};
   Color color;

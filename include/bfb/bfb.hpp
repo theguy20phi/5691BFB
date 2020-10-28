@@ -15,6 +15,7 @@
 #include "debug/test.hpp"
 #include "devices/crossOdometry.hpp"
 #include "devices/imu.hpp"
+#include "devices/motionPlanner.hpp"
 #include "devices/slewRate.hpp"
 #include "flow/stateMachine.hpp"
 #include "flow/task.hpp"

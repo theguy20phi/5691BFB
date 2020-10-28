@@ -8,7 +8,7 @@ ChassisMachine::ChassisMachine(const States::Chassis::ChassisStates &iState)
 }
 
 void ChassisMachine::behavior(const States::Chassis::Standby &standby) {
-  brake();
+  moveVelocity(0.0, 0.0, 0.0);
 }
 
 void ChassisMachine::behavior(const States::Chassis::Control &control) {
@@ -16,49 +16,38 @@ void ChassisMachine::behavior(const States::Chassis::Control &control) {
 }
 
 void ChassisMachine::behavior(const States::Chassis::MoveTo &moveTo) {
-  updatePids(moveTo);
+  planStep(moveTo);
   controlDrive(yPidf.getOutput(), xPidf.getOutput(), hPidf.getOutput());
 }
 
 void ChassisMachine::controlDrive(double forward, double strafe, double turn) {
-  updateSlewRates(forward, strafe, turn);
   if (fabs(forward + strafe + turn) < deadband)
-    brake();
+    moveVelocity(0.0, 0.0, 0.0);
   else
-    move();
+    moveVoltage(forward, strafe, turn);
 }
 
-void ChassisMachine::updateSlewRates(double forward, double strafe, double turn) {
-  lFSlew.slew(forward + strafe + turn);
-  lBSlew.slew(forward - strafe + turn);
-  rFSlew.slew(forward - strafe - turn);
-  rBSlew.slew(forward + strafe - turn);
+void ChassisMachine::moveVelocity(double forward, double strafe, double turn) {
+  lFWheel.move_velocity(forward + strafe + turn);
+  lBWheel.move_velocity(forward - strafe + turn);
+  rFWheel.move_velocity(forward - strafe - turn);
+  rBWheel.move_velocity(forward + strafe - turn);
 }
 
-void ChassisMachine::brake() {
-  lFWheel.move_velocity(0);
-  lBWheel.move_velocity(0);
-  rFWheel.move_velocity(0);
-  rBWheel.move_velocity(0);
+void ChassisMachine::moveVoltage(double forward, double strafe, double turn) {
+  lFWheel.move_voltage(forward + strafe + turn);
+  lBWheel.move_voltage(forward - strafe + turn);
+  rFWheel.move_voltage(forward - strafe - turn);
+  rBWheel.move_voltage(forward + strafe - turn);
 }
 
-void ChassisMachine::move() {
-  lFWheel.move_voltage(lFSlew.getValue());
-  lBWheel.move_voltage(lBSlew.getValue());
-  rFWheel.move_voltage(rFSlew.getValue());
-  rBWheel.move_voltage(rBSlew.getValue());
-}
-
-void ChassisMachine::updatePids(const States::Chassis::MoveTo &moveTo) {
+void ChassisMachine::planStep(const States::Chassis::MoveTo &moveTo) {
   const double xDiff{(odometry.getPose().X - moveTo.x).convert(okapi::meter)};
   const double yDiff{(odometry.getPose().Y - moveTo.y).convert(okapi::meter)};
   const double distance{sqrt(xDiff * xDiff + yDiff * yDiff)};
-  const double direction{odometry.getPose().H.convert(okapi::radian) +
-                         odometry.getPose().W.convert(okapi::radps) *
-                           (bfb::Wait::generalDelay / 2000.0) +
-                         atan2(yDiff, xDiff)};
-  double xDistance{distance * cos(direction)};
-  double yDistance{distance * sin(direction)};
+  const double direction{odometry.getPose().H.convert(okapi::radian) + atan2(yDiff, xDiff)};
+  const double xDistance{distance * cos(direction)};
+  const double yDistance{distance * sin(direction)};
   const double hDistance{
     okapi::OdomMath::constrainAngle180(odometry.getPose().H - moveTo.h).convert(okapi::radian)};
   xPidf.calculate(xDistance);

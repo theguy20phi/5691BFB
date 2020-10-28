@@ -16,15 +16,20 @@ void RollersMachine::behavior(const States::Rollers::Standby &standby) {
 }
 
 void RollersMachine::behavior(const States::Rollers::Intake &intake) {
-  if (shootingSensor.get_value() < threshold) {
-    lowerBigRoller.move_velocity(0);
-    upperBigRoller.move_velocity(0);
-  } else {
-    lowerBigRoller.move_velocity(600);
-    upperBigRoller.move_velocity(600);
-  }
+  intakeDecision();
   leftSideRoller.move_velocity(600);
   rightSideRoller.move_velocity(600);
+}
+
+void RollersMachine::intakeDecision() {
+  if (shootingSensor.get_value() < threshold)
+    upperBigRoller.move_velocity(0);
+  else
+    upperBigRoller.move_velocity(185);
+  if (indexerSensor.get_value() < threshold)
+    lowerBigRoller.move_velocity(0);
+  else
+    lowerBigRoller.move_velocity(400);
 }
 
 void RollersMachine::behavior(const States::Rollers::Outtake &outtake) {
@@ -35,14 +40,14 @@ void RollersMachine::behavior(const States::Rollers::Outtake &outtake) {
 }
 
 void RollersMachine::behavior(const States::Rollers::Shoot &shoot) {
-  lowerBigRoller.move_velocity(600);
-  upperBigRoller.move_velocity(600);
+  lowerBigRoller.move_velocity(power);
+  upperBigRoller.move_velocity(power);
   leftSideRoller.move_velocity(0);
   rightSideRoller.move_velocity(0);
 }
 
 void RollersMachine::behavior(const States::Rollers::Cycle &cycle) {
-  lowerBigRoller.move_velocity(600);
+  lowerBigRoller.move_velocity(power);
   leftSideRoller.move_velocity(600);
   rightSideRoller.move_velocity(600);
   cycleDecision(cycle);
@@ -52,22 +57,31 @@ void RollersMachine::cycleDecision(const States::Rollers::Cycle &cycle) {
   if (indexerSensor.get_value() < threshold) {
     if (visionSensor.get_by_size(0).signature == 1) { // blue
       if (cycle.color == Color::Red) {
-        upperBigRoller.move_velocity(-600);
+        upperBigRoller.move_velocity(-power);
+        bfb::wait(400);
       } else
-        upperBigRoller.move_velocity(600);
+        upperBigRoller.move_velocity(power);
     } else { // red
       if (cycle.color == Color::Blue) {
-        upperBigRoller.move_velocity(-600);
+        upperBigRoller.move_velocity(-power);
+        bfb::wait(400);
       } else
-        upperBigRoller.move_velocity(600);
+        upperBigRoller.move_velocity(power);
     }
   } else // nothing
-    upperBigRoller.move_velocity(600);
+    upperBigRoller.move_velocity(power);
 }
 
 void RollersMachine::behavior(const States::Rollers::FastShoot &fastShoot) {
-  lowerBigRoller.move_velocity(600);
-  upperBigRoller.move_velocity(600);
+  lowerBigRoller.move_velocity(power);
+  upperBigRoller.move_velocity(power);
   leftSideRoller.move_velocity(-600);
   rightSideRoller.move_velocity(-600);
+}
+
+void RollersMachine::slowRollers(bool isMiddle) {
+  if (isMiddle)
+    power = 400;
+  else
+    power = 600;
 }

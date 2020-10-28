@@ -52,6 +52,7 @@ void autonomous() {
 /*                                   Driver                                   */
 /* -------------------------------------------------------------------------- */
 void opcontrol() {
+  chassis->reset();
   bfb::runTests();
   for (;;) {
     chassisControls();
