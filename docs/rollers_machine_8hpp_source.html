@@ -101,7 +101,7 @@ $(function() {
 <div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="class_rollers_machine.html">   58</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_rollers_machine.html">RollersMachine</a> : <span class="keyword">public</span> <a class="code" href="classbfb_1_1_state_machine.html">bfb::StateMachine</a>&lt;RollersMachine, States::Rollers::RollersStates&gt; {</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  <span class="keyword">public</span>:</div>
 <div class="line"><a name="l00065"></a><span class="lineno"><a class="line" href="class_rollers_machine.html#a8980064bf229115a59f69d4c74845c54">   65</a></span>&#160;  <a class="code" href="class_rollers_machine.html#a8980064bf229115a59f69d4c74845c54">RollersMachine</a>(<span class="keyword">const</span> States::Rollers::RollersStates &amp;iState);</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;  </div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;  <span class="keywordtype">void</span> behavior(<span class="keyword">const</span> <a class="code" href="struct_states_1_1_rollers_1_1_standby.html">States::Rollers::Standby</a> &amp;standby);</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;  <span class="keywordtype">void</span> behavior(<span class="keyword">const</span> <a class="code" href="struct_states_1_1_rollers_1_1_intake.html">States::Rollers::Intake</a> &amp;intake);</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;  <span class="keywordtype">void</span> behavior(<span class="keyword">const</span> <a class="code" href="struct_states_1_1_rollers_1_1_outtake.html">States::Rollers::Outtake</a> &amp;outtake);</div>
@@ -109,19 +109,23 @@ $(function() {
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;  <span class="keywordtype">void</span> behavior(<span class="keyword">const</span> <a class="code" href="struct_states_1_1_rollers_1_1_cycle.html">States::Rollers::Cycle</a> &amp;cycle);</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  <span class="keywordtype">void</span> behavior(<span class="keyword">const</span> <a class="code" href="struct_states_1_1_rollers_1_1_fast_shoot.html">States::Rollers::FastShoot</a> &amp;fastShoot);</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;  <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;  <span class="keywordtype">void</span> cycleDecision(<span class="keyword">const</span> <a class="code" href="struct_states_1_1_rollers_1_1_cycle.html">States::Rollers::Cycle</a> &amp;cycle);</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;  <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">int</span> threshold{250};</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;  pros::ADIUltrasonic indexerSensor{<span class="charliteral">&#39;E&#39;</span>, <span class="charliteral">&#39;F&#39;</span>};</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;  pros::Vision visionSensor{20};</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;  pros::ADIUltrasonic shootingSensor{<span class="charliteral">&#39;G&#39;</span>, <span class="charliteral">&#39;H&#39;</span>};</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;  pros::Motor lowerBigRoller{5, pros::motor_gearset_e_t::E_MOTOR_GEARSET_06, <span class="keyword">false</span>};</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;  pros::Motor upperBigRoller{6, pros::motor_gearset_e_t::E_MOTOR_GEARSET_06, <span class="keyword">true</span>};</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;  pros::Motor leftSideRoller{9, pros::motor_gearset_e_t::E_MOTOR_GEARSET_06};</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;  pros::Motor rightSideRoller{10, pros::motor_gearset_e_t::E_MOTOR_GEARSET_06};</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;};</div>
+<div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="class_rollers_machine.html#ac150376f06ad3a22f281a7b83606abfb">   79</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_rollers_machine.html#ac150376f06ad3a22f281a7b83606abfb">slowRollers</a>(<span class="keywordtype">bool</span> isMiddle);</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;  <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;  <span class="keywordtype">void</span> intakeDecision();</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;  <span class="keywordtype">void</span> cycleDecision(<span class="keyword">const</span> <a class="code" href="struct_states_1_1_rollers_1_1_cycle.html">States::Rollers::Cycle</a> &amp;cycle);</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;  <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">int</span> threshold{2750};</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;  <span class="keywordtype">double</span> power{600};</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;  pros::ADIAnalogIn indexerSensor{<span class="charliteral">&#39;B&#39;</span>};</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;  pros::ADIAnalogIn shootingSensor{<span class="charliteral">&#39;A&#39;</span>};</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;  pros::Vision visionSensor{17};</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;  pros::Motor lowerBigRoller{10, pros::motor_gearset_e_t::E_MOTOR_GEARSET_06, <span class="keyword">false</span>};</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;  pros::Motor upperBigRoller{9, pros::motor_gearset_e_t::E_MOTOR_GEARSET_06, <span class="keyword">true</span>};</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;  pros::Motor leftSideRoller{1, pros::motor_gearset_e_t::E_MOTOR_GEARSET_06, <span class="keyword">true</span>};</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;  pros::Motor rightSideRoller{6, pros::motor_gearset_e_t::E_MOTOR_GEARSET_06, <span class="keyword">false</span>};</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;};</div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="aclass_rollers_machine_html_a8980064bf229115a59f69d4c74845c54"><div class="ttname"><a href="class_rollers_machine.html#a8980064bf229115a59f69d4c74845c54">RollersMachine::RollersMachine</a></div><div class="ttdeci">RollersMachine(const States::Rollers::RollersStates &amp;iState)</div><div class="ttdoc">Construct a new Rollers Machine object.</div></div>
 <div class="ttc" id="astruct_states_1_1_rollers_1_1_standby_html"><div class="ttname"><a href="struct_states_1_1_rollers_1_1_standby.html">States::Rollers::Standby</a></div><div class="ttdoc">The Standby state for the rollers.</div><div class="ttdef"><b>Definition:</b> rollersMachine.hpp:21</div></div>
@@ -133,6 +137,7 @@ $(function() {
 <div class="ttc" id="astruct_states_1_1_rollers_1_1_fast_shoot_html"><div class="ttname"><a href="struct_states_1_1_rollers_1_1_fast_shoot.html">States::Rollers::FastShoot</a></div><div class="ttdoc">The FastShoot state for the rollers (outtake side rollers while shooting).</div><div class="ttdef"><b>Definition:</b> rollersMachine.hpp:53</div></div>
 <div class="ttc" id="aclass_rollers_machine_html"><div class="ttname"><a href="class_rollers_machine.html">RollersMachine</a></div><div class="ttdef"><b>Definition:</b> rollersMachine.hpp:58</div></div>
 <div class="ttc" id="astruct_states_1_1_rollers_1_1_intake_html"><div class="ttname"><a href="struct_states_1_1_rollers_1_1_intake.html">States::Rollers::Intake</a></div><div class="ttdoc">The Intake state for the rollers.</div><div class="ttdef"><b>Definition:</b> rollersMachine.hpp:27</div></div>
+<div class="ttc" id="aclass_rollers_machine_html_ac150376f06ad3a22f281a7b83606abfb"><div class="ttname"><a href="class_rollers_machine.html#ac150376f06ad3a22f281a7b83606abfb">RollersMachine::slowRollers</a></div><div class="ttdeci">void slowRollers(bool isMiddle)</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">
