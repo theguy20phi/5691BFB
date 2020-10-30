@@ -19,7 +19,6 @@
 #include "api.h"
 #include "bfb/bfb.hpp"
 #include "okapi/api.hpp"
-using namespace okapi::literals;
 using namespace bfb::literals;
 
 #include "specific/specific.hpp"
