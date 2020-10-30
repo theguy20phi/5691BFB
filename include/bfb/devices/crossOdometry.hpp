@@ -11,13 +11,8 @@
 #include "bfb/debug/test.hpp"
 #include "bfb/devices/imu.hpp"
 #include "bfb/flow/task.hpp"
-#include "okapi/api/units/QAngle.hpp"
-#include "okapi/api/units/QAngularSpeed.hpp"
-#include "okapi/api/units/QLength.hpp"
-#include "okapi/api/units/QSpeed.hpp"
+#include "bfb/utility/mathUtil.hpp"
 #include "pros/adi.hpp"
-
-using namespace okapi::literals;
 
 namespace bfb {
 /**
@@ -59,19 +54,6 @@ class Odometer {
 class CrossOdometry : public Task {
   public:
   /**
-   * @brief Structure to represent position data.
-   *
-   */
-  struct Pose {
-    okapi::QLength X{0_in};
-    okapi::QLength Y{0_in};
-    okapi::QAngle H{0_deg};
-    okapi::QSpeed VX{0_mps};
-    okapi::QSpeed VY{0_mps};
-    okapi::QAngularSpeed W{0_rpm};
-  };
-
-  /**
    * @brief Construct a new Cross Odometry object
    *
    * @param iForwardOdometer
@@ -87,21 +69,39 @@ class CrossOdometry : public Task {
   void step() override;
 
   /**
-   * @brief Get the Pose object.
+   * @brief Gets the x value of the bot.
    *
-   * @return Pose
+   * @return double
    */
-  Pose getPose() const;
+  double X() const;
+
+  /**
+   * @brief Gets the y value of the bot.
+   *
+   * @return double
+   */
+  double Y() const;
+
+  /**
+   * @brief Gets the h value of the bot.
+   *
+   * @return double
+   */
+  double H() const;
 
   /**
    * @brief Resets the odometry.
    *
-   * @param iPose
+   * @param iX
+   * @param iY
+   * @param iH
    */
-  void reset(const Pose &iPose = Pose{0_in, 0_in, 0_deg, 0_mps, 0_mps, 0_rpm});
+  void reset(double iX = 0.0, double iY = 0.0, double iH = 0.0);
 
   private:
-  Pose pose;
+  double x{0.0};
+  double y{0.0};
+  double h{0.0};
   Odometer forwardOdometer;
   Odometer sideOdometer;
   IMU imus;

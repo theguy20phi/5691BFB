@@ -8,6 +8,8 @@
 
 #pragma once
 
+#include "bfb/debug/logger.hpp"
+
 namespace bfb {
 class Controller {
   public:
@@ -18,14 +20,14 @@ class Controller {
    *
    * @param iReference
    */
-  virtual void setReference(const double iReference) = 0;
+  virtual void setReference(double iReference);
 
   /**
    * @brief Gets the current reference for the controller.
    *
    * @return double
    */
-  virtual double getReference() const = 0;
+  virtual double getReference() const;
 
   /**
    * @brief Goes through one step of the controller.
@@ -33,14 +35,14 @@ class Controller {
    * @param state
    * @return double
    */
-  virtual double step(const double state) = 0;
+  virtual double calculate(double state) = 0;
 
   /**
    * @brief Gets the output of the controller.
    *
    * @return double
    */
-  virtual double getOutput() const = 0;
+  virtual double getOutput() const;
 
   /**
    * @brief Gets if the controller is settled.
@@ -48,11 +50,21 @@ class Controller {
    * @param state
    * @return bool
    */
-  virtual bool isSettled(const double state) = 0;
+  virtual bool isDone(double state) = 0;
 
   /**
    * @brief Resets the internal state of the controller.
    */
   virtual void reset() = 0;
+
+  /**
+   * @brief Logger object for Controller.
+   *
+   */
+  static Logger<Controller> controllerLog;
+
+  protected:
+  double output{0.0};
+  double reference{0.0};
 };
 } // namespace bfb

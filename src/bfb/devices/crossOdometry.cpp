@@ -26,7 +26,7 @@ CrossOdometry::CrossOdometry(const Odometer &iForwardOdometer,
 }
 
 void CrossOdometry::step() {
-  const double tempH{imus.getHeading() * M_PI / 180};
+  const double tempH{toRadians(imus.getHeading())};
   const double deltaH{tempH - previousH};
   double localX{0.0};
   double localY{0.0};
@@ -40,24 +40,31 @@ void CrossOdometry::step() {
   }
   const double magnitude{sqrt(localX * localX + localY * localY)};
   const double direction{atan2(localY, localX) - previousH + deltaH / 2.0};
-  okapi::QLength deltaX{okapi::inch * cos(direction) * magnitude};
-  okapi::QLength deltaY{okapi::inch * sin(direction) * magnitude};
-  pose.X += deltaX;
-  pose.Y += deltaY;
-  pose.H = okapi::radian * tempH;
-  pose.VX = deltaX / (Wait::generalDelay * okapi::millisecond);
-  pose.VY = deltaY / (Wait::generalDelay * okapi::millisecond);
-  pose.W = okapi::radian * deltaH / (Wait::generalDelay * okapi::millisecond);
+  double deltaX{cos(direction) * magnitude};
+  double deltaY{sin(direction) * magnitude};
+  x += deltaX;
+  y += deltaY;
+  h = tempH;
   previousH = tempH;
 }
 
-CrossOdometry::Pose CrossOdometry::getPose() const {
-  return pose;
+double CrossOdometry::X() const {
+  return x;
 }
 
-void CrossOdometry::reset(const Pose &iPose) {
-  pose = iPose;
-  imus.resetHeading(iPose.H.convert(okapi::degree));
+double CrossOdometry::Y() const {
+  return y;
+}
+
+double CrossOdometry::H() const {
+  return h;
+}
+
+void CrossOdometry::reset(double iX, double iY, double iH) {
+  x = iX;
+  y = iY;
+  h = iH;
+  imus.resetHeading(iH);
 }
 
 DEFINE_TEST(initializeCrossOdometryTest)

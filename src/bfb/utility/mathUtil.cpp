@@ -11,6 +11,11 @@ bool isAlmostEqual(double a, double b, double thresh) {
 bool isAlmostZero(double a, double thresh) {
   return isAlmostEqual(a, 0.0, thresh);
 }
+
+double normalizeAngle(double angle) {
+  return angle - 2.0 * M_PI * std::floor((angle + M_PI) / (2 * M_PI));
+}
+
 #ifdef TESTING
 DEFINE_TEST(isAlmostEqualTest)
 IS_TRUE(isAlmostEqual(0.1, 0.12, 0.03));

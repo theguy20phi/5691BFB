@@ -1,9 +1,9 @@
 bin/bfb/controllers/tbh.cpp.o: src/bfb/controllers/tbh.cpp \
  include/bfb/controllers/tbh.hpp include/bfb/debug/test.hpp \
  include/bfb/flow/wait.hpp include/api.h include/pros/adi.h \
- include/pros/colors.h include/pros/ext_adi.h include/pros/adi.h \
- include/pros/adi.h include/pros/imu.h include/pros/llemu.h \
- include/display/lvgl.h include/display/lv_version.h \
+ include/pros/colors.h include/pros/distance.h include/pros/ext_adi.h \
+ include/pros/adi.h include/pros/adi.h include/pros/imu.h \
+ include/pros/llemu.h include/display/lvgl.h include/display/lv_version.h \
  include/display/lv_misc/lv_log.h include/display/lv_conf.h \
  include/display/lv_conf_checker.h include/display/lv_misc/lv_task.h \
  include/display/lv_misc/lv_mem.h include/display/lv_misc/lv_log.h \
@@ -64,14 +64,17 @@ bin/bfb/controllers/tbh.cpp.o: src/bfb/controllers/tbh.cpp \
  include/display/lv_objx/lv_arc.h include/display/lv_objx/lv_preload.h \
  include/display/lv_objx/lv_arc.h include/display/lv_objx/lv_calendar.h \
  include/display/lv_objx/lv_spinbox.h include/display/lv_objx/lv_ta.h \
- include/pros/misc.h include/pros/motors.h include/pros/rtos.h \
- include/pros/vision.h include/pros/adi.hpp include/pros/imu.hpp \
- include/pros/imu.h include/pros/llemu.hpp include/pros/llemu.h \
- include/pros/misc.hpp include/pros/misc.h include/pros/motors.hpp \
- include/pros/motors.h include/pros/rtos.hpp include/pros/rtos.h \
- include/pros/vision.hpp include/pros/vision.h \
- include/bfb/utility/mathUtil.hpp include/bfb/controllers/controller.hpp \
- include/bfb/debug/logger.hpp include/bfb/utility/key.hpp \
+ include/pros/misc.h include/pros/motors.h include/pros/optical.h \
+ include/pros/rtos.h include/pros/rotation.h include/pros/vision.h \
+ include/pros/adi.hpp include/pros/distance.hpp include/pros/distance.h \
+ include/pros/imu.hpp include/pros/imu.h include/pros/llemu.hpp \
+ include/pros/llemu.h include/pros/misc.hpp include/pros/misc.h \
+ include/pros/motors.hpp include/pros/motors.h include/pros/optical.hpp \
+ include/pros/optical.h include/pros/rotation.hpp include/pros/rotation.h \
+ include/pros/rtos.hpp include/pros/rtos.h include/pros/vision.hpp \
+ include/pros/vision.h include/bfb/utility/mathUtil.hpp \
+ include/bfb/controllers/controller.hpp include/bfb/debug/logger.hpp \
+ include/bfb/utility/key.hpp \
  include/okapi/api/control/util/SettledUtil.hpp \
  include/okapi/api/units/QTime.hpp include/okapi/api/units/RQuantity.hpp \
  include/okapi/api/util/abstractTimer.hpp \
@@ -88,6 +91,8 @@ include/api.h:
 include/pros/adi.h:
 
 include/pros/colors.h:
+
+include/pros/distance.h:
 
 include/pros/ext_adi.h:
 
@@ -313,11 +318,19 @@ include/pros/misc.h:
 
 include/pros/motors.h:
 
+include/pros/optical.h:
+
 include/pros/rtos.h:
+
+include/pros/rotation.h:
 
 include/pros/vision.h:
 
 include/pros/adi.hpp:
+
+include/pros/distance.hpp:
+
+include/pros/distance.h:
 
 include/pros/imu.hpp:
 
@@ -334,6 +347,14 @@ include/pros/misc.h:
 include/pros/motors.hpp:
 
 include/pros/motors.h:
+
+include/pros/optical.hpp:
+
+include/pros/optical.h:
+
+include/pros/rotation.hpp:
+
+include/pros/rotation.h:
 
 include/pros/rtos.hpp:
 

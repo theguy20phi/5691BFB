@@ -1,11 +1,11 @@
 /**
  * @file chassisMachine.hpp
  * @author Braden Pierce (913153006@bryantschools.org)
- * 
+ *
  * @copyright Copyright (c) 2020
- * 
+ *
  */
- 
+
 #pragma once
 
 #include "main.h"
@@ -33,10 +33,11 @@ struct Control {
  *
  */
 struct MoveTo {
-  okapi::QLength x;
-  okapi::QLength y;
-  okapi::QAngle h;
+  double x;
+  double y;
+  double h;
 };
+
 using ChassisStates = std::variant<Standby, Control, MoveTo>;
 } // namespace Chassis
 } // namespace States
@@ -61,17 +62,32 @@ class ChassisMachine : public bfb::StateMachine<ChassisMachine, States::Chassis:
   /**
    * @brief Resets the internal pose of the odometry.
    *
-   * @param iPose
+   * @param iX
+   * @param iY
+   * @param iH
    */
-  void reset(const bfb::CrossOdometry::Pose &iPose =
-               bfb::CrossOdometry::Pose{0_in, 0_in, 0_deg, 0_mps, 0_mps, 0_rpm});
+  void reset(double iX = 0.0, double iY = 0.0, double iH = 0.0);
 
   /**
-   * @brief Get the pose of the robot.
+   * @brief Gets the x value of the bot.
    *
-   * @return bfb::CrossOdometry::Pose
+   * @return double
    */
-  bfb::CrossOdometry::Pose getPose() const;
+  double X() const;
+
+  /**
+   * @brief Gets the y value of the bot.
+   *
+   * @return double
+   */
+  double Y() const;
+
+  /**
+   * @brief Gets the h value of the bot.
+   *
+   * @return double
+   */
+  double H() const;
 
   /**
    * @brief Toggle if the robot is holding its position.
@@ -99,9 +115,9 @@ class ChassisMachine : public bfb::StateMachine<ChassisMachine, States::Chassis:
   void brake();
 
   private:
-  bfb::CrossOdometry odometry{bfb::Odometer{pros::ADIEncoder{7, 8, true}, 0.0},
-                              bfb::Odometer{pros::ADIEncoder{5, 6, true}, 0.0},
-                              bfb::IMU{{13, 14}}};
+  bfb::CrossOdometry odometry{bfb::Odometer{pros::ADIEncoder{8, 7, true}, 0.0},
+                              bfb::Odometer{pros::ADIEncoder{5, 6}, 0.0},
+                              bfb::IMU{{13}}};
   pros::Motor lFWheel{11};
   pros::Motor lBWheel{20};
   pros::Motor rFWheel{12, true};

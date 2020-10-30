@@ -1,6 +1,6 @@
 /**
  * @file stateMachine.hpp
- * @author Braden Pierce
+ * @author Braden Pierce (913153006@bryantschools.org)
  *
  * @copyright Copyright (c) 2020
  *
@@ -8,113 +8,125 @@
 
 #pragma once
 
-#include "bfb/robot.hpp"
-#include <memory>
-#include <queue>
-#include <typeinfo>
+#include "task.hpp"
+#include <iostream>
+#include <type_traits>
+#include <variant>
 
 namespace bfb {
 /**
- * @brief StateMachine implements a queue-based finite state machine, similar to a stack-based state
- * machine. States are enqueued, and when a state completes its behaviour, dequeued. A default state
- * should be provided. A StateMachine object can be limited to a certain type of state, via
- * templating. If something else needs to see the state of the machine, it should probably be a part
- * of the machine.
+ * @brief A template for StateMachines. The state is represented by a variant of structs that
+ * represent specific states. The subclasses must provide behavior for each possible specific state
+ * the state variant could be with a function for each state: behavior(const State &state) {...}.
  *
- * @tparam StateType
+ * This implementation avoids lengthy switch statements, verbose expansion using polymorphic states,
+ *
+ * @code
+ * namespace State {
+ *  namespace Test { // probably want namespaces
+ *    struct ON{int a}; // states can be paramaterized
+ *    struct OFF{int b};
+ *    using TestStates = std::variant<ON, OFF>; // probably want a type alias
+ *  }
+ * }
+ * class TestMachine final : public StateMachine<TestMachine, TestStates> {
+ *  public:
+ *  // your state machine can have a unique constructor, or just call the StateMachine constructor
+ *  TestMachine(const ValidStates &iState, <other parameters>) {...}
+ *  // define all possible behavior or face dreaded C++ template errors
+ *  void behavior(const State::Test::ON &on) {...}
+ *  void behavior(const State::Test::OFF &off) {...}
+ *
+ *  private:
+ *  void onHelper() {...} // Subclassed state machines can provide helpers for behaviors
+ *
+ *  private:
+ *  Data data; // Subclassed statemachines can store data for use in behaviors
+ * };
+ * @endcode
+ *
+ * @tparam Concrete (the subclass)
+ * @tparam ValidStates (variant of state structs)
+ * @tparam TASK_PRIORITY_DEFAULT
  */
-template <typename StateType> class StateMachine {
+template <class Concrete, typename ValidStates> class StateMachine : public Task {
   public:
   /**
-   * @brief Construct a new StateMachine object.
+   * @brief Construct a new State Machine object
    *
-   * @param iRobot
-   * @param iDefaultState
+   * @param iState
    */
-  StateMachine(const std::shared_ptr<Robot> &iRobot, const StateType &iDefaultState)
-    : robot(iRobot), defaultState(iDefaultState) {
-    enqueue(defaultState);
+  StateMachine(const ValidStates &iState, int iPriority = TASK_PRIORITY_DEFAULT)
+    : state(iState), Task(iPriority) {
+    stateMachineLog.log("StateMachine created.", {});
   }
 
   /**
-   * @brief Goes through one step of the StateMachine.
+   * @brief Overloads bfb::Task::step, uses a visitor to run the overloaded behavior for the current
+   * state.
    *
    */
-  void step() {
-    if (stateQueue.front()->step(robot))
-      dequeue();
+  void step() final {
+    std::visit([this](const auto &s) { static_cast<Concrete *>(this)->behavior(s); }, state);
+    update();
   }
 
   /**
-   * @brief Determines if the StateMachine has completed its queue, excluding the default state.
+   * @brief Does various updates for the StateMachine each step.
    *
+   */
+  virtual void update() {
+  }
+
+  /**
+   * @brief Set the State object
+   *
+   * @param iState
+   */
+  virtual void setState(const ValidStates &iState) {
+    state = iState;
+  }
+
+  /**
+   * @brief Get the State object
+   *
+   * @return ValidStates
+   */
+  virtual ValidStates getState() const final {
+    return state;
+  }
+
+  /**
+   * @brief Determines if two states are equal (does not take parameters into account).
+   *
+   * @param iState
    * @return bool
    */
-  bool isDone() const {
-    // if size() = 0, !size() = 1 = true
-    return !size();
+  virtual bool operator==(const ValidStates &iState) const final {
+    return state.index() == iState.index();
   }
 
   /**
-   * @brief Enqueues another state to be done.
+   * @brief Determines if two states are not equal (does not take parameters into account).
    *
-   * @param newState
+   * @param iState
+   * @return bool
    */
-  void enqueue(const StateType &newState) {
-    stateQueue.push(newState);
+  virtual bool operator!=(const ValidStates &iState) const final {
+    return state.index() != iState.index();
   }
 
   /**
-   * @brief Removes all states from the queue.
+   * @brief Logger object for StateMachine.
    *
    */
-  void dequeueAll() {
-    //+1 accounts for the default state
-    dequeue(size() + 1);
-  }
+  Logger<StateMachine<Concrete, ValidStates>> stateMachineLog{};
 
-  /**
-   * @brief Removes n states from the queue.
-   *
-   * @param n
-   */
-  void dequeue(int n) {
-    for (std::size_t i = 0; i < n; ++i)
-      dequeue();
+  protected:
+  virtual void setStateInternally(const ValidStates &iState) {
+    state = iState;
+    step();
   }
-
-  /**
-   * @brief Removes a single state from the queue.
-   *
-   */
-  void dequeue() {
-    if (isDone())
-      stateQueue.push(defaultState);
-    stateQueue.pop();
-  }
-
-  /**
-   * @brief Gets the size of the queue.
-   *
-   * @return std::size_t
-   */
-  std::size_t size() const {
-    //-1 accounts for the default state, which most aren't interested in
-    return stateQueue.size() - 1;
-  }
-
-  /**
-   * @brief Gets the state in string form. SHOULD ONLY BE USED FOR DEBUGGING.
-   *
-   * @return std::string
-   */
-  std::string toString() const {
-    return typeid(*stateQueue.front()).name();
-  }
-
-  private:
-  std::shared_ptr<Robot> robot;
-  const StateType defaultState;
-  std::queue<StateType> stateQueue;
+  ValidStates state;
 };
 } // namespace bfb

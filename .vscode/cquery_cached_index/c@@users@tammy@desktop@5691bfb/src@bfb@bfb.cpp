@@ -3,13 +3,16 @@
 namespace bfb {
 void runTests() {
 #ifdef TESTING
-  moreQLengthTest();
   pidfTest();
   isAlmostEqualTest();
   signTest();
   tbhTest();
   issueTest();
   waitUntilTest();
+  waitUntilWithTimeoutTest();
+  bangBangTest();
+  initializeCrossOdometryTest();
+  std::cout << "Completed tests!" << std::endl;
 #endif
 }
 } // namespace bfb

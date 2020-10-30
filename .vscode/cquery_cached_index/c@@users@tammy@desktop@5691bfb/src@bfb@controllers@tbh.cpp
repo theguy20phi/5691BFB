@@ -1,19 +1,15 @@
 #include "tbh.hpp"
 
 namespace bfb {
-Tbh::Tbh(const double iGain, std::unique_ptr<okapi::SettledUtil> iSettledChecker)
+Tbh::Tbh(double iGain, std::unique_ptr<okapi::SettledUtil> iSettledChecker)
   : gain(iGain), settledChecker(std::move(iSettledChecker)) {
+  tbhLog.log("Tbh created.", {});
 }
 
-void Tbh::setReference(const double iReference) {
-  reference = iReference;
-}
-
-double Tbh::getReference() const {
-  return reference;
-}
-
-double Tbh::step(const double state) {
+double Tbh::calculate(double state) {
+  if (pros::millis() - lastTime < Wait::generalDelay)
+    return output;
+  lastTime = pros::millis();
   double error{reference - state};
   output += gain * error;
   takeBackHalf(sign(error));
@@ -21,7 +17,7 @@ double Tbh::step(const double state) {
   return output;
 }
 
-void Tbh::takeBackHalf(const int errorSign) {
+void Tbh::takeBackHalf(int errorSign) {
   if (errorSign != previousErrorSign) {
     output = 0.5 * (output + tbh);
     tbh = output;
@@ -29,11 +25,7 @@ void Tbh::takeBackHalf(const int errorSign) {
   }
 }
 
-double Tbh::getOutput() const {
-  return output;
-}
-
-bool Tbh::isSettled(const double state) {
+bool Tbh::isDone(double state) {
   settledChecker->isSettled(reference - state);
 }
 
@@ -43,15 +35,19 @@ void Tbh::reset() {
   tbh = 0.0;
   previousErrorSign = 0.0;
   settledChecker->reset();
+  tbhLog.log("Tbh reset.", {});
 }
+
+Logger<Tbh> Tbh::tbhLog{};
 
 #ifdef TESTING
 DEFINE_TEST(tbhTest)
 using namespace okapi;
 Tbh testTbh{{2.0},
             std::make_unique<okapi::SettledUtil>(std::make_unique<okapi::Timer>(), 10, 1, 0_ms)};
+wait(100);
 testTbh.setReference(10.0);
-IS_EQUAL(testTbh.step(2.0), 8.0)
+IS_EQUAL(testTbh.calculate(2.0), 8.0);
 END_TEST
 #endif
 } // namespace bfb

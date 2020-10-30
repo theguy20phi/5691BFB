@@ -47,6 +47,34 @@ template <typename T> int sign(const T &value) {
   return 0;
 }
 
+/**
+ * @brief Takes an angle in degrees and outputs an angle in radians.
+ *
+ * @param angle
+ * @return double
+ */
+constexpr double toRadians(double angle) {
+  return angle * M_PI / 180.0;
+}
+
+/**
+ * @brief Takes an angle in radians and outputs an angle in degrees.
+ *
+ * @param angle
+ * @return double
+ */
+constexpr double toDegrees(double angle) {
+  return angle * 180.0 / M_PI;
+}
+
+/**
+ * @brief Takes an angle in radians and returns an angle in the form of (-PI, PI)
+ *
+ * @param angle
+ * @return double
+ */
+double normalizeAngle(double angle);
+
 #ifdef TESTING
 DECLARE_TEST(isAlmostEqualTest)
 DECLARE_TEST(signTest)

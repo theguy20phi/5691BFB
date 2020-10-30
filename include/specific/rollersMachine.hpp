@@ -85,9 +85,10 @@ class RollersMachine : public bfb::StateMachine<RollersMachine, States::Rollers:
   private:
   const int threshold{2750};
   double power{600};
+  const double blueHue{220};
   pros::ADIAnalogIn indexerSensor{'B'};
   pros::ADIAnalogIn shootingSensor{'A'};
-  pros::Vision visionSensor{17};
+  pros::Optical colorSensor{17};
   pros::Motor lowerBigRoller{10, pros::motor_gearset_e_t::E_MOTOR_GEARSET_06, false};
   pros::Motor upperBigRoller{9, pros::motor_gearset_e_t::E_MOTOR_GEARSET_06, true};
   pros::Motor leftSideRoller{1, pros::motor_gearset_e_t::E_MOTOR_GEARSET_06, true};

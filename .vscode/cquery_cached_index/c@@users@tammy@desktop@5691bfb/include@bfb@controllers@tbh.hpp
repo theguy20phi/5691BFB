@@ -8,11 +8,13 @@
 
 #pragma once
 
+#include "bfb/debug/test.hpp"
+#include "bfb/flow/wait.hpp"
 #include "bfb/utility/mathUtil.hpp"
-#include "bfb/utility/test.hpp"
 #include "controller.hpp"
 #include "okapi/api/control/util/SettledUtil.hpp"
 #include "okapi/impl/util/timer.hpp"
+#include <assert.h>
 
 namespace bfb {
 /**
@@ -30,30 +32,33 @@ class Tbh final : public Controller {
    */
   Tbh(double iGain, std::unique_ptr<okapi::SettledUtil> iSettledChecker);
 
-  void setReference(const double iReference) override;
-  double getReference() const override;
-  double step(const double state) override;
-  double getOutput() const override;
-  bool isSettled(const double state) override;
+  double calculate(double state) override;
+  bool isDone(double state) override;
   void reset() override;
 
   private:
   /**
    * @brief Does the "Take-Back-Half" part of the algorithm.
-   * 
+   *
    * @param errorSign
    */
-  void takeBackHalf(const int errorSign);
+  void takeBackHalf(int errorSign);
 
+  /**
+   * @brief Logger object for Tbh.
+   *
+   */
+  static Logger<Tbh> tbhLog;
+
+  private:
   const double gain;
   std::unique_ptr<okapi::SettledUtil> settledChecker;
-  double output{0.0};
-  double reference{0.0};
+  std::uint32_t lastTime{0};
   double tbh{0.0};
   double previousErrorSign{0};
 };
 
 #ifdef TESTING
-DECLARE_TEST(tbhTest)
+DECLARE_TEST(tbhTest);
 #endif
 } // namespace bfb

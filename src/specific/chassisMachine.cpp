@@ -21,7 +21,7 @@ void ChassisMachine::behavior(const States::Chassis::MoveTo &moveTo) {
 }
 
 void ChassisMachine::controlDrive(double forward, double strafe, double turn) {
-  if (fabs(forward + strafe + turn) < deadband)
+  if (fabs(forward) + fabs(strafe) + fabs(turn) < deadband)
     moveVelocity(0.0, 0.0, 0.0);
   else
     moveVoltage(forward, strafe, turn);
@@ -42,14 +42,13 @@ void ChassisMachine::moveVoltage(double forward, double strafe, double turn) {
 }
 
 void ChassisMachine::planStep(const States::Chassis::MoveTo &moveTo) {
-  const double xDiff{(odometry.getPose().X - moveTo.x).convert(okapi::meter)};
-  const double yDiff{(odometry.getPose().Y - moveTo.y).convert(okapi::meter)};
+  const double xDiff{odometry.X() - moveTo.x};
+  const double yDiff{odometry.Y() - moveTo.y};
   const double distance{sqrt(xDiff * xDiff + yDiff * yDiff)};
-  const double direction{odometry.getPose().H.convert(okapi::radian) + atan2(yDiff, xDiff)};
+  const double direction{odometry.H() + atan2(yDiff, xDiff)};
   const double xDistance{distance * cos(direction)};
   const double yDistance{distance * sin(direction)};
-  const double hDistance{
-    okapi::OdomMath::constrainAngle180(odometry.getPose().H - moveTo.h).convert(okapi::radian)};
+  const double hDistance{bfb::normalizeAngle(odometry.H() - moveTo.h)};
   xPidf.calculate(xDistance);
   yPidf.calculate(yDistance);
   hPidf.calculate(hDistance);
@@ -57,8 +56,20 @@ void ChassisMachine::planStep(const States::Chassis::MoveTo &moveTo) {
     setState(States::Chassis::Standby{});
 }
 
-void ChassisMachine::reset(const bfb::CrossOdometry::Pose &iPose) {
-  odometry.reset(iPose);
+double ChassisMachine::X() const {
+  return odometry.X();
+}
+
+double ChassisMachine::Y() const {
+  return odometry.Y();
+}
+
+double ChassisMachine::H() const {
+  return odometry.H();
+}
+
+void ChassisMachine::reset(double iX, double iY, double iH) {
+  odometry.reset(iX, iY, iH);
   setState(States::Chassis::Standby{});
 }
 

@@ -10,20 +10,37 @@
 #pragma once
 
 #include "api.h"
-#include "bfb/utility/test.hpp"
+#include "bfb/debug/test.hpp"
 #include <functional>
 
 namespace bfb {
-constexpr int vex_delay{10};
-
+namespace Wait {
+constexpr int generalDelay{10};
+}
 /**
  * @brief Provide a condition like:
- * waitUntil(somethingIsDone);
+ * waitUntil(somethingIsDone, 1000);
  * or
  * waitUntil([object]() -> bool { return object->isDone(); });
  * It will wait in vex_delay increments until the condition is achieved.
- * Lambdas can be initialized else where: auto condition = [<any locals go here>](){ <stuff> }
- * You can also place time exits in the function.
+ * Will timeout, see overload without the maxDelay argument if that isn't desired.
+ *
+ * @param condition
+ * @param maxDelay
+ */
+void waitUntil(const std::function<bool()> &condition, const int maxDelay);
+
+/**
+ * @brief Provide a condition like:
+ * @code
+ * waitUntil(somethingIsDone);
+ * @endcode
+ * or
+ * @code
+ * waitUntil([object]() -> bool { return object->isDone(); });
+ * @endcode
+ * It will wait in vex_delay increments until the condition is achieved.
+ * Will not timeout, see overload with maxDelay argument.
  *
  * @param condition
  */
@@ -38,6 +55,7 @@ void waitUntil(const std::function<bool()> &condition);
 void wait(const int time);
 
 #ifdef TESTING
+DECLARE_TEST(waitUntilWithTimeoutTest)
 DECLARE_TEST(waitUntilTest)
 #endif
 } // namespace bfb
