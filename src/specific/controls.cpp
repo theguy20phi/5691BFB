@@ -28,5 +28,5 @@ void contingencies() {
   if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_B))
     chassis->toggleHold();
   if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_Y))
-    match->setColor((match->getColor() == Color::Red) ? Color::Blue : Color::Red);
+    match->setColor(((match->getColor() == Color::Red) ? Color::Blue : Color::Red));
 }

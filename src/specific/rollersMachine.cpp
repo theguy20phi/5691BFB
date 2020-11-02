@@ -6,7 +6,6 @@ RollersMachine::RollersMachine(const States::Rollers::RollersStates &iState)
   upperBigRoller.set_brake_mode(pros::E_MOTOR_BRAKE_BRAKE);
   leftSideRoller.set_brake_mode(pros::E_MOTOR_BRAKE_BRAKE);
   rightSideRoller.set_brake_mode(pros::E_MOTOR_BRAKE_BRAKE);
-  colorSensor.disable_gesture();
 }
 
 void RollersMachine::behavior(const States::Rollers::Standby &standby) {
@@ -55,22 +54,26 @@ void RollersMachine::behavior(const States::Rollers::Cycle &cycle) {
 }
 
 void RollersMachine::cycleDecision(const States::Rollers::Cycle &cycle) {
+  std::cout << colorSensor.get_hue() << std::endl;
   if (indexerSensor.get_value() < threshold) {
-    if(bfb::isAlmostEqual(colorSensor.get_hue(), 230, 15)) {
+    if(bfb::isAlmostEqual(colorSensor.get_hue(), blueHue, 15)) {
       if (cycle.color == Color::Red) {
         upperBigRoller.move_velocity(-power);
-        bfb::wait(400);
-      } else
+        bfb::wait(300);
+      } else {
         upperBigRoller.move_velocity(power);
+      }
     } else { // red
       if (cycle.color == Color::Blue) {
         upperBigRoller.move_velocity(-power);
         bfb::wait(400);
-      } else
+      } else {
         upperBigRoller.move_velocity(power);
+      }
     }
-  } else // nothing
+  } else { // nothing
     upperBigRoller.move_velocity(power);
+  }
 }
 
 void RollersMachine::behavior(const States::Rollers::FastShoot &fastShoot) {
