@@ -5,7 +5,13 @@ auto chassisStandby = []() -> bool {
 };
 
 Routine redLeft{[]() {
-                  chassis->setState(States::Chassis::MoveTo{0.0_tile, 1.0_tile, 0.0_deg});
+                  chassis->setState(States::Chassis::MoveTo{0.0_tile, 1.0_tile, 90.0_deg});
+                  bfb::waitUntil(chassisStandby);
+                  chassis->setState(States::Chassis::MoveTo{1.0_tile, 1.0_tile, 180.0_deg});
+                  bfb::waitUntil(chassisStandby);
+                  chassis->setState(States::Chassis::MoveTo{1.0_tile, 0.0_tile, 270.0_deg});
+                  bfb::waitUntil(chassisStandby);
+                  chassis->setState(States::Chassis::MoveTo{0.0_tile, 0.0_tile, 0.0_deg});
                   bfb::waitUntil(chassisStandby);
                 },
                 {bfb::Color::Red, "Red Left", "Fill left", "(x, y, h)"}};

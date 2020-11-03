@@ -21,7 +21,6 @@ void ChassisMachine::behavior(const States::Chassis::MoveTo &moveTo) {
 }
 
 void ChassisMachine::controlDrive(double forward, double strafe, double turn) {
-  std::cout << odometry.X() << " " << odometry.Y() << " " << odometry.H() << std::endl;
   if (fabs(forward) + fabs(strafe) + fabs(turn) < deadband)
     moveVelocity(0.0, 0.0, 0.0);
   else

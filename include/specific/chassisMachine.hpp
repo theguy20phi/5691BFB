@@ -116,14 +116,14 @@ class ChassisMachine : public bfb::StateMachine<ChassisMachine, States::Chassis:
 
   private:
   bfb::CrossOdometry odometry{bfb::Odometer{pros::ADIEncoder{8, 7, true}, 0.0},
-                              bfb::Odometer{pros::ADIEncoder{5, 6}, 0.0},
+                              bfb::Odometer{pros::ADIEncoder{5, 6, true}, 0.0},
                               bfb::IMU{{13}}};
   pros::Motor lFWheel{11};
   pros::Motor lBWheel{20};
   pros::Motor rFWheel{12, true};
   pros::Motor rBWheel{18, true};
   const double deadband{100.0};
-  bfb::Tbh xPidf{{0.0}, bfb::createSettledUtil(0.05, 0.005)};
-  bfb::Tbh yPidf{{5000.0}, bfb::createSettledUtil(0.05, 0.005)};
-  bfb::Pidf hPidf{{7000.0, 0.0, 0.0, 0.0}, bfb::createSettledUtil(0.05, 0.005)};
+  bfb::Pidf xPidf{{750.0, 7.5}, bfb::createSettledUtil(1.5, 0.5)};
+  bfb::Pidf yPidf{{750.0, 7.5}, bfb::createSettledUtil(1.5, 0.5)};
+  bfb::Pidf hPidf{{8000.0}, bfb::createSettledUtil(0.05, 0.005)};
 };
