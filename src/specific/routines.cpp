@@ -8,26 +8,26 @@ Routine redLeft{[]() {
                   chassis->setState(States::Chassis::MoveTo{0.0_tile, 1.0_tile, 0.0_deg});
                   bfb::waitUntil(chassisStandby);
                 },
-                {Color::Red, "Red Left", "Fill left", "(x, y, h)"}};
+                {bfb::Color::Red, "Red Left", "Fill left", "(x, y, h)"}};
 
-Routine redMidLeft{[]() {}, {Color::Red, "Red Mid-Left", "Fill left&mid", "(x, y, h)"}};
+Routine redMidLeft{[]() {}, {bfb::Color::Red, "Red Mid-Left", "Fill left&mid", "(x, y, h)"}};
 
-Routine redMidRight{[]() {}, {Color::Red, "Red Mid-Right", "Fill right&mid", "(x, y, h)"}};
+Routine redMidRight{[]() {}, {bfb::Color::Red, "Red Mid-Right", "Fill right&mid", "(x, y, h)"}};
 
-Routine redRight{[]() {}, {Color::Red, "Red Right", "Fill right", "(x, y, h)"}};
+Routine redRight{[]() {}, {bfb::Color::Red, "Red Right", "Fill right", "(x, y, h)"}};
 
-Routine redRow{[]() {}, {Color::Red, "Red Row", "Fill row", "(x, y, h)"}};
+Routine redRow{[]() {}, {bfb::Color::Red, "Red Row", "Fill row", "(x, y, h)"}};
 
-Routine skills{[]() {}, {Color::Red, "Skills", "Prog skills", "(x, y, h)"}};
+Routine skills{[]() {}, {bfb::Color::Red, "Skills", "Prog skills", "(x, y, h)"}};
 
-Routine blueLeft{[]() {}, {Color::Blue, "Blue Left", "Fill left", "(x, y, h)"}};
+Routine blueLeft{[]() {}, {bfb::Color::Blue, "Blue Left", "Fill left", "(x, y, h)"}};
 
-Routine blueMidLeft{[]() {}, {Color::Blue, "Blue Mid-Left", "Fill left&mid", "(x, y, h)"}};
+Routine blueMidLeft{[]() {}, {bfb::Color::Blue, "Blue Mid-Left", "Fill left&mid", "(x, y, h)"}};
 
-Routine blueMidRight{[]() {}, {Color::Blue, "Blue Mid-Right", "Fill right&mid", "(x, y, h)"}};
+Routine blueMidRight{[]() {}, {bfb::Color::Blue, "Blue Mid-Right", "Fill right&mid", "(x, y, h)"}};
 
-Routine blueRight{[]() {}, {Color::Blue, "Blue Right", "Fill right", "(x, y, h)"}};
+Routine blueRight{[]() {}, {bfb::Color::Blue, "Blue Right", "Fill right", "(x, y, h)"}};
 
-Routine blueRow{[]() {}, {Color::Blue, "Blue Row", "Fill row", "(x, y, h)"}};
+Routine blueRow{[]() {}, {bfb::Color::Blue, "Blue Row", "Fill row", "(x, y, h)"}};
 
-Routine none{[]() {}, {Color::Blue, "None", "Does nothing", "N/A"}};
+Routine none{[]() {}, {bfb::Color::Blue, "None", "Does nothing", "N/A"}};

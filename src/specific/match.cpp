@@ -29,7 +29,7 @@ Routine Match::getRoutine() const {
   return routines[index];
 }
 
-Color Match::getColor() const {
+bfb::Color Match::getColor() const {
   return color;
 }
 
@@ -37,6 +37,6 @@ void Match::setRoutine(int iIndex) {
   index = iIndex;
 }
 
-void Match::setColor(const Color &iColor) {
+void Match::setColor(const bfb::Color &iColor) {
   color = iColor;
 }

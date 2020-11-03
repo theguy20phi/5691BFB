@@ -43,7 +43,6 @@ void ChassisMachine::moveVoltage(double forward, double strafe, double turn) {
 }
 
 void ChassisMachine::planStep(const States::Chassis::MoveTo &moveTo) {
-
   const double xDiff{odometry.X() - moveTo.x};
   const double yDiff{odometry.Y() - moveTo.y};
   const double distance{sqrt(xDiff * xDiff + yDiff * yDiff)};

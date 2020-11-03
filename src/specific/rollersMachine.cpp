@@ -54,26 +54,17 @@ void RollersMachine::behavior(const States::Rollers::Cycle &cycle) {
 }
 
 void RollersMachine::cycleDecision(const States::Rollers::Cycle &cycle) {
-  std::cout << colorSensor.get_hue() << std::endl;
-  if (indexerSensor.get_value() < threshold) {
-    if(bfb::isAlmostEqual(colorSensor.get_hue(), blueHue, 15)) {
-      if (cycle.color == Color::Red) {
-        upperBigRoller.move_velocity(-power);
-        bfb::wait(300);
-      } else {
-        upperBigRoller.move_velocity(power);
-      }
-    } else { // red
-      if (cycle.color == Color::Blue) {
-        upperBigRoller.move_velocity(-power);
-        bfb::wait(400);
-      } else {
-        upperBigRoller.move_velocity(power);
-      }
-    }
-  } else { // nothing
+  if (indexerSensor.get_value() < threshold && getBallColor() != cycle.color) {
+    upperBigRoller.move_velocity(-power);
+    bfb::wait(250);
+  } else
     upperBigRoller.move_velocity(power);
-  }
+}
+
+bfb::Color RollersMachine::getBallColor() {
+  if (bfb::isAlmostEqual(colorSensor.get_hue(), blueHue, 30))
+    return bfb::Color::Blue;
+  return bfb::Color::Red;
 }
 
 void RollersMachine::behavior(const States::Rollers::FastShoot &fastShoot) {

@@ -1,20 +1,14 @@
 /**
  * @file match.hpp
  * @author Braden Pierce (913153006@bryantschools.org)
- * 
+ *
  * @copyright Copyright (c) 2020
- * 
+ *
  */
 
 #pragma once
 
 #include "main.h"
-
-/**
- * @brief The two colors the robot can be.
- *
- */
-enum class Color { Red, Blue };
 
 /**
  * @brief Represents a autonomous routine abstractly.
@@ -27,7 +21,7 @@ class Routine {
    *
    */
   struct Info {
-    Color color;
+    bfb::Color color;
     std::string name;
     std::string description;
     std::string setup;
@@ -74,43 +68,42 @@ class Match {
 
   /**
    * @brief Updates which autonomous routine is selected.
-   * 
+   *
    */
   void update();
 
   /**
    * @brief Get the routine.
-   * 
-   * @return Routine 
+   *
+   * @return Routine
    */
   Routine getRoutine() const;
 
   /**
    * @brief Get the color.
-   * 
-   * @return Color 
+   *
+   * @return Color
    */
-  Color getColor() const;
+  bfb::Color getColor() const;
 
   /**
    * @brief Set which routine is to be done.
-   * 
-   * @param iIndex 
+   *
+   * @param iIndex
    */
   void setRoutine(int iIndex);
 
   /**
    * @brief Set the color of the robot.
-   * 
-   * @param iColor 
+   *
+   * @param iColor
    */
-  void setColor(const Color &iColor);
+  void setColor(const bfb::Color &iColor);
 
   private:
-  //TODO: Change ADI Extender
   pros::ADIPotentiometer routineSelector{'C'};
   pros::ADIPotentiometer colorSelector{'D'};
   std::array<Routine, 12> routines;
   int index{0};
-  Color color;
+  bfb::Color color;
 };

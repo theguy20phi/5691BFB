@@ -13,6 +13,8 @@
 #include "bfb/utility/mathUtil.hpp"
 
 namespace bfb {
+enum class Color { Blue, Red };
+
 inline namespace literals {
 constexpr double operator""_rad(long double x) {
   return x;

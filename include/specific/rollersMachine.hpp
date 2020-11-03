@@ -10,8 +10,6 @@
 
 #include "main.h"
 
-enum class Color;
-
 namespace States {
 namespace Rollers {
 /**
@@ -43,7 +41,7 @@ struct Shoot {};
  *
  */
 struct Cycle {
-  Color color;
+  bfb::Color color;
 };
 
 /**
@@ -81,6 +79,7 @@ class RollersMachine : public bfb::StateMachine<RollersMachine, States::Rollers:
   private:
   void intakeDecision();
   void cycleDecision(const States::Rollers::Cycle &cycle);
+  bfb::Color getBallColor();
 
   private:
   const int threshold{2750};
