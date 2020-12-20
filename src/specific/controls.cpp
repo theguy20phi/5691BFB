@@ -7,8 +7,13 @@ void chassisControls() {
                              master.get_analog(pros::E_CONTROLLER_ANALOG_RIGHT_X) * 100});
 }
 
+// TODO: Make this not horrible please.
 void rollerControls() {
-  if (master.get_digital(pros::E_CONTROLLER_DIGITAL_R1)) {
+  if (master.get_digital(pros::E_CONTROLLER_DIGITAL_X))
+    rollers->setState(States::Rollers::SimpleCycle{});
+  else if (master.get_digital(pros::E_CONTROLLER_DIGITAL_A))
+    rollers->setState(States::Rollers::Eject{});
+  else if (master.get_digital(pros::E_CONTROLLER_DIGITAL_R1)) {
     if (master.get_digital(pros::E_CONTROLLER_DIGITAL_L1))
       rollers->setState(States::Rollers::Cycle{match->getColor()});
     else if (master.get_digital(pros::E_CONTROLLER_DIGITAL_L2))

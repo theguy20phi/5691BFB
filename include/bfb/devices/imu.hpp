@@ -10,7 +10,7 @@
 
 #include "bfb/debug/issue.hpp"
 #include "bfb/debug/logger.hpp"
-#include "okapi/api/filter/medianFilter.hpp"
+#include "okapi/api/filter/emaFilter.hpp"
 #include "pros/imu.hpp"
 #include <functional>
 #include <numeric>
@@ -69,6 +69,6 @@ class IMU final {
   double raw{0.0};
   double offset{0.0};
   std::vector<pros::Imu> imus;
-  okapi::MedianFilter<5> headingFilter{};
+  okapi::EmaFilter headingFilter{0.5};
 };
 } // namespace bfb

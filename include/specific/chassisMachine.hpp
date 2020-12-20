@@ -115,15 +115,15 @@ class ChassisMachine : public bfb::StateMachine<ChassisMachine, States::Chassis:
   void brake();
 
   private:
-  bfb::CrossOdometry odometry{bfb::Odometer{pros::ADIEncoder{8, 7, true}, 0.0},
-                              bfb::Odometer{pros::ADIEncoder{5, 6, true}, 0.0},
-                              bfb::IMU{{13}}};
+  bfb::CrossOdometry odometry{bfb::Odometer{pros::ADIEncoder{8, 7, true}, -0.5, 8.845},
+                              bfb::Odometer{pros::ADIEncoder{5, 6, true}, 0.5, 8.845},
+                              bfb::IMU{{13, 14, 15}}};
   pros::Motor lFWheel{11};
   pros::Motor lBWheel{20};
   pros::Motor rFWheel{12, true};
   pros::Motor rBWheel{18, true};
   const double deadband{100.0};
-  bfb::Pidf xPidf{{750.0, 7.5}, bfb::createSettledUtil(1.5, 0.5)};
-  bfb::Pidf yPidf{{750.0, 7.5}, bfb::createSettledUtil(1.5, 0.5)};
-  bfb::Pidf hPidf{{8000.0}, bfb::createSettledUtil(0.05, 0.005)};
+  bfb::Pidf xPidf{{1550.0, 21.0}, bfb::createSettledUtil(1.0, 0.15)};
+  bfb::Pidf yPidf{{1550.0, 21.0}, bfb::createSettledUtil(1.0, 0.15)};
+  bfb::Pidf hPidf{{37250.0, 400.0}, bfb::createSettledUtil(0.04, 0.004)};
 };

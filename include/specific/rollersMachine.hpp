@@ -49,7 +49,33 @@ struct Cycle {
  *
  */
 struct FastShoot {};
-using RollersStates = std::variant<Standby, Intake, Outtake, Shoot, Cycle, FastShoot>;
+
+/**
+ * @brief Mostly for testing, just moves balls up without the use of sensors.
+ *
+ */
+struct SimpleCycle {};
+
+/**
+ * @brief Manual Ejection state for the rollers.
+ *
+ */
+struct Eject {};
+
+/**
+ * @brief The Detach state for the rollers (outtake side rollers).
+ *
+ */
+struct Detach {};
+
+/**
+ * @brief The Hold state for the rollers (intake side rollers)
+ * 
+ */
+struct Hold{};
+
+using RollersStates =
+  std::variant<Standby, Intake, Outtake, Shoot, Cycle, FastShoot, SimpleCycle, Eject, Detach, Hold>;
 } // namespace Rollers
 } // namespace States
 
@@ -68,6 +94,10 @@ class RollersMachine : public bfb::StateMachine<RollersMachine, States::Rollers:
   void behavior(const States::Rollers::Shoot &shoot);
   void behavior(const States::Rollers::Cycle &cycle);
   void behavior(const States::Rollers::FastShoot &fastShoot);
+  void behavior(const States::Rollers::SimpleCycle &simpleCycle);
+  void behavior(const States::Rollers::Eject &eject);
+  void behavior(const States::Rollers::Detach &detach);
+  void behavior(const States::Rollers::Hold &hold);
 
   /**
    * Slows the roller for the middle goal.
@@ -76,15 +106,29 @@ class RollersMachine : public bfb::StateMachine<RollersMachine, States::Rollers:
    */
   void slowRollers(bool isMiddle);
 
+  /**
+   * Tells if the ball is in front of the indexer.
+   *
+   * @return bool
+   */
+  bool isInEjector();
+
+  /**
+   * Gets the color of the ball in front of the optical sensor.
+   *
+   * @return bfb::Color
+   */
+  bfb::Color getBallColor();
+
   private:
   void intakeDecision();
   void cycleDecision(const States::Rollers::Cycle &cycle);
-  bfb::Color getBallColor();
 
   private:
   const int threshold{2750};
   double power{600};
-  const double blueHue{190};
+  const double blueHue{100};
+  const double redHue{15};
   pros::ADIAnalogIn indexerSensor{'B'};
   pros::ADIAnalogIn shootingSensor{'A'};
   pros::Optical colorSensor{16};

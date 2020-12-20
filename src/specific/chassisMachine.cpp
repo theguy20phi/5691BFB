@@ -69,7 +69,7 @@ double ChassisMachine::H() const {
 }
 
 void ChassisMachine::reset(double iX, double iY, double iH) {
-  odometry.reset(iX, iY, iH);
+  odometry.reset(iX, iY, bfb::toDegrees(iH));
   setState(States::Chassis::Standby{});
 }
 
