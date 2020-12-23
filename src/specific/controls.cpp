@@ -2,7 +2,7 @@
 
 void chassisControls() {
   chassis->setState(
-    States::Chassis::Control{master.get_analog(pros::E_CONTROLLER_ANALOG_LEFT_Y) * 100,
+    Chassis::Control{master.get_analog(pros::E_CONTROLLER_ANALOG_LEFT_Y) * 100,
                              master.get_analog(pros::E_CONTROLLER_ANALOG_LEFT_X) * 100,
                              master.get_analog(pros::E_CONTROLLER_ANALOG_RIGHT_X) * 100});
 }
@@ -10,22 +10,22 @@ void chassisControls() {
 // TODO: Make this not horrible please.
 void rollerControls() {
   if (master.get_digital(pros::E_CONTROLLER_DIGITAL_X))
-    rollers->setState(States::Rollers::SimpleCycle{});
+    rollers->setState(Rollers::SimpleCycle{});
   else if (master.get_digital(pros::E_CONTROLLER_DIGITAL_A))
-    rollers->setState(States::Rollers::Eject{});
+    rollers->setState(Rollers::Eject{});
   else if (master.get_digital(pros::E_CONTROLLER_DIGITAL_R1)) {
     if (master.get_digital(pros::E_CONTROLLER_DIGITAL_L1))
-      rollers->setState(States::Rollers::Cycle{match->getColor()});
+      rollers->setState(Rollers::Cycle{match->getColor()});
     else if (master.get_digital(pros::E_CONTROLLER_DIGITAL_L2))
-      rollers->setState(States::Rollers::FastShoot{});
+      rollers->setState(Rollers::FastShoot{});
     else
-      rollers->setState(States::Rollers::Shoot{});
+      rollers->setState(Rollers::Shoot{});
   } else if (master.get_digital(pros::E_CONTROLLER_DIGITAL_L1))
-    rollers->setState(States::Rollers::Intake{});
+    rollers->setState(Rollers::Intake{});
   else if (master.get_digital(pros::E_CONTROLLER_DIGITAL_L2))
-    rollers->setState(States::Rollers::Outtake{});
+    rollers->setState(Rollers::Outtake{});
   else
-    rollers->setState(States::Rollers::Standby{});
+    rollers->setState(Rollers::Standby{});
   rollers->slowRollers(master.get_digital(pros::E_CONTROLLER_DIGITAL_R2));
 }
 

@@ -1,6 +1,6 @@
 #include "rollersMachine.hpp"
 
-RollersMachine::RollersMachine(const States::Rollers::RollersStates &iState)
+RollersMachine::RollersMachine(const Rollers::RollersStates &iState)
   : StateMachine(iState) {
   lowerBigRoller.set_brake_mode(pros::E_MOTOR_BRAKE_BRAKE);
   upperBigRoller.set_brake_mode(pros::E_MOTOR_BRAKE_BRAKE);
@@ -10,14 +10,14 @@ RollersMachine::RollersMachine(const States::Rollers::RollersStates &iState)
   colorSensor.disable_gesture();
 }
 
-void RollersMachine::behavior(const States::Rollers::Standby &standby) {
+void RollersMachine::behavior(const Rollers::Standby &standby) {
   lowerBigRoller.move_velocity(0);
   upperBigRoller.move_velocity(0);
   leftSideRoller.move_velocity(0);
   rightSideRoller.move_velocity(0);
 }
 
-void RollersMachine::behavior(const States::Rollers::Intake &intake) {
+void RollersMachine::behavior(const Rollers::Intake &intake) {
   intakeDecision();
   leftSideRoller.move_velocity(600);
   rightSideRoller.move_velocity(600);
@@ -33,21 +33,21 @@ void RollersMachine::intakeDecision() {
   }
 }
 
-void RollersMachine::behavior(const States::Rollers::Outtake &outtake) {
+void RollersMachine::behavior(const Rollers::Outtake &outtake) {
   lowerBigRoller.move_velocity(-600);
   upperBigRoller.move_velocity(-600);
   leftSideRoller.move_velocity(-600);
   rightSideRoller.move_velocity(-600);
 }
 
-void RollersMachine::behavior(const States::Rollers::Shoot &shoot) {
+void RollersMachine::behavior(const Rollers::Shoot &shoot) {
   lowerBigRoller.move_velocity(150);
   upperBigRoller.move_velocity(power);
   leftSideRoller.move_velocity(0);
   rightSideRoller.move_velocity(0);
 }
 
-void RollersMachine::behavior(const States::Rollers::Cycle &cycle) {
+void RollersMachine::behavior(const Rollers::Cycle &cycle) {
   if (!isInEjector()) {
     upperBigRoller.move_velocity(100);
     lowerBigRoller.move_velocity(400);
@@ -57,36 +57,36 @@ void RollersMachine::behavior(const States::Rollers::Cycle &cycle) {
     cycleDecision(cycle);
 }
 
-void RollersMachine::behavior(const States::Rollers::Eject &eject) {
+void RollersMachine::behavior(const Rollers::Eject &eject) {
   lowerBigRoller.move_velocity(600);
   upperBigRoller.move_velocity(-600);
   leftSideRoller.move_velocity(600);
   rightSideRoller.move_velocity(600);
 }
 
-void RollersMachine::behavior(const States::Rollers::SimpleCycle &simpleCycle) {
+void RollersMachine::behavior(const Rollers::SimpleCycle &simpleCycle) {
   lowerBigRoller.move_velocity(power);
   upperBigRoller.move_velocity(power);
   leftSideRoller.move_velocity(600);
   rightSideRoller.move_velocity(600);
 }
 
-void RollersMachine::behavior(const States::Rollers::Detach &detach) {
+void RollersMachine::behavior(const Rollers::Detach &detach) {
   lowerBigRoller.move_velocity(0);
   upperBigRoller.move_velocity(0);
   leftSideRoller.move_velocity(-600);
   rightSideRoller.move_velocity(-600);
 }
 
-void RollersMachine::behavior(const States::Rollers::Hold &hold) {
+void RollersMachine::behavior(const Rollers::Hold &hold) {
   lowerBigRoller.move_velocity(0);
   upperBigRoller.move_velocity(0);
   leftSideRoller.move_velocity(600);
   rightSideRoller.move_velocity(600);
 }
 
-void RollersMachine::cycleDecision(const States::Rollers::Cycle &cycle) {
-  behavior(States::Rollers::Intake{});
+void RollersMachine::cycleDecision(const Rollers::Cycle &cycle) {
+  behavior(Rollers::Intake{});
   bfb::wait(300);
   lowerBigRoller.move_velocity(100);
   if (getBallColor() != cycle.color) {
@@ -108,7 +108,7 @@ bfb::Color RollersMachine::getBallColor() {
   return bfb::Color::Red;
 }
 
-void RollersMachine::behavior(const States::Rollers::FastShoot &fastShoot) {
+void RollersMachine::behavior(const Rollers::FastShoot &fastShoot) {
   lowerBigRoller.move_velocity(power);
   upperBigRoller.move_velocity(power);
   leftSideRoller.move_velocity(-600);

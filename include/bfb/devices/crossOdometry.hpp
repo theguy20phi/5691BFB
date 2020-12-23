@@ -12,7 +12,11 @@
 #include "bfb/devices/imu.hpp"
 #include "bfb/flow/task.hpp"
 #include "bfb/utility/mathUtil.hpp"
+#include "okapi/api/units/QAngle.hpp"
+#include "okapi/api/units/QLength.hpp"
 #include "pros/adi.hpp"
+
+using namespace okapi::literals;
 
 namespace bfb {
 /**
@@ -71,23 +75,23 @@ class CrossOdometry : public Task {
   /**
    * @brief Gets the x value of the bot.
    *
-   * @return double
+   * @return okapi::QLength
    */
-  double X() const;
+  okapi::QLength X() const;
 
   /**
    * @brief Gets the y value of the bot.
    *
-   * @return double
+   * @return okapi::QLength
    */
-  double Y() const;
+  okapi::QLength Y() const;
 
   /**
    * @brief Gets the h value of the bot.
    *
-   * @return double
+   * @return okapi::QAngle
    */
-  double H() const;
+  okapi::QAngle H() const;
 
   /**
    * @brief Resets the odometry.
@@ -96,12 +100,12 @@ class CrossOdometry : public Task {
    * @param iY
    * @param iH
    */
-  void reset(double iX = 0.0, double iY = 0.0, double iH = 0.0);
+  void reset(okapi::QLength iX = 0.0_in, okapi::QLength iY = 0.0_in, okapi::QAngle iH = 0.0_rad);
 
   private:
-  double x{0.0};
-  double y{0.0};
-  double h{0.0};
+  okapi::QLength x{0.0};
+  okapi::QLength y{0.0};
+  okapi::QAngle h{0.0};
   Odometer forwardOdometer;
   Odometer sideOdometer;
   IMU imus;

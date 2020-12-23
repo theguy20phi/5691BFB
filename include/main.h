@@ -20,6 +20,7 @@
 #include "bfb/bfb.hpp"
 #include "okapi/api.hpp"
 using namespace bfb::literals;
+using namespace okapi::literals;
 
 #include "specific/specific.hpp"
 

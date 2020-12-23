@@ -11,34 +11,24 @@
 
 #include "bfb/debug/test.hpp"
 #include "bfb/utility/mathUtil.hpp"
+#include "okapi/api/units/QAngle.hpp"
+#include "okapi/api/units/QLength.hpp"
 
 namespace bfb {
 enum class Color { Blue, Red };
 
 inline namespace literals {
-constexpr double operator""_rad(long double x) {
-  return x;
+constexpr okapi::QLength operator""_tile(long double x) {
+  return x * 24.0 * okapi::inch;
 }
-constexpr double operator""_deg(long double x) {
-  return toRadians(x);
+constexpr okapi::QLength operator""_element(long double x) {
+  return x * 6.3 * okapi::inch;
 }
-constexpr double operator""_in(long double x) {
-  return x;
+constexpr okapi::QLength operator""_bot_width(long double x) {
+  return x * 17.5 * okapi::inch;
 }
-constexpr double operator""_ft(long double x) {
-  return x * 12.0;
-}
-constexpr double operator""_tile(long double x) {
-  return x * 24.0;
-}
-constexpr double operator""_element(long double x) {
-  return x * 6.3;
-}
-constexpr double operator""_bot_width(long double x) {
-  return x * 17.5;
-}
-constexpr double operator""_bot_length(long double x) {
-  return x * 17.5;
+constexpr okapi::QLength operator""_bot_length(long double x) {
+  return x * 17.5 * okapi::inch;
 }
 } // namespace literals
 } // namespace bfb

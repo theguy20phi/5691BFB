@@ -10,7 +10,6 @@
 
 #include "main.h"
 
-namespace States {
 namespace Chassis {
 /**
  * @brief Standby state.
@@ -33,31 +32,30 @@ struct Control {
  *
  */
 struct MoveTo {
-  double x;
-  double y;
-  double h;
+  okapi::QLength x;
+  okapi::QLength y;
+  okapi::QAngle h;
 };
 
 using ChassisStates = std::variant<Standby, Control, MoveTo>;
 } // namespace Chassis
-} // namespace States
 
 /**
  * @brief Represents the entire chassis of the robot and is responsible for its behavior during
  * auton and driving.
  *
  */
-class ChassisMachine : public bfb::StateMachine<ChassisMachine, States::Chassis::ChassisStates> {
+class ChassisMachine : public bfb::StateMachine<ChassisMachine, Chassis::ChassisStates> {
   public:
   /**
    * @brief Construct a new Chassis Machine object
    *
    * @param iState
    */
-  ChassisMachine(const States::Chassis::ChassisStates &iState);
-  void behavior(const States::Chassis::Standby &standby);
-  void behavior(const States::Chassis::Control &control);
-  void behavior(const States::Chassis::MoveTo &moveTo);
+  ChassisMachine(const Chassis::ChassisStates &iState);
+  void behavior(const Chassis::Standby &standby);
+  void behavior(const Chassis::Control &control);
+  void behavior(const Chassis::MoveTo &moveTo);
 
   /**
    * @brief Resets the internal pose of the odometry.
@@ -66,28 +64,28 @@ class ChassisMachine : public bfb::StateMachine<ChassisMachine, States::Chassis:
    * @param iY
    * @param iH
    */
-  void reset(double iX = 0.0, double iY = 0.0, double iH = 0.0);
+  void reset(okapi::QLength iX = 0.0_in, okapi::QLength iY = 0.0_in, okapi::QAngle iH = 0.0_rad);
 
   /**
    * @brief Gets the x value of the bot.
    *
-   * @return double
+   * @return okapi::QLength
    */
-  double X() const;
+  okapi::QLength X() const;
 
   /**
    * @brief Gets the y value of the bot.
    *
-   * @return double
+   * @return okapi::QLength
    */
-  double Y() const;
+  okapi::QLength Y() const;
 
   /**
    * @brief Gets the h value of the bot.
    *
-   * @return double
+   * @return okapi::QAngle
    */
-  double H() const;
+  okapi::QAngle H() const;
 
   /**
    * @brief Toggle if the robot is holding its position.
@@ -111,7 +109,7 @@ class ChassisMachine : public bfb::StateMachine<ChassisMachine, States::Chassis:
   void controlDrive(double forward, double strafe, double turn);
   void moveVelocity(double forward, double strafe, double turn);
   void moveVoltage(double forward, double strafe, double turn);
-  void planStep(const States::Chassis::MoveTo &moveTo);
+  void planStep(const Chassis::MoveTo &moveTo);
   void brake();
 
   private:

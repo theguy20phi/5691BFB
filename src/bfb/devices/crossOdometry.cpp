@@ -42,29 +42,29 @@ void CrossOdometry::step() {
   const double direction{atan2(localY, localX) - previousH + deltaH / 2.0};
   double deltaX{cos(direction) * magnitude};
   double deltaY{sin(direction) * magnitude};
-  x += deltaX;
-  y += deltaY;
-  h = tempH;
+  x += deltaX * okapi::inch;
+  y += deltaY * okapi::inch;
+  h = tempH * okapi::radian;
   previousH = tempH;
 }
 
-double CrossOdometry::X() const {
+okapi::QLength CrossOdometry::X() const {
   return x;
 }
 
-double CrossOdometry::Y() const {
+okapi::QLength CrossOdometry::Y() const {
   return y;
 }
 
-double CrossOdometry::H() const {
+okapi::QAngle CrossOdometry::H() const {
   return h;
 }
 
-void CrossOdometry::reset(double iX, double iY, double iH) {
+void CrossOdometry::reset(okapi::QLength iX, okapi::QLength iY, okapi::QAngle iH) {
   x = iX;
   y = iY;
   h = iH;
-  imus.resetHeading(iH);
+  imus.resetHeading(iH.convert(okapi::degree));
 }
 
 DEFINE_TEST(initializeCrossOdometryTest)

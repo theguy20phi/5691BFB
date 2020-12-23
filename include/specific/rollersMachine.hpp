@@ -10,7 +10,6 @@
 
 #include "main.h"
 
-namespace States {
 namespace Rollers {
 /**
  * @brief The Standby state for the rollers.
@@ -77,27 +76,26 @@ struct Hold{};
 using RollersStates =
   std::variant<Standby, Intake, Outtake, Shoot, Cycle, FastShoot, SimpleCycle, Eject, Detach, Hold>;
 } // namespace Rollers
-} // namespace States
 
-class RollersMachine : public bfb::StateMachine<RollersMachine, States::Rollers::RollersStates> {
+class RollersMachine : public bfb::StateMachine<RollersMachine, Rollers::RollersStates> {
   public:
   /**
    * @brief Construct a new Rollers Machine object.
    *
    * @param iState
    */
-  RollersMachine(const States::Rollers::RollersStates &iState);
+  RollersMachine(const Rollers::RollersStates &iState);
 
-  void behavior(const States::Rollers::Standby &standby);
-  void behavior(const States::Rollers::Intake &intake);
-  void behavior(const States::Rollers::Outtake &outtake);
-  void behavior(const States::Rollers::Shoot &shoot);
-  void behavior(const States::Rollers::Cycle &cycle);
-  void behavior(const States::Rollers::FastShoot &fastShoot);
-  void behavior(const States::Rollers::SimpleCycle &simpleCycle);
-  void behavior(const States::Rollers::Eject &eject);
-  void behavior(const States::Rollers::Detach &detach);
-  void behavior(const States::Rollers::Hold &hold);
+  void behavior(const Rollers::Standby &standby);
+  void behavior(const Rollers::Intake &intake);
+  void behavior(const Rollers::Outtake &outtake);
+  void behavior(const Rollers::Shoot &shoot);
+  void behavior(const Rollers::Cycle &cycle);
+  void behavior(const Rollers::FastShoot &fastShoot);
+  void behavior(const Rollers::SimpleCycle &simpleCycle);
+  void behavior(const Rollers::Eject &eject);
+  void behavior(const Rollers::Detach &detach);
+  void behavior(const Rollers::Hold &hold);
 
   /**
    * Slows the roller for the middle goal.
@@ -122,7 +120,7 @@ class RollersMachine : public bfb::StateMachine<RollersMachine, States::Rollers:
 
   private:
   void intakeDecision();
-  void cycleDecision(const States::Rollers::Cycle &cycle);
+  void cycleDecision(const Rollers::Cycle &cycle);
 
   private:
   const int threshold{2750};

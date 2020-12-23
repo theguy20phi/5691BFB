@@ -4,8 +4,8 @@
 #include "main.h"
 
 void initialize() {
-  rollers = std::make_unique<RollersMachine>(States::Rollers::Standby{});
-  chassis = std::make_unique<ChassisMachine>(States::Chassis::Standby{});
+  rollers = std::make_unique<RollersMachine>(Rollers::Standby{});
+  chassis = std::make_unique<ChassisMachine>(Chassis::Standby{});
   match = std::make_unique<Match>(std::array<Routine, 12>{redLeft,
                                                           redMidLeft,
                                                           redMidRight,
@@ -25,8 +25,8 @@ void initialize() {
 }
 
 void disabled() {
-  rollers->setState(States::Rollers::Standby{});
-  chassis->setState(States::Chassis::Standby{});
+  rollers->setState(Rollers::Standby{});
+  chassis->setState(Chassis::Standby{});
   for (;;) {
     match->update();
     bfb::wait(bfb::Wait::generalDelay);
