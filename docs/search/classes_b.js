@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['task_166',['Task',['../classbfb_1_1_task.html',1,'bfb']]],
-  ['tbh_167',['Tbh',['../classbfb_1_1_tbh.html',1,'bfb']]]
+  ['pidf_164',['Pidf',['../classbfb_1_1_pidf.html',1,'bfb']]],
+  ['pidfgains_165',['PidfGains',['../structbfb_1_1_pidf_1_1_pidf_gains.html',1,'bfb::Pidf']]]
 ];

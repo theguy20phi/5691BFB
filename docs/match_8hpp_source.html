@@ -23,7 +23,7 @@
   <td id="projectlogo"><img alt="Logo" src="heat_logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">5691BFB
-   &#160;<span id="projectnumber">Early-Mid Season</span>
+   &#160;<span id="projectnumber">Mid Season</span>
    </div>
    <div id="projectbrief">Team 5691B&#39;s code for the VRC 2020-2021 Season: Change Up.</div>
   </td>
@@ -77,63 +77,59 @@ $(function() {
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;main.h&quot;</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="match_8hpp.html#ab87bacfdad76e61b9412d7124be44c1c">   17</a></span>&#160;<span class="keyword">enum class</span> <a class="code" href="match_8hpp.html#ab87bacfdad76e61b9412d7124be44c1c">Color</a> { Red, Blue };</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="class_routine.html">   23</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_routine.html">Routine</a> {</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="struct_routine_1_1_info.html">   29</a></span>&#160;  <span class="keyword">struct </span><a class="code" href="struct_routine_1_1_info.html">Info</a> {</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <a class="code" href="match_8hpp.html#ab87bacfdad76e61b9412d7124be44c1c">Color</a> color;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    std::string name;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    std::string description;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    std::string setup;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  };</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="class_routine.html#a09703559877863c8f7a1e12c6a994753">   42</a></span>&#160;  <a class="code" href="class_routine.html#a09703559877863c8f7a1e12c6a994753">Routine</a>(<span class="keyword">const</span> std::function&lt;<span class="keywordtype">void</span>()&gt; &amp;iRoutine, <span class="keyword">const</span> <a class="code" href="struct_routine_1_1_info.html">Info</a> &amp;iInfo);</div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="class_routine.html">   17</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_routine.html">Routine</a> {</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;  <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="struct_routine_1_1_info.html">   23</a></span>&#160;  <span class="keyword">struct </span><a class="code" href="struct_routine_1_1_info.html">Info</a> {</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    bfb::Color color;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    std::string name;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    std::string description;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    std::string setup;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  };</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="class_routine.html#a09703559877863c8f7a1e12c6a994753">   36</a></span>&#160;  <a class="code" href="class_routine.html#a09703559877863c8f7a1e12c6a994753">Routine</a>(<span class="keyword">const</span> std::function&lt;<span class="keywordtype">void</span>()&gt; &amp;iRoutine, <span class="keyword">const</span> <a class="code" href="struct_routine_1_1_info.html">Info</a> &amp;iInfo);</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="class_routine.html#a560f8d18a2ed9d564d3b88f56bdd07aa">   42</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_routine.html#a560f8d18a2ed9d564d3b88f56bdd07aa">execute</a>();</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="class_routine.html#a560f8d18a2ed9d564d3b88f56bdd07aa">   48</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_routine.html#a560f8d18a2ed9d564d3b88f56bdd07aa">execute</a>();</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
-<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="class_routine.html#a646752ebe30086e5f203f97e1ef0d0e8">   55</a></span>&#160;  <a class="code" href="struct_routine_1_1_info.html">Info</a> <a class="code" href="class_routine.html#a646752ebe30086e5f203f97e1ef0d0e8">getInfo</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  std::function&lt;void()&gt; routine;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  <span class="keyword">const</span> <a class="code" href="struct_routine_1_1_info.html">Info</a> info;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;};</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
-<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="class_match.html">   66</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_match.html">Match</a> {</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;  <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00073"></a><span class="lineno"><a class="line" href="class_match.html#afe2dbbd247949aace6e7335f82abfaf4">   73</a></span>&#160;  <a class="code" href="class_match.html#afe2dbbd247949aace6e7335f82abfaf4">Match</a>(<span class="keyword">const</span> std::array&lt;Routine, 12&gt; &amp;iRoutines);</div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="class_routine.html#a646752ebe30086e5f203f97e1ef0d0e8">   49</a></span>&#160;  <a class="code" href="struct_routine_1_1_info.html">Info</a> <a class="code" href="class_routine.html#a646752ebe30086e5f203f97e1ef0d0e8">getInfo</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  std::function&lt;void()&gt; routine;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  <span class="keyword">const</span> <a class="code" href="struct_routine_1_1_info.html">Info</a> info;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;};</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="class_match.html">   60</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_match.html">Match</a> {</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="class_match.html#afe2dbbd247949aace6e7335f82abfaf4">   67</a></span>&#160;  <a class="code" href="class_match.html#afe2dbbd247949aace6e7335f82abfaf4">Match</a>(<span class="keyword">const</span> std::array&lt;Routine, 12&gt; &amp;iRoutines);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
+<div class="line"><a name="l00073"></a><span class="lineno"><a class="line" href="class_match.html#a8ec94c35bcfb02be894b707919c6546b">   73</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_match.html#a8ec94c35bcfb02be894b707919c6546b">update</a>();</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
-<div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="class_match.html#a8ec94c35bcfb02be894b707919c6546b">   79</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_match.html#a8ec94c35bcfb02be894b707919c6546b">update</a>();</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
-<div class="line"><a name="l00086"></a><span class="lineno"><a class="line" href="class_match.html#af483696dc39747620d485d78a1d38650">   86</a></span>&#160;  <a class="code" href="class_routine.html">Routine</a> <a class="code" href="class_match.html#af483696dc39747620d485d78a1d38650">getRoutine</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
-<div class="line"><a name="l00093"></a><span class="lineno"><a class="line" href="class_match.html#a927e6810bdf8f273e83cca45eccd400f">   93</a></span>&#160;  <a class="code" href="match_8hpp.html#ab87bacfdad76e61b9412d7124be44c1c">Color</a> <a class="code" href="class_match.html#a927e6810bdf8f273e83cca45eccd400f">getColor</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
-<div class="line"><a name="l00100"></a><span class="lineno"><a class="line" href="class_match.html#a2f21447c32752d662879f19760a4a6da">  100</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_match.html#a2f21447c32752d662879f19760a4a6da">setRoutine</a>(<span class="keywordtype">int</span> iIndex);</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
-<div class="line"><a name="l00107"></a><span class="lineno"><a class="line" href="class_match.html#afd069f8f21706e81aadbad40c78a233e">  107</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_match.html#afd069f8f21706e81aadbad40c78a233e">setColor</a>(<span class="keyword">const</span> <a class="code" href="match_8hpp.html#ab87bacfdad76e61b9412d7124be44c1c">Color</a> &amp;iColor);</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; </div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;  <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;  <span class="comment">//TODO: Change ADI Extender</span></div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;  pros::ADIPotentiometer routineSelector{<span class="charliteral">&#39;C&#39;</span>};</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;  pros::ADIPotentiometer colorSelector{<span class="charliteral">&#39;D&#39;</span>};</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;  std::array&lt;Routine, 12&gt; routines;</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;  <span class="keywordtype">int</span> index{0};</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;  <a class="code" href="match_8hpp.html#ab87bacfdad76e61b9412d7124be44c1c">Color</a> color;</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;};</div>
+<div class="line"><a name="l00080"></a><span class="lineno"><a class="line" href="class_match.html#af483696dc39747620d485d78a1d38650">   80</a></span>&#160;  <a class="code" href="class_routine.html">Routine</a> <a class="code" href="class_match.html#af483696dc39747620d485d78a1d38650">getRoutine</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
+<div class="line"><a name="l00087"></a><span class="lineno"><a class="line" href="class_match.html#a53fe4df2ab6d73b6691c2e5282987b24">   87</a></span>&#160;  bfb::Color <a class="code" href="class_match.html#a53fe4df2ab6d73b6691c2e5282987b24">getColor</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
+<div class="line"><a name="l00094"></a><span class="lineno"><a class="line" href="class_match.html#a2f21447c32752d662879f19760a4a6da">   94</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_match.html#a2f21447c32752d662879f19760a4a6da">setRoutine</a>(<span class="keywordtype">int</span> iIndex);</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
+<div class="line"><a name="l00101"></a><span class="lineno"><a class="line" href="class_match.html#a42b325f56777715b5d40422a98e993c9">  101</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_match.html#a42b325f56777715b5d40422a98e993c9">setColor</a>(<span class="keyword">const</span> bfb::Color &amp;iColor);</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;  <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;  pros::ADIPotentiometer routineSelector{<span class="charliteral">&#39;C&#39;</span>};</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;  pros::ADIPotentiometer colorSelector{<span class="charliteral">&#39;D&#39;</span>};</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;  std::array&lt;Routine, 12&gt; routines;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;  <span class="keywordtype">int</span> index{0};</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;  bfb::Color color;</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;};</div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="aclass_match_html_af483696dc39747620d485d78a1d38650"><div class="ttname"><a href="class_match.html#af483696dc39747620d485d78a1d38650">Match::getRoutine</a></div><div class="ttdeci">Routine getRoutine() const</div><div class="ttdoc">Get the routine.</div></div>
 <div class="ttc" id="aclass_routine_html_a560f8d18a2ed9d564d3b88f56bdd07aa"><div class="ttname"><a href="class_routine.html#a560f8d18a2ed9d564d3b88f56bdd07aa">Routine::execute</a></div><div class="ttdeci">void execute()</div><div class="ttdoc">Executes the autonomous routine.</div></div>
 <div class="ttc" id="aclass_match_html_a2f21447c32752d662879f19760a4a6da"><div class="ttname"><a href="class_match.html#a2f21447c32752d662879f19760a4a6da">Match::setRoutine</a></div><div class="ttdeci">void setRoutine(int iIndex)</div><div class="ttdoc">Set which routine is to be done.</div></div>
-<div class="ttc" id="amatch_8hpp_html_ab87bacfdad76e61b9412d7124be44c1c"><div class="ttname"><a href="match_8hpp.html#ab87bacfdad76e61b9412d7124be44c1c">Color</a></div><div class="ttdeci">Color</div><div class="ttdoc">The two colors the robot can be.</div><div class="ttdef"><b>Definition:</b> match.hpp:17</div></div>
 <div class="ttc" id="aclass_routine_html_a09703559877863c8f7a1e12c6a994753"><div class="ttname"><a href="class_routine.html#a09703559877863c8f7a1e12c6a994753">Routine::Routine</a></div><div class="ttdeci">Routine(const std::function&lt; void()&gt; &amp;iRoutine, const Info &amp;iInfo)</div><div class="ttdoc">Construct a new Routine object.</div></div>
 <div class="ttc" id="aclass_match_html_afe2dbbd247949aace6e7335f82abfaf4"><div class="ttname"><a href="class_match.html#afe2dbbd247949aace6e7335f82abfaf4">Match::Match</a></div><div class="ttdeci">Match(const std::array&lt; Routine, 12 &gt; &amp;iRoutines)</div><div class="ttdoc">Construct a new Match object.</div></div>
-<div class="ttc" id="aclass_match_html_afd069f8f21706e81aadbad40c78a233e"><div class="ttname"><a href="class_match.html#afd069f8f21706e81aadbad40c78a233e">Match::setColor</a></div><div class="ttdeci">void setColor(const Color &amp;iColor)</div><div class="ttdoc">Set the color of the robot.</div></div>
+<div class="ttc" id="aclass_match_html_a42b325f56777715b5d40422a98e993c9"><div class="ttname"><a href="class_match.html#a42b325f56777715b5d40422a98e993c9">Match::setColor</a></div><div class="ttdeci">void setColor(const bfb::Color &amp;iColor)</div><div class="ttdoc">Set the color of the robot.</div></div>
 <div class="ttc" id="aclass_routine_html_a646752ebe30086e5f203f97e1ef0d0e8"><div class="ttname"><a href="class_routine.html#a646752ebe30086e5f203f97e1ef0d0e8">Routine::getInfo</a></div><div class="ttdeci">Info getInfo() const</div><div class="ttdoc">Gets the information about the autonomous routine (largely for the controller GUI).</div></div>
-<div class="ttc" id="astruct_routine_1_1_info_html"><div class="ttname"><a href="struct_routine_1_1_info.html">Routine::Info</a></div><div class="ttdoc">Information about the Routine.</div><div class="ttdef"><b>Definition:</b> match.hpp:29</div></div>
-<div class="ttc" id="aclass_match_html"><div class="ttname"><a href="class_match.html">Match</a></div><div class="ttdoc">Represents the information about the match as a whole.</div><div class="ttdef"><b>Definition:</b> match.hpp:66</div></div>
-<div class="ttc" id="aclass_match_html_a927e6810bdf8f273e83cca45eccd400f"><div class="ttname"><a href="class_match.html#a927e6810bdf8f273e83cca45eccd400f">Match::getColor</a></div><div class="ttdeci">Color getColor() const</div><div class="ttdoc">Get the color.</div></div>
-<div class="ttc" id="aclass_routine_html"><div class="ttname"><a href="class_routine.html">Routine</a></div><div class="ttdoc">Represents a autonomous routine abstractly.</div><div class="ttdef"><b>Definition:</b> match.hpp:23</div></div>
+<div class="ttc" id="astruct_routine_1_1_info_html"><div class="ttname"><a href="struct_routine_1_1_info.html">Routine::Info</a></div><div class="ttdoc">Information about the Routine.</div><div class="ttdef"><b>Definition:</b> match.hpp:23</div></div>
+<div class="ttc" id="aclass_match_html"><div class="ttname"><a href="class_match.html">Match</a></div><div class="ttdoc">Represents the information about the match as a whole.</div><div class="ttdef"><b>Definition:</b> match.hpp:60</div></div>
+<div class="ttc" id="aclass_routine_html"><div class="ttname"><a href="class_routine.html">Routine</a></div><div class="ttdoc">Represents a autonomous routine abstractly.</div><div class="ttdef"><b>Definition:</b> match.hpp:17</div></div>
+<div class="ttc" id="aclass_match_html_a53fe4df2ab6d73b6691c2e5282987b24"><div class="ttname"><a href="class_match.html#a53fe4df2ab6d73b6691c2e5282987b24">Match::getColor</a></div><div class="ttdeci">bfb::Color getColor() const</div><div class="ttdoc">Get the color.</div></div>
 <div class="ttc" id="aclass_match_html_a8ec94c35bcfb02be894b707919c6546b"><div class="ttname"><a href="class_match.html#a8ec94c35bcfb02be894b707919c6546b">Match::update</a></div><div class="ttdeci">void update()</div><div class="ttdoc">Updates which autonomous routine is selected.</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

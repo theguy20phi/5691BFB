@@ -23,7 +23,7 @@
   <td id="projectlogo"><img alt="Logo" src="heat_logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">5691BFB
-   &#160;<span id="projectnumber">Early-Mid Season</span>
+   &#160;<span id="projectnumber">Mid Season</span>
    </div>
    <div id="projectbrief">Team 5691B&#39;s code for the VRC 2020-2021 Season: Change Up.</div>
   </td>
@@ -91,13 +91,26 @@ $(function() {
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  <span class="keywordflow">return</span> 0;</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;}</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="preprocessor">#ifdef TESTING</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;DECLARE_TEST(isAlmostEqualTest)</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;DECLARE_TEST(signTest)</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="preprocessor">} // namespace bfb</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="math_util_8hpp.html#aba8d8fe12952e35c5cc17b35f75663c3">   56</a></span>&#160;constexpr <span class="keywordtype">double</span> <a class="code" href="math_util_8hpp.html#aba8d8fe12952e35c5cc17b35f75663c3">toRadians</a>(<span class="keywordtype">double</span> angle) {</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  <span class="keywordflow">return</span> angle * M_PI / 180.0;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;}</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
+<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="math_util_8hpp.html#aef609a23c66e3b6704573673461ef0f1">   66</a></span>&#160;constexpr <span class="keywordtype">double</span> <a class="code" href="math_util_8hpp.html#aef609a23c66e3b6704573673461ef0f1">toDegrees</a>(<span class="keywordtype">double</span> angle) {</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;  <span class="keywordflow">return</span> angle * 180.0 / M_PI;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;}</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
+<div class="line"><a name="l00076"></a><span class="lineno"><a class="line" href="math_util_8hpp.html#a2823f3ed51badf759e3aa43f3a71011e">   76</a></span>&#160;<span class="keywordtype">double</span> <a class="code" href="math_util_8hpp.html#a2823f3ed51badf759e3aa43f3a71011e">normalizeAngle</a>(<span class="keywordtype">double</span> angle);</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="preprocessor">#ifdef TESTING</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;DECLARE_TEST(isAlmostEqualTest)</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;DECLARE_TEST(signTest)</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="preprocessor">} // namespace bfb</span></div>
 </div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="amath_util_8hpp_html_a2823f3ed51badf759e3aa43f3a71011e"><div class="ttname"><a href="math_util_8hpp.html#a2823f3ed51badf759e3aa43f3a71011e">bfb::normalizeAngle</a></div><div class="ttdeci">double normalizeAngle(double angle)</div><div class="ttdoc">Takes an angle in radians and returns an angle in the form of (-PI, PI)</div></div>
+<div class="ttc" id="amath_util_8hpp_html_aba8d8fe12952e35c5cc17b35f75663c3"><div class="ttname"><a href="math_util_8hpp.html#aba8d8fe12952e35c5cc17b35f75663c3">bfb::toRadians</a></div><div class="ttdeci">constexpr double toRadians(double angle)</div><div class="ttdoc">Takes an angle in degrees and outputs an angle in radians.</div><div class="ttdef"><b>Definition:</b> mathUtil.hpp:56</div></div>
 <div class="ttc" id="amath_util_8hpp_html_a3f11d46121c3f94276c5afbb8cef166f"><div class="ttname"><a href="math_util_8hpp.html#a3f11d46121c3f94276c5afbb8cef166f">bfb::isAlmostZero</a></div><div class="ttdeci">bool isAlmostZero(double a, double thresh=0.1)</div><div class="ttdoc">Determines if a variable is almost zero given some threshold.</div></div>
+<div class="ttc" id="amath_util_8hpp_html_aef609a23c66e3b6704573673461ef0f1"><div class="ttname"><a href="math_util_8hpp.html#aef609a23c66e3b6704573673461ef0f1">bfb::toDegrees</a></div><div class="ttdeci">constexpr double toDegrees(double angle)</div><div class="ttdoc">Takes an angle in radians and outputs an angle in degrees.</div><div class="ttdef"><b>Definition:</b> mathUtil.hpp:66</div></div>
 <div class="ttc" id="atest_8hpp_html"><div class="ttname"><a href="test_8hpp.html">test.hpp</a></div><div class="ttdoc">The test file implements a very simple framework for testing. This allows tests to be ran on the V5 b...</div></div>
 <div class="ttc" id="amath_util_8hpp_html_a20bfb6ad2861cd53960cf741909906f2"><div class="ttname"><a href="math_util_8hpp.html#a20bfb6ad2861cd53960cf741909906f2">bfb::sign</a></div><div class="ttdeci">int sign(const T &amp;value)</div><div class="ttdoc">Determines the sign of a value.</div><div class="ttdef"><b>Definition:</b> mathUtil.hpp:42</div></div>
 <div class="ttc" id="amath_util_8hpp_html_a9b5fa43461de2ccc4b23296ba981e340"><div class="ttname"><a href="math_util_8hpp.html#a9b5fa43461de2ccc4b23296ba981e340">bfb::isAlmostEqual</a></div><div class="ttdeci">bool isAlmostEqual(double a, double b, double thresh)</div><div class="ttdoc">Determines if two variables are equivalent given some threshold.</div></div>

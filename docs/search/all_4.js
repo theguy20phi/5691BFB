@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['fastshoot_25',['FastShoot',['../struct_states_1_1_rollers_1_1_fast_shoot.html',1,'States::Rollers']]]
+  ['fastshoot_26',['FastShoot',['../struct_rollers_1_1_fast_shoot.html',1,'Rollers']]]
 ];

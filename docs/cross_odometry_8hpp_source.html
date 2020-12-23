@@ -23,7 +23,7 @@
   <td id="projectlogo"><img alt="Logo" src="heat_logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">5691BFB
-   &#160;<span id="projectnumber">Early-Mid Season</span>
+   &#160;<span id="projectnumber">Mid Season</span>
    </div>
    <div id="projectbrief">Team 5691B&#39;s code for the VRC 2020-2021 Season: Change Up.</div>
   </td>
@@ -78,77 +78,75 @@ $(function() {
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="test_8hpp.html">bfb/debug/test.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;bfb/devices/imu.hpp&quot;</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="task_8hpp.html">bfb/flow/task.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;okapi/api/units/QAngle.hpp&quot;</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;okapi/api/units/QAngularSpeed.hpp&quot;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="math_util_8hpp.html">bfb/utility/mathUtil.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;okapi/api/units/QAngle.hpp&quot;</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;okapi/api/units/QLength.hpp&quot;</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;okapi/api/units/QSpeed.hpp&quot;</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;pros/adi.hpp&quot;</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">using namespace </span>okapi::literals;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">namespace </span>bfb {</div>
-<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="classbfb_1_1_odometer.html">   27</a></span>&#160;<span class="keyword">class </span><a class="code" href="classbfb_1_1_odometer.html">Odometer</a> {</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="classbfb_1_1_odometer.html#a7bc48f3842a1dd82f4f16e2718959d84">   36</a></span>&#160;  <a class="code" href="classbfb_1_1_odometer.html#a7bc48f3842a1dd82f4f16e2718959d84">Odometer</a>(<span class="keyword">const</span> pros::ADIEncoder &amp;iEncoder, <span class="keywordtype">double</span> iDisplacement, <span class="keywordtype">double</span> iWheelCircum = 8.639379);</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="classbfb_1_1_odometer.html#ae39f5ff397f8e7c188c9c85a9af1a831">   43</a></span>&#160;  <span class="keywordtype">double</span> <a class="code" href="classbfb_1_1_odometer.html#ae39f5ff397f8e7c188c9c85a9af1a831">getDelta</a>();</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  <span class="keywordtype">double</span> getDisp() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  pros::ADIEncoder encoder;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  <span class="keywordtype">double</span> displacement;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  <span class="keywordtype">double</span> wheelCircumference;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  <span class="keywordtype">int</span> previousValue{0};</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;};</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
-<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="classbfb_1_1_cross_odometry.html">   59</a></span>&#160;<span class="keyword">class </span><a class="code" href="classbfb_1_1_cross_odometry.html">CrossOdometry</a> : <span class="keyword">public</span> <a class="code" href="classbfb_1_1_task.html">Task</a> {</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00065"></a><span class="lineno"><a class="line" href="structbfb_1_1_cross_odometry_1_1_pose.html">   65</a></span>&#160;  <span class="keyword">struct </span><a class="code" href="structbfb_1_1_cross_odometry_1_1_pose.html">Pose</a> {</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    okapi::QLength X{0_in};</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    okapi::QLength Y{0_in};</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    okapi::QAngle H{0_deg};</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    okapi::QSpeed VX{0_mps};</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    okapi::QSpeed VY{0_mps};</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    okapi::QAngularSpeed W{0_rpm};</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  };</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
-<div class="line"><a name="l00082"></a><span class="lineno"><a class="line" href="classbfb_1_1_cross_odometry.html#a35913e40debdff62860d003e3a826e24">   82</a></span>&#160;  <a class="code" href="classbfb_1_1_cross_odometry.html#a35913e40debdff62860d003e3a826e24">CrossOdometry</a>(<span class="keyword">const</span> <a class="code" href="classbfb_1_1_odometer.html">Odometer</a> &amp;iForwardOdometer,</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                <span class="keyword">const</span> <a class="code" href="classbfb_1_1_odometer.html">Odometer</a> &amp;iSideOdometer,</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                <span class="keyword">const</span> <a class="code" href="classbfb_1_1_i_m_u.html">IMU</a> &amp;iImus,</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                <span class="keywordtype">int</span> iPriority = TASK_PRIORITY_DEFAULT);</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
-<div class="line"><a name="l00087"></a><span class="lineno"><a class="line" href="classbfb_1_1_cross_odometry.html#ac37d167312223ffacf2db7f76fcca12b">   87</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classbfb_1_1_cross_odometry.html#ac37d167312223ffacf2db7f76fcca12b">step</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;pros/adi.hpp&quot;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">using namespace </span>okapi::literals;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">namespace </span>bfb {</div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="classbfb_1_1_odometer.html">   26</a></span>&#160;<span class="keyword">class </span><a class="code" href="classbfb_1_1_odometer.html">Odometer</a> {</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="classbfb_1_1_odometer.html#a7bc48f3842a1dd82f4f16e2718959d84">   35</a></span>&#160;  <a class="code" href="classbfb_1_1_odometer.html#a7bc48f3842a1dd82f4f16e2718959d84">Odometer</a>(<span class="keyword">const</span> pros::ADIEncoder &amp;iEncoder, <span class="keywordtype">double</span> iDisplacement, <span class="keywordtype">double</span> iWheelCircum = 8.639379);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="classbfb_1_1_odometer.html#ae39f5ff397f8e7c188c9c85a9af1a831">   42</a></span>&#160;  <span class="keywordtype">double</span> <a class="code" href="classbfb_1_1_odometer.html#ae39f5ff397f8e7c188c9c85a9af1a831">getDelta</a>();</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  <span class="keywordtype">double</span> getDisp() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  pros::ADIEncoder encoder;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  <span class="keywordtype">double</span> displacement;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  <span class="keywordtype">double</span> wheelCircumference;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  <span class="keywordtype">int</span> previousValue{0};</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;};</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
+<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="classbfb_1_1_cross_odometry.html">   58</a></span>&#160;<span class="keyword">class </span><a class="code" href="classbfb_1_1_cross_odometry.html">CrossOdometry</a> : <span class="keyword">public</span> <a class="code" href="classbfb_1_1_task.html">Task</a> {</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="classbfb_1_1_cross_odometry.html#a35913e40debdff62860d003e3a826e24">   68</a></span>&#160;  <a class="code" href="classbfb_1_1_cross_odometry.html#a35913e40debdff62860d003e3a826e24">CrossOdometry</a>(<span class="keyword">const</span> <a class="code" href="classbfb_1_1_odometer.html">Odometer</a> &amp;iForwardOdometer,</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                <span class="keyword">const</span> <a class="code" href="classbfb_1_1_odometer.html">Odometer</a> &amp;iSideOdometer,</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                <span class="keyword">const</span> <a class="code" href="classbfb_1_1_i_m_u.html">IMU</a> &amp;iImus,</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                <span class="keywordtype">int</span> iPriority = TASK_PRIORITY_DEFAULT);</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
+<div class="line"><a name="l00073"></a><span class="lineno"><a class="line" href="classbfb_1_1_cross_odometry.html#ac37d167312223ffacf2db7f76fcca12b">   73</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classbfb_1_1_cross_odometry.html#ac37d167312223ffacf2db7f76fcca12b">step</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
+<div class="line"><a name="l00080"></a><span class="lineno"><a class="line" href="classbfb_1_1_cross_odometry.html#ab6527b102ec68f71f3c5f23672092295">   80</a></span>&#160;  okapi::QLength <a class="code" href="classbfb_1_1_cross_odometry.html#ab6527b102ec68f71f3c5f23672092295">X</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
+<div class="line"><a name="l00087"></a><span class="lineno"><a class="line" href="classbfb_1_1_cross_odometry.html#a4671ac188c8350f6e2e4668e1762780c">   87</a></span>&#160;  okapi::QLength <a class="code" href="classbfb_1_1_cross_odometry.html#a4671ac188c8350f6e2e4668e1762780c">Y</a>() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
-<div class="line"><a name="l00094"></a><span class="lineno"><a class="line" href="classbfb_1_1_cross_odometry.html#aad5754d55d8bdda1614e17e67f1de455">   94</a></span>&#160;  <a class="code" href="structbfb_1_1_cross_odometry_1_1_pose.html">Pose</a> <a class="code" href="classbfb_1_1_cross_odometry.html#aad5754d55d8bdda1614e17e67f1de455">getPose</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00094"></a><span class="lineno"><a class="line" href="classbfb_1_1_cross_odometry.html#ae942ab7ca458e78919ba0e833eb52824">   94</a></span>&#160;  okapi::QAngle <a class="code" href="classbfb_1_1_cross_odometry.html#ae942ab7ca458e78919ba0e833eb52824">H</a>() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
-<div class="line"><a name="l00101"></a><span class="lineno"><a class="line" href="classbfb_1_1_cross_odometry.html#a6b2c564ba7bc3202e3d561ae1b1daf93">  101</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classbfb_1_1_cross_odometry.html#a6b2c564ba7bc3202e3d561ae1b1daf93">reset</a>(<span class="keyword">const</span> <a class="code" href="structbfb_1_1_cross_odometry_1_1_pose.html">Pose</a> &amp;iPose = <a class="code" href="structbfb_1_1_cross_odometry_1_1_pose.html">Pose</a>{0_in, 0_in, 0_deg, 0_mps, 0_mps, 0_rpm});</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;  <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;  Pose pose;</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;  <a class="code" href="classbfb_1_1_odometer.html">Odometer</a> forwardOdometer;</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;  <a class="code" href="classbfb_1_1_odometer.html">Odometer</a> sideOdometer;</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;  <a class="code" href="classbfb_1_1_i_m_u.html">IMU</a> imus;</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;  <span class="keywordtype">double</span> previousH{0};</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;};</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;<span class="preprocessor">#ifdef TESTING</span></div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;DECLARE_TEST(initializeCrossOdometryTest);</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;} <span class="comment">// namespace bfb</span></div>
+<div class="line"><a name="l00103"></a><span class="lineno"><a class="line" href="classbfb_1_1_cross_odometry.html#a75676ecee0e01c7e65e6f88d8b80fd20">  103</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classbfb_1_1_cross_odometry.html#a75676ecee0e01c7e65e6f88d8b80fd20">reset</a>(okapi::QLength iX = 0.0_in, okapi::QLength iY = 0.0_in, okapi::QAngle iH = 0.0_rad);</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160; </div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;  <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;  okapi::QLength x{0.0};</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;  okapi::QLength y{0.0};</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;  okapi::QAngle h{0.0};</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;  Odometer forwardOdometer;</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;  Odometer sideOdometer;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;  IMU imus;</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;  <span class="keywordtype">double</span> previousH{0};</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;};</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160; </div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;<span class="preprocessor">#ifdef TESTING</span></div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;DECLARE_TEST(initializeCrossOdometryTest);</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;} <span class="comment">// namespace bfb</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="aclassbfb_1_1_odometer_html_ae39f5ff397f8e7c188c9c85a9af1a831"><div class="ttname"><a href="classbfb_1_1_odometer.html#ae39f5ff397f8e7c188c9c85a9af1a831">bfb::Odometer::getDelta</a></div><div class="ttdeci">double getDelta()</div><div class="ttdoc">Get the Delta object.</div></div>
 <div class="ttc" id="aclassbfb_1_1_cross_odometry_html_ac37d167312223ffacf2db7f76fcca12b"><div class="ttname"><a href="classbfb_1_1_cross_odometry.html#ac37d167312223ffacf2db7f76fcca12b">bfb::CrossOdometry::step</a></div><div class="ttdeci">void step() override</div><div class="ttdoc">Goes through one step of the Task. Should be overwritten. Should take and return nothing.</div></div>
 <div class="ttc" id="atask_8hpp_html"><div class="ttname"><a href="task_8hpp.html">task.hpp</a></div></div>
-<div class="ttc" id="aclassbfb_1_1_odometer_html"><div class="ttname"><a href="classbfb_1_1_odometer.html">bfb::Odometer</a></div><div class="ttdoc">Odometer class used to represent odometer wheels in CrossOdometry.</div><div class="ttdef"><b>Definition:</b> crossOdometry.hpp:27</div></div>
-<div class="ttc" id="aclassbfb_1_1_cross_odometry_html"><div class="ttname"><a href="classbfb_1_1_cross_odometry.html">bfb::CrossOdometry</a></div><div class="ttdoc">The CrossOdometry class provides the implementation for a form of odometry that uses two odometers th...</div><div class="ttdef"><b>Definition:</b> crossOdometry.hpp:59</div></div>
+<div class="ttc" id="aclassbfb_1_1_odometer_html"><div class="ttname"><a href="classbfb_1_1_odometer.html">bfb::Odometer</a></div><div class="ttdoc">Odometer class used to represent odometer wheels in CrossOdometry.</div><div class="ttdef"><b>Definition:</b> crossOdometry.hpp:26</div></div>
+<div class="ttc" id="aclassbfb_1_1_cross_odometry_html"><div class="ttname"><a href="classbfb_1_1_cross_odometry.html">bfb::CrossOdometry</a></div><div class="ttdoc">The CrossOdometry class provides the implementation for a form of odometry that uses two odometers th...</div><div class="ttdef"><b>Definition:</b> crossOdometry.hpp:58</div></div>
+<div class="ttc" id="aclassbfb_1_1_cross_odometry_html_ab6527b102ec68f71f3c5f23672092295"><div class="ttname"><a href="classbfb_1_1_cross_odometry.html#ab6527b102ec68f71f3c5f23672092295">bfb::CrossOdometry::X</a></div><div class="ttdeci">okapi::QLength X() const</div><div class="ttdoc">Gets the x value of the bot.</div></div>
 <div class="ttc" id="aclassbfb_1_1_cross_odometry_html_a35913e40debdff62860d003e3a826e24"><div class="ttname"><a href="classbfb_1_1_cross_odometry.html#a35913e40debdff62860d003e3a826e24">bfb::CrossOdometry::CrossOdometry</a></div><div class="ttdeci">CrossOdometry(const Odometer &amp;iForwardOdometer, const Odometer &amp;iSideOdometer, const IMU &amp;iImus, int iPriority=TASK_PRIORITY_DEFAULT)</div><div class="ttdoc">Construct a new Cross Odometry object.</div></div>
+<div class="ttc" id="aclassbfb_1_1_cross_odometry_html_ae942ab7ca458e78919ba0e833eb52824"><div class="ttname"><a href="classbfb_1_1_cross_odometry.html#ae942ab7ca458e78919ba0e833eb52824">bfb::CrossOdometry::H</a></div><div class="ttdeci">okapi::QAngle H() const</div><div class="ttdoc">Gets the h value of the bot.</div></div>
 <div class="ttc" id="aclassbfb_1_1_task_html"><div class="ttname"><a href="classbfb_1_1_task.html">bfb::Task</a></div><div class="ttdoc">Allows an easy-to-use way to assign &quot;give&quot; (more like make) a class a task by inheriting from this cl...</div><div class="ttdef"><b>Definition:</b> task.hpp:23</div></div>
 <div class="ttc" id="aclassbfb_1_1_odometer_html_a7bc48f3842a1dd82f4f16e2718959d84"><div class="ttname"><a href="classbfb_1_1_odometer.html#a7bc48f3842a1dd82f4f16e2718959d84">bfb::Odometer::Odometer</a></div><div class="ttdeci">Odometer(const pros::ADIEncoder &amp;iEncoder, double iDisplacement, double iWheelCircum=8.639379)</div><div class="ttdoc">Construct a new Odometer object.</div></div>
-<div class="ttc" id="astructbfb_1_1_cross_odometry_1_1_pose_html"><div class="ttname"><a href="structbfb_1_1_cross_odometry_1_1_pose.html">bfb::CrossOdometry::Pose</a></div><div class="ttdoc">Structure to represent position data.</div><div class="ttdef"><b>Definition:</b> crossOdometry.hpp:65</div></div>
 <div class="ttc" id="aclassbfb_1_1_i_m_u_html"><div class="ttname"><a href="classbfb_1_1_i_m_u.html">bfb::IMU</a></div><div class="ttdoc">Wrapper class for out-the-box pros Imu class to simplify the interface to essentially a yaw gyroscope...</div><div class="ttdef"><b>Definition:</b> imu.hpp:26</div></div>
+<div class="ttc" id="aclassbfb_1_1_cross_odometry_html_a75676ecee0e01c7e65e6f88d8b80fd20"><div class="ttname"><a href="classbfb_1_1_cross_odometry.html#a75676ecee0e01c7e65e6f88d8b80fd20">bfb::CrossOdometry::reset</a></div><div class="ttdeci">void reset(okapi::QLength iX=0.0_in, okapi::QLength iY=0.0_in, okapi::QAngle iH=0.0_rad)</div><div class="ttdoc">Resets the odometry.</div></div>
 <div class="ttc" id="atest_8hpp_html"><div class="ttname"><a href="test_8hpp.html">test.hpp</a></div><div class="ttdoc">The test file implements a very simple framework for testing. This allows tests to be ran on the V5 b...</div></div>
-<div class="ttc" id="aclassbfb_1_1_cross_odometry_html_aad5754d55d8bdda1614e17e67f1de455"><div class="ttname"><a href="classbfb_1_1_cross_odometry.html#aad5754d55d8bdda1614e17e67f1de455">bfb::CrossOdometry::getPose</a></div><div class="ttdeci">Pose getPose() const</div><div class="ttdoc">Get the Pose object.</div></div>
-<div class="ttc" id="aclassbfb_1_1_cross_odometry_html_a6b2c564ba7bc3202e3d561ae1b1daf93"><div class="ttname"><a href="classbfb_1_1_cross_odometry.html#a6b2c564ba7bc3202e3d561ae1b1daf93">bfb::CrossOdometry::reset</a></div><div class="ttdeci">void reset(const Pose &amp;iPose=Pose{0_in, 0_in, 0_deg, 0_mps, 0_mps, 0_rpm})</div><div class="ttdoc">Resets the odometry.</div></div>
+<div class="ttc" id="aclassbfb_1_1_cross_odometry_html_a4671ac188c8350f6e2e4668e1762780c"><div class="ttname"><a href="classbfb_1_1_cross_odometry.html#a4671ac188c8350f6e2e4668e1762780c">bfb::CrossOdometry::Y</a></div><div class="ttdeci">okapi::QLength Y() const</div><div class="ttdoc">Gets the y value of the bot.</div></div>
+<div class="ttc" id="amath_util_8hpp_html"><div class="ttname"><a href="math_util_8hpp.html">mathUtil.hpp</a></div><div class="ttdoc">The mathUtil file implements math related methods and functions that are of use in many files.</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">
