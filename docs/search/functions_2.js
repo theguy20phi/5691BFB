@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['disable_208',['disable',['../classbfb_1_1_logger.html#ac86c7dc84f6925d793d524d19d16b036',1,'bfb::Logger']]],
-  ['doomscreen_209',['doomScreen',['../gui_8hpp.html#a0ee414c75beafd473c56f8ec558200cc',1,'gui.hpp']]]
+  ['disable_226',['disable',['../classbfb_1_1_logger.html#ac86c7dc84f6925d793d524d19d16b036',1,'bfb::Logger']]],
+  ['doomscreen_227',['doomScreen',['../gui_8hpp.html#a0ee414c75beafd473c56f8ec558200cc',1,'gui.hpp']]]
 ];
