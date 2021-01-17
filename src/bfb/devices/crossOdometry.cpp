@@ -17,15 +17,14 @@ double Odometer::getDisp() const {
 
 CrossOdometry::CrossOdometry(const Odometer &iForwardOdometer,
                              const Odometer &iSideOdometer,
-                             const IMU &iImus,
-                             int iPriority)
-  : forwardOdometer(iForwardOdometer), sideOdometer(iSideOdometer), imus(iImus), Task(iPriority) {
+                             const IMU &iImus)
+  : forwardOdometer(iForwardOdometer), sideOdometer(iSideOdometer), imus(iImus) {
   imus.calibrate();
   bfb::wait(500);
   bfb::waitUntil([=]() { return !imus.isCalibrating(); }, 3000);
 }
 
-void CrossOdometry::step() {
+void CrossOdometry::updatePose() {
   const double tempH{toRadians(imus.getHeading())};
   const double deltaH{tempH - previousH};
   double localX{0.0};
@@ -42,29 +41,24 @@ void CrossOdometry::step() {
   const double direction{atan2(localY, localX) - previousH + deltaH / 2.0};
   double deltaX{cos(direction) * magnitude};
   double deltaY{sin(direction) * magnitude};
-  x += deltaX * okapi::inch;
-  y += deltaY * okapi::inch;
-  h = tempH * okapi::radian;
+  pose.x += deltaX * okapi::inch;
+  pose.y += deltaY * okapi::inch;
+  pose.h = tempH * okapi::radian;
   previousH = tempH;
 }
 
-okapi::QLength CrossOdometry::X() const {
-  return x;
+Pose CrossOdometry::getPose() {
+  return pose;
 }
 
-okapi::QLength CrossOdometry::Y() const {
-  return y;
+void CrossOdometry::setPose(const Pose &iPose) {
+  pose = iPose;
+  imus.resetHeading(iPose.h.convert(okapi::degree));
 }
 
-okapi::QAngle CrossOdometry::H() const {
-  return h;
-}
-
-void CrossOdometry::reset(okapi::QLength iX, okapi::QLength iY, okapi::QAngle iH) {
-  x = iX;
-  y = iY;
-  h = iH;
-  imus.resetHeading(iH.convert(okapi::degree));
+void CrossOdometry::reset() {
+  pose = {0.0_in, 0.0_in, 0.0_rad};
+  imus.resetHeading(0.0);
 }
 
 DEFINE_TEST(initializeCrossOdometryTest)

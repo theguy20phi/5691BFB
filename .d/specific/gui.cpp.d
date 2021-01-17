@@ -90,12 +90,15 @@ bin/specific/gui.cpp.o: src/specific/gui.cpp include/specific/gui.hpp \
  include/okapi/api/filter/emaFilter.hpp \
  include/okapi/api/filter/filter.hpp include/bfb/controllers/tbh.hpp \
  include/okapi/impl/util/timer.hpp include/bfb/debug/issue.hpp \
- include/bfb/devices/crossOdometry.hpp include/bfb/devices/imu.hpp \
- include/pros/imu.hpp include/bfb/flow/task.hpp include/pros/rtos.hpp \
+ include/bfb/devices/complementaryPoseEstimator.hpp \
+ include/bfb/flow/task.hpp include/pros/rtos.hpp \
+ include/bfb/devices/landmarker.hpp include/bfb/utility/literals.hpp \
  include/okapi/api/units/QAngle.hpp include/okapi/api/units/QLength.hpp \
- include/pros/adi.hpp include/bfb/devices/motionPlanner.hpp \
+ include/bfb/devices/poseEstimator.hpp include/pros/adi.hpp \
+ include/bfb/devices/crossOdometry.hpp include/bfb/devices/imu.hpp \
+ include/pros/imu.hpp include/bfb/devices/motionPlanner.hpp \
  include/bfb/devices/slewRate.hpp include/bfb/flow/stateMachine.hpp \
- include/bfb/utility/literals.hpp include/okapi/api.hpp \
+ include/okapi/api.hpp \
  include/okapi/api/chassis/controller/chassisControllerIntegrated.hpp \
  include/okapi/api/chassis/controller/chassisController.hpp \
  include/okapi/api/chassis/controller/chassisScales.hpp \
@@ -540,29 +543,35 @@ include/okapi/impl/util/timer.hpp:
 
 include/bfb/debug/issue.hpp:
 
+include/bfb/devices/complementaryPoseEstimator.hpp:
+
+include/bfb/flow/task.hpp:
+
+include/pros/rtos.hpp:
+
+include/bfb/devices/landmarker.hpp:
+
+include/bfb/utility/literals.hpp:
+
+include/okapi/api/units/QAngle.hpp:
+
+include/okapi/api/units/QLength.hpp:
+
+include/bfb/devices/poseEstimator.hpp:
+
+include/pros/adi.hpp:
+
 include/bfb/devices/crossOdometry.hpp:
 
 include/bfb/devices/imu.hpp:
 
 include/pros/imu.hpp:
 
-include/bfb/flow/task.hpp:
-
-include/pros/rtos.hpp:
-
-include/okapi/api/units/QAngle.hpp:
-
-include/okapi/api/units/QLength.hpp:
-
-include/pros/adi.hpp:
-
 include/bfb/devices/motionPlanner.hpp:
 
 include/bfb/devices/slewRate.hpp:
 
 include/bfb/flow/stateMachine.hpp:
-
-include/bfb/utility/literals.hpp:
 
 include/okapi/api.hpp:
 

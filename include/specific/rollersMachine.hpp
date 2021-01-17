@@ -69,12 +69,27 @@ struct Detach {};
 
 /**
  * @brief The Hold state for the rollers (intake side rollers)
- * 
+ *
  */
-struct Hold{};
+struct Hold {};
 
-using RollersStates =
-  std::variant<Standby, Intake, Outtake, Shoot, Cycle, FastShoot, SimpleCycle, Eject, Detach, Hold>;
+/**
+ * @brief The Cock state for the rollers (basically all the logic for intaking, but in reverse)
+ *
+ */
+struct Cock {};
+
+using RollersStates = std::variant<Standby,
+                                   Intake,
+                                   Outtake,
+                                   Shoot,
+                                   Cycle,
+                                   FastShoot,
+                                   SimpleCycle,
+                                   Eject,
+                                   Detach,
+                                   Hold,
+                                   Cock>;
 } // namespace Rollers
 
 class RollersMachine : public bfb::StateMachine<RollersMachine, Rollers::RollersStates> {
@@ -96,6 +111,7 @@ class RollersMachine : public bfb::StateMachine<RollersMachine, Rollers::Rollers
   void behavior(const Rollers::Eject &eject);
   void behavior(const Rollers::Detach &detach);
   void behavior(const Rollers::Hold &hold);
+  void behavior(const Rollers::Cock &cock);
 
   /**
    * Slows the roller for the middle goal.

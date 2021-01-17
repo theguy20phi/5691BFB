@@ -1,10 +1,8 @@
 #include "chassisMachine.hpp"
 
-ChassisMachine::ChassisMachine(const Chassis::ChassisStates &iState)
-  : StateMachine(iState) {
+ChassisMachine::ChassisMachine(const Chassis::ChassisStates &iState) : StateMachine(iState) {
   coast();
-  odometry.start();
-  odometry.reset();
+  poseEstimator->reset();
 }
 
 void ChassisMachine::behavior(const Chassis::Standby &standby) {
@@ -42,14 +40,14 @@ void ChassisMachine::moveVoltage(double forward, double strafe, double turn) {
 }
 
 void ChassisMachine::planStep(const Chassis::MoveTo &moveTo) {
-  const double xDiff{(odometry.X() - moveTo.x).convert(okapi::inch)};
-  const double yDiff{(odometry.Y() - moveTo.y).convert(okapi::inch)};
+  const double xDiff{(poseEstimator->getPose().x - moveTo.x).convert(okapi::inch)};
+  const double yDiff{(poseEstimator->getPose().y - moveTo.y).convert(okapi::inch)};
   const double distance{sqrt(xDiff * xDiff + yDiff * yDiff)};
-  const double direction{odometry.H().convert(okapi::radian) + atan2(yDiff, xDiff)};
+  const double direction{poseEstimator->getPose().h.convert(okapi::radian) + atan2(yDiff, xDiff)};
   const double xDistance{distance * cos(direction)};
   const double yDistance{distance * sin(direction)};
-  const double hDistance{
-    okapi::OdomMath::constrainAngle180(odometry.H() - moveTo.h).convert(okapi::radian)};
+  const double hDistance{okapi::OdomMath::constrainAngle180(poseEstimator->getPose().h - moveTo.h)
+                           .convert(okapi::radian)};
   xPidf.calculate(xDistance);
   yPidf.calculate(yDistance);
   hPidf.calculate(hDistance);
@@ -58,20 +56,31 @@ void ChassisMachine::planStep(const Chassis::MoveTo &moveTo) {
 }
 
 okapi::QLength ChassisMachine::X() const {
-  return odometry.X();
+  return poseEstimator->getPose().x;
 }
 
 okapi::QLength ChassisMachine::Y() const {
-  return odometry.Y();
+  return poseEstimator->getPose().y;
 }
 
 okapi::QAngle ChassisMachine::H() const {
-  return odometry.H();
+  return poseEstimator->getPose().h;
 }
 
-void ChassisMachine::reset(okapi::QLength iX, okapi::QLength iY, okapi::QAngle iH) {
-  odometry.reset(iX, iY, iH);
-  setState(Chassis::Standby{});
+void ChassisMachine::setPose(const bfb::Pose &iPose) {
+  for (int i = 0; i < 5; i++) {
+    poseEstimator->setPose(iPose);
+    setState(Chassis::Standby{});
+    bfb::wait(10);
+  }
+}
+
+void ChassisMachine::reset() {
+  for (int i = 0; i < 5; i++) {
+    poseEstimator->reset();
+    bfb::wait(10);
+    setState(Chassis::Standby{});
+  }
 }
 
 void ChassisMachine::toggleHold() {

@@ -58,13 +58,15 @@ class ChassisMachine : public bfb::StateMachine<ChassisMachine, Chassis::Chassis
   void behavior(const Chassis::MoveTo &moveTo);
 
   /**
+   * @brief Sets the internal pose of the odometry.
+   */
+  void setPose(const bfb::Pose &iPose);
+
+  /**
    * @brief Resets the internal pose of the odometry.
    *
-   * @param iX
-   * @param iY
-   * @param iH
    */
-  void reset(okapi::QLength iX = 0.0_in, okapi::QLength iY = 0.0_in, okapi::QAngle iH = 0.0_rad);
+  void reset();
 
   /**
    * @brief Gets the x value of the bot.
@@ -113,9 +115,16 @@ class ChassisMachine : public bfb::StateMachine<ChassisMachine, Chassis::Chassis
   void brake();
 
   private:
-  bfb::CrossOdometry odometry{bfb::Odometer{pros::ADIEncoder{8, 7, true}, -0.5, 8.845},
-                              bfb::Odometer{pros::ADIEncoder{5, 6, true}, 0.5, 8.845},
-                              bfb::IMU{{13, 14, 15}}};
+  std::unique_ptr<bfb::PoseEstimator> poseEstimator{new bfb::ComplementaryPoseEstimator(
+    {bfb::PoseSensor{std::shared_ptr<bfb::PoseEstimator>{new bfb::CrossOdometry(
+                       bfb::Odometer{pros::ADIEncoder{8, 7, true}, -0.5, 8.845},
+                       bfb::Odometer{pros::ADIEncoder{5, 6, true}, 0.5, 8.845},
+                       bfb::IMU{{13, 14, 15}})},
+                     1.0}},
+
+    bfb::Landmarker({bfb::Line{1.0_tile - 0.75_in, bfb::Orientation::horizontal}},
+                    {0.0_in, 2.5_in, 0.0_rad},
+                    1))};
   pros::Motor lFWheel{11};
   pros::Motor lBWheel{20};
   pros::Motor rFWheel{12, true};

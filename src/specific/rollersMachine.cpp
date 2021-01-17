@@ -115,6 +115,18 @@ void RollersMachine::behavior(const Rollers::FastShoot &fastShoot) {
   rightSideRoller.move_velocity(-600);
 }
 
+void RollersMachine::behavior(const Rollers::Cock &cock) {
+  if(!isInEjector()) {
+    upperBigRoller.move_velocity(-power);
+    lowerBigRoller.move_velocity(-power);
+  } else {
+    upperBigRoller.move_velocity(0);
+    lowerBigRoller.move_velocity(0);
+  }
+  leftSideRoller.move_velocity(0);
+  rightSideRoller.move_velocity(0);
+}
+
 void RollersMachine::slowRollers(bool isMiddle) {
   if (isMiddle)
     power = 400;

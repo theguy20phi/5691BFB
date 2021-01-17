@@ -25,7 +25,7 @@ auto redMidRightCommands = []() {};
 auto redRightCommands = []() {};
 
 auto redRowCommands = []() {
-  chassis->reset(1.5_tile, 0.5_tile - 3.0_in, -135.0_deg);
+  chassis->setPose({1.5_tile, 0.5_tile - 3.0_in, -135.0_deg});
   rollers->setState(Rollers::Intake{});
   chassis->setState(Chassis::MoveTo{1.125_tile, 1.125_tile, -135.0_deg});
   bfb::waitUntil(chassisStandby, 2000);
@@ -69,40 +69,51 @@ auto redRowCommands = []() {
 };
 
 auto skillsCommands = []() {
-  chassis->reset(1.0_tile, 10.0_in, 45.0_deg);
+  chassis->setPose({1.0_tile, 10.0_in, -135.0_deg});
   rollers->setState(Rollers::FastShoot{});
   bfb::wait(300);
-  rollers->setState(Rollers::Intake{});
-  chassis->setState(Chassis::MoveTo{1.5_tile, 1.0_tile, 45.0_deg});
-  bfb::waitUntil(chassisStandby, 2000);
+  rollers->setState(Rollers::Eject{});
   chassis->setState(Chassis::MoveTo{1.125_tile, 1.125_tile, -135.0_deg});
   bfb::waitUntil(chassisStandby, 2000);
   chassis->setState(Chassis::MoveTo{1.0_tile, 1.0_tile, -135.0_deg});
   bfb::waitUntil(chassisStandby, 2000);
-  rollers->setState(Rollers::Standby{});
-  chassis->setState(Chassis::MoveTo{0.4_tile, 0.5_tile, -135.0_deg});
+  chassis->setState(Chassis::MoveTo{0.5_tile, 0.5_tile, -135.0_deg});
   bfb::waitUntil(chassisStandby, 2000);
-  rollers->setState(Rollers::Shoot{});
-  bfb::waitUntil(isNotInEjector);
-  bfb::wait(500);
-  chassis->setState(Chassis::MoveTo{3.0_tile, 2.0_tile, 90.0_deg});
-  rollers->setState(Rollers::Detach{});
-  bfb::wait(400);
-  rollers->setState(Rollers::Intake{});
-  bfb::waitUntil(chassisStandby, 4000);
+  bfb::wait(2000);
+  chassis->setState(Chassis::MoveTo{1.25_tile, 1.25_tile, -135.0_deg});
+  bfb::waitUntil(chassisStandby, 500);
   chassis->setState(Chassis::MoveTo{3.0_tile, 1.5_tile, 180.0_deg});
-  bfb::waitUntil(chassisStandby, 1000);
-  rollers->setState(Rollers::Standby{});
+  bfb::waitUntil(chassisStandby, 2000);
   chassis->setState(Chassis::MoveTo{3.0_tile, 1.0_tile, 180.0_deg});
-  bfb::waitUntil(chassisStandby, 1000);
+  bfb::waitUntil(chassisStandby, 2000);
   chassis->setState(Chassis::MoveTo{3.0_tile, 0.5_tile, 180.0_deg});
   bfb::waitUntil(chassisStandby, 2000);
-  rollers->setState(Rollers::Shoot{});
-  bfb::waitUntil(isNotInEjector);
   bfb::wait(1000);
-  rollers->setState(Rollers::Detach{});
-  chassis->setState(Chassis::MoveTo{3.0_tile, 1.0_tile, 180.0_deg});
-  bfb::wait(500);
+  chassis->setState(Chassis::MoveTo{3.0_tile, 1.5_tile, 180.0_deg});
+  bfb::waitUntil(chassisStandby, 500);
+  chassis->setState(Chassis::MoveTo{4.375_tile, 1.625_tile, 135.0_deg});
+  bfb::waitUntil(chassisStandby, 1500);
+  chassis->setState(Chassis::MoveTo{5.5_tile, 0.5_tile, 135.0_deg});
+  bfb::waitUntil(chassisStandby, 3000);
+  chassis->setState(Chassis::MoveTo{5.5_tile, 0.5_tile, 0.0_deg});
+  bfb::waitUntil(chassisStandby, 2000);
+  bfb::wait(1000);
+  chassis->setState(Chassis::MoveTo{4.5_tile, 1.5_tile, 135.0_deg});
+  bfb::waitUntil(chassisStandby, 2000);
+  chassis->setState(Chassis::MoveTo{4.5_tile, 3.0_tile, 90.0_deg});
+  bfb::waitUntil(chassisStandby, 2000);
+  chassis->setState(Chassis::MoveTo{5.5_tile, 3.0_tile, 90.0_deg});
+  bfb::waitUntil(chassisStandby, 2000);
+  bfb::wait(1000);
+  for (int i = 0; i < 4; i++) {
+    chassis->setState(Chassis::MoveTo{3.5_tile, 3.0_tile - 6.0_in, -90.0_deg});
+    bfb::waitUntil(chassisStandby, 3000);
+    chassis->setState(Chassis::MoveTo{4.25_tile, 3.0_tile - 6.0_in, -90.0_deg});
+    bfb::waitUntil(chassisStandby, 3000);
+  }
+  
+  chassis->setState(Chassis::MoveTo{4.75_tile, 4.75_tile, 45.0_deg});
+  chassis->setState(Chassis::MoveTo{5.5_tile, 5.5_tile, 45.0_deg});
 };
 
 auto blueLeftCommands = []() {};
@@ -114,7 +125,7 @@ auto blueMidRightCommands = []() {};
 auto blueRightCommands = []() {};
 
 auto blueRowCommands = []() {
-  chassis->reset(1.5_tile, 0.5_tile - 3.0_in, -135.0_deg);
+  chassis->setPose({1.5_tile, 0.5_tile - 3.0_in, -135.0_deg});
   rollers->setState(Rollers::Intake{});
   chassis->setState(Chassis::MoveTo{1.125_tile, 1.125_tile, -135.0_deg});
   bfb::waitUntil(chassisStandby, 2000);
@@ -157,7 +168,10 @@ auto blueRowCommands = []() {
   chassis->setState(Chassis::MoveTo{4.5_tile, 1.5_tile, 135.0_deg});
 };
 
-auto noneCommands = []() { rollers->setState(Rollers::FastShoot{}) };
+auto noneCommands = []() {
+  chassis->setPose({1.0_tile, 10.0_in, 45.0_deg});
+  // rollers->setState(Rollers::FastShoot{});
+};
 
 Routine redLeft{redLeftCommands, {bfb::Color::Red, "Red Left", "Fill left", "(x, y, h)"}};
 

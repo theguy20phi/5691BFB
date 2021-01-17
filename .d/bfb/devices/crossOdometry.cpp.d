@@ -78,8 +78,8 @@ bin/bfb/devices/crossOdometry.cpp.o: src/bfb/devices/crossOdometry.cpp \
  include/pros/motors.h include/pros/optical.hpp include/pros/optical.h \
  include/pros/rotation.hpp include/pros/rotation.h include/pros/rtos.hpp \
  include/pros/vision.hpp include/pros/vision.h \
- include/bfb/utility/mathUtil.hpp include/okapi/api/units/QAngle.hpp \
- include/okapi/api/units/RQuantity.hpp \
+ include/bfb/utility/mathUtil.hpp include/bfb/devices/poseEstimator.hpp \
+ include/okapi/api/units/QAngle.hpp include/okapi/api/units/RQuantity.hpp \
  include/okapi/api/units/QLength.hpp include/pros/adi.hpp
 
 include/bfb/devices/crossOdometry.hpp:
@@ -385,6 +385,8 @@ include/pros/vision.hpp:
 include/pros/vision.h:
 
 include/bfb/utility/mathUtil.hpp:
+
+include/bfb/devices/poseEstimator.hpp:
 
 include/okapi/api/units/QAngle.hpp:
 
