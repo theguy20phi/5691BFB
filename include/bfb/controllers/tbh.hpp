@@ -12,7 +12,7 @@
 #include "bfb/flow/wait.hpp"
 #include "bfb/utility/mathUtil.hpp"
 #include "controller.hpp"
-#include "okapi/api/control/util/SettledUtil.hpp"
+#include "okapi/api/control/util/settledUtil.hpp"
 #include "okapi/impl/util/timer.hpp"
 #include <assert.h>
 

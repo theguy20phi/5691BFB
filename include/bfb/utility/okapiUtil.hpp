@@ -9,7 +9,7 @@
 
 #pragma once
 
-#include "okapi/api/control/util/SettledUtil.hpp"
+#include "okapi/api/control/util/settledUtil.hpp"
 #include "okapi/impl/util/timeUtilFactory.hpp"
 #include <memory>
 

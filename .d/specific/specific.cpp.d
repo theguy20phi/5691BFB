@@ -78,7 +78,7 @@ bin/specific/specific.cpp.o: src/specific/specific.cpp \
  include/bfb/controllers/controller.hpp include/bfb/debug/logger.hpp \
  include/bfb/utility/key.hpp include/bfb/controllers/pidf.hpp \
  include/bfb/flow/wait.hpp include/bfb/utility/okapiUtil.hpp \
- include/okapi/api/control/util/SettledUtil.hpp \
+ include/okapi/api/control/util/settledUtil.hpp \
  include/okapi/api/units/QTime.hpp include/okapi/api/units/RQuantity.hpp \
  include/okapi/api/util/abstractTimer.hpp \
  include/okapi/api/units/QFrequency.hpp \
@@ -510,7 +510,7 @@ include/bfb/flow/wait.hpp:
 
 include/bfb/utility/okapiUtil.hpp:
 
-include/okapi/api/control/util/SettledUtil.hpp:
+include/okapi/api/control/util/settledUtil.hpp:
 
 include/okapi/api/units/QTime.hpp:
 

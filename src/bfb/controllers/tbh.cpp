@@ -26,7 +26,7 @@ void Tbh::takeBackHalf(int errorSign) {
 }
 
 bool Tbh::isDone(double state) {
-  settledChecker->isSettled(reference - state);
+  return settledChecker->isSettled(reference - state);
 }
 
 void Tbh::reset() {

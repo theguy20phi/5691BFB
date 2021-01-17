@@ -29,5 +29,6 @@ bool IMU::isCalibrating() const {
     if (imu.is_calibrating())
       return true;
   }
+  return false;
 }
 } // namespace bfb
