@@ -47,4 +47,6 @@ class Landmarker : public PoseEstimator {
   const int threshold;
   pros::ADILineSensor lineSensor;
 };
+
+using LandmarkerPtr = std::shared_ptr<Landmarker>;
 } // namespace bfb

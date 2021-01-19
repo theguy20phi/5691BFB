@@ -6,5 +6,5 @@ var searchData=
   ['pidflog_92',['pidfLog',['../classbfb_1_1_pidf.html#a574c1835a7ce0241c56e8afc60218dd6',1,'bfb::Pidf']]],
   ['pose_93',['Pose',['../structbfb_1_1_pose.html',1,'bfb']]],
   ['poseestimator_94',['PoseEstimator',['../classbfb_1_1_pose_estimator.html',1,'bfb']]],
-  ['posesensor_95',['PoseSensor',['../structbfb_1_1_pose_sensor.html',1,'bfb']]]
+  ['WeightedPoseEstimator_95',['WeightedPoseEstimator',['../structbfb_1_1_pose_sensor.html',1,'bfb']]]
 ];

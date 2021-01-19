@@ -62,11 +62,8 @@ class CrossOdometry : public PoseEstimator {
    * @param iForwardOdometer
    * @param iSideOdometer
    * @param iImus
-   * @param iPriority
    */
-  CrossOdometry(const Odometer &iForwardOdometer,
-                const Odometer &iSideOdometer,
-                const IMU &iImus);
+  CrossOdometry(const Odometer &iForwardOdometer, const Odometer &iSideOdometer, const IMU &iImus);
 
   void updatePose() override;
 

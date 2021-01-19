@@ -1,5 +1,5 @@
 /**
- * @file poseSensor.hpp
+ * @file WeightedPoseEstimator.hpp
  * @author Braden Pierce (913153006@bryantschools.org)
  *
  * @copyright Copyright (c) 2021
@@ -10,7 +10,7 @@
 
 #include "okapi/api/units/QAngle.hpp"
 #include "okapi/api/units/QLength.hpp"
-
+#include <memory>
 
 namespace bfb {
 /**
@@ -30,7 +30,6 @@ Pose operator / (const Pose &lhs, double denom);
 bool operator == (const Pose &lhs, const Pose &rhs);
 bool operator != (const Pose &lhs, const Pose &rhs);
 
-
 /**
  * @brief Class to provide a common interface for devices related to pose estimation.
  */
@@ -41,4 +40,11 @@ class PoseEstimator {
   virtual void setPose(const Pose &iPose) = 0;
   virtual void reset() = 0;
 };
+
+/**
+ * @brief Type alias to make declaring pointers to a PoseEstimator a bit easier.
+ * 
+ */
+using PoseEstimatorPtr = std::shared_ptr<PoseEstimator>;
+
 } // namespace bfb

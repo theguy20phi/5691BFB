@@ -115,16 +115,7 @@ class ChassisMachine : public bfb::StateMachine<ChassisMachine, Chassis::Chassis
   void brake();
 
   private:
-  std::unique_ptr<bfb::PoseEstimator> poseEstimator{new bfb::ComplementaryPoseEstimator(
-    {bfb::PoseSensor{std::shared_ptr<bfb::PoseEstimator>{new bfb::CrossOdometry(
-                       bfb::Odometer{pros::ADIEncoder{8, 7, true}, -0.5, 8.845},
-                       bfb::Odometer{pros::ADIEncoder{5, 6, true}, 0.5, 8.845},
-                       bfb::IMU{{13, 14, 15}})},
-                     1.0}},
-
-    bfb::Landmarker({bfb::Line{1.0_tile - 0.75_in, bfb::Orientation::horizontal}},
-                    {0.0_in, 2.5_in, 0.0_rad},
-                    1))};
+  bfb::PoseEstimatorPtr poseEstimator;
   pros::Motor lFWheel{11};
   pros::Motor lBWheel{20};
   pros::Motor rFWheel{12, true};

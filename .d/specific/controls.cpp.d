@@ -97,9 +97,10 @@ bin/specific/controls.cpp.o: src/specific/controls.cpp \
  include/okapi/api/units/QAngle.hpp include/okapi/api/units/QLength.hpp \
  include/bfb/devices/poseEstimator.hpp include/pros/adi.hpp \
  include/bfb/devices/crossOdometry.hpp include/bfb/devices/imu.hpp \
- include/pros/imu.hpp include/bfb/devices/motionPlanner.hpp \
- include/bfb/devices/slewRate.hpp include/bfb/flow/stateMachine.hpp \
- include/okapi/api.hpp \
+ include/pros/imu.hpp include/bfb/devices/impl/cpeBuilder.hpp \
+ include/bfb/devices/impl/crossOdometryBuilder.hpp \
+ include/bfb/devices/motionPlanner.hpp include/bfb/devices/slewRate.hpp \
+ include/bfb/flow/stateMachine.hpp include/okapi/api.hpp \
  include/okapi/api/chassis/controller/chassisControllerIntegrated.hpp \
  include/okapi/api/chassis/controller/chassisController.hpp \
  include/okapi/api/chassis/controller/chassisScales.hpp \
@@ -567,6 +568,10 @@ include/bfb/devices/crossOdometry.hpp:
 include/bfb/devices/imu.hpp:
 
 include/pros/imu.hpp:
+
+include/bfb/devices/impl/cpeBuilder.hpp:
+
+include/bfb/devices/impl/crossOdometryBuilder.hpp:
 
 include/bfb/devices/motionPlanner.hpp:
 

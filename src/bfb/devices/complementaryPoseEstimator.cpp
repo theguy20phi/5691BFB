@@ -1,10 +1,10 @@
 #include "complementaryPoseEstimator.hpp"
 
 namespace bfb {
-ComplementaryPoseEstimator::ComplementaryPoseEstimator(const PoseSensors &iPoseSensors,
-                                                       const Landmarker &iLandmarker,
+ComplementaryPoseEstimator::ComplementaryPoseEstimator(const WeightedPoseEstimators &iWeightedPoseEstimators,
+                                                       const WeightedLandmarkers &iWeightedLandmarkers,
                                                        int iPriority)
-  : poseSensors(iPoseSensors), landmarker(iLandmarker), Task(iPriority) {
+  : weightedPoseEstimators(iWeightedPoseEstimators), weightedLandmarkers(iWeightedLandmarkers), Task(iPriority) {
   start();
 }
 
@@ -20,21 +20,23 @@ Pose ComplementaryPoseEstimator::getPose() {
 
 void ComplementaryPoseEstimator::updatePose() {
   Pose avgPose{0.0_in, 0.0_in, 0.0_rad};
-  for (PoseSensor sensor : poseSensors) {
-    sensor.sensor->updatePose();
-    avgPose = avgPose + sensor.sensor->getPose() * sensor.weight;
+  for (WeightedPoseEstimator estimator : weightedPoseEstimators) {
+    estimator.estimator->updatePose();
+    avgPose = avgPose + estimator.estimator->getPose() * estimator.weight;
   }
   pose = avgPose;
 }
 
 void ComplementaryPoseEstimator::setPose(const Pose &iPose) {
-  for (PoseSensor sensor : poseSensors)
-    sensor.sensor->setPose(iPose);
+  for (WeightedPoseEstimator estimator : weightedPoseEstimators)
+    estimator.estimator->setPose(iPose);
+  for(WeightedLandmarker landmarker : weightedLandmarkers)
+    landmarker.landmarker->setPose(iPose);
   pose = iPose;
 }
 
 void ComplementaryPoseEstimator::reset() {
-  for(PoseSensor sensor : poseSensors)
-    sensor.sensor->reset();
+  for(WeightedPoseEstimator estimator : weightedPoseEstimators)
+    estimator.estimator->reset();
 }
 } // namespace bfb

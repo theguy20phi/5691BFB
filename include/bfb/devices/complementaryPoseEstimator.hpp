@@ -8,19 +8,28 @@
 #include <memory>
 #include <vector>
 
-
 using namespace okapi::literals;
 
 namespace bfb {
 // TODO: See if this can be made unique.
-struct PoseSensor {
-  std::shared_ptr<PoseEstimator> sensor;
+struct WeightedPoseEstimator {
+  PoseEstimatorPtr estimator;
   double weight;
 };
-using PoseSensors = std::vector<PoseSensor>;
+
+struct WeightedLandmarker {
+  LandmarkerPtr landmarker;
+  double weight;
+};
+
+using WeightedPoseEstimators = std::vector<WeightedPoseEstimator>;
+using WeightedLandmarkers = std::vector<WeightedLandmarker>;
+
 class ComplementaryPoseEstimator : public PoseEstimator, public Task {
   public:
-  ComplementaryPoseEstimator(const PoseSensors &iPoseSensors, const Landmarker &iLandmarker, int iPriority = TASK_PRIORITY_MAX);
+  ComplementaryPoseEstimator(const WeightedPoseEstimators &iWeightedPoseEstimators,
+                             const WeightedLandmarkers &iWeightedLandmarkers,
+                             int iPriority = TASK_PRIORITY_MAX);
   void step();
   Pose getPose();
   void setPose(const Pose &iPose);
@@ -29,7 +38,7 @@ class ComplementaryPoseEstimator : public PoseEstimator, public Task {
 
   private:
   Pose pose{0.0_in, 0.0_in, 0.0_rad};
-  PoseSensors poseSensors;
-  Landmarker landmarker;
+  WeightedPoseEstimators weightedPoseEstimators;
+  WeightedLandmarkers weightedLandmarkers;
 };
 } // namespace bfb

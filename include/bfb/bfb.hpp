@@ -15,6 +15,8 @@
 #include "debug/test.hpp"
 #include "devices/complementaryPoseEstimator.hpp"
 #include "devices/crossOdometry.hpp"
+#include "devices/impl/cpeBuilder.hpp"
+#include "devices/impl/crossOdometryBuilder.hpp"
 #include "devices/imu.hpp"
 #include "devices/landmarker.hpp"
 #include "devices/motionPlanner.hpp"
