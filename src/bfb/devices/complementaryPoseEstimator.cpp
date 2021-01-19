@@ -1,10 +1,13 @@
 #include "complementaryPoseEstimator.hpp"
 
 namespace bfb {
-ComplementaryPoseEstimator::ComplementaryPoseEstimator(const WeightedPoseEstimators &iWeightedPoseEstimators,
-                                                       const WeightedLandmarkers &iWeightedLandmarkers,
-                                                       int iPriority)
-  : weightedPoseEstimators(iWeightedPoseEstimators), weightedLandmarkers(iWeightedLandmarkers), Task(iPriority) {
+ComplementaryPoseEstimator::ComplementaryPoseEstimator(
+  const WeightedPoseEstimators &iWeightedPoseEstimators,
+  const WeightedLandmarkers &iWeightedLandmarkers,
+  int iPriority)
+  : weightedPoseEstimators(iWeightedPoseEstimators),
+    weightedLandmarkers(iWeightedLandmarkers),
+    Task(iPriority) {
   start();
 }
 
@@ -30,13 +33,13 @@ void ComplementaryPoseEstimator::updatePose() {
 void ComplementaryPoseEstimator::setPose(const Pose &iPose) {
   for (WeightedPoseEstimator estimator : weightedPoseEstimators)
     estimator.estimator->setPose(iPose);
-  for(WeightedLandmarker landmarker : weightedLandmarkers)
-    landmarker.landmarker->setPose(iPose);
+  for (WeightedLandmarker landmarker : weightedLandmarkers)
+    landmarker.landmarker->setReference(iPose);
   pose = iPose;
 }
 
 void ComplementaryPoseEstimator::reset() {
-  for(WeightedPoseEstimator estimator : weightedPoseEstimators)
+  for (WeightedPoseEstimator estimator : weightedPoseEstimators)
     estimator.estimator->reset();
 }
 } // namespace bfb
