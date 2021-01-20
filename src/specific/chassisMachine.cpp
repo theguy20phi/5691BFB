@@ -5,7 +5,10 @@ ChassisMachine::ChassisMachine(const Chassis::ChassisStates &iState) : StateMach
                        .withForwardOdometer(pros::ADIEncoder{8, 7, true}, 0.5, 8.845)
                        .withSideOdometer(pros::ADIEncoder{5, 6, true}, 0.4, 8.845)
                        .withIMUs({13, 14, 15});
-  poseEstimator = bfb::CPEBuilder().withEstimator(odomBuilder.build(), 1.0).build();
+  poseEstimator = bfb::CPEBuilder()
+                    .withEstimator(odomBuilder.build(), 1.0)
+                    .withLandmarker(bfb::LandmarkerPtr{new bfb::NullLandmarker{}})
+                    .build();
   coast();
   poseEstimator->reset();
 }

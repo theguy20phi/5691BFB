@@ -21,7 +21,7 @@ CrossOdometry::CrossOdometry(const Odometer &iForwardOdometer,
   : forwardOdometer(iForwardOdometer), sideOdometer(iSideOdometer), imus(iImus) {
   imus.calibrate();
   bfb::wait(500);
-  bfb::waitUntil([=]() { return !imus.isCalibrating(); }, 5000);
+  bfb::waitUntil([=]() { return !imus.isCalibrating(); }, 6000);
 }
 
 void CrossOdometry::updatePose() {
@@ -38,7 +38,7 @@ void CrossOdometry::updatePose() {
     localY = forwardOdometer.getDelta();
   }
   const double magnitude{sqrt(localX * localX + localY * localY)};
-  const double direction{atan2(localY, localX) - previousH + deltaH / 2.0};
+  const double direction{atan2(localY, localX) - (previousH + deltaH / 2.0)};
   double deltaX{cos(direction) * magnitude};
   double deltaY{sin(direction) * magnitude};
   pose.x += deltaX * okapi::inch;

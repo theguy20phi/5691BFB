@@ -22,6 +22,7 @@
 #include "devices/landmarker.hpp"
 #include "devices/lineLandmarker.hpp"
 #include "devices/motionPlanner.hpp"
+#include "devices/nullLandmarker.hpp"
 #include "devices/poseEstimator.hpp"
 #include "devices/slewRate.hpp"
 #include "flow/stateMachine.hpp"

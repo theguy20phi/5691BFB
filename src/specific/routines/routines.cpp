@@ -36,13 +36,14 @@ void skillsCommands() {
   bfb::waitUntil(chassisStandby, 2000);
   bfb::wait(1000);
   for (int i = 0; i < 4; i++) {
-    chassis->setState(Chassis::MoveTo{3.5_tile, 3.0_tile - 6.0_in, -90.0_deg});
+    chassis->setState(Chassis::MoveTo{3.5_tile, 3.0_tile - 4.0_in, -90.0_deg});
     bfb::waitUntil(chassisStandby, 3000);
-    chassis->setState(Chassis::MoveTo{4.25_tile, 3.0_tile - 6.0_in, -90.0_deg});
+    chassis->setState(Chassis::MoveTo{4.25_tile, 3.0_tile - 4.0_in, -90.0_deg});
     bfb::waitUntil(chassisStandby, 3000);
   }
 
   chassis->setState(Chassis::MoveTo{4.75_tile, 4.75_tile, 45.0_deg});
+  bfb::waitUntil(chassisStandby, 4000);
   chassis->setState(Chassis::MoveTo{5.5_tile, 5.5_tile, 45.0_deg});
 }
 

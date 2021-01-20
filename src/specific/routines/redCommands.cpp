@@ -10,6 +10,21 @@ void redMidRightCommands() {
 }
 
 void redRightCommands() {
+  chassis->setPose({0.0_tile, 0.0_tile, 0.0_deg});
+  rollers->setState(Rollers::FastShoot{});
+
+  chassis->setState(Chassis::MoveTo{1.0_tile, 0.0_tile, 0.0_deg});
+  bfb::waitUntil(chassisStandby, 2000);
+
+  chassis->setState(Chassis::MoveTo{1.0_tile, 1.0_tile, 0.0_deg});
+  bfb::waitUntil(chassisStandby, 2000);
+
+  chassis->setState(Chassis::MoveTo{0.0_tile, 1.0_tile, 0.0_deg});
+  bfb::waitUntil(chassisStandby, 2000);
+
+  chassis->setState(Chassis::MoveTo{0.0_tile, 0.0_tile, 0.0_deg});
+  bfb::waitUntil(chassisStandby, 2000);
+  rollers->setState(Rollers::Standby{});
 }
 
 void redRowCommands() {

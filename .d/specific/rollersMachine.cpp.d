@@ -102,7 +102,8 @@ bin/specific/rollersMachine.cpp.o: src/specific/rollersMachine.cpp \
  include/bfb/devices/impl/crossOdometryBuilder.hpp \
  include/bfb/devices/impl/lineLandmarkerBuilder.hpp \
  include/bfb/devices/lineLandmarker.hpp \
- include/bfb/devices/motionPlanner.hpp include/bfb/devices/slewRate.hpp \
+ include/bfb/devices/motionPlanner.hpp \
+ include/bfb/devices/nullLandmarker.hpp include/bfb/devices/slewRate.hpp \
  include/bfb/flow/stateMachine.hpp include/okapi/api.hpp \
  include/okapi/api/chassis/controller/chassisControllerIntegrated.hpp \
  include/okapi/api/chassis/controller/chassisController.hpp \
@@ -585,6 +586,8 @@ include/bfb/devices/impl/lineLandmarkerBuilder.hpp:
 include/bfb/devices/lineLandmarker.hpp:
 
 include/bfb/devices/motionPlanner.hpp:
+
+include/bfb/devices/nullLandmarker.hpp:
 
 include/bfb/devices/slewRate.hpp:
 
