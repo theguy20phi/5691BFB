@@ -205,7 +205,11 @@ bin/specific/chassisMachine.cpp.o: src/specific/chassisMachine.cpp \
  include/okapi/impl/util/rate.hpp include/specific/specific.hpp \
  include/specific/controls.hpp include/specific/globals.hpp \
  include/specific/gui.hpp include/specific/match.hpp \
- include/specific/rollersMachine.hpp include/specific/routines.hpp
+ include/specific/rollersMachine.hpp \
+ include/specific/routines/autonMacros.hpp \
+ include/specific/routines/blueCommands.hpp \
+ include/specific/routines/redCommands.hpp \
+ include/specific/routines/routines.hpp
 
 include/specific/chassisMachine.hpp:
 
@@ -809,4 +813,10 @@ include/specific/match.hpp:
 
 include/specific/rollersMachine.hpp:
 
-include/specific/routines.hpp:
+include/specific/routines/autonMacros.hpp:
+
+include/specific/routines/blueCommands.hpp:
+
+include/specific/routines/redCommands.hpp:
+
+include/specific/routines/routines.hpp:

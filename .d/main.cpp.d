@@ -205,7 +205,10 @@ bin/main.cpp.o: src/main.cpp include/main.h include/api.h \
  include/specific/chassisMachine.hpp include/specific/controls.hpp \
  include/specific/globals.hpp include/specific/gui.hpp \
  include/specific/match.hpp include/specific/rollersMachine.hpp \
- include/specific/routines.hpp
+ include/specific/routines/autonMacros.hpp \
+ include/specific/routines/blueCommands.hpp \
+ include/specific/routines/redCommands.hpp \
+ include/specific/routines/routines.hpp
 
 include/main.h:
 
@@ -809,4 +812,10 @@ include/specific/match.hpp:
 
 include/specific/rollersMachine.hpp:
 
-include/specific/routines.hpp:
+include/specific/routines/autonMacros.hpp:
+
+include/specific/routines/blueCommands.hpp:
+
+include/specific/routines/redCommands.hpp:
+
+include/specific/routines/routines.hpp:
