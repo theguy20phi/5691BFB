@@ -14,4 +14,7 @@
 #include "gui.hpp"
 #include "match.hpp"
 #include "rollersMachine.hpp"
-#include "routines.hpp"
+#include "routines/autonMacros.hpp"
+#include "routines/blueCommands.hpp"
+#include "routines/redCommands.hpp"
+#include "routines/routines.hpp"

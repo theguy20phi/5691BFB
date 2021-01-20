@@ -18,12 +18,12 @@ class CPEBuilder {
   CPEBuilder();
   PoseEstimatorPtr build() const;
   CPEBuilder withEstimator(PoseEstimatorPtr poseEstimatorPtr, double weight);
-  CPEBuilder withLandmarker(LandmarkerPtr landmarkerPtr, double weight);
+  CPEBuilder withLandmarker(LandmarkerPtr landmarkerPtr);
   CPEBuilder withPriority(int iPriority);
 
   private:
   WeightedPoseEstimators weightedPoseEstimators;
-  WeightedLandmarkers weightedLandmarkers;
+  LandmarkerPtr landmarker;
   int priority = TASK_PRIORITY_MAX;
 };
 } // namespace bfb

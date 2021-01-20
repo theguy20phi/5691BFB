@@ -6,7 +6,7 @@ CPEBuilder::CPEBuilder() {
 
 PoseEstimatorPtr CPEBuilder::build() const {
   return PoseEstimatorPtr{
-    new ComplementaryPoseEstimator{weightedPoseEstimators, weightedLandmarkers, priority}};
+    new ComplementaryPoseEstimator{weightedPoseEstimators, landmarker, priority}};
 }
 
 CPEBuilder CPEBuilder::withEstimator(PoseEstimatorPtr poseEstimatorPtr, double weight) {
@@ -14,8 +14,8 @@ CPEBuilder CPEBuilder::withEstimator(PoseEstimatorPtr poseEstimatorPtr, double w
   return *this;
 }
 
-CPEBuilder CPEBuilder::withLandmarker(LandmarkerPtr landmarkerPtr, double weight) {
-  weightedLandmarkers.push_back({landmarkerPtr, weight});
+CPEBuilder CPEBuilder::withLandmarker(LandmarkerPtr landmarkerPtr) {
+  landmarker = landmarkerPtr;
   return *this;
 }
 } // namespace bfb

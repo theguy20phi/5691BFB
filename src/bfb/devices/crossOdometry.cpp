@@ -21,7 +21,7 @@ CrossOdometry::CrossOdometry(const Odometer &iForwardOdometer,
   : forwardOdometer(iForwardOdometer), sideOdometer(iSideOdometer), imus(iImus) {
   imus.calibrate();
   bfb::wait(500);
-  bfb::waitUntil([=]() { return !imus.isCalibrating(); }, 3000);
+  bfb::waitUntil([=]() { return !imus.isCalibrating(); }, 5000);
 }
 
 void CrossOdometry::updatePose() {

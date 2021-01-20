@@ -27,6 +27,10 @@ Pose operator + (const Pose &lhs, const Pose &rhs);
 Pose operator - (const Pose &lhs, const Pose &rhs);
 Pose operator * (const Pose &lhs, double factor);
 Pose operator / (const Pose &lhs, double denom);
+void operator += (Pose &lhs, const Pose &rhs);
+void operator -= (Pose &lhs, const Pose &rhs);
+void operator *= (Pose &lhs, const Pose &rhs);
+void operator /= (Pose &lhs, const Pose &rhs);
 bool operator == (const Pose &lhs, const Pose &rhs);
 bool operator != (const Pose &lhs, const Pose &rhs);
 

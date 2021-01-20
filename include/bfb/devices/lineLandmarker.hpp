@@ -18,10 +18,10 @@ class LineLandmarker : public Landmarker {
                  const Pose &iRelativePose,
                  uint8_t port,
                  int iThreshold = 500);
-  void update(const Pose &iReferencePose) override;
-  void setReference(const Pose &iReferencePose) override;
+  void updatePose(const Pose &iReferencePose) override;
+  void setPose(const Pose &iReferencePose) override;
   bool isReading() override;
-  Pose getReading() override;
+  Pose getPose() override;
   void reset() override;
 
   private:

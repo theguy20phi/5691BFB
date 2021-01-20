@@ -100,6 +100,8 @@ bin/specific/routines.cpp.o: src/specific/routines.cpp \
  include/okapi/api/filter/passthroughFilter.hpp include/pros/imu.hpp \
  include/bfb/devices/impl/cpeBuilder.hpp \
  include/bfb/devices/impl/crossOdometryBuilder.hpp \
+ include/bfb/devices/impl/lineLandmarkerBuilder.hpp \
+ include/bfb/devices/lineLandmarker.hpp \
  include/bfb/devices/motionPlanner.hpp include/bfb/devices/slewRate.hpp \
  include/bfb/flow/stateMachine.hpp include/okapi/api.hpp \
  include/okapi/api/chassis/controller/chassisControllerIntegrated.hpp \
@@ -201,9 +203,11 @@ bin/specific/routines.cpp.o: src/specific/routines.cpp \
  include/okapi/api/units/QPressure.hpp \
  include/okapi/api/units/QTorque.hpp include/okapi/api/units/QVolume.hpp \
  include/okapi/impl/util/rate.hpp include/specific/specific.hpp \
+ include/specific/autonMacros.hpp include/specific/blueCommands.hpp \
  include/specific/chassisMachine.hpp include/specific/controls.hpp \
  include/specific/globals.hpp include/specific/gui.hpp \
- include/specific/match.hpp include/specific/rollersMachine.hpp
+ include/specific/match.hpp include/specific/redCommands.hpp \
+ include/specific/rollersMachine.hpp
 
 include/specific/routines.hpp:
 
@@ -575,6 +579,10 @@ include/bfb/devices/impl/cpeBuilder.hpp:
 
 include/bfb/devices/impl/crossOdometryBuilder.hpp:
 
+include/bfb/devices/impl/lineLandmarkerBuilder.hpp:
+
+include/bfb/devices/lineLandmarker.hpp:
+
 include/bfb/devices/motionPlanner.hpp:
 
 include/bfb/devices/slewRate.hpp:
@@ -793,6 +801,10 @@ include/okapi/impl/util/rate.hpp:
 
 include/specific/specific.hpp:
 
+include/specific/autonMacros.hpp:
+
+include/specific/blueCommands.hpp:
+
 include/specific/chassisMachine.hpp:
 
 include/specific/controls.hpp:
@@ -802,5 +814,7 @@ include/specific/globals.hpp:
 include/specific/gui.hpp:
 
 include/specific/match.hpp:
+
+include/specific/redCommands.hpp:
 
 include/specific/rollersMachine.hpp:

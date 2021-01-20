@@ -98,6 +98,8 @@ bin/bfb/bfb.cpp.o: src/bfb/bfb.cpp include/bfb/bfb.hpp \
  include/okapi/api/filter/passthroughFilter.hpp include/pros/imu.hpp \
  include/bfb/devices/impl/cpeBuilder.hpp \
  include/bfb/devices/impl/crossOdometryBuilder.hpp \
+ include/bfb/devices/impl/lineLandmarkerBuilder.hpp \
+ include/bfb/devices/lineLandmarker.hpp \
  include/bfb/devices/motionPlanner.hpp include/bfb/devices/slewRate.hpp \
  include/bfb/flow/stateMachine.hpp
 
@@ -464,6 +466,10 @@ include/pros/imu.hpp:
 include/bfb/devices/impl/cpeBuilder.hpp:
 
 include/bfb/devices/impl/crossOdometryBuilder.hpp:
+
+include/bfb/devices/impl/lineLandmarkerBuilder.hpp:
+
+include/bfb/devices/lineLandmarker.hpp:
 
 include/bfb/devices/motionPlanner.hpp:
 
