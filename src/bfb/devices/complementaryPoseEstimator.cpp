@@ -3,11 +3,9 @@
 namespace bfb {
 ComplementaryPoseEstimator::ComplementaryPoseEstimator(
   const WeightedPoseEstimators &iWeightedPoseEstimators,
-  const WeightedLandmarkers &iWeightedLandmarkers,
+  const LandmarkerPtr &iLandmarker,
   int iPriority)
-  : weightedPoseEstimators(iWeightedPoseEstimators),
-    weightedLandmarkers(iWeightedLandmarkers),
-    Task(iPriority) {
+  : weightedPoseEstimators(iWeightedPoseEstimators), landmarker(iLandmarker), Task(iPriority) {
   start();
 }
 
@@ -22,24 +20,27 @@ Pose ComplementaryPoseEstimator::getPose() {
 }
 
 void ComplementaryPoseEstimator::updatePose() {
-  Pose avgPose{0.0_in, 0.0_in, 0.0_rad};
+  Pose tempPose{0.0_in, 0.0_in, 0.0_rad};
   for (WeightedPoseEstimator estimator : weightedPoseEstimators) {
     estimator.estimator->updatePose();
-    avgPose = avgPose + estimator.estimator->getPose() * estimator.weight;
+    tempPose += estimator.estimator->getPose() * estimator.weight;
   }
-  pose = avgPose;
+  landmarker->updatePose(tempPose);
+  if (landmarker->isReading())
+    tempPose = landmarker->getPose();
+  setPose(tempPose);
 }
 
 void ComplementaryPoseEstimator::setPose(const Pose &iPose) {
   for (WeightedPoseEstimator estimator : weightedPoseEstimators)
     estimator.estimator->setPose(iPose);
-  for (WeightedLandmarker landmarker : weightedLandmarkers)
-    landmarker.landmarker->setReference(iPose);
+  landmarker->setPose(pose);
   pose = iPose;
 }
 
 void ComplementaryPoseEstimator::reset() {
   for (WeightedPoseEstimator estimator : weightedPoseEstimators)
     estimator.estimator->reset();
+  landmarker->reset();
 }
 } // namespace bfb

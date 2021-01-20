@@ -11,24 +11,17 @@
 using namespace okapi::literals;
 
 namespace bfb {
-// TODO: See if this can be made unique.
 struct WeightedPoseEstimator {
   PoseEstimatorPtr estimator;
   double weight;
 };
 
-struct WeightedLandmarker {
-  LandmarkerPtr landmarker;
-  double weight;
-};
-
 using WeightedPoseEstimators = std::vector<WeightedPoseEstimator>;
-using WeightedLandmarkers = std::vector<WeightedLandmarker>;
 
 class ComplementaryPoseEstimator : public PoseEstimator, public Task {
   public:
   ComplementaryPoseEstimator(const WeightedPoseEstimators &iWeightedPoseEstimators,
-                             const WeightedLandmarkers &iWeightedLandmarkers,
+                             const LandmarkerPtr &iLandmarker,
                              int iPriority = TASK_PRIORITY_MAX);
   void step();
   Pose getPose();
@@ -39,6 +32,6 @@ class ComplementaryPoseEstimator : public PoseEstimator, public Task {
   private:
   Pose pose{0.0_in, 0.0_in, 0.0_rad};
   WeightedPoseEstimators weightedPoseEstimators;
-  WeightedLandmarkers weightedLandmarkers;
+  LandmarkerPtr landmarker;
 };
 } // namespace bfb

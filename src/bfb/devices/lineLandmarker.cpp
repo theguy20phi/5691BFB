@@ -8,13 +8,13 @@ LineLandmarker::LineLandmarker(const Lines &iLines,
   : lines(iLines), relativePose(iRelativePose), lineSensor(port), threshold(iThreshold) {
 }
 
-void LineLandmarker::update(const Pose &iReferencePose) {
+void LineLandmarker::updatePose(const Pose &iReferencePose) {
   pose = iReferencePose;
   const Line closestLine{getClosestLine()};
   calculatePose(closestLine);
 }
 
-void LineLandmarker::setReference(const Pose &iReferencePose) {
+void LineLandmarker::setPose(const Pose &iReferencePose) {
   pose = iReferencePose;
 }
 
@@ -24,7 +24,7 @@ bool LineLandmarker::isReading() {
   return false;
 }
 
-Pose LineLandmarker::getReading() {
+Pose LineLandmarker::getPose() {
   return pose;
 }
 

@@ -19,10 +19,10 @@ using namespace okapi::literals;
 namespace bfb {
 class Landmarker {
   public:
-  virtual void update(const Pose &iReferencePose) = 0;
-  virtual void setReference(const Pose &iReferencePose) = 0;
+  virtual void updatePose(const Pose &iReferencePose) = 0;
+  virtual void setPose(const Pose &iReferencePose) = 0;
   virtual bool isReading() = 0;
-  virtual Pose getReading() = 0;
+  virtual Pose getPose() = 0;
   virtual void reset() = 0;
 };
 

@@ -17,6 +17,26 @@ Pose operator/(const Pose &lhs, double denom) {
   return Pose{lhs.x / denom, lhs.y / denom, lhs.h / denom};
 }
 
+void operator+=(Pose &lhs, const Pose &rhs) {
+  lhs.x += rhs.x;
+  lhs.y += rhs.y;
+}
+
+void operator-=(Pose &lhs, const Pose &rhs) {
+  lhs.x -= rhs.x;
+  lhs.y -= rhs.y;
+}
+
+void operator*=(Pose &lhs, double factor) {
+  lhs.x *= factor;
+  lhs.y *= factor;
+}
+
+void operator/=(Pose &lhs, double denom) {
+  lhs.x /= denom;
+  lhs.y /= denom;
+}
+
 bool operator == (const Pose &lhs, const Pose &rhs) {
     return lhs.x == rhs.x && lhs.y == rhs.y && lhs.h == rhs.h;
 }
