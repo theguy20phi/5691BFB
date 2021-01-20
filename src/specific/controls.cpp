@@ -1,10 +1,9 @@
 #include "controls.hpp"
 
 void chassisControls() {
-  chassis->setState(
-    Chassis::Control{master.get_analog(pros::E_CONTROLLER_ANALOG_LEFT_Y) * 100,
-                             master.get_analog(pros::E_CONTROLLER_ANALOG_LEFT_X) * 100,
-                             master.get_analog(pros::E_CONTROLLER_ANALOG_RIGHT_X) * 100});
+  chassis->setState(Chassis::Control{master.get_analog(pros::E_CONTROLLER_ANALOG_LEFT_Y) * 100,
+                                     master.get_analog(pros::E_CONTROLLER_ANALOG_LEFT_X) * 100,
+                                     master.get_analog(pros::E_CONTROLLER_ANALOG_RIGHT_X) * 100});
 }
 
 // TODO: Make this not horrible please.
