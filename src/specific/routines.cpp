@@ -96,8 +96,6 @@ auto skillsCommands = []() {
   bfb::waitUntil(chassisStandby, 1500);
   chassis->setState(Chassis::MoveTo{5.5_tile, 0.5_tile, 135.0_deg});
   bfb::waitUntil(chassisStandby, 3000);
-  chassis->setState(Chassis::MoveTo{5.5_tile, 0.5_tile, 0.0_deg});
-  bfb::waitUntil(chassisStandby, 2000);
   bfb::wait(1000);
   chassis->setState(Chassis::MoveTo{4.5_tile, 1.5_tile, 135.0_deg});
   bfb::waitUntil(chassisStandby, 2000);

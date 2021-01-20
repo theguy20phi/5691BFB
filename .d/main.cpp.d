@@ -96,7 +96,8 @@ bin/main.cpp.o: src/main.cpp include/main.h include/api.h \
  include/okapi/api/units/QAngle.hpp include/okapi/api/units/QLength.hpp \
  include/bfb/devices/poseEstimator.hpp include/pros/adi.hpp \
  include/bfb/devices/crossOdometry.hpp include/bfb/devices/imu.hpp \
- include/pros/imu.hpp include/bfb/devices/impl/cpeBuilder.hpp \
+ include/okapi/api/filter/passthroughFilter.hpp include/pros/imu.hpp \
+ include/bfb/devices/impl/cpeBuilder.hpp \
  include/bfb/devices/impl/crossOdometryBuilder.hpp \
  include/bfb/devices/motionPlanner.hpp include/bfb/devices/slewRate.hpp \
  include/bfb/flow/stateMachine.hpp include/okapi/api.hpp \
@@ -119,7 +120,6 @@ bin/main.cpp.o: src/main.cpp include/main.h include/api.h \
  include/okapi/api/control/iterative/iterativePosPidController.hpp \
  include/okapi/api/control/iterative/iterativePositionController.hpp \
  include/okapi/api/control/iterative/iterativeController.hpp \
- include/okapi/api/filter/passthroughFilter.hpp \
  include/okapi/api/chassis/controller/defaultOdomChassisController.hpp \
  include/okapi/api/chassis/controller/odomChassisController.hpp \
  include/okapi/api/chassis/model/skidSteerModel.hpp \
@@ -565,6 +565,8 @@ include/bfb/devices/crossOdometry.hpp:
 
 include/bfb/devices/imu.hpp:
 
+include/okapi/api/filter/passthroughFilter.hpp:
+
 include/pros/imu.hpp:
 
 include/bfb/devices/impl/cpeBuilder.hpp:
@@ -618,8 +620,6 @@ include/okapi/api/control/iterative/iterativePosPidController.hpp:
 include/okapi/api/control/iterative/iterativePositionController.hpp:
 
 include/okapi/api/control/iterative/iterativeController.hpp:
-
-include/okapi/api/filter/passthroughFilter.hpp:
 
 include/okapi/api/chassis/controller/defaultOdomChassisController.hpp:
 
