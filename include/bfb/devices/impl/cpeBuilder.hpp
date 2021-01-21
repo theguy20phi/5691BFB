@@ -11,6 +11,7 @@
 #pragma once
 
 #include "bfb/devices/complementaryPoseEstimator.hpp"
+#include "bfb/devices/nullLandmarker.hpp"
 
 namespace bfb {
 class CPEBuilder {
@@ -23,7 +24,7 @@ class CPEBuilder {
 
   private:
   WeightedPoseEstimators weightedPoseEstimators;
-  LandmarkerPtr landmarker;
+  LandmarkerPtr landmarker = LandmarkerPtr(new NullLandmarker{});
   int priority = TASK_PRIORITY_MAX;
 };
 } // namespace bfb

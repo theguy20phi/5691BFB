@@ -99,11 +99,11 @@ bin/specific/specific.cpp.o: src/specific/specific.cpp \
  include/bfb/devices/crossOdometry.hpp include/bfb/devices/imu.hpp \
  include/okapi/api/filter/passthroughFilter.hpp include/pros/imu.hpp \
  include/bfb/devices/impl/cpeBuilder.hpp \
+ include/bfb/devices/nullLandmarker.hpp \
  include/bfb/devices/impl/crossOdometryBuilder.hpp \
  include/bfb/devices/impl/lineLandmarkerBuilder.hpp \
  include/bfb/devices/lineLandmarker.hpp \
- include/bfb/devices/motionPlanner.hpp \
- include/bfb/devices/nullLandmarker.hpp include/bfb/devices/slewRate.hpp \
+ include/bfb/devices/motionPlanner.hpp include/bfb/devices/slewRate.hpp \
  include/bfb/flow/stateMachine.hpp include/okapi/api.hpp \
  include/okapi/api/chassis/controller/chassisControllerIntegrated.hpp \
  include/okapi/api/chassis/controller/chassisController.hpp \
@@ -579,6 +579,8 @@ include/pros/imu.hpp:
 
 include/bfb/devices/impl/cpeBuilder.hpp:
 
+include/bfb/devices/nullLandmarker.hpp:
+
 include/bfb/devices/impl/crossOdometryBuilder.hpp:
 
 include/bfb/devices/impl/lineLandmarkerBuilder.hpp:
@@ -586,8 +588,6 @@ include/bfb/devices/impl/lineLandmarkerBuilder.hpp:
 include/bfb/devices/lineLandmarker.hpp:
 
 include/bfb/devices/motionPlanner.hpp:
-
-include/bfb/devices/nullLandmarker.hpp:
 
 include/bfb/devices/slewRate.hpp:
 
