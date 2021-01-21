@@ -31,10 +31,4 @@ void BangBang::reset() {
 }
 
 Logger<BangBang> BangBang::bangBangLog{};
-
-DEFINE_TEST(bangBangTest)
-BangBang testBangBang{{{{30.0, 100.0}, {60.0, 200.0}, {90.0, 300.0}}}, 400};
-IS_EQUAL(100, testBangBang.calculate(20));
-IS_EQUAL(200, testBangBang.calculate(40));
-END_TEST
 } // namespace bfb

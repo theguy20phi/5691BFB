@@ -8,7 +8,6 @@
 
 #pragma once
 
-#include "bfb/debug/test.hpp"
 #include "bfb/flow/wait.hpp"
 #include "bfb/utility/mathUtil.hpp"
 #include "controller.hpp"
@@ -57,8 +56,4 @@ class Tbh final : public Controller {
   double tbh{0.0};
   double previousErrorSign{0};
 };
-
-#ifdef TESTING
-DECLARE_TEST(tbhTest);
-#endif
 } // namespace bfb

@@ -1,7 +1,7 @@
 bin/bfb/devices/crossOdometry.cpp.o: src/bfb/devices/crossOdometry.cpp \
- include/bfb/devices/crossOdometry.hpp include/bfb/debug/test.hpp \
- include/bfb/devices/imu.hpp include/bfb/debug/issue.hpp \
- include/bfb/debug/logger.hpp include/bfb/utility/key.hpp \
+ include/bfb/devices/crossOdometry.hpp include/bfb/devices/imu.hpp \
+ include/bfb/debug/issue.hpp include/bfb/debug/logger.hpp \
+ include/bfb/utility/key.hpp \
  include/okapi/api/filter/passthroughFilter.hpp \
  include/okapi/api/filter/filter.hpp include/pros/imu.hpp \
  include/pros/imu.h include/bfb/flow/task.hpp include/pros/rtos.hpp \
@@ -83,8 +83,6 @@ bin/bfb/devices/crossOdometry.cpp.o: src/bfb/devices/crossOdometry.cpp \
  include/okapi/api/units/QLength.hpp include/pros/adi.hpp
 
 include/bfb/devices/crossOdometry.hpp:
-
-include/bfb/debug/test.hpp:
 
 include/bfb/devices/imu.hpp:
 

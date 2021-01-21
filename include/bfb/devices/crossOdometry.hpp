@@ -8,7 +8,6 @@
 
 #pragma once
 
-#include "bfb/debug/test.hpp"
 #include "bfb/devices/imu.hpp"
 #include "bfb/flow/task.hpp"
 #include "bfb/utility/mathUtil.hpp"
@@ -92,8 +91,4 @@ class CrossOdometry : public PoseEstimator {
   IMU imus;
   double previousH{0};
 };
-
-#ifdef TESTING
-DECLARE_TEST(initializeCrossOdometryTest);
-#endif
 } // namespace bfb

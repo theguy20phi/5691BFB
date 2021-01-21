@@ -20,8 +20,10 @@ void chassisControls();
  */
 void rollerControls();
 
+void shiftedRollerControls();
+
 /**
  * @brief Special-use buttons and Issues.
- * 
+ *
  */
 void contingencies();

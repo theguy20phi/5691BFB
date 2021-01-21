@@ -12,7 +12,6 @@
 #include "controllers/tbh.hpp"
 #include "debug/issue.hpp"
 #include "debug/logger.hpp"
-#include "debug/test.hpp"
 #include "devices/complementaryPoseEstimator.hpp"
 #include "devices/crossOdometry.hpp"
 #include "devices/impl/cpeBuilder.hpp"

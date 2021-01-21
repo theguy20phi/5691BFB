@@ -73,10 +73,10 @@ bin/specific/gui.cpp.o: src/specific/gui.cpp include/specific/gui.hpp \
  include/pros/rotation.hpp include/pros/rotation.h include/pros/rtos.hpp \
  include/pros/rtos.h include/pros/vision.hpp include/pros/vision.h \
  include/bfb/bfb.hpp include/bfb/controllers/bangBang.hpp \
- include/bfb/debug/test.hpp include/bfb/utility/mathUtil.hpp \
- include/bfb/controllers/controller.hpp include/bfb/debug/logger.hpp \
- include/bfb/utility/key.hpp include/bfb/controllers/pidf.hpp \
- include/bfb/flow/wait.hpp include/bfb/utility/okapiUtil.hpp \
+ include/bfb/utility/mathUtil.hpp include/bfb/controllers/controller.hpp \
+ include/bfb/debug/logger.hpp include/bfb/utility/key.hpp \
+ include/bfb/controllers/pidf.hpp include/bfb/flow/wait.hpp \
+ include/bfb/utility/okapiUtil.hpp \
  include/okapi/api/control/util/settledUtil.hpp \
  include/okapi/api/units/QTime.hpp include/okapi/api/units/RQuantity.hpp \
  include/okapi/api/util/abstractTimer.hpp \
@@ -498,8 +498,6 @@ include/pros/vision.h:
 include/bfb/bfb.hpp:
 
 include/bfb/controllers/bangBang.hpp:
-
-include/bfb/debug/test.hpp:
 
 include/bfb/utility/mathUtil.hpp:
 

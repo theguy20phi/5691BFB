@@ -39,15 +39,4 @@ void Tbh::reset() {
 }
 
 Logger<Tbh> Tbh::tbhLog{};
-
-#ifdef TESTING
-DEFINE_TEST(tbhTest)
-using namespace okapi;
-Tbh testTbh{{2.0},
-            std::make_unique<okapi::SettledUtil>(std::make_unique<okapi::Timer>(), 10, 1, 0_ms)};
-wait(100);
-testTbh.setReference(10.0);
-IS_EQUAL(testTbh.calculate(2.0), 8.0);
-END_TEST
-#endif
 } // namespace bfb
