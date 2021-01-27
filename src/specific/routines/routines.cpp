@@ -44,7 +44,7 @@ void skillsCommands() {
 
   chassis->setState(Chassis::MoveTo{4.75_tile, 4.75_tile, 45.0_deg});
   bfb::waitUntil(chassisStandby, 4000);
-  chassis->setState(Chassis::MoveTo{5.5_tile, 5.5_tile, 45.0_deg});
+  chassis->setState(Chassis::MoveTo{5.5_tile, 6.0_tile, 45.0_deg});
 }
 
 void noneCommands() {
