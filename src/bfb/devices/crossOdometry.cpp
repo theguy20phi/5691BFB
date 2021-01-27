@@ -60,10 +60,4 @@ void CrossOdometry::reset() {
   pose = {0.0_in, 0.0_in, 0.0_rad};
   imus.resetHeading(0.0);
 }
-
-DEFINE_TEST(initializeCrossOdometryTest)
-CrossOdometry odometry{Odometer{pros::ADIEncoder{1, 2}, 1.0},
-                       Odometer{pros::ADIEncoder{3, 4}, 1.0},
-                       IMU{{1, 2}}};
-END_TEST
 } // namespace bfb

@@ -23,7 +23,7 @@
   <td id="projectlogo"><img alt="Logo" src="heat_logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">5691BFB
-   &#160;<span id="projectnumber">Early-Mid Season</span>
+   &#160;<span id="projectnumber">Mid Season</span>
    </div>
    <div id="projectbrief">Team 5691B&#39;s code for the VRC 2020-2021 Season: Change Up.</div>
   </td>
@@ -126,48 +126,32 @@ $(function() {
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;  <span class="keywordtype">void</span> brake();</div>
 <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160; </div>
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;  <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;  std::unique_ptr&lt;bfb::PoseEstimator&gt; poseEstimator{<span class="keyword">new</span> <a class="code" href="classbfb_1_1_complementary_pose_estimator.html">bfb::ComplementaryPoseEstimator</a>(</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    {<a class="code" href="structbfb_1_1_pose_sensor.html">bfb::WeightedPoseEstimator</a>{std::shared_ptr&lt;bfb::PoseEstimator&gt;{<span class="keyword">new</span> <a class="code" href="classbfb_1_1_cross_odometry.html">bfb::CrossOdometry</a>(</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;                       <a class="code" href="classbfb_1_1_odometer.html">bfb::Odometer</a>{pros::ADIEncoder{8, 7, <span class="keyword">true</span>}, -0.5, 8.845},</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;                       <a class="code" href="classbfb_1_1_odometer.html">bfb::Odometer</a>{pros::ADIEncoder{5, 6, <span class="keyword">true</span>}, 0.5, 8.845},</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;                       <a class="code" href="classbfb_1_1_i_m_u.html">bfb::IMU</a>{{13, 14, 15}})},</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;                     1.0}},</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160; </div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    <a class="code" href="classbfb_1_1_landmarker.html">bfb::Landmarker</a>({<a class="code" href="structbfb_1_1_line.html">bfb::Line</a>{1.0_tile - 0.75_in, bfb::Orientation::horizontal}},</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;                    {0.0_in, 2.5_in, 0.0_rad},</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;                    1))};</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;  pros::Motor lFWheel{11};</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;  pros::Motor lBWheel{20};</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;  pros::Motor rFWheel{12, <span class="keyword">true</span>};</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;  pros::Motor rBWheel{18, <span class="keyword">true</span>};</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">double</span> deadband{100.0};</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;  <a class="code" href="classbfb_1_1_pidf.html">bfb::Pidf</a> xPidf{{1550.0, 21.0}, bfb::createSettledUtil(1.0, 0.15)};</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;  <a class="code" href="classbfb_1_1_pidf.html">bfb::Pidf</a> yPidf{{1550.0, 21.0}, bfb::createSettledUtil(1.0, 0.15)};</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;  <a class="code" href="classbfb_1_1_pidf.html">bfb::Pidf</a> hPidf{{37250.0, 400.0}, bfb::createSettledUtil(0.04, 0.004)};</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;};</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;  bfb::PoseEstimatorPtr poseEstimator;</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;  pros::Motor lFWheel{11};</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;  pros::Motor lBWheel{20};</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;  pros::Motor rFWheel{12, <span class="keyword">true</span>};</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;  pros::Motor rBWheel{18, <span class="keyword">true</span>};</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">double</span> deadband{100.0};</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;  <a class="code" href="classbfb_1_1_pidf.html">bfb::Pidf</a> xPidf{{1550.0, 21.0}, bfb::createSettledUtil(1.0, 0.15)};</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;  <a class="code" href="classbfb_1_1_pidf.html">bfb::Pidf</a> yPidf{{1550.0, 21.0}, bfb::createSettledUtil(1.0, 0.15)};</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;  <a class="code" href="classbfb_1_1_pidf.html">bfb::Pidf</a> hPidf{{37250.0, 400.0}, bfb::createSettledUtil(0.04, 0.004)};</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;};</div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="aclass_chassis_machine_html_aa4fd72d32228facb16f16bc552c7a025"><div class="ttname"><a href="class_chassis_machine.html#aa4fd72d32228facb16f16bc552c7a025">ChassisMachine::toggleHold</a></div><div class="ttdeci">void toggleHold()</div><div class="ttdoc">Toggle if the robot is holding its position.</div></div>
-<div class="ttc" id="aclassbfb_1_1_odometer_html"><div class="ttname"><a href="classbfb_1_1_odometer.html">bfb::Odometer</a></div><div class="ttdoc">Odometer class used to represent odometer wheels in CrossOdometry.</div><div class="ttdef"><b>Definition:</b> crossOdometry.hpp:25</div></div>
-<div class="ttc" id="aclassbfb_1_1_cross_odometry_html"><div class="ttname"><a href="classbfb_1_1_cross_odometry.html">bfb::CrossOdometry</a></div><div class="ttdoc">The CrossOdometry class provides the implementation for a form of odometry that uses two odometers th...</div><div class="ttdef"><b>Definition:</b> crossOdometry.hpp:57</div></div>
 <div class="ttc" id="aclass_chassis_machine_html_a36ae18bdd6b480217049ff803fbbeca8"><div class="ttname"><a href="class_chassis_machine.html#a36ae18bdd6b480217049ff803fbbeca8">ChassisMachine::X</a></div><div class="ttdeci">okapi::QLength X() const</div><div class="ttdoc">Gets the x value of the bot.</div></div>
 <div class="ttc" id="aclass_chassis_machine_html_a0fd52aad4bd49ffbaf79baf303b31d14"><div class="ttname"><a href="class_chassis_machine.html#a0fd52aad4bd49ffbaf79baf303b31d14">ChassisMachine::ChassisMachine</a></div><div class="ttdeci">ChassisMachine(const Chassis::ChassisStates &amp;iState)</div><div class="ttdoc">Construct a new Chassis Machine object.</div></div>
 <div class="ttc" id="aclass_chassis_machine_html"><div class="ttname"><a href="class_chassis_machine.html">ChassisMachine</a></div><div class="ttdoc">Represents the entire chassis of the robot and is responsible for its behavior during auton and drivi...</div><div class="ttdef"><b>Definition:</b> chassisMachine.hpp:48</div></div>
 <div class="ttc" id="aclass_chassis_machine_html_a3807458163006b92c2dc26fb6275e3dc"><div class="ttname"><a href="class_chassis_machine.html#a3807458163006b92c2dc26fb6275e3dc">ChassisMachine::setPose</a></div><div class="ttdeci">void setPose(const bfb::Pose &amp;iPose)</div><div class="ttdoc">Sets the internal pose of the odometry.</div></div>
 <div class="ttc" id="aclassbfb_1_1_state_machine_html"><div class="ttname"><a href="classbfb_1_1_state_machine.html">bfb::StateMachine</a></div><div class="ttdoc">A template for StateMachines. The state is represented by a variant of structs that represent specifi...</div><div class="ttdef"><b>Definition:</b> stateMachine.hpp:52</div></div>
-<div class="ttc" id="aclassbfb_1_1_landmarker_html"><div class="ttname"><a href="classbfb_1_1_landmarker.html">bfb::Landmarker</a></div><div class="ttdef"><b>Definition:</b> landmarker.hpp:28</div></div>
 <div class="ttc" id="aclass_chassis_machine_html_a3a33cfe143f1f7400703871c923533e3"><div class="ttname"><a href="class_chassis_machine.html#a3a33cfe143f1f7400703871c923533e3">ChassisMachine::Y</a></div><div class="ttdeci">okapi::QLength Y() const</div><div class="ttdoc">Gets the y value of the bot.</div></div>
-<div class="ttc" id="aclassbfb_1_1_i_m_u_html"><div class="ttname"><a href="classbfb_1_1_i_m_u.html">bfb::IMU</a></div><div class="ttdoc">Wrapper class for out-the-box pros Imu class to simplify the interface to essentially a yaw gyroscope...</div><div class="ttdef"><b>Definition:</b> imu.hpp:26</div></div>
 <div class="ttc" id="astructbfb_1_1_pose_html"><div class="ttname"><a href="structbfb_1_1_pose.html">bfb::Pose</a></div><div class="ttdoc">Contains basic information about the pose of the robot (or other object).</div><div class="ttdef"><b>Definition:</b> poseEstimator.hpp:20</div></div>
 <div class="ttc" id="aclass_chassis_machine_html_a33c01749c868db5db5fdb44de9265103"><div class="ttname"><a href="class_chassis_machine.html#a33c01749c868db5db5fdb44de9265103">ChassisMachine::coast</a></div><div class="ttdeci">void coast()</div><div class="ttdoc">Set the robot to coast when braking.</div></div>
-<div class="ttc" id="aclassbfb_1_1_complementary_pose_estimator_html"><div class="ttname"><a href="classbfb_1_1_complementary_pose_estimator.html">bfb::ComplementaryPoseEstimator</a></div><div class="ttdef"><b>Definition:</b> complementaryPoseEstimator.hpp:21</div></div>
-<div class="ttc" id="astructbfb_1_1_pose_sensor_html"><div class="ttname"><a href="structbfb_1_1_pose_sensor.html">bfb::WeightedPoseEstimator</a></div><div class="ttdef"><b>Definition:</b> complementaryPoseEstimator.hpp:16</div></div>
 <div class="ttc" id="aclass_chassis_machine_html_a33784721baf0ae9a12d7315ee9bfd60d"><div class="ttname"><a href="class_chassis_machine.html#a33784721baf0ae9a12d7315ee9bfd60d">ChassisMachine::H</a></div><div class="ttdeci">okapi::QAngle H() const</div><div class="ttdoc">Gets the h value of the bot.</div></div>
 <div class="ttc" id="astruct_chassis_1_1_move_to_html"><div class="ttname"><a href="struct_chassis_1_1_move_to.html">Chassis::MoveTo</a></div><div class="ttdoc">MoveTo State, made of two QLengths (x and y), and a QAngle (h).</div><div class="ttdef"><b>Definition:</b> chassisMachine.hpp:34</div></div>
 <div class="ttc" id="astruct_chassis_1_1_control_html"><div class="ttname"><a href="struct_chassis_1_1_control.html">Chassis::Control</a></div><div class="ttdoc">Control state, made of three integers to represent forward, strafe, and turn commands.</div><div class="ttdef"><b>Definition:</b> chassisMachine.hpp:24</div></div>
 <div class="ttc" id="astruct_chassis_1_1_standby_html"><div class="ttname"><a href="struct_chassis_1_1_standby.html">Chassis::Standby</a></div><div class="ttdoc">Standby state.</div><div class="ttdef"><b>Definition:</b> chassisMachine.hpp:18</div></div>
 <div class="ttc" id="aclass_chassis_machine_html_ae4f3ac196d94bb2ece7486c995cf9f64"><div class="ttname"><a href="class_chassis_machine.html#ae4f3ac196d94bb2ece7486c995cf9f64">ChassisMachine::hold</a></div><div class="ttdeci">void hold()</div><div class="ttdoc">Set the robot to hold its position.</div></div>
-<div class="ttc" id="astructbfb_1_1_line_html"><div class="ttname"><a href="structbfb_1_1_line.html">bfb::Line</a></div><div class="ttdef"><b>Definition:</b> landmarker.hpp:22</div></div>
-<div class="ttc" id="aclassbfb_1_1_pidf_html"><div class="ttname"><a href="classbfb_1_1_pidf.html">bfb::Pidf</a></div><div class="ttdoc">Pidf implements a basic PID+ff controller, with additions to prevent integral windup and derivative k...</div><div class="ttdef"><b>Definition:</b> pidf.hpp:24</div></div>
+<div class="ttc" id="aclassbfb_1_1_pidf_html"><div class="ttname"><a href="classbfb_1_1_pidf.html">bfb::Pidf</a></div><div class="ttdoc">Pidf implements a basic PID+ff controller, with additions to prevent integral windup and derivative k...</div><div class="ttdef"><b>Definition:</b> pidf.hpp:23</div></div>
 <div class="ttc" id="aclass_chassis_machine_html_ac2357a95a8ffc753f57ce4deb5393ddf"><div class="ttname"><a href="class_chassis_machine.html#ac2357a95a8ffc753f57ce4deb5393ddf">ChassisMachine::reset</a></div><div class="ttdeci">void reset()</div><div class="ttdoc">Resets the internal pose of the odometry.</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

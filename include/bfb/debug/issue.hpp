@@ -8,7 +8,6 @@
 
 #pragma once
 
-#include "test.hpp"
 #include <algorithm>
 #include <memory>
 #include <string>
@@ -77,8 +76,4 @@ class Issue {
   std::string description;
   Severity::SeverityLevel severity;
 };
-
-#ifdef TESTING
-DECLARE_TEST(issueTest);
-#endif
 } // namespace bfb

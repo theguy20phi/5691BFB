@@ -9,7 +9,6 @@
  */
 #pragma once
 
-#include "bfb/debug/test.hpp"
 #include <cmath>
 
 namespace bfb {
@@ -74,9 +73,4 @@ constexpr double toDegrees(double angle) {
  * @return double
  */
 double normalizeAngle(double angle);
-
-#ifdef TESTING
-DECLARE_TEST(isAlmostEqualTest)
-DECLARE_TEST(signTest)
-#endif
 } // namespace bfb

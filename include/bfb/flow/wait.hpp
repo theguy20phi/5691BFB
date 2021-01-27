@@ -10,7 +10,6 @@
 #pragma once
 
 #include "api.h"
-#include "bfb/debug/test.hpp"
 #include <functional>
 
 namespace bfb {
@@ -53,9 +52,4 @@ void waitUntil(const std::function<bool()> &condition);
  * @param ms
  */
 void wait(const int time);
-
-#ifdef TESTING
-DECLARE_TEST(waitUntilWithTimeoutTest)
-DECLARE_TEST(waitUntilTest)
-#endif
 } // namespace bfb

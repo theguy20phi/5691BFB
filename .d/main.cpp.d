@@ -73,10 +73,10 @@ bin/main.cpp.o: src/main.cpp include/main.h include/api.h \
  include/pros/rotation.hpp include/pros/rotation.h include/pros/rtos.hpp \
  include/pros/rtos.h include/pros/vision.hpp include/pros/vision.h \
  include/bfb/bfb.hpp include/bfb/controllers/bangBang.hpp \
- include/bfb/debug/test.hpp include/bfb/utility/mathUtil.hpp \
- include/bfb/controllers/controller.hpp include/bfb/debug/logger.hpp \
- include/bfb/utility/key.hpp include/bfb/controllers/pidf.hpp \
- include/bfb/flow/wait.hpp include/bfb/utility/okapiUtil.hpp \
+ include/bfb/utility/mathUtil.hpp include/bfb/controllers/controller.hpp \
+ include/bfb/debug/logger.hpp include/bfb/utility/key.hpp \
+ include/bfb/controllers/pidf.hpp include/bfb/flow/wait.hpp \
+ include/bfb/utility/okapiUtil.hpp \
  include/okapi/api/control/util/settledUtil.hpp \
  include/okapi/api/units/QTime.hpp include/okapi/api/units/RQuantity.hpp \
  include/okapi/api/util/abstractTimer.hpp \
@@ -98,11 +98,11 @@ bin/main.cpp.o: src/main.cpp include/main.h include/api.h \
  include/bfb/devices/crossOdometry.hpp include/bfb/devices/imu.hpp \
  include/okapi/api/filter/passthroughFilter.hpp include/pros/imu.hpp \
  include/bfb/devices/impl/cpeBuilder.hpp \
+ include/bfb/devices/nullLandmarker.hpp \
  include/bfb/devices/impl/crossOdometryBuilder.hpp \
  include/bfb/devices/impl/lineLandmarkerBuilder.hpp \
  include/bfb/devices/lineLandmarker.hpp \
- include/bfb/devices/motionPlanner.hpp \
- include/bfb/devices/nullLandmarker.hpp include/bfb/devices/slewRate.hpp \
+ include/bfb/devices/motionPlanner.hpp include/bfb/devices/slewRate.hpp \
  include/bfb/flow/stateMachine.hpp include/okapi/api.hpp \
  include/okapi/api/chassis/controller/chassisControllerIntegrated.hpp \
  include/okapi/api/chassis/controller/chassisController.hpp \
@@ -497,8 +497,6 @@ include/bfb/bfb.hpp:
 
 include/bfb/controllers/bangBang.hpp:
 
-include/bfb/debug/test.hpp:
-
 include/bfb/utility/mathUtil.hpp:
 
 include/bfb/controllers/controller.hpp:
@@ -577,6 +575,8 @@ include/pros/imu.hpp:
 
 include/bfb/devices/impl/cpeBuilder.hpp:
 
+include/bfb/devices/nullLandmarker.hpp:
+
 include/bfb/devices/impl/crossOdometryBuilder.hpp:
 
 include/bfb/devices/impl/lineLandmarkerBuilder.hpp:
@@ -584,8 +584,6 @@ include/bfb/devices/impl/lineLandmarkerBuilder.hpp:
 include/bfb/devices/lineLandmarker.hpp:
 
 include/bfb/devices/motionPlanner.hpp:
-
-include/bfb/devices/nullLandmarker.hpp:
 
 include/bfb/devices/slewRate.hpp:
 

@@ -1,10 +1,8 @@
 var searchData=
 [
-  ['pidf_89',['Pidf',['../classbfb_1_1_pidf.html',1,'bfb::Pidf'],['../classbfb_1_1_pidf.html#a03f930e13ba56ffe6a579d836f6a3f54',1,'bfb::Pidf::Pidf()']]],
-  ['pidf_2ehpp_90',['pidf.hpp',['../pidf_8hpp.html',1,'']]],
-  ['pidfgains_91',['PidfGains',['../structbfb_1_1_pidf_1_1_pidf_gains.html',1,'bfb::Pidf']]],
-  ['pidflog_92',['pidfLog',['../classbfb_1_1_pidf.html#a574c1835a7ce0241c56e8afc60218dd6',1,'bfb::Pidf']]],
-  ['pose_93',['Pose',['../structbfb_1_1_pose.html',1,'bfb']]],
-  ['poseestimator_94',['PoseEstimator',['../classbfb_1_1_pose_estimator.html',1,'bfb']]],
-  ['WeightedPoseEstimator_95',['WeightedPoseEstimator',['../structbfb_1_1_pose_sensor.html',1,'bfb']]]
+  ['odometer_92',['Odometer',['../classbfb_1_1_odometer.html',1,'bfb::Odometer'],['../classbfb_1_1_odometer.html#a7bc48f3842a1dd82f4f16e2718959d84',1,'bfb::Odometer::Odometer()']]],
+  ['okapiutil_2ehpp_93',['okapiUtil.hpp',['../okapi_util_8hpp.html',1,'']]],
+  ['operator_21_3d_94',['operator!=',['../classbfb_1_1_state_machine.html#af2371bb4df158ae8d0190de76a73641b',1,'bfb::StateMachine']]],
+  ['operator_3d_3d_95',['operator==',['../classbfb_1_1_state_machine.html#afc2609f2377e721ccd2c9564a2e9d657',1,'bfb::StateMachine']]],
+  ['outtake_96',['Outtake',['../struct_rollers_1_1_outtake.html',1,'Rollers']]]
 ];

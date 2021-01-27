@@ -8,7 +8,6 @@
 
 #pragma once
 
-#include "bfb/debug/test.hpp"
 #include "bfb/flow/wait.hpp"
 #include "bfb/utility/mathUtil.hpp"
 #include "bfb/utility/okapiUtil.hpp"
@@ -85,8 +84,4 @@ class Pidf final : public Controller {
   double I{0.0};
   double previousState{0.0};
 };
-
-#ifdef TESTING
-DECLARE_TEST(pidfTest);
-#endif
 } // namespace bfb

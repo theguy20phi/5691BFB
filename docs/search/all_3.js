@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['eject_24',['Eject',['../struct_rollers_1_1_eject.html',1,'Rollers']]],
-  ['enable_25',['enable',['../classbfb_1_1_logger.html#a6c747512739cddd5389f58d78c98c8f3',1,'bfb::Logger']]],
-  ['execute_26',['execute',['../class_routine.html#a560f8d18a2ed9d564d3b88f56bdd07aa',1,'Routine']]],
-  ['extrachecks_27',['extraChecks',['../gui_8hpp.html#ad6656ddced94361ccdbb9a16587da3e1',1,'gui.hpp']]]
+  ['detach_26',['Detach',['../struct_rollers_1_1_detach.html',1,'Rollers']]],
+  ['disable_27',['disable',['../classbfb_1_1_logger.html#ac86c7dc84f6925d793d524d19d16b036',1,'bfb::Logger']]],
+  ['doomscreen_28',['doomScreen',['../gui_8hpp.html#a0ee414c75beafd473c56f8ec558200cc',1,'gui.hpp']]]
 ];

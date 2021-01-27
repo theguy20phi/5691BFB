@@ -1,6 +1,24 @@
 var searchData=
 [
-  ['detach_21',['Detach',['../struct_rollers_1_1_detach.html',1,'Rollers']]],
-  ['disable_22',['disable',['../classbfb_1_1_logger.html#ac86c7dc84f6925d793d524d19d16b036',1,'bfb::Logger']]],
-  ['doomscreen_23',['doomScreen',['../gui_8hpp.html#a0ee414c75beafd473c56f8ec558200cc',1,'gui.hpp']]]
+  ['calculate_5',['calculate',['../classbfb_1_1_bang_bang.html#a27e9479e395fcefaeadf4b01b18253c5',1,'bfb::BangBang::calculate()'],['../classbfb_1_1_controller.html#aa5e6687d2d1a7c037a573ebd95e1c84a',1,'bfb::Controller::calculate()'],['../classbfb_1_1_pidf.html#a35542cbe4e144c83d785f78c72922852',1,'bfb::Pidf::calculate()'],['../classbfb_1_1_tbh.html#acc6b5e03f256f639b059e7afd71bb9ea',1,'bfb::Tbh::calculate()']]],
+  ['calculatea_6',['calculateA',['../classbfb_1_1_motion_planner.html#afc3280246e18322b8bff0b8c8e31bb1a',1,'bfb::MotionPlanner']]],
+  ['calibrate_7',['calibrate',['../classbfb_1_1_i_m_u.html#a86d491ec0cae009daffc07d56a2cdaa5',1,'bfb::IMU']]],
+  ['chassismachine_8',['ChassisMachine',['../class_chassis_machine.html',1,'ChassisMachine'],['../class_chassis_machine.html#a0fd52aad4bd49ffbaf79baf303b31d14',1,'ChassisMachine::ChassisMachine()']]],
+  ['chassismachine_2ehpp_9',['chassisMachine.hpp',['../chassis_machine_8hpp.html',1,'']]],
+  ['coast_10',['coast',['../class_chassis_machine.html#a33c01749c868db5db5fdb44de9265103',1,'ChassisMachine']]],
+  ['cock_11',['Cock',['../struct_rollers_1_1_cock.html',1,'Rollers']]],
+  ['complementaryposeestimator_12',['ComplementaryPoseEstimator',['../classbfb_1_1_complementary_pose_estimator.html',1,'bfb']]],
+  ['control_13',['Control',['../struct_chassis_1_1_control.html',1,'Chassis']]],
+  ['controller_14',['Controller',['../classbfb_1_1_controller.html',1,'bfb']]],
+  ['controller_2ehpp_15',['controller.hpp',['../controller_8hpp.html',1,'']]],
+  ['controllerguitaskfn_16',['controllerGUITaskFn',['../gui_8hpp.html#aa196b408004ee78756bceaedce3efcc8',1,'gui.hpp']]],
+  ['controllerlog_17',['controllerLog',['../classbfb_1_1_controller.html#acbf163c822961e73352c44ba00b71aec',1,'bfb::Controller']]],
+  ['cpebuilder_18',['CPEBuilder',['../classbfb_1_1_c_p_e_builder.html',1,'bfb']]],
+  ['cpebuilder_2ehpp_19',['cpeBuilder.hpp',['../cpe_builder_8hpp.html',1,'']]],
+  ['createsettledutil_20',['createSettledUtil',['../okapi_util_8hpp.html#a13133bdd4aadff679c7d5d0b88365748',1,'bfb']]],
+  ['crossodometry_21',['CrossOdometry',['../classbfb_1_1_cross_odometry.html',1,'bfb::CrossOdometry'],['../classbfb_1_1_cross_odometry.html#a366f10c1210c7cc3068b34c91c080405',1,'bfb::CrossOdometry::CrossOdometry()']]],
+  ['crossodometry_2ehpp_22',['crossOdometry.hpp',['../cross_odometry_8hpp.html',1,'']]],
+  ['crossodometrybuilder_23',['CrossOdometryBuilder',['../classbfb_1_1_cross_odometry_builder.html',1,'bfb']]],
+  ['crossodometrybuilder_2ehpp_24',['crossOdometryBuilder.hpp',['../cross_odometry_builder_8hpp.html',1,'']]],
+  ['cycle_25',['Cycle',['../struct_rollers_1_1_cycle.html',1,'Rollers']]]
 ];

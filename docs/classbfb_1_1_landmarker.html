@@ -23,7 +23,7 @@
   <td id="projectlogo"><img alt="Logo" src="heat_logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">5691BFB
-   &#160;<span id="projectnumber">Early-Mid Season</span>
+   &#160;<span id="projectnumber">Mid Season</span>
    </div>
    <div id="projectbrief">Team 5691B&#39;s code for the VRC 2020-2021 Season: Change Up.</div>
   </td>
@@ -72,7 +72,7 @@ $(function() {
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="classbfb_1_1_landmarker-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">bfb::Landmarker Class Reference</div>  </div>
+<div class="title">bfb::Landmarker Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="dynheader">
@@ -81,30 +81,28 @@ Inheritance diagram for bfb::Landmarker:</div>
  <div class="center">
   <img src="classbfb_1_1_landmarker.png" usemap="#bfb::Landmarker_map" alt=""/>
   <map id="bfb::Landmarker_map" name="bfb::Landmarker_map">
-<area href="classbfb_1_1_pose_estimator.html" title="Class to provide a common interface for devices related to pose estimation." alt="bfb::PoseEstimator" shape="rect" coords="0,0,115,24"/>
+<area href="classbfb_1_1_line_landmarker.html" alt="bfb::LineLandmarker" shape="rect" coords="0,56,127,80"/>
+<area href="classbfb_1_1_null_landmarker.html" alt="bfb::NullLandmarker" shape="rect" coords="137,56,264,80"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a7f908b6ec0d1dcafdd59e9a433459317"><td class="memItemLeft" align="right" valign="top"><a id="a7f908b6ec0d1dcafdd59e9a433459317"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Landmarker</b> (const Lines &amp;iLines, const <a class="el" href="structbfb_1_1_pose.html">Pose</a> &amp;iRelativePose, uint8_t port, int iThreshold=500)</td></tr>
-<tr class="separator:a7f908b6ec0d1dcafdd59e9a433459317"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7f3917f85dea08090e0b087a8b16e328"><td class="memItemLeft" align="right" valign="top"><a id="a7f3917f85dea08090e0b087a8b16e328"></a>
-<a class="el" href="structbfb_1_1_pose.html">Pose</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getPose</b> () override</td></tr>
-<tr class="separator:a7f3917f85dea08090e0b087a8b16e328"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3d604c4dc43b8e4598ce3202a5fa9fc0"><td class="memItemLeft" align="right" valign="top"><a id="a3d604c4dc43b8e4598ce3202a5fa9fc0"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setPose</b> (const <a class="el" href="structbfb_1_1_pose.html">Pose</a> &amp;iPose) override</td></tr>
-<tr class="separator:a3d604c4dc43b8e4598ce3202a5fa9fc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac793afb5fdea01221414b524b5a40de7"><td class="memItemLeft" align="right" valign="top"><a id="ac793afb5fdea01221414b524b5a40de7"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>reset</b> () override</td></tr>
-<tr class="separator:ac793afb5fdea01221414b524b5a40de7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a65235ab6eba0bee60585b84ce977d87e"><td class="memItemLeft" align="right" valign="top"><a id="a65235ab6eba0bee60585b84ce977d87e"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>updatePose</b> ()</td></tr>
-<tr class="separator:a65235ab6eba0bee60585b84ce977d87e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6ab1b1cf28dddc61bae3461c3f89bcac"><td class="memItemLeft" align="right" valign="top"><a id="a6ab1b1cf28dddc61bae3461c3f89bcac"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>isReady</b> ()</td></tr>
-<tr class="separator:a6ab1b1cf28dddc61bae3461c3f89bcac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a12d577f27cd7b4c74746ba6eb7050b12"><td class="memItemLeft" align="right" valign="top"><a id="a12d577f27cd7b4c74746ba6eb7050b12"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>updatePose</b> (const <a class="el" href="structbfb_1_1_pose.html">Pose</a> &amp;iReferencePose)=0</td></tr>
+<tr class="separator:a12d577f27cd7b4c74746ba6eb7050b12"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e37e4f8fc4b2a146e9013d71699865c"><td class="memItemLeft" align="right" valign="top"><a id="a8e37e4f8fc4b2a146e9013d71699865c"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>setPose</b> (const <a class="el" href="structbfb_1_1_pose.html">Pose</a> &amp;iReferencePose)=0</td></tr>
+<tr class="separator:a8e37e4f8fc4b2a146e9013d71699865c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3847e65c6b1a7bffe5ff3fb2b3f8086"><td class="memItemLeft" align="right" valign="top"><a id="aa3847e65c6b1a7bffe5ff3fb2b3f8086"></a>
+virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>isReading</b> ()=0</td></tr>
+<tr class="separator:aa3847e65c6b1a7bffe5ff3fb2b3f8086"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af1830053faff1a72605dcbc79185ca64"><td class="memItemLeft" align="right" valign="top"><a id="af1830053faff1a72605dcbc79185ca64"></a>
+virtual <a class="el" href="structbfb_1_1_pose.html">Pose</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getPose</b> ()=0</td></tr>
+<tr class="separator:af1830053faff1a72605dcbc79185ca64"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a58cc4ef4d6d9f7697fa9d11f855f8c65"><td class="memItemLeft" align="right" valign="top"><a id="a58cc4ef4d6d9f7697fa9d11f855f8c65"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>reset</b> ()=0</td></tr>
+<tr class="separator:a58cc4ef4d6d9f7697fa9d11f855f8c65"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>include/bfb/devices/<a class="el" href="landmarker_8hpp_source.html">landmarker.hpp</a></li>

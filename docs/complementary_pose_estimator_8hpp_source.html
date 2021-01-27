@@ -23,7 +23,7 @@
   <td id="projectlogo"><img alt="Logo" src="heat_logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">5691BFB
-   &#160;<span id="projectnumber">Early-Mid Season</span>
+   &#160;<span id="projectnumber">Mid Season</span>
    </div>
    <div id="projectbrief">Team 5691B&#39;s code for the VRC 2020-2021 Season: Change Up.</div>
   </td>
@@ -82,39 +82,40 @@ $(function() {
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">using namespace </span>okapi::literals;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">namespace </span>bfb {</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">// TODO: See if this can be made unique.</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="structbfb_1_1_pose_sensor.html">   16</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structbfb_1_1_pose_sensor.html">WeightedPoseEstimator</a> {</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;  std::shared_ptr&lt;PoseEstimator&gt; sensor;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;  <span class="keywordtype">double</span> weight;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;};</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">using</span> WeightedPoseEstimators = std::vector&lt;WeightedPoseEstimator&gt;;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">using namespace </span>okapi::literals;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">namespace </span>bfb {</div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="structbfb_1_1_weighted_pose_estimator.html">   14</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structbfb_1_1_weighted_pose_estimator.html">WeightedPoseEstimator</a> {</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;  PoseEstimatorPtr estimator;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;  <span class="keywordtype">double</span> weight;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;};</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">using</span> WeightedPoseEstimators = std::vector&lt;WeightedPoseEstimator&gt;;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
 <div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="classbfb_1_1_complementary_pose_estimator.html">   21</a></span>&#160;<span class="keyword">class </span><a class="code" href="classbfb_1_1_complementary_pose_estimator.html">ComplementaryPoseEstimator</a> : <span class="keyword">public</span> <a class="code" href="classbfb_1_1_pose_estimator.html">PoseEstimator</a>, <span class="keyword">public</span> <a class="code" href="classbfb_1_1_task.html">Task</a> {</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;  <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  <a class="code" href="classbfb_1_1_complementary_pose_estimator.html">ComplementaryPoseEstimator</a>(<span class="keyword">const</span> WeightedPoseEstimators &amp;iWeightedPoseEstimators, <span class="keyword">const</span> <a class="code" href="classbfb_1_1_landmarker.html">Landmarker</a> &amp;iLandmarker, <span class="keywordtype">int</span> iPriority = TASK_PRIORITY_MAX);</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  <span class="keywordtype">void</span> step();</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;  <a class="code" href="structbfb_1_1_pose.html">Pose</a> getPose();</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  <span class="keywordtype">void</span> setPose(<span class="keyword">const</span> <a class="code" href="structbfb_1_1_pose.html">Pose</a> &amp;iPose);</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  <span class="keywordtype">void</span> reset();</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  <span class="keywordtype">void</span> updatePose();</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  <a class="code" href="structbfb_1_1_pose.html">Pose</a> pose{0.0_in, 0.0_in, 0.0_rad};</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  WeightedPoseEstimators WeightedPoseEstimators;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  <a class="code" href="classbfb_1_1_landmarker.html">Landmarker</a> landmarker;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;};</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;} <span class="comment">// namespace bfb</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  <a class="code" href="classbfb_1_1_complementary_pose_estimator.html">ComplementaryPoseEstimator</a>(<span class="keyword">const</span> WeightedPoseEstimators &amp;iWeightedPoseEstimators,</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;                             <span class="keyword">const</span> LandmarkerPtr &amp;iLandmarker,</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;                             <span class="keywordtype">int</span> iPriority = TASK_PRIORITY_MAX);</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  <span class="keywordtype">void</span> step();</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  <a class="code" href="structbfb_1_1_pose.html">Pose</a> getPose();</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  <span class="keywordtype">void</span> setPose(<span class="keyword">const</span> <a class="code" href="structbfb_1_1_pose.html">Pose</a> &amp;iPose);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;  <span class="keywordtype">void</span> reset();</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  <span class="keywordtype">void</span> updatePose();</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  <a class="code" href="structbfb_1_1_pose.html">Pose</a> pose{0.0_in, 0.0_in, 0.0_rad};</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  WeightedPoseEstimators weightedPoseEstimators;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;  LandmarkerPtr landmarker;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;};</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;} <span class="comment">// namespace bfb</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="atask_8hpp_html"><div class="ttname"><a href="task_8hpp.html">task.hpp</a></div></div>
-<div class="ttc" id="aclassbfb_1_1_task_html"><div class="ttname"><a href="classbfb_1_1_task.html">bfb::Task</a></div><div class="ttdoc">Allows an easy-to-use way to assign &quot;give&quot; (more like make) a class a task by inheriting from this cl...</div><div class="ttdef"><b>Definition:</b> task.hpp:23</div></div>
-<div class="ttc" id="aclassbfb_1_1_landmarker_html"><div class="ttname"><a href="classbfb_1_1_landmarker.html">bfb::Landmarker</a></div><div class="ttdef"><b>Definition:</b> landmarker.hpp:28</div></div>
+<div class="ttc" id="astructbfb_1_1_weighted_pose_estimator_html"><div class="ttname"><a href="structbfb_1_1_weighted_pose_estimator.html">bfb::WeightedPoseEstimator</a></div><div class="ttdef"><b>Definition:</b> complementaryPoseEstimator.hpp:14</div></div>
+<div class="ttc" id="aclassbfb_1_1_task_html"><div class="ttname"><a href="classbfb_1_1_task.html">bfb::Task</a></div><div class="ttdoc">Allows an easy-to-use way to assign &quot;give&quot; (more like make) a class a task by inheriting from this cl...</div><div class="ttdef"><b>Definition:</b> task.hpp:22</div></div>
 <div class="ttc" id="astructbfb_1_1_pose_html"><div class="ttname"><a href="structbfb_1_1_pose.html">bfb::Pose</a></div><div class="ttdoc">Contains basic information about the pose of the robot (or other object).</div><div class="ttdef"><b>Definition:</b> poseEstimator.hpp:20</div></div>
 <div class="ttc" id="aclassbfb_1_1_complementary_pose_estimator_html"><div class="ttname"><a href="classbfb_1_1_complementary_pose_estimator.html">bfb::ComplementaryPoseEstimator</a></div><div class="ttdef"><b>Definition:</b> complementaryPoseEstimator.hpp:21</div></div>
-<div class="ttc" id="astructbfb_1_1_pose_sensor_html"><div class="ttname"><a href="structbfb_1_1_pose_sensor.html">bfb::WeightedPoseEstimator</a></div><div class="ttdef"><b>Definition:</b> complementaryPoseEstimator.hpp:16</div></div>
-<div class="ttc" id="aclassbfb_1_1_pose_estimator_html"><div class="ttname"><a href="classbfb_1_1_pose_estimator.html">bfb::PoseEstimator</a></div><div class="ttdoc">Class to provide a common interface for devices related to pose estimation.</div><div class="ttdef"><b>Definition:</b> poseEstimator.hpp:37</div></div>
+<div class="ttc" id="aclassbfb_1_1_pose_estimator_html"><div class="ttname"><a href="classbfb_1_1_pose_estimator.html">bfb::PoseEstimator</a></div><div class="ttdoc">Class to provide a common interface for devices related to pose estimation.</div><div class="ttdef"><b>Definition:</b> poseEstimator.hpp:40</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

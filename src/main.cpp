@@ -53,7 +53,6 @@ void autonomous() {
 /* -------------------------------------------------------------------------- */
 void opcontrol() {
   chassis->reset();
-  bfb::runTests();
   for (;;) {
     chassisControls();
     rollerControls();

@@ -51,14 +51,4 @@ void Pidf::reset() {
 }
 
 Logger<Pidf> Pidf::pidfLog{};
-
-#ifdef TESTING
-DEFINE_TEST(pidfTest)
-using namespace okapi;
-Pidf testPidf{{2.0, 2.0, 2.0, 2.0}, createSettledUtil(0, 0, 0_ms)};
-wait(100);
-testPidf.setReference(12.0);
-IS_EQUAL(testPidf.calculate(2.0), 40.0);
-END_TEST
-#endif
 } // namespace bfb

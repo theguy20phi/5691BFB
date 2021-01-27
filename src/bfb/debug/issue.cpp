@@ -22,12 +22,4 @@ Severity::SeverityLevel Issue::getSeverity() const {
 std::vector<Issue> Issue::getIssueList() {
   return issueList;
 }
-
-#ifdef TESTING
-DEFINE_TEST(issueTest)
-static const Issue testIssue{"Test", Severity::Test};
-IS_EQUAL(Issue::getIssueList().back().getDescription(), std::string("Test"));
-IS_EQUAL(Issue::getIssueList().back().getSeverity().alpha, 'T');
-END_TEST
-#endif
 } // namespace bfb

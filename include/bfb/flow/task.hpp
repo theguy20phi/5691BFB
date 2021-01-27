@@ -9,7 +9,6 @@
 #pragma once
 
 #include "bfb/debug/logger.hpp"
-#include "bfb/debug/test.hpp"
 #include "pros/rtos.hpp"
 #include "wait.hpp"
 #include <memory>

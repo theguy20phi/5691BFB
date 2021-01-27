@@ -71,7 +71,7 @@ bin/bfb/flow/wait.cpp.o: src/bfb/flow/wait.cpp include/bfb/flow/wait.hpp \
  include/pros/motors.hpp include/pros/motors.h include/pros/optical.hpp \
  include/pros/optical.h include/pros/rotation.hpp include/pros/rotation.h \
  include/pros/rtos.hpp include/pros/rtos.h include/pros/vision.hpp \
- include/pros/vision.h include/bfb/debug/test.hpp
+ include/pros/vision.h
 
 include/bfb/flow/wait.hpp:
 
@@ -352,5 +352,3 @@ include/pros/rtos.h:
 include/pros/vision.hpp:
 
 include/pros/vision.h:
-
-include/bfb/debug/test.hpp:

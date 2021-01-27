@@ -8,7 +8,6 @@
 
 #pragma once
 
-#include "bfb/debug/test.hpp"
 #include "bfb/utility/mathUtil.hpp"
 #include "controller.hpp"
 #include <algorithm>
@@ -51,8 +50,4 @@ class BangBang final : public Controller {
   BangBangMap map;
   const double max;
 };
-
-#ifdef TESTING
-DECLARE_TEST(bangBangTest);
-#endif
 } // namespace bfb

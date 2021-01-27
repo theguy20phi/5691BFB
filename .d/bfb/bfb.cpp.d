@@ -1,20 +1,19 @@
 bin/bfb/bfb.cpp.o: src/bfb/bfb.cpp include/bfb/bfb.hpp \
- include/bfb/controllers/bangBang.hpp include/bfb/debug/test.hpp \
- include/bfb/utility/mathUtil.hpp include/bfb/controllers/controller.hpp \
- include/bfb/debug/logger.hpp include/bfb/utility/key.hpp \
- include/bfb/controllers/pidf.hpp include/bfb/flow/wait.hpp include/api.h \
- include/pros/adi.h include/pros/colors.h include/pros/distance.h \
- include/pros/ext_adi.h include/pros/adi.h include/pros/adi.h \
- include/pros/imu.h include/pros/llemu.h include/display/lvgl.h \
- include/display/lv_version.h include/display/lv_misc/lv_log.h \
- include/display/lv_conf.h include/display/lv_conf_checker.h \
- include/display/lv_misc/lv_task.h include/display/lv_misc/lv_mem.h \
- include/display/lv_misc/lv_log.h include/display/lv_misc/lv_ll.h \
- include/display/lv_hal/lv_hal.h include/display/lv_hal/lv_hal_disp.h \
- include/display/lv_hal/lv_hal.h include/display/lv_misc/lv_color.h \
- include/display/lv_misc/lv_area.h include/display/lv_hal/lv_hal_indev.h \
- include/display/lv_core/lv_obj.h include/display/lv_core/lv_style.h \
- include/display/lv_misc/lv_font.h \
+ include/bfb/controllers/bangBang.hpp include/bfb/utility/mathUtil.hpp \
+ include/bfb/controllers/controller.hpp include/bfb/debug/logger.hpp \
+ include/bfb/utility/key.hpp include/bfb/controllers/pidf.hpp \
+ include/bfb/flow/wait.hpp include/api.h include/pros/adi.h \
+ include/pros/colors.h include/pros/distance.h include/pros/ext_adi.h \
+ include/pros/adi.h include/pros/adi.h include/pros/imu.h \
+ include/pros/llemu.h include/display/lvgl.h include/display/lv_version.h \
+ include/display/lv_misc/lv_log.h include/display/lv_conf.h \
+ include/display/lv_conf_checker.h include/display/lv_misc/lv_task.h \
+ include/display/lv_misc/lv_mem.h include/display/lv_misc/lv_log.h \
+ include/display/lv_misc/lv_ll.h include/display/lv_hal/lv_hal.h \
+ include/display/lv_hal/lv_hal_disp.h include/display/lv_hal/lv_hal.h \
+ include/display/lv_misc/lv_color.h include/display/lv_misc/lv_area.h \
+ include/display/lv_hal/lv_hal_indev.h include/display/lv_core/lv_obj.h \
+ include/display/lv_core/lv_style.h include/display/lv_misc/lv_font.h \
  include/display/lv_misc/lv_symbol_def.h \
  include/display/lv_fonts/lv_font_builtin.h \
  include/display/lv_misc/lv_anim.h include/display/lv_misc/lv_mem.h \
@@ -97,18 +96,16 @@ bin/bfb/bfb.cpp.o: src/bfb/bfb.cpp include/bfb/bfb.hpp \
  include/bfb/devices/crossOdometry.hpp include/bfb/devices/imu.hpp \
  include/okapi/api/filter/passthroughFilter.hpp include/pros/imu.hpp \
  include/bfb/devices/impl/cpeBuilder.hpp \
+ include/bfb/devices/nullLandmarker.hpp \
  include/bfb/devices/impl/crossOdometryBuilder.hpp \
  include/bfb/devices/impl/lineLandmarkerBuilder.hpp \
  include/bfb/devices/lineLandmarker.hpp \
- include/bfb/devices/motionPlanner.hpp \
- include/bfb/devices/nullLandmarker.hpp include/bfb/devices/slewRate.hpp \
+ include/bfb/devices/motionPlanner.hpp include/bfb/devices/slewRate.hpp \
  include/bfb/flow/stateMachine.hpp
 
 include/bfb/bfb.hpp:
 
 include/bfb/controllers/bangBang.hpp:
-
-include/bfb/debug/test.hpp:
 
 include/bfb/utility/mathUtil.hpp:
 
@@ -466,6 +463,8 @@ include/pros/imu.hpp:
 
 include/bfb/devices/impl/cpeBuilder.hpp:
 
+include/bfb/devices/nullLandmarker.hpp:
+
 include/bfb/devices/impl/crossOdometryBuilder.hpp:
 
 include/bfb/devices/impl/lineLandmarkerBuilder.hpp:
@@ -473,8 +472,6 @@ include/bfb/devices/impl/lineLandmarkerBuilder.hpp:
 include/bfb/devices/lineLandmarker.hpp:
 
 include/bfb/devices/motionPlanner.hpp:
-
-include/bfb/devices/nullLandmarker.hpp:
 
 include/bfb/devices/slewRate.hpp:
 

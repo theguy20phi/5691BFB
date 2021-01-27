@@ -7,7 +7,6 @@ ChassisMachine::ChassisMachine(const Chassis::ChassisStates &iState) : StateMach
                        .withIMUs({13, 14, 15});
   poseEstimator = bfb::CPEBuilder()
                     .withEstimator(odomBuilder.build(), 1.0)
-                    .withLandmarker(bfb::LandmarkerPtr{new bfb::NullLandmarker{}})
                     .build();
   coast();
   poseEstimator->reset();

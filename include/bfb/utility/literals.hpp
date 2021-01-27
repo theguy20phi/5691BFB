@@ -9,7 +9,6 @@
 
 #pragma once
 
-#include "bfb/debug/test.hpp"
 #include "bfb/utility/mathUtil.hpp"
 #include "okapi/api/units/QAngle.hpp"
 #include "okapi/api/units/QLength.hpp"

@@ -23,7 +23,7 @@
   <td id="projectlogo"><img alt="Logo" src="heat_logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">5691BFB
-   &#160;<span id="projectnumber">Early-Mid Season</span>
+   &#160;<span id="projectnumber">Mid Season</span>
    </div>
    <div id="projectbrief">Team 5691B&#39;s code for the VRC 2020-2021 Season: Change Up.</div>
   </td>
@@ -84,42 +84,20 @@ $(function() {
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">using namespace </span>okapi::literals;</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">namespace </span>bfb {</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">enum class</span> Orientation { vertical, horizontal };</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="structbfb_1_1_line.html">   22</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structbfb_1_1_line.html">Line</a> {</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  okapi::QLength distance;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  Orientation orientation;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;};</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">using</span> Lines = std::vector&lt;Line&gt;;</div>
-<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="classbfb_1_1_landmarker.html">   28</a></span>&#160;<span class="keyword">class </span><a class="code" href="classbfb_1_1_landmarker.html">Landmarker</a> : <span class="keyword">public</span> <a class="code" href="classbfb_1_1_pose_estimator.html">PoseEstimator</a> {</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;  <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  <a class="code" href="classbfb_1_1_landmarker.html">Landmarker</a>(<span class="keyword">const</span> Lines &amp;iLines, <span class="keyword">const</span> <a class="code" href="structbfb_1_1_pose.html">Pose</a> &amp;iRelativePose, uint8_t port, <span class="keywordtype">int</span> iThreshold = 500);</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  <a class="code" href="structbfb_1_1_pose.html">Pose</a> getPose() <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  <span class="keywordtype">void</span> setPose(<span class="keyword">const</span> <a class="code" href="structbfb_1_1_pose.html">Pose</a> &amp;iPose) <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  <span class="keywordtype">void</span> reset() <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  <span class="keywordtype">void</span> updatePose();</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;  <span class="keywordtype">bool</span> isReady();</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  <span class="keywordtype">bool</span> seeLine();</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  <a class="code" href="structbfb_1_1_line.html">Line</a> getClosestLine() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  <span class="keywordtype">double</span> calculateDistance(<span class="keyword">const</span> <a class="code" href="structbfb_1_1_line.html">Line</a> &amp;line) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  <span class="keywordtype">void</span> calculatePose(<span class="keyword">const</span> <a class="code" href="structbfb_1_1_line.html">Line</a> &amp;line);</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  <a class="code" href="structbfb_1_1_pose.html">Pose</a> pose{0.0_in, 0.0_in, 0.0_rad};</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  <span class="keyword">const</span> <a class="code" href="structbfb_1_1_pose.html">Pose</a> relativePose;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  <span class="keyword">const</span> Lines lines;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">int</span> threshold;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  pros::ADILineSensor lineSensor;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;};</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;} <span class="comment">// namespace bfb</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="classbfb_1_1_landmarker.html">   20</a></span>&#160;<span class="keyword">class </span><a class="code" href="classbfb_1_1_landmarker.html">Landmarker</a> {</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;  <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> updatePose(<span class="keyword">const</span> <a class="code" href="structbfb_1_1_pose.html">Pose</a> &amp;iReferencePose) = 0;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> setPose(<span class="keyword">const</span> <a class="code" href="structbfb_1_1_pose.html">Pose</a> &amp;iReferencePose) = 0;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">bool</span> isReading() = 0;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="structbfb_1_1_pose.html">Pose</a> getPose() = 0;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> reset() = 0;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;};</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">using</span> LandmarkerPtr = std::shared_ptr&lt;Landmarker&gt;;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;} <span class="comment">// namespace bfb</span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aclassbfb_1_1_landmarker_html"><div class="ttname"><a href="classbfb_1_1_landmarker.html">bfb::Landmarker</a></div><div class="ttdef"><b>Definition:</b> landmarker.hpp:28</div></div>
+<div class="ttc" id="aclassbfb_1_1_landmarker_html"><div class="ttname"><a href="classbfb_1_1_landmarker.html">bfb::Landmarker</a></div><div class="ttdef"><b>Definition:</b> landmarker.hpp:20</div></div>
 <div class="ttc" id="astructbfb_1_1_pose_html"><div class="ttname"><a href="structbfb_1_1_pose.html">bfb::Pose</a></div><div class="ttdoc">Contains basic information about the pose of the robot (or other object).</div><div class="ttdef"><b>Definition:</b> poseEstimator.hpp:20</div></div>
-<div class="ttc" id="aclassbfb_1_1_pose_estimator_html"><div class="ttname"><a href="classbfb_1_1_pose_estimator.html">bfb::PoseEstimator</a></div><div class="ttdoc">Class to provide a common interface for devices related to pose estimation.</div><div class="ttdef"><b>Definition:</b> poseEstimator.hpp:37</div></div>
-<div class="ttc" id="astructbfb_1_1_line_html"><div class="ttname"><a href="structbfb_1_1_line.html">bfb::Line</a></div><div class="ttdef"><b>Definition:</b> landmarker.hpp:22</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">
