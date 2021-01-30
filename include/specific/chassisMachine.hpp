@@ -121,7 +121,7 @@ class ChassisMachine : public bfb::StateMachine<ChassisMachine, Chassis::Chassis
   pros::Motor rFWheel{12, true};
   pros::Motor rBWheel{18, true};
   const double deadband{100.0};
-  bfb::Pidf xPidf{{1550.0, 21.0}, bfb::createSettledUtil(1.0, 0.15)};
-  bfb::Pidf yPidf{{1550.0, 21.0}, bfb::createSettledUtil(1.0, 0.15)};
-  bfb::Pidf hPidf{{37250.0, 400.0}, bfb::createSettledUtil(0.04, 0.004)};
+  bfb::Pidf xPidf{{1850.0, 21.0}, bfb::createSettledUtil(1.375, 0.35)};
+  bfb::Pidf yPidf{{1850.0, 21.0}, bfb::createSettledUtil(1.375, 0.35)};
+  bfb::Pidf hPidf{{39000.0, 400.0}, bfb::createSettledUtil(0.07, 0.0125)};
 };

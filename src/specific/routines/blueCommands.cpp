@@ -14,6 +14,8 @@ void blueRightCommands() {
 
 void blueRowCommands() {
   chassis->setPose({1.5_tile, 0.5_tile - 3.0_in, -135.0_deg});
+  rollers->setState(Rollers::FastShoot{});
+  bfb::wait(300);
   rollers->setState(Rollers::Intake{});
   chassis->setState(Chassis::MoveTo{1.125_tile, 1.125_tile, -135.0_deg});
   bfb::waitUntil(chassisStandby, 2000);

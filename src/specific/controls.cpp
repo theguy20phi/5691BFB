@@ -20,7 +20,7 @@ void rollerControls() {
 
 void shiftedRollerControls() {
   if (master.get_digital(pros::E_CONTROLLER_DIGITAL_L1))
-    rollers->setState(Rollers::Cycle{match->getColor()});
+    rollers->setState(Rollers::SimpleCycle{});
   else if (master.get_digital(pros::E_CONTROLLER_DIGITAL_L2))
     rollers->setState(Rollers::FastShoot{});
   else
@@ -33,7 +33,7 @@ void contingencies() {
   if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_Y))
     match->setColor(((match->getColor() == bfb::Color::Red) ? bfb::Color::Blue : bfb::Color::Red));
   if (master.get_digital(pros::E_CONTROLLER_DIGITAL_X))
-    rollers->setState(Rollers::SimpleCycle{});
+    rollers->setState(Rollers::Cycle{match->getColor()});
   if (master.get_digital(pros::E_CONTROLLER_DIGITAL_A))
     rollers->setState(Rollers::Eject{});
 }
