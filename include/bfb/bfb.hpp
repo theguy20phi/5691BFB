@@ -14,6 +14,7 @@
 #include "debug/logger.hpp"
 #include "devices/complementaryPoseEstimator.hpp"
 #include "devices/crossOdometry.hpp"
+#include "devices/threeEncoderOdometry.hpp"
 #include "devices/impl/cpeBuilder.hpp"
 #include "devices/impl/crossOdometryBuilder.hpp"
 #include "devices/impl/lineLandmarkerBuilder.hpp"

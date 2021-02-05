@@ -95,6 +95,7 @@ bin/bfb/bfb.cpp.o: src/bfb/bfb.cpp include/bfb/bfb.hpp \
  include/bfb/devices/poseEstimator.hpp include/pros/adi.hpp \
  include/bfb/devices/crossOdometry.hpp include/bfb/devices/imu.hpp \
  include/okapi/api/filter/passthroughFilter.hpp include/pros/imu.hpp \
+ include/bfb/devices/threeEncoderOdometry.hpp \
  include/bfb/devices/impl/cpeBuilder.hpp \
  include/bfb/devices/nullLandmarker.hpp \
  include/bfb/devices/impl/crossOdometryBuilder.hpp \
@@ -460,6 +461,8 @@ include/bfb/devices/imu.hpp:
 include/okapi/api/filter/passthroughFilter.hpp:
 
 include/pros/imu.hpp:
+
+include/bfb/devices/threeEncoderOdometry.hpp:
 
 include/bfb/devices/impl/cpeBuilder.hpp:
 

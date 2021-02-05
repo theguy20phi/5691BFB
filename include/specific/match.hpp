@@ -101,8 +101,8 @@ class Match {
   void setColor(const bfb::Color &iColor);
 
   private:
-  pros::ADIPotentiometer routineSelector{'C'};
-  pros::ADIPotentiometer colorSelector{'D'};
+  pros::ADIPotentiometer routineSelector{{3, 'G'}};
+  pros::ADIPotentiometer colorSelector{{3, 'H'}};
   std::array<Routine, 12> routines;
   int index{0};
   bfb::Color color;

@@ -6,7 +6,7 @@ namespace bfb {
 class LineLandmarkerBuilder {
   public:
   LineLandmarkerBuilder();
-  LineLandmarker build() const;
+  LandmarkerPtr build() const;
   LineLandmarkerBuilder withLine(okapi::QLength distance, Orientation orientation);
   LineLandmarkerBuilder withRelativePose(const Pose &iRelativePose);
   LineLandmarkerBuilder withPort(uint8_t iPort);

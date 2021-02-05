@@ -1,13 +1,11 @@
 #include "chassisMachine.hpp"
 
 ChassisMachine::ChassisMachine(const Chassis::ChassisStates &iState) : StateMachine(iState) {
-  auto odomBuilder = bfb::CrossOdometryBuilder()
-                       .withForwardOdometer(pros::ADIEncoder{8, 7, true}, 0.5, 8.845)
-                       .withSideOdometer(pros::ADIEncoder{5, 6, true}, 0.4, 8.845)
-                       .withIMUs({13, 14, 15});
-  poseEstimator = bfb::CPEBuilder()
-                    .withEstimator(odomBuilder.build(), 1.0)
-                    .build();
+  auto odom =
+    bfb::PoseEstimatorPtr(new bfb::CrossOdometry({pros::ADIEncoder{8, 7, true}, 1.75, 8.63},
+                                                 {pros::ADIEncoder{5, 6, true}, 0.4, 8.63},
+                                                 bfb::IMU{{13, 14, 15}}));
+  poseEstimator = bfb::CPEBuilder().withEstimator(odom, 1.0).build();
   coast();
   poseEstimator->reset();
 }

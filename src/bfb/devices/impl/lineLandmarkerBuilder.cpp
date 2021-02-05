@@ -4,8 +4,8 @@ namespace bfb {
 LineLandmarkerBuilder::LineLandmarkerBuilder() {
 }
 
-LineLandmarker LineLandmarkerBuilder::build() const {
-  return LineLandmarker{lines, relativePose, port, threshold};
+LandmarkerPtr LineLandmarkerBuilder::build() const {
+  return LandmarkerPtr{new LineLandmarker{lines, relativePose, port, threshold}};
 }
 
 LineLandmarkerBuilder LineLandmarkerBuilder::withLine(okapi::QLength distance,
