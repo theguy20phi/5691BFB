@@ -98,12 +98,13 @@ bin/specific/chassisMachine.cpp.o: src/specific/chassisMachine.cpp \
  include/bfb/devices/poseEstimator.hpp include/pros/adi.hpp \
  include/bfb/devices/crossOdometry.hpp include/bfb/devices/imu.hpp \
  include/okapi/api/filter/passthroughFilter.hpp include/pros/imu.hpp \
- include/bfb/devices/threeEncoderOdometry.hpp \
  include/bfb/devices/impl/cpeBuilder.hpp \
  include/bfb/devices/nullLandmarker.hpp \
  include/bfb/devices/impl/crossOdometryBuilder.hpp \
  include/bfb/devices/impl/lineLandmarkerBuilder.hpp \
  include/bfb/devices/lineLandmarker.hpp \
+ include/bfb/devices/impl/threeEncoderOdometryBuilder.hpp \
+ include/bfb/devices/threeEncoderOdometry.hpp \
  include/bfb/devices/motionPlanner.hpp include/bfb/devices/slewRate.hpp \
  include/bfb/flow/stateMachine.hpp include/okapi/api.hpp \
  include/okapi/api/chassis/controller/chassisControllerIntegrated.hpp \
@@ -577,8 +578,6 @@ include/okapi/api/filter/passthroughFilter.hpp:
 
 include/pros/imu.hpp:
 
-include/bfb/devices/threeEncoderOdometry.hpp:
-
 include/bfb/devices/impl/cpeBuilder.hpp:
 
 include/bfb/devices/nullLandmarker.hpp:
@@ -588,6 +587,10 @@ include/bfb/devices/impl/crossOdometryBuilder.hpp:
 include/bfb/devices/impl/lineLandmarkerBuilder.hpp:
 
 include/bfb/devices/lineLandmarker.hpp:
+
+include/bfb/devices/impl/threeEncoderOdometryBuilder.hpp:
+
+include/bfb/devices/threeEncoderOdometry.hpp:
 
 include/bfb/devices/motionPlanner.hpp:
 

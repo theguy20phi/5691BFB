@@ -24,6 +24,6 @@ CrossOdometryBuilder CrossOdometryBuilder::withSideOdometer(const pros::ADIEncod
 
 CrossOdometryBuilder CrossOdometryBuilder::withIMUs(const std::vector<uint8_t> &ports) {
   imus = std::make_shared<IMU>(ports);
-return *this;
-} // namespace bfb
+  return *this;
+}
 } // namespace bfb

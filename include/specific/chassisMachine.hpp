@@ -123,5 +123,5 @@ class ChassisMachine : public bfb::StateMachine<ChassisMachine, Chassis::Chassis
   const double deadband{100.0};
   bfb::Pidf xPidf{{2000.0, 25.0}, bfb::createSettledUtil(1.3, 0.3)};
   bfb::Pidf yPidf{{2000.0, 25.0}, bfb::createSettledUtil(1.3, 0.3)};
-  bfb::Pidf hPidf{{45000.0, 500.0}, bfb::createSettledUtil(0.06, 0.01)};
+  bfb::Pidf hPidf{{45000.0, 400.0}, bfb::createSettledUtil(0.06, 0.01)};
 };
