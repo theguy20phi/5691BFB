@@ -33,6 +33,8 @@ void ThreeEncoderOdometry::updatePose() {
     localX = sideOdometer.getDelta();
     localY = (rODelta + lODelta) / 2.0;
   }
+  std::cout << lODelta << " and " << rODelta << std::endl;
+  std::cout << pose.x.convert(okapi::inch) << ", " << pose.y.convert(okapi::inch) << ", " << pose.h.convert(okapi::degree) << std::endl;
   const double magnitude{sqrt(localX * localX + localY * localY)};
   const double direction{atan2(localY, localX) - (previousH + deltaH / 2.0)};
   double deltaX{cos(direction) * magnitude};
