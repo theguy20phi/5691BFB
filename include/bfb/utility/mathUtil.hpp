@@ -9,6 +9,7 @@
  */
 #pragma once
 
+#include <algorithm>
 #include <cmath>
 
 namespace bfb {
@@ -73,4 +74,14 @@ constexpr double toDegrees(double angle) {
  * @return double
  */
 double normalizeAngle(double angle);
+
+/**
+ * @brief Returns properly adjust motor values in case any over-saturation that may occur.
+ *
+ * @param saturated
+ * @param max_possible
+ * @return std::vector<int>
+ */
+std::vector<double> fix_saturation(const std::vector<double> &saturated, double max_possible = 12000.0);
+
 } // namespace bfb
