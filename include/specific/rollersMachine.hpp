@@ -147,7 +147,7 @@ class RollersMachine : public bfb::StateMachine<RollersMachine, Rollers::Rollers
   pros::ADIAnalogIn shootingSensor{'A'};
   pros::Optical colorSensor{16};
   pros::Motor lowerBigRoller{10, pros::motor_gearset_e_t::E_MOTOR_GEARSET_06, false};
-  pros::Motor upperBigRoller{9, pros::motor_gearset_e_t::E_MOTOR_GEARSET_06, true};
-  pros::Motor leftSideRoller{1, pros::motor_gearset_e_t::E_MOTOR_GEARSET_06, true};
-  pros::Motor rightSideRoller{6, pros::motor_gearset_e_t::E_MOTOR_GEARSET_06, false};
+  pros::Motor upperBigRoller{9, pros::motor_gearset_e_t::E_MOTOR_GEARSET_06, false};
+  pros::Motor leftSideRoller{1, pros::motor_gearset_e_t::E_MOTOR_GEARSET_06, false};
+  pros::Motor rightSideRoller{8, pros::motor_gearset_e_t::E_MOTOR_GEARSET_06, true};
 };

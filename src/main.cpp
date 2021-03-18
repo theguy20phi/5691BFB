@@ -6,7 +6,7 @@
 void initialize() {
   rollers = std::make_unique<RollersMachine>(Rollers::Standby{});
   chassis = std::make_unique<ChassisMachine>(Chassis::Standby{});
-  match = std::make_unique<Match>(std::array<Routine, 12>{redLeft,
+  /*match = std::make_unique<Match>(std::array<Routine, 12>{redLeft,
                                                           redMidLeft,
                                                           redMidRight,
                                                           redRight,
@@ -17,7 +17,7 @@ void initialize() {
                                                           blueMidRight,
                                                           blueRight,
                                                           blueRow,
-                                                          none});
+                                                          none});*/
   pros::Task controllerGUITask{controllerGUITaskFn};
   rollers->start();
   chassis->start();
